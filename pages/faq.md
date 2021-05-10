@@ -5,7 +5,7 @@ title: "Frequently Asked Questions"
 #subheadline: "Layouts of Feeling Responsive"
 #header:
 #   image_fullwidth: "header_unsplash_5.jpg"
-permalink: "/faq/"
+permalink: "/user-support/faq/"
 ---
 {% comment %}
 <ul>

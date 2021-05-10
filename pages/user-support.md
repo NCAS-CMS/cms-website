@@ -17,14 +17,14 @@ permalink: /user-support/
     <div class="medium-4 columns">
         <img src="{{ site.urlimg }}webdesign_screenshot_tarnkappe.jpg" alt="">
         <h3>Frequently Asked Questions</h3>
-        <p><a href="/user-support/faq">FAQ</a></p>
+        <p><a href="/cms-website/user-support/faq">FAQ</a></p>
         <p>TODO - Add summary here</p>
     </div><!-- /.medium-4.columns -->
 
     <div class="medium-4 columns">
         <img src="{{ site.urlimg }}webdesign_screenshot_schriefer.jpg" alt="">
         <h3>Documentation</h3>
-        <p><a href="/documentation/">Documentation Index</a></p>
+        <p><a href="/cms-website/documentation/">Documentation Index</a></p>
         <p>TODO - Add summary here</p>
     </div><!-- /.medium-4.columns -->
 </div><!-- /.row -->
