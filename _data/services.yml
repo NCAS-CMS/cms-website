@@ -1,0 +1,17 @@
+- menu_name: "Quick Links"
+
+- name: "Contact"
+  url: "/contact/"
+  title: "Contact"
+
+- name: "News"
+  url: "/blog/"
+  title: "News"
+
+- name: "Helpdesk"
+  url: "https://cms-support.trydiscourse.com"
+  title: "Sitemap for Google Webmaster Tools"
+
+- name: "RSS"
+  url: "/feed.xml"
+  title: "Subscribe to RSS Feed"

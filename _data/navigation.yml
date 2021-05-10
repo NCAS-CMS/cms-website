@@ -1,0 +1,54 @@
+- title: Home
+  url: "/"
+  side: left
+
+- title: Services
+  url: "/services/"
+  side: left
+
+- title: User Support
+  url: "/user-support/"
+  side: left
+
+- title: Documentation
+  url: "/documentation/"
+  side: left
+  dropdown:
+  - title: "Unified Model"
+    url: "/documentation/unified_model/"
+  - title: "ARCHER2"
+    url: "/documentation/archer2/"
+  - title: "Monsoon2"
+    url: "/documentation/monsoon2/"
+  - title: "PUMA"
+    url: "/documentation/puma/"
+  - title: "Rose, Cylc & FCM"
+    url: "/documentation/rose_cylc_fcm/"
+  - title: "Tools & Utilities"
+    url: "/documentations/tools"
+
+- title: News 
+  url: "/blog/"
+  side: left
+  dropdown:
+  - title: "News Archive"
+    url: "/blog/archive/"
+
+- title: About
+  url: "/about/"
+  side: left
+  dropdown:
+  - title: "About CMS"
+    url: "/about_cms/"
+  - title: "People"
+    url: "/people/"
+  - title: "Presentations & Reports"
+    url: "/presentations_and_reports/"
+    
+- title: "Search"
+  url: "/search/"
+  side: right
+
+- title: "Contact"
+  url: "/contact/"
+  side: right
