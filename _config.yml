@@ -97,6 +97,14 @@ compress_html:
   ignore:
     envs: [development]
 
+#
+# Collections
+#
+
+collections:
+  projects:
+    output: true
+    #permalink: /:collection/:name
 
 #
 #       ____       ____            ____
@@ -108,8 +116,16 @@ compress_html:
 # Default Settings
 
 defaults:
-  -
-    scope:
+  - scope:
+      path: ''
+      type: 'projects'
+    values:
+      layout: 'project'
+      header:
+        image_fullwidth: ncas-page-header-bg.jpeg
+        title: NCAS Computational Modelling Services
+
+  - scope:
       path: '' 				# an empty string here means all files in the project
       type: 'pages'
     values:
@@ -121,9 +137,7 @@ defaults:
         image_fullwidth: ncas-page-header-bg.jpeg
         title: NCAS Computational Modelling Services
   
-      
-  -
-    scope:
+  - scope:
       path: ''
       type: 'posts'
     values:

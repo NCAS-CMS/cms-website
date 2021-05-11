@@ -1,0 +1,36 @@
+---
+layout: default
+format: page-fullwidth
+---
+
+
+<div class="row t30">
+  <div class="medium-12 columns">
+    <article>
+      <header>
+	{% if page.status == 'active' %}
+        <p class="subheadline">Current Projects</p>
+	{% else %}
+	<p class="subheadline">Previous Projects</p>
+	{% endif %}
+        <h1>{{ page.title }}</h1>
+      </header>
+
+      {% if page.teaser %}
+        <p class="teaser">
+          {{ page.teaser }}
+        </p>
+      {% endif %}
+
+      {% if page.dates %}
+	<p><b>Dates:</b> {{ page.dates }}</p>
+      {% endif %}
+	
+	{{ content }}
+	
+      {% if page.effort %}
+      <p><b>Effort:</b> {{ page.effort }}</p>
+      {% endif %}
+    </article>
+  </div><!-- /.medium-12.columns -->
+</div><!-- /.row -->

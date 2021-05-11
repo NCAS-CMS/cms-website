@@ -25,7 +25,10 @@ permalink: /services/
     <div class="medium-4 columns">
         <img src="{{ site.urlimg }}webdesign_screenshot_schriefer.jpg" alt="">
 	<h3>Projects</h3>
-        <p><a href="/services/projects">Current Projects</a></p>
+        <p>
+	  <a href="/cms-website/services/projects">Current Projects</a><br>
+	  <a href="/cms-website/services/archived-projects">Previous Projects</a>
+	</p>
 	<p>CMS provides direct-funded and un-funded support to a variety of projects.  To discuss how we can support your project, please send us an email.</p>
     </div><!-- /.medium-4.columns -->
 </div><!-- /.row -->
