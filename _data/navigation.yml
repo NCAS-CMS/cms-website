@@ -11,21 +11,21 @@
   side: left
 
 - title: Documentation
-  url: "/documentation/"
+  url: "/docs/"
   side: left
   dropdown:
   - title: "Unified Model"
-    url: "/documentation/unified_model/"
+    url: "/docs/unified-model/"
   - title: "ARCHER2"
-    url: "/documentation/archer2/"
+    url: "/docs/archer2/"
   - title: "Monsoon2"
-    url: "/documentation/monsoon2/"
+    url: "/docs/monsoon2/"
   - title: "PUMA"
-    url: "/documentation/puma/"
+    url: "/docs/puma/"
   - title: "Rose, Cylc & FCM"
-    url: "/documentation/rose_cylc_fcm/"
+    url: "/docs/rose_cylc_fcm/"
   - title: "Tools & Utilities"
-    url: "/documentations/tools"
+    url: "/docs/tools"
 
 - title: News 
   url: "/blog/"
@@ -35,11 +35,9 @@
     url: "/blog/archive/"
 
 - title: About
-  url: "/about/"
+  url: "/about_cms/"
   side: left
   dropdown:
-  - title: "About CMS"
-    url: "/about_cms/"
   - title: "People"
     url: "/people/"
   - title: "Presentations & Reports"

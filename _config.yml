@@ -105,6 +105,10 @@ collections:
   projects:
     output: true
     #permalink: /:collection/:name
+  docs:
+    output: true
+  unified-model:
+    output: true
 
 #
 #       ____       ____            ____
@@ -127,13 +131,35 @@ defaults:
         title: NCAS Computational Modelling Services
 
   - scope:
+      path: ''
+      type: 'docs'
+    values:
+      layout: 'page-fullwidth'
+      subheadline: 'Documentation'
+      breadcrumb: true
+      header:
+        image_fullwidth: ncas-page-header-bg.jpeg
+        title: NCAS Computational Modelling Services
+
+  - scope:
+      path: ''
+      type: 'unified-model'
+    values:
+      layout: 'page-fullwidth'
+      subheadline: 'Unified Model'
+      breadcrumb: true
+      header:
+        image_fullwidth: ncas-page-header-bg.jpeg
+        title: NCAS Computational Modelling Services
+      
+  - scope:
       path: '' 				# an empty string here means all files in the project
       type: 'pages'
     values:
       show_meta: false 	# Hide metadata for all pages
       # sidebar:    		# Possible values › left, right › by default there will be no sidebar
       comments: false
-      author: phlow     # Default author for pages
+      #author: phlow     # Default author for pages
       header:
         image_fullwidth: ncas-page-header-bg.jpeg
         title: NCAS Computational Modelling Services
@@ -146,7 +172,6 @@ defaults:
       show_meta: true   # Show metadata for all posts
       # sidebar:        # Possible values › left, right › by default there will be no sidebar
       comments: false
-      author: phlow     # Default author for posts
       header:
         image_fullwidth: ncas-page-header-bg.jpeg
         title: NCAS Computational Modelling Services
