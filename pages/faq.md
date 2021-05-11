@@ -6,6 +6,7 @@ title: "Frequently Asked Questions"
 #header:
 #   image_fullwidth: "header_unsplash_5.jpg"
 permalink: "/user-support/faq/"
+breadcrumb: true
 ---
 {% comment %}
 <ul>

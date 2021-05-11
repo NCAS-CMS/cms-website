@@ -1,7 +1,7 @@
 ---
 title: CF Python
 type: core
-teaser: The Python cf package is an Earth Science data analysis library that is built on a complete implementation of the [CF data model](https://ncas-cms.github.io/cf-python/cf_data_model.html#cf-data-model).
+teaser: The Python cf package is an Earth Science data analysis library that is built on a complete implementation of the <a href="https://ncas-cms.github.io/cf-python/cf_data_model.html#cf-data-model">CF data model</a>.
 status: active
 ---
 

@@ -121,6 +121,7 @@ defaults:
       type: 'projects'
     values:
       layout: 'project'
+      breadcrumb: true
       header:
         image_fullwidth: ncas-page-header-bg.jpeg
         title: NCAS Computational Modelling Services
@@ -136,6 +137,7 @@ defaults:
       header:
         image_fullwidth: ncas-page-header-bg.jpeg
         title: NCAS Computational Modelling Services
+      breadcrumb: true
   
   - scope:
       path: ''
