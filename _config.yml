@@ -107,8 +107,8 @@ collections:
     #permalink: /:collection/:name
   docs:
     output: true
-#  unified-model:
-#    output: true
+  unified-model:
+    output: true
 
 #
 #       ____       ____            ____
