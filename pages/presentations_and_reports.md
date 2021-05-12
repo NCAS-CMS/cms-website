@@ -19,7 +19,7 @@ tags:
 
 ### 2020
 #### Presentations:
-* Rosalyn Hatcher; [NCAS CF Checker]({{site.urlstatic}}cf-checker-2020.pdf); CF Virtual Workshop, June 2020
+* Rosalyn Hatcher; [NCAS CF Checker]({{ '/assets/docs/cf-checker-2020.pdf' | relative_url }}); CF Virtual Workshop, June 2020
 * David Hassell; [A brief introduction to CF-netCDF]({{ '/assets/docs/Introduction_to_CF-netCDF.pdf' | relative_url }}); CF Virtual Workshop, June 2020
 
 ### 2019
