@@ -42,7 +42,7 @@ improve_content: https://github.com/Phlow/feeling-responsive/edit/gh-pages
 #
 #urlimg: 'https://phlow.github.io/feeling-responsive/images/'
 urlimg: 'http://localhost:4000/cms-website/images/'
-
+urlimg: 'http://ncas-cms.github.io/cms-website/images/'
 
 # Logo size is 600x80 pixels
 logo: "logo.png"
