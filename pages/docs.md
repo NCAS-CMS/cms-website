@@ -9,9 +9,9 @@ header:
   title: NCAS Computational Modelling Services
 ---
 
-* [ARCHER2](/archer2)
+* [ARCHER2]({{ '/archer2' | relative_url }})
 
-* [Unified Model](/unified-model)
+* [Unified Model]({{ '/unified-model' | relative_url }})
 
 * PUMA
 
