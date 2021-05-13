@@ -31,13 +31,15 @@ NCAS-CMS installs and maintains the supported UM versions, workflow tools and ot
 
 ## UM Configurations
 
-## Single Column Model
-
-## Source Code Browsers
-
 [Configurations](configurations)
 
 not sure why this way of linking doesn't work on github:
 [Configurations]({% link _unified-model/configurations.md %})
+
+## Single Column Model
+
+## Source Code Browsers
+
+
 </div><!-- /.medium-8.columns -->
 </div><!-- /.row -->

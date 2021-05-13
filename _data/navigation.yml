@@ -15,17 +15,17 @@
   side: left
   dropdown:
   - title: "Unified Model"
-    url: "/docs/unified-model/"
+    url: "/unified-model/"
   - title: "ARCHER2"
-    url: "/docs/archer2/"
+    url: "/archer2/"
   - title: "Monsoon2"
-    url: "/docs/monsoon2/"
+    url: "/monsoon2/"
   - title: "PUMA"
-    url: "/docs/puma/"
+    url: "/puma/"
   - title: "Rose, Cylc & FCM"
-    url: "/docs/rose_cylc_fcm/"
+    url: "/rose_cylc_fcm/"
   - title: "Tools & Utilities"
-    url: "/docs/tools"
+    url: "/tools"
 
 - title: News 
   url: "/blog/"
