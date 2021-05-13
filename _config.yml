@@ -111,6 +111,7 @@ collections:
     output: true
   unified-model:
     output: true
+    #permalink: /collections/:collection/:name
 
 #
 #       ____       ____            ____
