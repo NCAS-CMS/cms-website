@@ -54,6 +54,7 @@ logo: "logo.png"
 plugins:
     - jekyll-asciidoc
     - jekyll-gist
+    - jekyll-github-metadata
     - jekyll-paginate
 
 
