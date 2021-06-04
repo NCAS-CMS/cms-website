@@ -12,10 +12,16 @@ tags:
     - header
 
 ---
+{% assign heads = site.data.people | where:'head',true %}
+{% for person in heads -%}
+| [{{ person.firstname }} {{ person.lastname }}](https://ncas.ac.uk/people/{{ person.ncas_id }}/{{ person.firstname | downcase }}-{{ person.lastname | downcase }}) | {{ person.position }} |
+{% endfor -%}
 
 {% assign people = site.data.people | sort: 'lastname' %}
-{% for person in people -%}
+{%- for person in people -%}
+ {%- if person.head != true -%}
 | [{{ person.firstname }} {{ person.lastname }}](https://ncas.ac.uk/people/{{ person.ncas_id }}/{{ person.firstname | downcase }}-{{ person.lastname | downcase }}) | {{ person.position }} |
+ {% endif -%}
 {% endfor %}
 
 {% comment %}
