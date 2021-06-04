@@ -12,6 +12,13 @@ tags:
     - header
 
 ---
+
+{% assign people = site.data.people | sort: 'lastname' %}
+{% for person in people -%}
+| [{{ person.firstname }} {{ person.lastname }}](https://ncas.ac.uk/people/{{ person.ncas_id }}/{{ person.firstname | downcase }}-{{ person.lastname | downcase }}) | {{ person.position }} |
+{% endfor %}
+
+{% comment %}
 | [Bryan Lawrence](https://ncas.ac.uk/people/10008/bryan-lawrence) | Director of Models and Data |
 | [Grenville Lister](https://ncas.ac.uk/people/10170/grenville-lister) | Head of NCAS Computational Modelling Services |
 | [Luke Abraham](https://ncas.ac.uk/people/10166/nathan-abraham) | UKCA development and support |
@@ -28,6 +35,6 @@ tags:
 | [Valeriu Predoi](https://ncas.ac.uk/people/10412/valeriu-predoi) | UKESM core team: diagnostic software |
 | [Marc Stringer](https://ncas.ac.uk/people/10320/marc-stringer) | UKESM core team: performance |
 | [Simon Wilson](https://ncas.ac.uk/people/10108/simon-wilson) | Model support and performance specialist |
+{% endcomment %}
 
-<!--more-->
 
