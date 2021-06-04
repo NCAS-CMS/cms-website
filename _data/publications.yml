@@ -1,0 +1,61 @@
+#
+# Add an entry for publication, presentation or poster.
+#
+# Associated variables: title - Title of presentation, poster or publication (Mandatory)
+#                       authors - List of authors (Mandatory)
+#                       file - Name of local file.  This must be located in the assets/docs directory (Optional - see note below)
+#                       url - URL of publication or document including http prefix. (Optional - see note below)
+#                       location - Conference/Workshop location or name of publication, etc (Optional)
+#
+# Note: one of file or url must be specified.
+#
+- year: 2021
+  publication_type:
+    - type: Presentations
+      docs:
+      - title: Using the JASMIN Unmanaged Cloud for UKCA Training
+        file: 20210325_ukca-training.pdf
+        authors: Luke Abraham
+        location: JASMIN User Seminar Series
+        
+- year: 2020
+  publication_type:
+    - type: Presentations
+      docs:
+      - title: NCAS CF-Checker
+        file: cf-checker-2020.pdf
+        authors: Rosalyn Hatcher
+        location: CF Virtual Workshop
+
+      - title: A brief introduction to CF-netCDF
+        file: Introduction_to_CF-netCDF.pdf
+        authors: David Hassell
+        location: CF Virtual Workshop
+
+      - title: CF-1.8, CF-1.9, and onwards
+        file: CF_meeting_2020_Roadmap.pdf
+        authors: David Hassell
+        location: CF Virtual Workshop
+
+      - title: Jupyter notebook demonstration of cfdm - a Python reference implementation of the CF data model
+        file: CF_2020_cfdm_demo.tgz
+        authors: David Hassell
+        location: CF Virtual Workshop
+
+      - title: Towards the Sustainability of the ENES Research Infrastructure
+        file: ENES-RI_Sustainability_ESiWACE2_GA1.pdf
+        authors: Fanny Adloff
+        location: ESiWACE2 Virtual First General Assembly
+
+      - title: Introduction to Sustainability
+        file: IS-ENES3_GA1_Sustainability.pdf
+        authors: Fanny Adloff
+        location: IS-ENES3 Virtual First General Assembly
+
+    - type: Publications
+      docs:
+      - title: "Machine dependence and reproducibility for coupled climate simulations: the HadGEM3-GC3.1 CMIP Preindustrial simulation"
+        url: https://doi.org/10.5194/gmd-13-139-2020
+        authors: Maria-Vittoria Guarino, Louise C. Sime, David Schroeder, Grenville M. S. Lister, and Rosalyn Hatcher
+        location: Geoscientific Model Development
+

@@ -40,8 +40,8 @@
   dropdown:
   - title: "People"
     url: "/people/"
-  - title: "Presentations & Reports"
-    url: "/presentations_and_reports/"
+  - title: "Presentations & Publications"
+    url: "/presentations-and-publications/"
     
 - title: "Search"
   url: "/search/"
