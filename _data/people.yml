@@ -1,0 +1,82 @@
+
+- firstname: Bryan
+  lastname: Lawrence
+  position: "Director of Models and Data"
+  ncas_id: 10008
+  head: true
+
+- firstname: Grenville
+  lastname: Lister
+  position: "Head of NCAS Computational Modelling Services"
+  ncas_id: 10170
+  head: true
+
+- firstname: Rosalyn
+  lastname: Hatcher
+  position: "NCAS HPC Manager, Software Management & Infrastructure"
+  ncas_id: 10106
+
+- firstname: Luke
+  lastname: Abraham
+  position: "UKCA development and support"
+  ncas_id: 10166
+
+- firstname: Fanny
+  lastname: Adloff
+  position: "EU Project Scientific Officer (IS-ENES3)"
+  ncas_id: 10514
+
+- firstname: Sadie
+  lastname: Bartholomew
+  position: "CF-Python & ES-DOC (IS-ENES3)"
+  ncas_id: 10515
+
+- firstname: David
+  lastname: Case
+  position: "Software Infrastructure and modelling support"
+  ncas_id: 10466
+
+- firstname: Jeff
+  lastname: Cole
+  position: "Model support and software tools specialist"
+  ncas_id: 10105
+
+- firstname: Simon
+  lastname: Wilson
+  position: "Model support and performance specialist"
+  ncas_id: 10108
+
+- firstname: Thibault
+  lastname: Hallouin
+  position: "Hydro-JULES"
+  ncas_id: 10505
+
+- firstname: David
+  lastname: Hassell
+  position: "Software tools specialist - CF-Python (IS-ENES3)"
+  ncas_id: 10288
+
+- firstname: Andy
+  lastname: Heaps
+  position: "System administration and visualisation specialist"
+  ncas_id: 10107
+
+- firstname: Patrick
+  lastname: McGuire
+  position: "Land surface modelling development and support"
+  ncas_id: 10443
+
+- firstname: Annette
+  lastname: Osprey
+  position: "High Resolution Climate Modelling support"
+  ncas_id: 10171
+
+- firstname: Valeriu
+  lastname: Predoi
+  position: "UKESM core team: diagnostic software"
+  ncas_id: 10412
+
+- firstname: Marc
+  lastname: Stringer
+  position: "UKESM core team: performance"
+  ncas_id: 10320
