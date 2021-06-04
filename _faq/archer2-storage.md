@@ -3,12 +3,8 @@ layout: page
 subheadline:  "ARCHER2"
 title:  "What storage is available on ARCHER2?"
 teaser: "There are currently two data storage areas on ARCHER2 accessible by NCAS users."
-categories:
-    - faq
-tags:
-    - archer2
+group: archer2
 author: ros
-#header: no
 ---
 * HOME file system:
 
@@ -29,4 +25,4 @@ For more information on the ARCHER2 file systems and how to access the HOME file
 ## All FAQ Items
 {: .t60 }
 
-{% include list-posts category='faq' %}
+{% include list-collection collection='faq' %}

@@ -8,25 +8,15 @@ title: "Frequently Asked Questions"
 permalink: "/user-support/faq/"
 breadcrumb: true
 ---
-{% comment %}
-<ul>
-    {% for post in site.categories.faq %}
-    <li><a href="{{ site.url }}{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
-    {% endfor %}
-</ul>
-{% endcomment %}
 
-{% assign sorted_tags = site.tags | sort %}
-{% for tag in sorted_tags %}
-  {% assign tag_posts = tag[1] | where: "categories", "faq" | sort %}
-  {% if tag_posts != empty %}
-  <h3>{{ tag[0] | upcase }}</h3>
+{% assign items_grouped = site.faq | group_by: 'group' %}
+{% for group in items_grouped %}
+  <h3>{{ group.name | upcase }}</h3>
   <ul>
-    {% for post in tag_posts %}
-    <li><a href="{{ site.url }}{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
+    {% for item in group.items %}
+      <li><a href="{{ site.url }}{{ site.baseurl }}{{ item.url }}">{{ item.title }}</a></li>
     {% endfor %}
   </ul>
-  {% endif %}
 {% endfor %}
 
 

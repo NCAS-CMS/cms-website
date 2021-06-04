@@ -16,7 +16,7 @@ permalink: /services/
     </div><!-- /.medium-4.columns -->
 
     <div class="medium-4 columns">
-        <img src="{{ site.urlimg }}webdesign_screenshot_tarnkappe.jpg" alt="">
+        <img src="{{ site.urlimg }}training.jpg" alt="">
 	<h3>Training</h3>
         <p><a href="training">Training Index</a></p>
 	<p>NCAS-CMS run multiple training courses covering the Unified Model, UKCA, CF-Python and CF-Plot</p>

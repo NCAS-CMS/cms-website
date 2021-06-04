@@ -28,11 +28,11 @@
     url: "/tools"
 
 - title: News 
-  url: "/blog/"
+  url: "/news/"
   side: left
   dropdown:
   - title: "News Archive"
-    url: "/blog/archive/"
+    url: "/news/archive/"
 
 - title: About
   url: "/about_cms/"

@@ -67,7 +67,7 @@ plugins:
 #               /____/
 #
 paginate: 5                      # Paginates all X entries
-paginate_path: "blog/pagenum"   # Pagination path › Important for blog page in /blog/ to work
+paginate_path: "news/pagenum"   # Pagination path › Important for blog page in /blog/ to work
 
 
 # Theme works best with Kramdown (using the table of contents function)
@@ -86,7 +86,9 @@ exclude:
     - INSTALL.md
     - vendor
 
-
+kramdown:
+    auto_ids: true
+    
 # The language setting is used in /includes/header.html for html-settings
 language: 'en'
 
@@ -116,6 +118,8 @@ collections:
   archer2:
     output: true
   tools-and-utilities:
+    output: true
+  faq:
     output: true
 
 #
@@ -159,7 +163,7 @@ defaults:
       header:
         image_fullwidth: ncas-page-header-bg.jpeg
         title: NCAS Computational Modelling Services
-      
+
   - scope:
       path: '' 				# an empty string here means all files in the project
       type: 'pages'
@@ -183,8 +187,16 @@ defaults:
       header:
         image_fullwidth: ncas-page-header-bg.jpeg
         title: NCAS Computational Modelling Services
-   
 
+  # Defaults that all pages not specified above will use
+  - scope:
+      path: ''
+    values:
+      show_meta: true   # Show metadata for all posts
+      comments: false
+      header:
+        image_fullwidth: ncas-page-header-bg.jpeg
+        title: NCAS Computational Modelling Services
 
 
 #       _   __            _             __  _

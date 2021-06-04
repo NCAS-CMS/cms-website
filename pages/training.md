@@ -1,7 +1,8 @@
 ---
 layout: page-fullwidth
-title: Training
+title: Training Courses
 subheadline: Services
+teaser: NCAS-CMS run several training courses throughout the year, including how to run the Unified Model on national HPC and analysing your data using Python tools.
 permalink: /services/training/
 ---
 <div class="row">
@@ -18,7 +19,7 @@ permalink: /services/training/
 
 <div class="row">
     <div class="medium-6 columns">
-       <img src="{{ site.urlimg }}webdesign_screenshot_schriefer.jpg" alt="">
+       <img src="{{ site.urlimg }}atmosphere.png" alt="">
     </div>
 </div>
 
@@ -39,7 +40,7 @@ Material from previous courses:
 
 <div class="row">
     <div class="medium-4 columns">
-       <img src="{{ site.urlimg }}webdesign_screenshot_schriefer.jpg" alt="">
+       <img src="{{ site.urlimg }}ukca.png" alt="">
     </div>
 </div>
 
@@ -55,15 +56,15 @@ Details on past UKCA training courses can be found on the [UKCA website](https:/
 
 <div class="row">
     <div class="medium-4 columns">
-       <img src="{{ site.urlimg }}webdesign_screenshot_schriefer.jpg" alt="">
+       <img src="{{ site.urlimg }}polar_stereographic.png" alt="">
     </div>
 </div>
 
 ### CF-Python and CF-Plot
 
-The Data Analysis Tools course will support Python users to read, analyse and plot atmospheric model data. 
+This course will support Python users to read, analyse and plot atmospheric model data. 
 
 Through talks and interactive sessions, you will master cf-python and cf-plot Python tools. These tools provide powerful extraction, regridding and visualisation capabilities, and make for quick analysis and data plotting.
 
-Further details, including dates and how to apply can be found on the [NCAS website](https://ncas.ac.uk/study-with-us/data-analysis-tools/).
+Further details and how to apply can be found on the [NCAS website](https://ncas.ac.uk/study-with-us/data-analysis-tools/).
 
