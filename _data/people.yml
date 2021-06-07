@@ -1,3 +1,7 @@
+# CMS People data for use in about/people
+# People that need to be listed first e.g. head of group must set head: true.
+# They are then put at beginning of table in the order they are
+# listed in this file. All remaining people will then be sorted alphabetically.
 
 - firstname: Bryan
   lastname: Lawrence
@@ -36,6 +40,11 @@
   position: "Software Infrastructure and modelling support"
   ncas_id: 10466
 
+- firstname: Valeriu
+  lastname: Predoi
+  position: "UKESM core team: diagnostic software"
+  ncas_id: 10412
+  
 - firstname: Jeff
   lastname: Cole
   position: "Model support and software tools specialist"
@@ -70,11 +79,6 @@
   lastname: Osprey
   position: "High Resolution Climate Modelling support"
   ncas_id: 10171
-
-- firstname: Valeriu
-  lastname: Predoi
-  position: "UKESM core team: diagnostic software"
-  ncas_id: 10412
 
 - firstname: Marc
   lastname: Stringer
