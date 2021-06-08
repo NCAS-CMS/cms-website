@@ -2,7 +2,7 @@
 layout: page-fullwidth
 title: Post-processing and Data Transfer to JASMIN
 subheadline: Porting a UM suite to ARCHER2
-permalink: '/archer2/porting/postproc-pptransfer'
+permalink: '/archer2/porting/postproc-pptransfer/'
 breadcrumb: true
 ---
 In `~/roses/<SUITEID>/site/archer2.rc` ensure that `[[POSTPROC_RESOURCE]]` loads the correct module and sets the stack limit, thus:

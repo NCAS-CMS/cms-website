@@ -2,7 +2,7 @@
 layout: page-fullwidth
 title: Running UMUI Jobs on ARCHER2
 subheadline: ARCHER2
-permalink: '/archer2/umui'
+permalink: '/archer2/umui/'
 breadcrumb: true
 ---
 

@@ -2,7 +2,7 @@
 layout: page-fullwidth
 title: Porting
 subheadline: Porting a UM Suite to ARCHER2
-permalink: '/archer2/porting'
+permalink: '/archer2/porting/'
 breadcrumb: true
 ---
 

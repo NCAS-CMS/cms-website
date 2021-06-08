@@ -2,7 +2,7 @@
 layout: page-fullwidth
 title: Configuring PPTransfer
 subheadline: Transfer data from ARCHER2 to JASMIN
-permalink: '/archer2/pptransfer'
+permalink: '/archer2/pptransfer/'
 breadcrumb: true
 ---
 The `pptransfer` task used to run on the ARCHER Data Transfer Node (dtn02) which we no longer have access to. These instructions show how to modify a suite to run the `pptransfer` task on the ARCHER2 login nodes and push the data across to JASMIN from ARCHER2 `/work` disk.  

@@ -2,7 +2,7 @@
 layout: page-fullwidth
 title: Detailed Rose/Cylc Information
 subheadline: Porting a UM suite to ARCHER2
-permalink: '/archer2/porting/detailed'
+permalink: '/archer2/porting/detailed/'
 breadcrumb: true
 ---
 ## General
