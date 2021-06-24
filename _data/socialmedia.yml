@@ -8,10 +8,10 @@
 #   class: icon-youtube
 #   title: "Videos, Video-Anleitungen und Filme von Phlow auf YouTube"
 
-# - name: Twitter
-#   url: http://twitter.com/phlow
-#   class: icon-twitter
-#   title: "Immer das Neuste von Phlow gibt es auf Twitter"
+- name: Twitter
+  url: http://twitter.com/AtmosScience
+  class: icon-twitter
+  title: "National Centre of Atmospheric Science on Twitter"
 
 # - name: Mixcloud
 #   url: http://www.mixcloud.com/phlow/
@@ -23,10 +23,10 @@
 #   class: icon-googleplus
 #   title: "YouTube Google+"
 
-# - name: Facebook
-#   url: http://www.facebook.com/
-#  class: icon-facebook
-#   title: ""
+ - name: Facebook
+   url: http://www.facebook.com/UKAtmosScience
+   class: icon-facebook
+   title: "National Centre for Atmospheric Science on Facebook"
 
 # - name: Soundcloud
 #   url: http://soundcloud.com/
