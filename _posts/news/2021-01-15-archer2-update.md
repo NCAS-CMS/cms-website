@@ -1,7 +1,7 @@
 ---
 layout: page
 subheadline:  "HPC Announcement"
-title:  "ARCHER, ARCHER2 & NEXCS Update"
+title:  "ARCHER, ARCHER2 & NEXCS"
 teaser: "Important update on ARCHER2, ARCHER & NEXCS"
 categories:
     - news

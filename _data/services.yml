@@ -9,8 +9,8 @@
   title: "News"
 
 - name: "Helpdesk"
-  url: "https://cms-support.trydiscourse.com"
-  title: "Sitemap for Google Webmaster Tools"
+  url: "https://cms-helpdesk.ncas.ac.uk"
+  title: "NCAS-CMS Modelling Helpdesk"
 
 - name: "RSS"
   url: "/feed.xml"

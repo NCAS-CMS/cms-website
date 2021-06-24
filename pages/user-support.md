@@ -10,7 +10,7 @@ permalink: /user-support/
     <div class="medium-4 columns">
         <img src="{{ site.urlimg }}webdesign_screenshot_stilwandel.jpg" alt="">
         <h3>Helpdesk</h3>
-        <p><a href="https://cms-support.trydiscourse.com">CMS Modelling Helpdesk</a></p>
+        <p><a href="https://cms-helpdesk.ncas.ac.uk">CMS Modelling Helpdesk</a></p>
         <p>For all modelling queries please raise a topic on our helpdesk.</p> 
     </div><!-- /.medium-4.columns -->
 
