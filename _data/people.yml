@@ -55,11 +55,6 @@
   position: "Model support and performance specialist"
   ncas_id: 10108
 
-- firstname: Thibault
-  lastname: Hallouin
-  position: "Hydro-JULES"
-  ncas_id: 10505
-
 - firstname: David
   lastname: Hassell
   position: "Software tools specialist - CF-Python (IS-ENES3)"
@@ -75,9 +70,14 @@
   position: "Land surface modelling development and support"
   ncas_id: 10443
 
+- firstname: Andrew
+  lastname: Mirza
+  position: "High Resolution Climate Modelling support"
+  ncas_id: 
+
 - firstname: Annette
   lastname: Osprey
-  position: "High Resolution Climate Modelling support"
+  position: "High Resolution Climate Modelling support (On maternity leave till Summer 2022)"
   ncas_id: 10171
 
 - firstname: Marc

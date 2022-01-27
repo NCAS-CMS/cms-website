@@ -9,10 +9,13 @@ permalink: /services/
 
 <div class="row t30">
     <div class="medium-4 columns">
-        <img src="{{ site.urlimg }}webdesign_screenshot_stilwandel.jpg" alt="">
-	<h3>Helpdesk</h3>
-        <p><a href="https://cms-support.trydiscourse.com">CMS Modelling Helpdesk</a></p>
-	<p>For all modelling queries please raise a topic on our helpdesk.</p> 
+        <img src="{{ site.urlimg }}hpc-server-racks.jpg" alt="">
+	<h3>HPC Resource Management</h3>
+        <p><a href="hpc-resource-management">HPC Resource Management</a></p>
+	<p>CMS manage HPC resources on behalf of the ~300 HPC users in the atmospheric and polar research community. 
+           This includes, but is not limited to, ARCHER2 compute and JASMIN storage. 
+           For advice on HPC availability, resourcing compute time and data storage requirements <a href="/cms-website/contact">contact CMS</a>
+        </p> 
     </div><!-- /.medium-4.columns -->
 
     <div class="medium-4 columns">
@@ -23,7 +26,7 @@ permalink: /services/
     </div><!-- /.medium-4.columns -->
 
     <div class="medium-4 columns">
-        <img src="{{ site.urlimg }}webdesign_screenshot_schriefer.jpg" alt="">
+        <img src="{{ site.urlimg }}projects-2.jpg" alt="">
 	<h3>Projects</h3>
         <p>
 	  <a href="/cms-website/services/projects">Current Projects</a><br>
