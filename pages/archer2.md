@@ -16,17 +16,13 @@ permalink: /archer2/
 
 <div class="medium-8 medium-pull-4 columns" markdown="1">
 
-ARCHER2 is currently running as a small 4 cabinet early access system while the full system is being commissioned.
+ARCHER2 is an HPE Cray EX supercomputing system with an estimated peak performance of 28 PFLOP/s. The machine has 5,860 compute nodes, each with dual AMD EPYC 7742 64-core CPUs at 2.25GHz, giving 750,080 cores in total. Further details on the [ARCHER2 hardware](https://www.archer2.ac.uk/about/hardware.html) can be found on the [ARCHER2 website](https://www.archer2.ac.uk).
 
-ARCHER2 will be an HPE Cray EX supercomputing system with an estimated peak performance of 28 PFLOP/s. The machine will have 5,848 compute nodes, each with dual AMD EPYC Zen2 (Rome) 64 core CPUs at 2.2GHz, giving 748,544 cores in total. Further details on the [ARCHER2 hardware](https://www.archer2.ac.uk/about/hardware.html) can be found on the [ARCHER2 website](https://www.archer2.ac.uk).
+ARCHER users will find the new machine very familiar in many respects but with some important differences - see ​[ARCHER2 YouTube Channel](https://www.youtube.com/channel/UCZi-oBdxoDV5CPEQnhmrCAg/videos) for a comprehensive array of presentations, in particular the one entitled ["Differences between ARCHER and ARCHER2"](https://www.youtube.com/watch?v=dmwGMk9uB-4).
 
-## Early Access 4-cabinet system
+CMS has installed and undertaken limited testing of several versions of the Unified Model and its auxiliary software. We encourage users where possible to migrate their workflows to use the latest versions of the UM.
 
-ARCHER users will find the new machine very familiar in many respects but with some important differences - see ​[ARCHER2 YouTube Channel](https://www.youtube.com/channel/UCZi-oBdxoDV5CPEQnhmrCAg/videos) for a comprehensive array of presentations, in particular the one entitled [Differences between ARCHER and ARCHER2](https://www.youtube.com/watch?v=dmwGMk9uB-4).
-
-CMS has installed and undertaken limited testing of several versions of the Unified Model and its auxiliary software. The process is ongoing - we encourage users where possible to migrate their workflows to use the latest versions of the UM.
-
-Limitations of the 4-cabinet system may result in some constraints on the nature of workflows that it can accommodate.
+## System Information
 
 **Scheduler:** \\
 ARCHER2 uses the [SLURM](https://slurm.schedmd.com/) scheduler.  All batch scripts run on ARCHER will need to be rewritten to work on ARCHER2.  See the ARCHER2 documentation for information on [running jobs on ARCHER2](https://docs.archer2.ac.uk/user-guide/scheduler) and basic slurm commands.
@@ -37,11 +33,11 @@ The login nodes currently support the running of persistent ssh-agents enabling 
 **Compute Nodes:** \\
 The compute nodes CANNOT see the `/home` filesystem.  Unlike ARCHER, batch scripts also run on the compute nodes. All files referenced in batch scripts and used by running jobs MUST be located on the `/work` file system.
 
-**Serial Nodes:** \\
-The 4-cabinet system DOES NOT have serial nodes.  Until the full-system comes online, which will have serial nodes, all data transfer tasks will need to run on the login nodes.
+**Serial/Data Analysis Nodes:** \\
+ARCHER2 has 2 data analysis nodes, which are accessible both in batch via the Slurm serial queue and also interactively. See [ARCHER2 Data Analysis documentation](https://docs.archer2.ac.uk/user-guide/analysis/) for full details. This is where the model compilations are run. Due to the configuration of these nodes, it is currently not possible to run ARCHER2 to JASMIN data transfer tasks on the serial nodes.   Whilst the ARCHER2/JASMIN teams work on a permanent solution, data transfers currently need to be run on the login nodes.  Full details on the setup required is available on our [data transfer](https://TODO) page.
 
 **File Systems:** \\
-ARCHER2 has a `/home` and `/work` file system with identical structure to that on ARCHER.  The 4-cabinet system will have only 325TB on `/work` and 1.7TB on `/home`.  The full system will have substantially more.
+ARCHER2 has a `/home` and `/work` file system with identical structure to that on ARCHER.  We currently have 655TB disk space on `/work` and 4TB on `/home`.  
 
 **Budgets:** \\
 The ARCHER2 budget structure and membership works in exactly the same way as for ARCHER2.  See the ARCHER2 documentation for information on [resources and how to check budgets](https://docs.archer2.ac.uk/user-guide/scheduler/#resources).
@@ -52,7 +48,7 @@ To apply for an n02 project account please follow the instructions for [requesti
 
 ## Unified Model on ARCHER2
 
-CMS have installed the following versions of the UM on ARCHER2: 7.3, 8.4, 10.7, 11.1+
+CMS have installed the following versions of the UM on ARCHER2: 7.3, 8.4, 10.7, 11.1+, 12.x
 
 ### Getting Started
 

@@ -1,6 +1,6 @@
 ---
 layout: page-fullwidth
-title: Post-processing and Data Transfer to JASMIN
+title: Post-processing
 subheadline: Porting a UM suite to ARCHER2
 permalink: '/archer2/porting/postproc-pptransfer/'
 breadcrumb: true
@@ -9,7 +9,7 @@ In `~/roses/<SUITEID>/site/archer2.rc` ensure that `[[POSTPROC_RESOURCE]]` loads
 ~~~
     [[POSTPROC_RESOURCE]]
         inherit = HPC_SERIAL
-        pre-script = """module restore /work/y07/shared/umshared/modulefiles/postproc/2020.12.11
+        pre-script = """module load postproc
                         module list 2>&1
                         ulimit -s unlimited
                      """

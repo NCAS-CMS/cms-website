@@ -1,7 +1,7 @@
 ---
 layout: page-fullwidth
 title: Configuring PPTransfer
-subheadline: Transfer data from ARCHER2 to JASMIN
+subheadline: Data Transfer from ARCHER2 to JASMIN
 permalink: '/archer2/pptransfer/'
 breadcrumb: true
 ---
@@ -11,7 +11,7 @@ The `pptransfer` task used to run on the ARCHER Data Transfer Node (dtn02) which
 
 **Note 2:** In order to use `hpxfer[1-2].jasmin.ac.uk` you need to have requested access to the High Performance Data Transfer service via the JASMIN accounts portal.
 
-**Note 3:** We anticipate that the full ARCHER2 system will have `serial` nodes in which case the cylc configuration will be closer to the current ARCHER set up, but until then, we need to use the login nodes. In what follows, references to `HPC_SERIAL` remain in anticipation of the full system and are harmless.
+**Note 3:** Although the full ARCHER2 system does have serial nodes, it is not possible to ssh to JASMIN from them.  Whilst the ARCHER2/JASMIN teams work towards a permanent solution, for the time being we need to continue running data transfers on the login nodes.
 
 ## Suite Changes
 
@@ -31,7 +31,7 @@ This will be a temporary area to stage your data before transfer to JASMIN.
 
 Ideally you will have ARCHER2 specific file, `~/roses/<SUITEID>/site/archer2.rc` 
 
-* Replace the line `host = dtn02.rdf.ac.uk` with `host = login.archer2.ac.uk`
+* Replace the line `host = dtn02.rdf.ac.uk` with `host = loginX.archer2.ac.uk`. Where X is either 1,2,3 or 4.
 
 Ideally, `archer2.rc` will include sections `[[POSTPROC_RESOURCE]]` and `[[PPTRANSFER_RESOURCE]]` (that may not be precisely the case, but what follows should guide you to configure your suite):
 
@@ -39,7 +39,7 @@ Make your suite look like this:
 ~~~
     [[POSTPROC_RESOURCE]]
         inherit = HPC_SERIAL
-        pre-script = """module restore /work/y07/shared/umshared/modulefiles/postproc/2020.12.11
+        pre-script = """module load postproc
                         module list 2>&1
                         ulimit -s unlimited
                      """
@@ -48,30 +48,42 @@ Make your suite look like this:
         inherit = POSTPROC_RESOURCE
         [[[job]]]
             batch system = background
+        [[[remote]]]
+            host = loginX.archer2.ac.uk      <== replace X with a number between 1 & 4 to pick a specific login node
 ~~~
 
 If there is no `[[POSTPROC_RESOURCE]]` section, make `[[PPTRANSFER_RESOURCE]]` look like this:
 ~~~
     [[PPTRANSFER_RESOURCE]]
         inherit = HPC_SERIAL
-        pre-script = """module restore /work/y07/shared/umshared/modulefiles/postproc/2020.12.11
+        pre-script = """module load postproc
                         module list 2>&1
                         ulimit -s unlimited
                      """
        [[[job]]]
             batch system = background
+        [[[remote]]]
+            host = loginX.archer2.ac.uk      <== replace X with a number between 1 & 4 to pick a specific login node
 ~~~
+
+**Note:** Since we are currently having to run the transfers from a login node it is essential that they are submitted to a specific login node (e.g. login3.archer2.ac.uk) so that the cylc polling works.  Be aware that you may need to switch login node part way through a run if the node you have specified is taken out of service.
+
 ## Setup required on ARCHER2
 
-You now need to setup `ssh-agent` on ARCHER2 login nodes to be able to login to `hpxfer1.jasmin.ac.uk` non-interactively.
+You now need to setup `ssh-agent` on each ARCHER2 login node to be able to login to `hpxfer1.jasmin.ac.uk` non-interactively.
 
  1. Login to ARCHER2 \\
- (Note: this needs to be from somewhere other than PUMA)
+   (Note: this need to be from somewhere other than PUMA) \\
+   \\
+   There are four login nodes at ARCHER2 (login[1-4].archer2.ac.uk), one of which is invariably not accessible. To login into node X:
+~~~
+ssh loginX.archer2.ac.uk
+~~~
 
  2. Add the following lines to your `~/.bash_profile`:
 ~~~
 # ssh-agent setup on login nodes
-  . ~/.ssh/ssh-setup
+. ~/.ssh/ssh-setup
 ~~~
 
  3. Copy the `~/.ssh/ssh-setup` script.
@@ -96,7 +108,9 @@ ForwardAgent no
 
  7. Run `ssh-add ~/.ssh/<jasmin_key>` where `<jasmin_key>` is the name of your JASMIN ssh-key E.g. `id_rsa_jasmin`. (This is the key you generated when you applied for access to JASMIN). Type in your passphrase when prompted to do so.
 
- 8. You should now be able to login to the required JASMIN transfer node (either `xfer[1-2].jasmin.ac.uk` or the high performance node `hpxfer1.jasmin.ac.uk`) without being prompted for passphrase/password.
+ 8. You should now be able to login to the required JASMIN transfer node (either `xfer[1-2].jasmin.ac.uk` or the high performance node `hpxfer[1-2].jasmin.ac.uk`) without being prompted for passphrase/password.
+
+ 9. Repeat for the remaining login nodes.
 
 
 ## Updating a Running Suite

@@ -24,9 +24,9 @@ Firstly look at your `suite.rc` file.
 
 If it has lines of the form `UM_ATM_NPROCX = {% raw %}{{MAIN_ATM_PROCX}}{% endraw %}` with a `MAIN_` pre-pending the variable then copy `/home/simon/archer2/archer2.rc_main` to `site/archer2.rc`.
 
-If it has lines of the form `UM_ATM_NPROCX = {% raw %}{{ATM_PROCX}}{% endraw %}` then copy `/home/simon/archer2/archer2.rc` to `site/archer2.rc`.
+If it has lines of the form `UM_ATM_NPROCX = {% raw %}{{ATM_PROCX}}{% endraw %}` then copy `/home/um/archer2/archer2.rc` to `site/archer2.rc`.
 
-If the `UM_ATM_NPROCX =` type lines use some other format, copy `/home/simon/archer2/archer2.rc` as a base and then edit it to change each line in:
+If the `UM_ATM_NPROCX =` type lines use some other format, copy `/home/um/archer2/archer2.rc` as a base and then edit it to change each line in:
 ```{% raw %}
 {% set APPN = ATM_PPN if ATM_PPN is defined else PPN %}
 {% set TASKS_RCF = RCF_PROCX * RCF_PROCY %}
@@ -42,21 +42,21 @@ Edit the line
 
  `--chdir=/work/n02/n02/<username>`
 
-to use your ARCHER2 username in the copied `archer2.rc`.
+to use your ARCHER2 username.
 
 Users of vn11.7 may have to change `EXPT_HORIZ` to `EXPT_HORIZ_ATM` in `archer2.rc`
 
 #### Coupled and UKESM jobs
 
-Copy `/home/simon/archer2/archer2.rc_ukesm` to `site/archer2.rc`.
+Copy `/home/um/archer2/archer2.rc_ukesm` to `site/archer2.rc`.
 
 Edit the line
 
  `--chdir=/work/n02/n02/<username>`
 
-to use your archer username in the copied `archer2.rc`.
+to use your ARCHER2 username.
 
-Note as the Coupled configuration is more complicated than the atmosphere only configuration, there's a greater possibility that the `archer2.rc` file will need further modifications. Please see the more [detailed documentation]({{ '/archer2/porting/detailed' | relative_url}}).
+Note: as the Coupled configuration is more complicated than the atmosphere only configuration, there's a greater possibility that the `archer2.rc` file will need further modifications. Please see the more [detailed documentation]({{ '/archer2/porting/detailed' | relative_url}}).
 
 ### suite.rc
 
@@ -115,9 +115,9 @@ Now start up the `rose edit` GUI. There will be a warning triangle next to the *
    * Set the **Max number of processors/node** to be **128**. If you plan to depopulate the node, set this to some multiple of 16. \\
 If not using IO servers, it is also a good idea to change the **Atmosphere decomposition** so that the NSxEWx(OpenMP threads) is some multiple of 128 for most efficient running. Keep the total number of cores roughly the same as for ARCHER.
 
- * In *fcm_um_make→env→Configuration file*:
-   * Set **config_root_path** to `fcm:um.xm_br/dev/simonwilson/vn11.x_archer2_compile` \\
-     where **x** is the UM version of the suite.
+ * For UM versions prior to vn12.2 in *fcm_um_make→env→Configuration file*:
+   * Set **config_root_path** to `fcm:um.xm_br/dev/simonwilson/vnX.Y_archer2_compile` \\
+     where **X.Y** is the UM version of the suite.
    * Remove the revision number from **config_revision** so that the field is blank.
 
  * For vn11.1 and vn11.2 jobs in *fcm_um_make→env*:

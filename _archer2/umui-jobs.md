@@ -5,6 +5,9 @@ subheadline: ARCHER2
 permalink: '/archer2/umui/'
 breadcrumb: true
 ---
+Only UMUI versions 7.3 & 8.4 are supported on ARCHER2.
+
+{% include alert note='Note: Post Processing has not been tested.' %}
 
 ### Initial setup
 
@@ -33,10 +36,12 @@ Very few changes are required in order to run these jobs:
     * Select submission method: **SLURM Cray EX (ARCHER2)**
     * Set **Host name** to `login.archer2.ac.uk`
     * Set the number of processors to be a multiple of 128
-    * Click the **Slurm** button to specify the Job time limit 
+    * Click the **Slurm** button to specify the Job time limit <br>
+    <br>
 
 * In *Model Selection → FCM Configuration → FCM Extract directories and Output levels*
-    * Set **Target machine root directory (UM_ROUTDIR)** to a location on `/work` (e.g. `/work/n02/n02/$USERID/um`) 
+    * Set **Target machine root directory (UM_ROUTDIR)** to a location on `/work` (e.g. `/work/n02/n02/$USERID/um`) <br>
+    <br>
 
 * In *Model Selection → Input/Output Control and Resources → Time Convention and SCRIPT Environment Variables*
     * Set `DATADIR` in the **Defined Environment Variables** table. This must be on `/work` (e.g. `/work/n02/n02/<username>`)
@@ -47,20 +52,20 @@ Very few changes are required in order to run these jobs:
 * In *Model Selection → User Information and Target Machine → Target Machine*
     * Set **Machine name** to `login.archer2.ac.uk`
     * Set the number of processors to be a multiple of 128 
-
+    <br><br>
 * In *Model Selection → Input/Output Control and Resources → Time Convention and SCRIPT Environment Variables*
     * Set `DATADIR` in the **Defined Environment Variables** table. This must be on `/work` (e.g. `/work/n02/n02/<username>`)
     * Ensure **DATAM** and **DATAW** are set to a location on `/work`. E.g `$DATADIR/um/$RUNID` 
-
+    <br><br>
 * In *Model Selection → Input/Output Control and Resources → Job submission, resources and re-submission pattern*
     * Select submission method: **SLURM Cray EX (ARCHER2)**
     * Note - the model will not recognize a change to the default number of cores/node 
-
+    <br><br>
 * In *Model Selection → FCM Extract and Build directories and Output levels*
     * Set **Target machine root directory (UM_ROUTDIR)** to a location on `/work` (e.g. `/work/n02/n02/ros/um`) 
-
+    <br><br>
 * In *Model Selection → Compilation and Modifications → UM User Override Files*
     * The **User machine overrides** must use `~umui/overrides/archer2_cce_7.3_machine`
     * The **User file overrides** must use `~umui/overrides/archer2_cce_7.3_file`
 
-{% include alert warning='Post Processing has not been tested.' %} 
+
