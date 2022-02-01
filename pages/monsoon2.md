@@ -1,12 +1,11 @@
 ---
-layout: page-fullwidth
+layout: page
 title: Monsoon2
 subheadline: Met Office/NERC Collaboration HPC
 teaser: 
-image:
-  title: monsoon.jpg
-  caption: Monsoon
 permalink: /monsoon2/
+image:
+   title: monsoon.jpeg
 ---
 
 ### Introduction to the Monsoon service

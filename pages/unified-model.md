@@ -32,8 +32,8 @@ NCAS-CMS installs and maintains the supported UM versions, workflow tools and ot
 
 The UM undergoes significant changes as new scientific enhancements are introduced or new features are added, and so the [Met Office](https://www.metoffice.gov.uk) release new versions approx. 3-4 times a year.  NCAS-CMS only supports a subset of the versions that have been released.
 
-| **ARCHER2**: | 7.3 | 8.4 | 10.7 | 11.x |
-| **Monsoon2**: | 10.x | 11.x |
+| **ARCHER2**: | 7.3 | 8.4 | 10.7 | 11.x | 12.x |
+| **Monsoon2**: | 10.x | 11.x | 12.x |
 
 Documentation relating to new UM versions, including the UM User Guides, is available on the [Met Office Science Repository Service](https://code.metoffice.gov.uk/doc/um/) (MOSRS).
 
@@ -49,9 +49,15 @@ See the [UM Configurations](configurations) page for full details on suites that
 
 Nested limited area models can easily be set up using the Met Office ​[Nesting Suite](https://code.metoffice.gov.uk/trac/rmed/wiki/suites/nesting). These are Rose suites and can be run on ARCHER2 and Monsoon2, allowing scientists to define up to five nested domains, a choice of science configurations and easy ancillary file generation for the chosen domains. 
 
+| ARCHER2 suite id | Owner | Met Office original suite id | UM Version | Description |
+| :----: | :----: | :----: | :----: | ---- |
+| u-ca103 | grenvillelister | u-av356 | 11.1 | Nesting Suite for RA2 - February 2018 |
+| u-by395/archer2 | claudiosanchez| u-by395 | 11.7 | Nesting Suite for RA3+ |
+
+
 ## Mesoscale Modelling
 
-???
+??? #TODO 
 
 ## Single Column Model
 

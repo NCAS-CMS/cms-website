@@ -26,6 +26,8 @@
     url: "/rose_cylc_fcm/"
   - title: "Tools & Utilities"
     url: "/tools"
+  - title: "Miscellaneous"
+    url: "/miscellaneous"
 
 - title: News 
   url: "/news/"

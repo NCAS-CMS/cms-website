@@ -17,4 +17,4 @@ The HadGEM3 family of models comprises a range of specific model configurations 
 
 ### Performance
 
-The performance of various standard configurations on ARCHER can be found on the [performance]({% link _unified-model/performance.md %}) page.
+The performance of various standard configurations on ARCHER can be found on the [performance](/cms-website/unified-model/performance/) page.

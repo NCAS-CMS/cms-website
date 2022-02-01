@@ -17,7 +17,7 @@ The UKESM1 suites are available from the [Met Office Science Repository Service]
 
 ### UKESM1 release notes
 
-The [UKESM1 release notes](RelNotes1.0) describe the different types of experiment which can be run using the model, how to access the suites, options for running the model (including selecting the target machine) and further configuration of the suites.  Note that these pages contain links to the MOSRS, which is only accessible to registered users (see [#Backgroundandprerequisites above]).
+The [UKESM1 release notes](relnotes-1.0) describe the different types of experiment which can be run using the model, how to access the suites, options for running the model (including selecting the target machine) and further configuration of the suites.  Note that these pages contain links to the MOSRS, which is only accessible to registered users (see [#Backgroundandprerequisites above]).
 
 
 
