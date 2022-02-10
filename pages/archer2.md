@@ -22,6 +22,9 @@ ARCHER users will find the new machine very familiar in many respects but with s
 
 CMS has installed and undertaken limited testing of several versions of the Unified Model and its auxiliary software. We encourage users where possible to migrate their workflows to use the latest versions of the UM.
 
+</div><!-- /.medium-8.columns -->
+</div><!-- /.row -->
+
 ## System Information
 
 **Scheduler:** \\
@@ -83,6 +86,4 @@ See the [porting page]({{ '/archer2/porting/' | relative_url }}) for instruction
 
 ### Performance
 
-</div><!-- /.medium-8.columns -->
-</div><!-- /.row -->
 

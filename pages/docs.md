@@ -15,7 +15,11 @@ header:
 
 * PUMA
 
-* Monsoon2
+* [Monsoon2]({{ 'monsoon2' | relative_url }})
+
+* Rose/Cylc & FCM
 
 * Tools and Utilities
+
+* Miscellaneous
 

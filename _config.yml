@@ -121,6 +121,8 @@ collections:
     output: true
   faq:
     output: true
+  miscellaneous:
+    output: true
 
 #
 #       ____       ____            ____

@@ -7,9 +7,9 @@ Standard configurations are available either as example jobs in the UMUI or Rose
 
 The HadGEM3 family of models comprises a range of specific model configurations incorporating different levels of complexity but with a common physical framework. The HadGEM3 family includes a coupled atmosphere-ocean configuration, with or without a vertical extension in the atmosphere to include a well-resolved stratosphere, and an Earth-System configuration which includes dynamic vegetation, ocean biology and atmospheric chemistry.
 
-[Global Atmosphere 7.0/Global Coupled 3.0](GA7.0-GC3.0)
+[Global Atmosphere 7.0/Global Coupled 3.0](ga7.0-gc3.0)
 
-[Global Atmosphere 8.0/Global Coupled 4.0](GA8.0-GC4.0)
+[Global Atmosphere 8.0/Global Coupled 4.0](ga8.0-gc4.0)
 
 ###  UKESM
 
