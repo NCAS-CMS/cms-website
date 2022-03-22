@@ -5,17 +5,49 @@ subheadline: Data Transfer from ARCHER2 to JASMIN
 permalink: '/archer2/pptransfer/'
 breadcrumb: true
 ---
-The `pptransfer` task used to run on the ARCHER Data Transfer Node (dtn02) which we no longer have access to. These instructions show how to modify a suite to run the `pptransfer` task on the ARCHER2 login nodes and push the data across to JASMIN from ARCHER2 `/work` disk.  
+The now-recommended method for transferring data between ARCHER2 and JASMIN is using GridFTP using certificate authentication.  This allows data transfers to run on the ARCHER2 serial nodes using certificate-based authentication rather than SSH.  Certificates are valid for up to a month from initiation and can be easily extended/regenerated for longer running simulations.
 
-**Note 1:** Instructions cannot cover all possible suite setup combinations so you may need to adjust them accordingly. For example, tasks may be named slightly differently or inherit differently.
+These instructions show how to setup your GridFTP certificate and modify a suite to run the `pptransfer` task on the ARCHER2 serial nodes to push the data across to JASMIN from ARCHER2 `/work` disk.  
 
-**Note 2:** In order to use `hpxfer[1-2].jasmin.ac.uk` you need to have requested access to the High Performance Data Transfer service via the JASMIN accounts portal.
+**Note:** Instructions cannot cover all possible suite setup combinations so you may need to adjust them accordingly. For example, tasks may be named slightly differently or inherit differently.
 
-**Note 3:** Although the full ARCHER2 system does have serial nodes, it is not possible to ssh to JASMIN from them.  Whilst the ARCHER2/JASMIN teams work towards a permanent solution, for the time being we need to continue running data transfers on the login nodes.
+## Obtaining a JASMIN short-lived credential
+
+A fuller explanation of the process is given in the document [Data Transfer Tools: GridFTP (certificate-based authentication)](https://help.jasmin.ac.uk/article/3808-data-transfer-tools-gridftp-cert-based-auth)
+
+* Login to ARCHER2.
+
+* Change directory to your ARCHER2 work directory - `/work/n02/n02/USERNAME`.  
+
+* [First Time Only] "Bootstrap trust" to setup your local certificate store with those needed to interact with the JASMIN server.
+~~~
+  $ $UMDIR/bin/onlineca-get-trustroots-wget.sh -U https://slcs.jasmin.ac.uk/trustroots/ -b
+  Bootstrapping Short-Lived Credential Service root of trust.
+  Trust roots have been installed in /home/n02/n02/USERNAME/.globus/certificates.
+~~~
+
+* Obtain a short-term credential (this must be called `cred.jasmin`) using your JASMIN accounts portal username USERNAME.
+~~~
+$ $UMDIR/bin/onlineca-get-cert-wget.sh -U https://slcs.jasmin.ac.uk/certificate/ -l USERNAME -o ./cred.jasmin
+~~~
+When prompted for a password, this is the password associated with your **JASMIN** account portal account (**NOT your SSH passphrase**)
+
+* Change the permissions on the newly-created `cred.jasmin` file so that it is only readable by you.
+
+  `$ chmod 600 cred.jasmin`
+
+This credential is valid, by default, for 30days.  You can see the validity period by inspecting the certificate using the following command:
+~~~
+$ openssl x509 -in cred.jasmin -noout -startdate -enddate
+notBefore=Mar 11 17:32:59 2022 GMT
+notAfter=Apr 10 17:32:59 2022 GMT
+~~~
+
+This means you can use this certificate for the following 30days, after which you will need to repeat this step to obtain a new one.
 
 ## Suite Changes
 
-Note, see **u-bs251-archer2** for a complete working postproc and pptransfer example suite.
+Note, see **u-be303/archer2** for a complete working postproc and pptransfer example suite.
 
 In the rose suite editor go to *"postproc -> Post processing - common settings"*:
 
@@ -25,13 +57,10 @@ This will be a temporary area to stage your data before transfer to JASMIN.
 
 * In panel *"JASMIN Transfer"*:
   * Set **transfer_type** to `Push`
-  * Set **remote_host** to `hpxfer1.jasmin.ac.uk` \\
-  (If you do not have access to `hpxfer1.jasmin.ac.uk` use either `xfer1.jasmin.ac.uk` or `xfer2.jasmin.ac.uk` instead.)
-  * Set **gridftp** to `false`
+  * Set **remote_host** to `gridftp1.jasmin.ac.uk` 
+  * Set **gridftp** to `true`
 
-Ideally you will have ARCHER2 specific file, `~/roses/<SUITEID>/site/archer2.rc` 
-
-* Replace the line `host = dtn02.rdf.ac.uk` with `host = loginX.archer2.ac.uk`. Where X is either 1,2,3 or 4.
+Ideally you will have an ARCHER2 specific cylc `.rc` file, `~/roses/<SUITEID>/site/archer2.rc` 
 
 Ideally, `archer2.rc` will include sections `[[POSTPROC_RESOURCE]]` and `[[PPTRANSFER_RESOURCE]]` (that may not be precisely the case, but what follows should guide you to configure your suite):
 
@@ -46,10 +75,6 @@ Make your suite look like this:
                      
     [[PPTRANSFER_RESOURCE]]
         inherit = POSTPROC_RESOURCE
-        [[[job]]]
-            batch system = background
-        [[[remote]]]
-            host = loginX.archer2.ac.uk      <== replace X with a number between 1 & 4 to pick a specific login node
 ~~~
 
 If there is no `[[POSTPROC_RESOURCE]]` section, make `[[PPTRANSFER_RESOURCE]]` look like this:
@@ -60,71 +85,5 @@ If there is no `[[POSTPROC_RESOURCE]]` section, make `[[PPTRANSFER_RESOURCE]]` l
                         module list 2>&1
                         ulimit -s unlimited
                      """
-       [[[job]]]
-            batch system = background
-        [[[remote]]]
-            host = loginX.archer2.ac.uk      <== replace X with a number between 1 & 4 to pick a specific login node
 ~~~
 
-**Note:** Since we are currently having to run the transfers from a login node it is essential that they are submitted to a specific login node (e.g. login3.archer2.ac.uk) so that the cylc polling works.  Be aware that you may need to switch login node part way through a run if the node you have specified is taken out of service.
-
-## Setup required on ARCHER2
-
-You now need to setup `ssh-agent` on each ARCHER2 login node to be able to login to `hpxfer1.jasmin.ac.uk` non-interactively.
-
- 1. Login to ARCHER2 \\
-   (Note: this need to be from somewhere other than PUMA) \\
-   \\
-   There are four login nodes at ARCHER2 (login[1-4].archer2.ac.uk), one of which is invariably not accessible. To login into node X:
-~~~
-ssh loginX.archer2.ac.uk
-~~~
-
- 2. Add the following lines to your `~/.bash_profile`:
-~~~
-# ssh-agent setup on login nodes
-. ~/.ssh/ssh-setup
-~~~
-
- 3. Copy the `~/.ssh/ssh-setup` script.
-~~~
-$ cp /work/y07/shared/umshared/um-training/ssh-setup ~/.ssh
-~~~
-
- 4. Copy the ssh-key you use to access JASMIN to `~/.ssh` directory (e.g. `id_rsa_jasmin`)
-
- 5. Add the following to your `~/.ssh/config` file (create one if it doesn't already exist):
-~~~
-Host xfer?.jasmin.ac.uk hpxfer?.jasmin.ac.uk
-User <jasmin_username>
-IdentityFile ~/.ssh/<jasmin_key>
-ForwardAgent no
-~~~
- Where `<jasmin_username>` is your JASMIN username and `<jasmin_key>` is the name of your ssh-key. \\
- \\
- **Note:** in order to use `hpxfer1.jasmin.ac.uk` you need to have requested access to the High Performance Data Transfer service via the JASMIN accounts portal.
-
- 6. Logout and then log back in again to start up your ssh-agent.
-
- 7. Run `ssh-add ~/.ssh/<jasmin_key>` where `<jasmin_key>` is the name of your JASMIN ssh-key E.g. `id_rsa_jasmin`. (This is the key you generated when you applied for access to JASMIN). Type in your passphrase when prompted to do so.
-
- 8. You should now be able to login to the required JASMIN transfer node (either `xfer[1-2].jasmin.ac.uk` or the high performance node `hpxfer[1-2].jasmin.ac.uk`) without being prompted for passphrase/password.
-
- 9. Repeat for the remaining login nodes.
-
-
-## Updating a Running Suite
-1. Reload the suite: `rose suite-run --reload`
-1. Hold the whole suite, or just the next `pptransfer` task 
-1. In the Cylc GUI: Control --> Insert Task(s)… 
-1. Set TASK-NAME.CYCLE-POINT=fcm_make_pptransfer.<YYYYMMDDT0000Z>, where <YYYYMMDDT0000Z> is an active cycle point 
-1. Leave stop-point=POINT blank 
-1. Check the "Do not check if a cycle point is valid or not" box 
-1. Insert, and wait for the task to complete. 
-1. If nothing happens: You probably typed something incorrectly!  Try again. 
-1. In the Cylc GUI: Control --> Insert Task(s)… 
-1. Set TASK-NAME.CYCLE-POINT=fcm_make2_pptransfer<YYYYMMDDT0000Z>, where <YYYYMMDDT0000Z> is an active cycle point 
-1. Leave stop-point=POINT blank 
-1. Check the "Do not check if a cycle point is valid or not" box 
-1. Insert, and wait for the task to complete. 
-1. Release the held suite/pptransfer task 
