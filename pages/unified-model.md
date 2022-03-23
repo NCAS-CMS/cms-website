@@ -22,10 +22,10 @@ The Unified Model is used by the ​[UK Met Office](https://www.metoffice.gov.uk
 The UM can be used in atmosphere only mode, or coupled to other models including, but not limited to, the [NEMO ocean](https://www.nemo-ocean.eu/) and CICE sea-ice models via the [OASIS coupler](https://portal.enes.org/oasis), [UKCA chemistry and aerosols](https://www.ukca.ac.uk) and the [JULES land-surface model](https://jules.jchmr.org/).  It can also be used in other modes, including Single Column Model (SCM), Aquaplanet & Exoplanet.
 
 ## Running the UM
-</div><!-- /.medium-8.columns -->
-</div><!-- /.row -->
 The UM is a complex software system; new users should either attend one of our organized [UM Introduction training]({{ '/services/training' | relative_url }}) courses or complete the [online training](https://ncas-cms.github.io/um-training/).  This covers all the essential information needed in order to run a UM suite on the national HPC service; ARCHER2, including, how to set up your environment, common errors, use of the workflow management software, source code management, etc.
 
+</div><!-- /.medium-8.columns -->
+</div><!-- /.row -->
 NCAS-CMS installs and maintains the supported UM versions, workflow tools and other associated software on the UK national high performance computer. All NCAS researchers can use the UM on this service, details of getting accounts can be found here.
 
 ## UM Versions
@@ -54,10 +54,6 @@ Nested limited area models can easily be set up using the Met Office ​[Nesting
 | u-ca103 | grenvillelister | u-av356 | 11.1 | Nesting Suite for RA2 - February 2018 |
 | u-by395/archer2 | claudiosanchez| u-by395 | 11.7 | Nesting Suite for RA3+ |
 
-
-## Mesoscale Modelling
-
-??? #TODO 
 
 ## Single Column Model
 
