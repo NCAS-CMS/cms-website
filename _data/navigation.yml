@@ -23,9 +23,9 @@
   - title: "PUMA"
     url: "/puma/"
   - title: "Rose, Cylc & FCM"
-    url: "/rose_cylc_fcm/"
+    url: "/rose-cylc/"
   - title: "Tools & Utilities"
-    url: "/tools"
+    url: "/tools-and-utilities/"
   - title: "Miscellaneous"
     url: "/miscellaneous"
 

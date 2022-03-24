@@ -3,7 +3,7 @@ layout: page-fullwidth
 title:  "Presentations and Reports"
 #subheadline:  "Headers With Style"
 teaser: "Presentations given and reports written by NCAS-CMS"
-permalink: "/presentations_and_reports/"
+permalink: "/presentations-and-reports/"
 categories:
     - design
 tags:
