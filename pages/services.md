@@ -10,7 +10,7 @@ permalink: /services/
 <div class="row t30">
     <div class="medium-4 columns">
         <img src="{{ site.urlimg }}hpc-server-racks.jpg" alt="">
-	<h3>HPC Resource Management</h3>
+	<h2>HPC Management</h2>
         <p><a href="hpc-resource-management">HPC Resource Management</a></p>
 	<p>CMS manage HPC resources on behalf of the ~300 HPC users in the atmospheric and polar research community. 
            This includes, but is not limited to, ARCHER2 compute and JASMIN storage. 
@@ -20,14 +20,14 @@ permalink: /services/
 
     <div class="medium-4 columns">
         <img src="{{ site.urlimg }}training.jpg" alt="">
-	<h3>Training</h3>
+	<h2>Training</h2>
         <p><a href="training">Training Index</a></p>
 	<p>NCAS-CMS run multiple training courses covering the Unified Model, UKCA, CF-Python and CF-Plot</p>
     </div><!-- /.medium-4.columns -->
 
     <div class="medium-4 columns">
         <img src="{{ site.urlimg }}projects-2.jpg" alt="">
-	<h3>Projects</h3>
+	<h2>Projects</h2>
         <p>
 	  <a href="/cms-website/services/projects">Current Projects</a><br>
 	  <a href="/cms-website/services/archived-projects">Previous Projects</a>

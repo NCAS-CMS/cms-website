@@ -30,7 +30,7 @@ A fuller explanation of the process is given in the document [Data Transfer Tool
 ~~~
 $ $UMDIR/bin/onlineca-get-cert-wget.sh -U https://slcs.jasmin.ac.uk/certificate/ -l USERNAME -o ./cred.jasmin
 ~~~
-When prompted for a password, this is the password associated with your **JASMIN** account portal account (**NOT your SSH passphrase**)
+When prompted for a passphrase, this is the password associated with your **JASMIN** account portal account (**NOT your SSH passphrase**)
 
 * Change the permissions on the newly-created `cred.jasmin` file so that it is only readable by you.
 
