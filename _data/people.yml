@@ -65,6 +65,11 @@
   position: "System administration and visualisation specialist"
   ncas_id: 10107
 
+- firstname: George
+  lastname: O'Brien
+  position:
+  ncas_id: 10574
+
 - firstname: Patrick
   lastname: McGuire
   position: "Land surface modelling development and support"
@@ -73,7 +78,7 @@
 - firstname: Andrew
   lastname: Mirza
   position: "High Resolution Climate Modelling support"
-  ncas_id: 
+  ncas_id: 10580
 
 - firstname: Annette
   lastname: Osprey

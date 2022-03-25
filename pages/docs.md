@@ -13,13 +13,16 @@ header:
 
 * [Unified Model]({{ 'unified-model' | relative_url }})
 
-* PUMA
+* [PUMA]({{ 'puma' | relative_url }})
 
 * [Monsoon2]({{ 'monsoon2' | relative_url }})
 
-* Rose/Cylc & FCM
+* [Rose/Cylc]({{ 'rose-cylc' | relative_url }})
 
-* Tools and Utilities
+* [FCM]({{ 'fcm' | relative_url }})
 
-* Miscellaneous
+* [Tools and Utilities]({{ 'tools-and-utilities' | relative_url }})
+
+* [Miscellaneous]({{ 'miscellaneous' | relative_url }})
+
 

@@ -9,6 +9,15 @@
 #
 # Note: one of file or url must be specified.
 #
+- year: 2022
+  publication_type:
+    - type: Presentations
+      docs:
+      - title: Some Title
+        file: Somefile.pdf
+        authors: Author
+        location: Virtual Workshop
+
 - year: 2021
   publication_type:
     - type: Presentations
