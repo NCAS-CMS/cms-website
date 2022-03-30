@@ -57,6 +57,7 @@ plugins:
     - jekyll-gist
     - jekyll-github-metadata
     - jekyll-paginate
+    - jekyll-sitemap
 
 
 #       ____              _             __  _
