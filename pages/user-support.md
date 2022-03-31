@@ -15,7 +15,7 @@ permalink: /user-support/
     </div><!-- /.medium-4.columns -->
 
     <div class="medium-4 columns">
-        <img src="{{ site.urlimg }}faq.jpg" alt="">
+        <img src="{{ site.urlimg }}faq-pexels.jpg" alt="">
         <h3>Frequently Asked Questions</h3>
         <p><a href="/cms-website/user-support/faq">FAQ</a></p>
         <p>Answers to some of the most commonly asked questions we receive.</p>
