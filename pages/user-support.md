@@ -8,7 +8,7 @@ permalink: /user-support/
 <!--more-->
 <div class="row t30">
     <div class="medium-4 columns">
-        <img src="{{ site.urlimg }}helpdesk.jpg" alt="">
+        <img src="{{ site.urlimg }}widget-1-302x182.jpg" alt="">
         <h3>Helpdesk</h3>
         <p><a href="https://cms-helpdesk.ncas.ac.uk">CMS Modelling Helpdesk</a></p>
         <p>For all modelling queries please raise a topic on our helpdesk.</p> 
