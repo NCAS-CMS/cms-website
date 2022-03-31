@@ -26,7 +26,7 @@ permalink: /services/
     </div><!-- /.medium-4.columns -->
 
     <div class="medium-4 columns">
-        <img src="{{ site.urlimg }}projects-2.jpg" alt="">
+        <img src="{{ site.urlimg }}projects.jpg" alt="">
 	<h2>Projects</h2>
         <p>
 	  <a href="/cms-website/services/projects">Current Projects</a><br>

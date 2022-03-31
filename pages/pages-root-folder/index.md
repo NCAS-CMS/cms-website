@@ -19,7 +19,7 @@ widget2:
 widget3:
   title: "Infrastructure"
   url: '/infrastructure/'
-  image: infrastructure.png
+  image: infrastructure.jpg
   text: 'CMS provides the infrastructure to allow users to run various complex modelling workflows (e.g. UM, NEMO, etc) on national platforms. We run the PUMA service for access to modelling codes and the Rose/Cylc workflow software.' 
 
 #
