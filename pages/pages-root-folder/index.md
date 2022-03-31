@@ -9,7 +9,7 @@ layout: frontpage
 widget1:
   title: "User Support"
   url: '/user-support/'
-  image: widget-1-302x182.jpg
+  image: user-support.jpg
   text: 'CMS provides user support to the UK atmospheric and polar science community through our Helpdesk, FAQs and online Documentation'
 widget2:
   title: "Services"
