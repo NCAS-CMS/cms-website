@@ -22,7 +22,7 @@ permalink: /user-support/
     </div><!-- /.medium-4.columns -->
 
     <div class="medium-4 columns">
-        <img src="{{ site.urlimg }}pile-of-documents.jpg" alt="">
+        <img src="{{ site.urlimg }}documentation-unsplash-crop.jpg" alt="">
         <h3>Documentation</h3>
         <p><a href="/cms-website/docs/">Documentation Index</a></p>
         <p>CMS help documents offer a wealth of information covering topics such as; getting setup to run UM on ARCHER2, using post-processing and data transfer apps, porting advice, etc...</p>
