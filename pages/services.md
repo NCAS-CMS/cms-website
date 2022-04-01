@@ -9,7 +9,7 @@ permalink: /services/
 
 <div class="row t30">
     <div class="medium-4 columns">
-        <img src="{{ site.urlimg }}hpc-server-racks.jpg" alt="">
+        <img src="{{ site.urlimg }}jasmin.jpg" alt="">
 	<h2>HPC Management</h2>
         <p><a href="hpc-resource-management">HPC Resource Management</a></p>
 	<p>CMS manage HPC resources on behalf of the ~300 HPC users in the atmospheric and polar research community. 

@@ -15,7 +15,7 @@ widget2:
   title: "Services"
   url: '/services/'
   text: 'CMS provides HPC resource management, training and software engineering support for the UK atmospheric and polar science community.'
-  image: hpc-server-racks.jpg
+  image: jasmin-2.jpg
 widget3:
   title: "Infrastructure"
   url: '/infrastructure/'
