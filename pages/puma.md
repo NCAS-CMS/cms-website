@@ -23,7 +23,7 @@ The PUMA service runs on hardware located at the University of Reading.  It host
 
 ## Request an account on PUMA
 
-Please email the CMS Team to ask for the PUMA registration link or raise a ticket on our modelling helpdesk.
+Please email the [CMS Team]({{ '/contact/' | relative_url }}) to ask for the PUMA registration link or raise a ticket on our modelling helpdesk.
 
 If you will only be running suite on Monsoon2 then you DO NOT need a PUMA account.
 
@@ -91,7 +91,7 @@ The following text editors are available on PUMA: `vi`, `emacs` and `nedit`.
 
 #### Rose/Cylc
 
-Rose, Cylc & FCM are available on PUMA.  Further details can be found on the [Rose/Cylc pages](#TODO).
+Rose, Cylc & FCM are available on PUMA.  Further details can be found on the [Rose/Cylc pages]({{ '/rose-cylc/' | relative_url}}).
 
 #### UMUI
 
