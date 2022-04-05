@@ -5,7 +5,7 @@
   title: "Contact"
 
 - name: "News"
-  url: "/blog/"
+  url: "/news/"
   title: "News"
 
 - name: "Helpdesk"
