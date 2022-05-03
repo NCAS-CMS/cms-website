@@ -25,8 +25,8 @@ author: phlow
 
 # This URL is the main address for absolute links. Don't include a slash at the end.
 #
-url: 'https://ncas-cms.github.io'
-baseurl: '/cms-website'
+url: 'https://cms.ncas.ac.uk'
+baseurl: ''
 
 # This is for the editing function in _/includes/improve_content
 # Leave it empty if your site is not on GitHub/GitHub Pages
@@ -39,12 +39,12 @@ improve_content: https://github.com/Phlow/feeling-responsive/edit/gh-pages
 # Markdown-Example for posts ![Image Text]({{ site.urlimg }}image.jpg)
 #
 #img: 'http://0.0.0.0:4000/cms-website/images/'
-urlimg: 'http://ncas-cms.github.io/cms-website/images/'
+urlimg: 'https://cms.ncas.ac.uk//images/'
 
 # This URL points directly to the static_docs directory making
 # things easier to link to static documents in posts. It needs a slash at the end.
 #
-urlstatic: 'http://ncas-cms.github.io/cms-website/static_docs/'
+urlstatic: 'http://cms.ncas.ac.uk/static_docs/'
 
 # Logo size is 600x80 pixels
 logo: "logo.png"
