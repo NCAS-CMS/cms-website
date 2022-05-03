@@ -17,14 +17,14 @@ permalink: /user-support/
     <div class="medium-4 columns">
         <img src="{{ site.urlimg }}faq-pexels.jpg" alt="">
         <h3>Frequently Asked Questions</h3>
-        <p><a href="/cms-website/user-support/faq">FAQ</a></p>
+        <p><a href="/user-support/faq">FAQ</a></p>
         <p>Answers to some of the most commonly asked questions we receive.</p>
     </div><!-- /.medium-4.columns -->
 
     <div class="medium-4 columns">
         <img src="{{ site.urlimg }}documentation-unsplash-960.jpg" alt="">
         <h3>Documentation</h3>
-        <p><a href="/cms-website/docs/">Documentation Index</a></p>
+        <p><a href="/docs/">Documentation Index</a></p>
         <p>CMS help documents offer a wealth of information covering topics such as; getting setup to run UM on ARCHER2, using post-processing and data transfer apps, porting advice, etc...</p>
     </div><!-- /.medium-4.columns -->
 </div><!-- /.row -->
