@@ -17,7 +17,7 @@ permalink: /unified-model/
 
 <div class="medium-8 medium-pull-4 columns" markdown="1">
 
-The Unified Model is used by the ​[UK Met Office](https://www.metoffice.gov.uk) for operational numerical weather prediction and by the ​[Hadley Centre for Climate Prediction and Research](https://www.metoffice.gov.uk/weather/climate/met-office-hadley-centre) to simulate and predict the Earth's climate.
+The Unified Model is used by the ​[UK Met Office](https://www.metoffice.gov.uk) for operational numerical weather prediction and by the ​[Hadley Centre for Climate Prediction and Research](https://www.metoffice.gov.uk/weather/climate/met-office-hadley-centre/index) to simulate and predict the Earth's climate.
 
 The UM can be used in atmosphere only mode, or coupled to other models including, but not limited to, the [NEMO ocean](https://www.nemo-ocean.eu/) and CICE sea-ice models via the [OASIS coupler](https://portal.enes.org/oasis), [UKCA chemistry and aerosols](https://www.ukca.ac.uk) and the [JULES land-surface model](https://jules.jchmr.org/).  It can also be used in other modes, including Single Column Model (SCM), Aquaplanet & Exoplanet.
 
