@@ -14,7 +14,7 @@ teaser: Release notes for the atmosphere-only (AMIP) configuration of the UK Ear
 
 <div class="medium-8 medium-pull-4 columns" markdown="1">
 
-[Fully coupled configurations of UKESM1](/cms-website/unified-model/configurations/ukesm/relnotes-1.0/coupled) are also available.
+[Fully coupled configurations of UKESM1](/unified-model/configurations/ukesm/relnotes-1.0/coupled) are also available.
 
 ## Model and Suite Specifications
 
@@ -22,7 +22,7 @@ The current version of UKESM1 has an atmospheric resolution of N96 (~140 km) and
 
 Each configuration of the model is distributed and run as a [Rose](#TODO) suite.
 
-*Note: that links to suites (and to a couple of other pages) require access to the Met Office Science Repository Service (MOSRS) - see the [introduction to UKESM1](/cms-website/unified-model/configurations/ukesm) for more details.*
+*Note: that links to suites (and to a couple of other pages) require access to the Met Office Science Repository Service (MOSRS) - see the [introduction to UKESM1](/unified-model/configurations/ukesm) for more details.*
 
 | UM Version | AMIP |
 | vn11.1 | [u-be303](https://code.metoffice.gov.uk/trac/roses-u/browser/b/e/3/0/3/trunk) |
@@ -47,7 +47,7 @@ Options for specifying the account under which jobs will be run are also availab
 * If the option is `other`, then enter the account explicitly in **'Other' user account**.
 
 ## Running on other machines
-The model may be run on other (i.e. non-Met Office) machines. See the [introduction to UKESM1](/cms-website/unified-model/configurations/ukesm) for more on available resources and how to access them. More specific instructions for suite settings for different machines are given in the following subsections.
+The model may be run on other (i.e. non-Met Office) machines. See the [introduction to UKESM1](/unified-model/configurations/ukesm) for more on available resources and how to access them. More specific instructions for suite settings for different machines are given in the following subsections.
 
 ### Monsoon
 To run on Monsoon, the Met Office / NERC collaborative platform:

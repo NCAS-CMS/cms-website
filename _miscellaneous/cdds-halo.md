@@ -21,7 +21,7 @@ The following example shows how to specify your HALO_START_DIR path:
 
 `HALO_START_DIR = /gws/nopw/j04/rdf_migrate_vol2/my_username/u-aa123`
 
-![Suite Structure](/cms-website/images/cdds-halo-suite-structure.png)
+![Suite Structure](/images/cdds-halo-suite-structure.png)
 
  2) **root-dir{work}**
  

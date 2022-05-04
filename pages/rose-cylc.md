@@ -36,7 +36,7 @@ Rose is a toolkit for writing, editing and running application configurations.  
 ### Unified Model
 
 * Met Office tutorial on how to run the UM in Rose is available on the Met Office Science Repository Service: [​https://code.metoffice.gov.uk/doc/um/latest/um-training/index.html](​https://code.metoffice.gov.uk/doc/um/latest/um-training/index.html)
-* For new users, the [NCAS UM Introduction training course](/cms-website/services/training/#introduction-to-the-unified-model) gets you started running the UM with Rose. Material from recent courses is always available for reference & self-study.
+* For new users, the [NCAS UM Introduction training course](/services/training/#introduction-to-the-unified-model) gets you started running the UM with Rose. Material from recent courses is always available for reference & self-study.
 
 ## Setup
 
