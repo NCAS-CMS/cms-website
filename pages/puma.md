@@ -23,15 +23,41 @@ The PUMA service runs on hardware located at the University of Reading.  It host
 
 ## Request an account on PUMA
 
-Please email the [CMS Team]({{ '/contact/' | relative_url }}) to ask for the PUMA registration link or raise a ticket on our modelling helpdesk.
+If you will only be running the UM on Monsoon2 then you DO NOT need a PUMA account.
 
-If you will only be running suite on Monsoon2 then you DO NOT need a PUMA account.
+Please email the [CMS Team]({{ '/contact/' | relative_url }}) with the following information to request an account:
+* Full Name
+* Your Institution
+* Email Address (Must be .ac.uk or .metoffice.gov.uk)
+* Preferred PUMA user id
+* Confirm that you accept the [terms of usage](#terms-of-usage).
+
+</div><!-- /.medium-8 -->
+</div><!-- /.row -->
+
+## Terms of Usage
+
+The service is provided for bona fide UM activities. The use of these services must be legal, honest and decent. This includes, but is not limited to:
+
+* Complying with all UK and international laws and regulations regarding computer and data use.
+* Being considerate to others.
+* Using resources responsibly. Irresponsible use includes collection, creation, display and circulation of material that others would find offensive.
+* Observing simple security protocols such as not sharing passwords and keeping passwords safe. 
+
+Failure to observe these rules will lead to the closure of your PUMA account.
+
+By registering for a PUMA account you are agreeing to the UM licensing conditions that you will:
+
+* NOT give the UM to others
+* NOT use the UM for commercial purposes
+* NOT publish or do anything that could bring the UM or Met office into disrepute. 
+
+As part of your registration we will maintain a record of your username and email address which we will only use to contact you regarding updates to and your usage of the PUMA service. 
 
 ## Connecting to PUMA 
 
 Both an SSH key pair, protected by a passphrase, **and** a password are required to login onto PUMA. Interactive access is achieved using SSH, either directly from a command-line terminal or using an SSH client. 
-</div><!-- /.medium-8 -->
-</div><!-- /.row -->
+
 #### Windows
 
 A typical Windows installation will not include a terminal client.  We recommend Windows users download and install MobaXterm to access PUMA. JASMIN website has some nice instructions on using [MobaXterm](https://help.jasmin.ac.uk/article/4832-mobaxterm).
