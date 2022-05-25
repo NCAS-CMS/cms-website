@@ -13,7 +13,7 @@ The HadGEM3 family of models comprises a range of specific model configurations 
 
 ###  UKESM
 
-[UKESM1](ukesm) is the first release of the UK Earth System Model.  Built as a joint venture by the Met Office Hadley Centre and the Natural Environment Research Council (NERC), UKESM1 consists of the HadGEM3 coupled physical climate model (see [above](#hadgem3)) plus additional components that model key biogeochemical, chemistry, aerosol and vegetation processes.  More details about UKESM1 and how to access it are available [here](ukesm).
+The [UK Earth System Model](ukesm) (UKESM) has been built as a joint venture between the Met Office Hadley Centre and the Natural Environment Research Council (NERC).  It consists of the HadGEM3 coupled physical climate model (see [above](#hadgem3)) plus additional components that model key biogeochemical, chemistry, aerosol and vegetation processes.  More details about UKESM and how to access it are available [here](ukesm).
 
 ### Performance
 
