@@ -1,16 +1,18 @@
 ---
 title: UKESM1 Release Notes
 ---
-These are the notes for the first release of the UK Earth System Model (UKESM1). Some background information on the model, its components and the prerequisites for using it can be found in the [introduction to UKESM1](/unified-model/configurations/ukesm/).
+These are the notes for UKESM1, the first release of the UK Earth System Model. Some background information on the model, its components and the prerequisites for using it can be found in the [introduction to UKESM](/unified-model/configurations/ukesm/).
+
+UKESM1.1 is a later release of UKESM.  Its release notes are [here](relnotes-1.1.md).
 
 ## Model Configurations
 
 The model is available in a number of configurations for running different types of experiment:
 
-* [Atmosphere-only](amip):
+* [Atmosphere-only](relnotes-1-0-amip):
 The so-called **AMIP** configuration, in which the model atmosphere is forced by observed sea surface temperature and sea ice boundary conditions.
 
-* [Coupled](coupled)::
+* [Coupled](relnotes-1-0-coupled):
 Two fully coupled configurations, which each make use of all model components:
   * one set up to run the CMIP6 **pre-industrial** control experiment, and
   * one to run the CMIP6 **historical** experiment.
