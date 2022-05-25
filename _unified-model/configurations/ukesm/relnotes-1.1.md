@@ -1,7 +1,7 @@
 ---
 title: UKESM1.1 Release Notes
 ---
-These are the notes for UKESM1, the latest release of the UK Earth System Model. Some background information on the model, its components and the prerequisites for using it can be found in the [introduction to UKESM](/unified-model/configurations/ukesm/).
+These are the notes for UKESM1, the latest release of the UK Earth System Model. Some background information on the model, its components and the prerequisites for using it can be found in the [introduction to UKESM](/_unified-model/configurations/ukesm.md).
 
 UKESM1 was the first release of UKESM.  Its release notes are [here](relnotes-1.0.md).
 
