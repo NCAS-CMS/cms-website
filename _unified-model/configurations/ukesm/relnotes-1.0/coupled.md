@@ -1,6 +1,6 @@
 ---
 title: UKESM1-coupled Release Notes
-teaser: Release notes for the fully coupled configurations of the UK Earth System Model (UKESM1).
+teaser: Release notes for the fully coupled configurations of version 1 of the UK Earth System Model (UKESM1).
 ---
 <div class="row">
 <div class="medium-4 medium-push-8 columns" markdown="1">
@@ -14,20 +14,20 @@ teaser: Release notes for the fully coupled configurations of the UK Earth Syste
 
 <div class="medium-8 medium-pull-4 columns" markdown="1">
 
-An [atmosphere-only (AMIP) configuration of UKESM1](/unified-model/configurations/ukesm/relnotes-1.0/amip) is also available for use.
+An [atmosphere-only (AMIP) configuration of UKESM1](/unified-model/configurations/ukesm/relnotes-1.0/amip.md) is also available for use.
 
 ## Model and suite specifications
 The current version of UKESM1 has an atmospheric resolution of N96 (~140 km) and a one degree resolution in the ocean. The vertical resolution is 85 levels in the atmosphere and 75 levels in the ocean.
 
-Each configuration of the model is distributed and run as a [Rose](#TODO) suite.
+Each configuration of the model is distributed and run as a [Rose]({{site.baseurl}}/pages/rose-cylc) suite.
 
-*Note that links to suites (and to a couple of other pages) require access to the Met Office Science Repository Service (MOSRS) - see the [introduction to UKESM1](/unified-model/configurations/ukesm) for more details.*
+*Note that links to suites (and to a couple of other pages) require access to the Met Office Science Repository Service (MOSRS) - see the [introduction to UKESM](/_unified-model/configurations/ukesm.md) for more details.*
 
 ### historical, pre-industrial control
 There are two fully coupled UKESM1 configurations which each make use of all model components: one with science settings for a historical experiment, and one with settings for a pre-industrial control experiment.
 
 | UM version | historical | pre-industrial control |
-| vn11.2 | ​[u-bc613](https://code.metoffice.gov.uk/trac/roses-u/browser/b/c/6/1/3/trunk) | [u-bc964](https://code.metoffice.gov.uk/trac/roses-u/browser/b/c/9/6/4/trunk) |
+| vn11.2 | [u-bc613](https://code.metoffice.gov.uk/trac/roses-u/browser/b/c/6/1/3/trunk) | [u-bc964](https://code.metoffice.gov.uk/trac/roses-u/browser/b/c/9/6/4/trunk) |
 
 </div><!-- /.medium-8.columns -->
 </div><!-- /.row -->
@@ -35,16 +35,16 @@ There are two fully coupled UKESM1 configurations which each make use of all mod
 ### abrupt4xCO2, 1%CO2
 Configurations for abrupt4xCO2 and 1%CO2 experiments can be created using the pre-industrial control experiment as a starting point.
 
-To create a suite for the abrupt4xCO2 experiment, first make a copy of the ​[pre-industrial control suite](https://code.metoffice.gov.uk/trac/roses-u/browser/b/c/9/6/4/trunk), then in *"um -> namelist -> UM Science Settings -> Section 01-02 - Radation -> GAS MMRs"*, set `co2_mmr=1.72728e-03`.
+To create a suite for the abrupt4xCO2 experiment, first make a copy of the [pre-industrial control suite](https://code.metoffice.gov.uk/trac/roses-u/browser/b/c/9/6/4/trunk), then in *um -> namelist -> UM Science Settings -> Section 01-02 - Radation -> GAS MMRs*, set `co2_mmr=1.72728e-03`.
 
-To create a suite for the 1xCO2 experiment, first make a copy of the ​[pre-industrial control suite](https://code.metoffice.gov.uk/trac/roses-u/browser/b/c/9/6/4/trunk), then in *"um -> namelist -> UM Science Settings -> Section 01-02 - Radation -> GAS MMRs -> Varying gas MMRs"*, set `l_clmchfcg=.true.` to enable time-varying GHGs. Finally, in the sub-panel *"Varying CO2 MMRs"*, set
+To create a suite for the 1xCO2 experiment, first make a copy of the [pre-industrial control suite](https://code.metoffice.gov.uk/trac/roses-u/browser/b/c/9/6/4/trunk), then in **um -> namelist -> UM Science Settings -> Section 01-02 - Radation -> GAS MMRs -> Varying gas MMRs**, set `l_clmchfcg=.true.` to enable time-varying GHGs. Finally, in the sub-panel **Varying CO2 MMRs**, set
 ~~~
 clim_fcg_levls_co2=4.3182e-04
 clim_fcg_nyears_co2=1
 clim_fcg_rates_co2=1.0
 clim_fcg_years_co2=1849
 ~~~
-See [below](#TODO) for more on the science settings of the model.
+See [below](#science-notes) for more on the science settings of the model.
 
 ## Running on the Met Office HPC
 By default, each UKESM1 suite is set up to run the model on the Met Office HPC (i.e. *"suite conf -> Machine Options -> Site at which model is being run"* is set to **MetO Cray**). The suite offers several options for specifying how the model is to be run, including:
