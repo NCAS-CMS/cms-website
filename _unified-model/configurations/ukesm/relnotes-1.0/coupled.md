@@ -35,7 +35,7 @@ There are two fully coupled UKESM1 configurations which each make use of all mod
 ### abrupt4xCO2, 1%CO2
 Configurations for abrupt4xCO2 and 1%CO2 experiments can be created using the pre-industrial control experiment as a starting point.
 
-To create a suite for the abrupt4xCO2 experiment, first make a copy of the [pre-industrial control suite](https://code.metoffice.gov.uk/trac/roses-u/browser/b/c/9/6/4/trunk), then in *um -> namelist -> UM Science Settings -> Section 01-02 - Radation -> GAS MMRs*, set `co2_mmr=1.72728e-03`.
+To create a suite for the abrupt4xCO2 experiment, first make a copy of the [pre-industrial control suite](https://code.metoffice.gov.uk/trac/roses-u/browser/b/c/9/6/4/trunk), then in **um -> namelist -> UM Science Settings -> Section 01-02 - Radation -> GAS MMRs**, set `co2_mmr=1.72728e-03`.
 
 To create a suite for the 1xCO2 experiment, first make a copy of the [pre-industrial control suite](https://code.metoffice.gov.uk/trac/roses-u/browser/b/c/9/6/4/trunk), then in **um -> namelist -> UM Science Settings -> Section 01-02 - Radation -> GAS MMRs -> Varying gas MMRs**, set `l_clmchfcg=.true.` to enable time-varying GHGs. Finally, in the sub-panel **Varying CO2 MMRs**, set
 ~~~
@@ -47,26 +47,26 @@ clim_fcg_years_co2=1849
 See [below](#science-notes) for more on the science settings of the model.
 
 ## Running on the Met Office HPC
-By default, each UKESM1 suite is set up to run the model on the Met Office HPC (i.e. *"suite conf -> Machine Options -> Site at which model is being run"* is set to **MetO Cray**). The suite offers several options for specifying how the model is to be run, including:
+By default, each UKESM1 suite is set up to run the model on the Met Office HPC (i.e. **suite conf -> Machine Options -> Site at which model is being run** is set to `MetO Cray`). The suite offers several options for specifying how the model is to be run, including:
 
-* login node to be used for submission to Met Office HPC: *"suite conf -> Machine Options -> MetO Cray login node"*
-* Met Office queue to which jobs will be submitted: *"suite conf -> Machine Options -> HPC queue"*
-* 
-Options for specifying the account under which jobs will be run are available in *"suite conf -> Project Accounting"*:
+* login node to be used for submission to Met Office HPC: **suite conf -> Machine Options -> MetO Cray login node**
+* Met Office queue to which jobs will be submitted: **suite conf -> Machine Options -> HPC queue**
+
+Options for specifying the account under which jobs will be run are available in **suite conf -> Project Accounting**:
 
 * Select **Use default account** to use the default account for your department.
 * If this is set to `false`, then choose an option from the **Account** menu.
 * If the option is `other`, then enter the account explicitly in **'Other' user account**.
 
 ## Running on other machines
-The model may be run on other (i.e. non-Met Office) machines. See the [introduction to UKESM1](/unified-model/configurations/ukesm) for more on available resources and how to access them. More specific instructions for suite settings for different machines are given in the following subsections.
+The model may be run on other (i.e. non-Met Office) machines. See the [introduction to UKESM1](/_unified-model/configurations/ukesm) for more on available resources and how to access them. More specific instructions for suite settings for different machines are given in the following subsections.
 
 ### Monsoon
-To run on Monsoon, the Met Office / NERC collaborative platform, set *"suite conf -> Machine Options -> Site at which model is being run"* to **MONSooN**.
+To run on Monsoon, the Met Office / NERC collaborative platform, set **suite conf -> Machine Options -> Site at which model is being run** to `MONSooN`.
 
-Output files created by the suite running on Monsoon may be archived via the Met Office Operational Storage Environment (MOOSE). The options for requesting this can be found under the *"postproc -> Post Processing - common settings"* control panel. Set `archive_command` to **Moose** and provide (or check) values for further options in the subpanel *"Moose Archiving"*. See [below](#TODO) for more on the `non_duplexed_set` option.
+Output files created by the suite running on Monsoon may be archived via the Met Office Operational Storage Environment (MOOSE). The options for requesting this can be found under the **postproc -> Post Processing - common settings** control panel. Set **archive_command** to `Moose` and provide (or check) values for further options in the subpanel **Moose Archiving**. See [below](#archiving-of-duplexed-data) for more on the `non_duplexed_set` option.
 
-Note that you must have a MOOSE account before archiving will work - see [below](#TODO) for help.
+Note that you must have a MOOSE account before archiving will work - see [below](#support) for help.
 
 ### Archer2
 {% include alert warning="Rewrite for ARCHER2 suites" %}
