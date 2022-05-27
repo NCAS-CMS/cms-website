@@ -1,6 +1,6 @@
 ---
-title: UKESM1-coupled Release Notes
-teaser: Release notes for the fully coupled configurations of version 1 of the UK Earth System Model (UKESM1).
+title: UKESM1.1-coupled Release Notes
+teaser: Release notes for the fully coupled configurations of version 1.1 of the UK Earth System Model (UKESM1).
 ---
 <div class="row">
 <div class="medium-4 medium-push-8 columns" markdown="1">
@@ -14,10 +14,10 @@ teaser: Release notes for the fully coupled configurations of version 1 of the U
 
 <div class="medium-8 medium-pull-4 columns" markdown="1">
 
-An [atmosphere-only (AMIP) configuration of UKESM1](/unified-model/configurations/ukesm/relnotes-1.0/amip.md) is also available for use.
+An [atmosphere-only (AMIP) configuration of UKESM1.1](/_unified-model/configurations/ukesm/relnotes-1.1/amip.md) is also available for use.
 
 ## Model and suite specifications
-The current version of UKESM1 has an atmospheric resolution of N96 (~140 km) and a one degree resolution in the ocean. The vertical resolution is 85 levels in the atmosphere and 75 levels in the ocean.
+The current version of UKESM1.1 has an atmospheric resolution of N96 (~140 km) and a one degree resolution in the ocean. The vertical resolution is 85 levels in the atmosphere and 75 levels in the ocean.
 
 Each configuration of the model is distributed and run as a [Rose]({{site.baseurl}}/pages/rose-cylc) suite.
 
@@ -27,7 +27,7 @@ Each configuration of the model is distributed and run as a [Rose]({{site.baseur
 There are two fully coupled UKESM1 configurations which each make use of all model components: one with science settings for a historical experiment, and one with settings for a pre-industrial control experiment.
 
 | UM version | historical | pre-industrial control |
-| vn11.2 | [u-bc613](https://code.metoffice.gov.uk/trac/roses-u/browser/b/c/6/1/3/trunk) | [u-bc964](https://code.metoffice.gov.uk/trac/roses-u/browser/b/c/9/6/4/trunk) |
+| vn12.1 | [u-cj512](https://code.metoffice.gov.uk/trac/roses-u/browser/c/j/5/1/2/trunk) | [u-cj511](https://code.metoffice.gov.uk/trac/roses-u/browser/c/j/5/1/1/trunk) |
 
 </div><!-- /.medium-8.columns -->
 </div><!-- /.row -->
@@ -35,9 +35,9 @@ There are two fully coupled UKESM1 configurations which each make use of all mod
 ### abrupt4xCO2, 1%CO2
 Configurations for abrupt4xCO2 and 1%CO2 experiments can be created using the pre-industrial control experiment as a starting point.
 
-To create a suite for the abrupt4xCO2 experiment, first make a copy of the [pre-industrial control suite](https://code.metoffice.gov.uk/trac/roses-u/browser/b/c/9/6/4/trunk), then in **um -> namelist -> UM Science Settings -> Section 01-02 - Radation -> GAS MMRs**, set `co2_mmr=1.72728e-03`.
+To create a suite for the abrupt4xCO2 experiment, first make a copy of the [pre-industrial control suite](https://code.metoffice.gov.uk/trac/roses-u/browser/c/j/5/1/1/trunk), then in **um -> namelist -> UM Science Settings -> Section 01-02 - Radation -> GAS MMRs**, set `co2_mmr=1.72728e-03`.
 
-To create a suite for the 1xCO2 experiment, first make a copy of the [pre-industrial control suite](https://code.metoffice.gov.uk/trac/roses-u/browser/b/c/9/6/4/trunk), then in **um -> namelist -> UM Science Settings -> Section 01-02 - Radation -> GAS MMRs -> Varying gas MMRs**, set `l_clmchfcg=.true.` to enable time-varying GHGs. Finally, in the sub-panel **Varying CO2 MMRs**, set
+To create a suite for the 1xCO2 experiment, first make a copy of the [pre-industrial control suite](https://code.metoffice.gov.uk/trac/roses-u/browser/c/j/5/1/1/trunk), then in **um -> namelist -> UM Science Settings -> Section 01-02 - Radation -> GAS MMRs -> Varying gas MMRs**, set `l_clmchfcg=.true.` to enable time-varying GHGs. Finally, in the sub-panel **Varying CO2 MMRs**, set
 ~~~
 clim_fcg_levls_co2=4.3182e-04
 clim_fcg_nyears_co2=1
@@ -47,7 +47,7 @@ clim_fcg_years_co2=1849
 See [below](#science-notes) for more on the science settings of the model.
 
 ## Running on the Met Office HPC
-By default, each UKESM1 suite is set up to run the model on the Met Office HPC (i.e. **suite conf -> Machine Options -> Site at which model is being run** is set to `MetO Cray`). The suite offers several options for specifying how the model is to be run, including:
+By default, each UKESM1.1 suite is set up to run the model on the Met Office HPC (i.e. **suite conf -> Machine Options -> Site at which model is being run** is set to `MetO Cray`). The suite offers several options for specifying how the model is to be run, including:
 
 * login node to be used for submission to Met Office HPC: **suite conf -> Machine Options -> MetO Cray login node**
 * Met Office queue to which jobs will be submitted: **suite conf -> Machine Options -> HPC queue**
@@ -68,25 +68,26 @@ Output files created by the suite running on Monsoon may be archived via the Met
 
 Note that you must have a MOOSE account before archiving will work - see [below](#support) for help.
 
-### Archer2
-{% include alert warning="Rewrite for ARCHER2 suites" %}
-To run on Archer2, the NERC platform, set suite *"conf -> Machine Options -> Site at which model is being run"* to Archer2 and set these other Machine Options:
+### ARCHER2
+To run on ARCHER2, the NERC platform, set suite **suite conf -> Machine Options -> Site at which model is being run** to `Archer2` and set these other Machine Options:
 
-Use Environment Modules to Custom module files
-Science Configuration Module Name to GC3-PrgEnv/2.0/90386
-Module file location to /work/y07/y07/umshared/moci/modules/modules
-In addition, the following tests (see below) must be turned off when running on Archer:
+* **Use Environment Modules** to `Custom module files`
+* **Science Configuration Module Name** to `GC3-PrgEnv/2.0/2021.12.15`
+* **Module file location** to `/work/y07/shared/umshared/moci/modules/modules`
 
-Test restartability
-Test rigorous compiler option
-Test PE decomposition change
-Archive integrity
-CPMIP Analysis -> CPMIP load balancing analysis
-Output files created by the suite running on Archer may be archived to disk. The options for requesting this can be found under the postproc -> Post Processing - common settings control panel. Set archive_command to Archer and provide values for archive_root_path and archive_name in the subpanel Archer Archiving to specify the location of the archived files on Archer.
+In addition, the following tests (see below) must be turned off when running on ARCHER2:
 
-Following archiving, the files may be optionally transferred to a remote machine such as JASMIN. Provide values for remote_host (the address of the remote machine) and transfer_dir (the location of the archived files on the remote machine) in the subpanel JASMIN Transfer. In addition, transferring must be turned on by setting suite conf -> Build and Run -> PP Transfer to true.
+* **Test restartability**
+* **Test rigorous compiler option**
+* **Test PE decomposition change**
+* **Archive integrity**
+* **CPMIP Analysis -> CPMIP load balancing analysis**
 
-Note that, before transfer from Archer to JASMIN can work, some setup of communications (specifically, both between PUMA and Archer data transfer node?, and between Archer data transfer node and JASMIN?) is required.
+Output files created by the suite running on ARCHER2 may be archived to disk. The options for requesting this can be found under the **postproc -> Post Processing - common settings** control panel. Set **archive_command** to `Archer2` and provide values for **archive_root_path** and **archive_name** in the subpanel **Archer Archiving** to specify the location of the archived files on ARCHER2.
+
+Following archiving, the files may be optionally transferred to a remote machine such as JASMIN. Provide values for **remote_host** (the address of the remote machine) and **transfer_dir** (the location of the archived files on the remote machine) in the subpanel **JASMIN Transfer**. In addition, transferring must be turned on by setting **suite conf -> Build and Run -> PP Transfer** to `true`.
+
+Note that, before transfer from Archer to JASMIN can work, some setup of communications (specifically, both between PUMA and Archer data transfer node, and between Archer data transfer node and JASMIN) is required.
 
 ## Using the model in a CMIP6 production run
 Using the model in a CMIP6 production run requires the provision of extra information (for example, the MIP and the experiment to which the run is contributing). This information must be specified in the suite, and the suite will check its validity. See ​[here on MOSRS](https://code.metoffice.gov.uk/trac/ukcmip6/wiki/CMIP6/RoseSuiteMetadata) for more details about this information.
