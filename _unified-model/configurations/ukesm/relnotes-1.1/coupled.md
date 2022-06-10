@@ -69,13 +69,25 @@ Output files created by the suite running on Monsoon may be archived via the Met
 Note that you must have a MOOSE account before archiving will work - see [below](#support) for help.
 
 ### ARCHER2
-To run on ARCHER2, the NERC platform, set suite **suite conf -> Machine Options -> Site at which model is being run** to `Archer2` and set these other Machine Options:
+To run on ARCHER2, the NERC platform, first set **suite conf -> Machine Options -> Site at which model is being run** to `Archer2` and then:
+
+1. Set these other **Machine Options**:
 
 * **Use Environment Modules** to `Custom module files`
 * **Science Configuration Module Name** to `GC3-PrgEnv/2.0/2021.12.15`
 * **Module file location** to `/work/y07/shared/umshared/moci/modules/modules`
 
-In addition, the following tests (see below) must be turned off when running on ARCHER2:
+2. Setting the site to `Archer2` causes other options to appear under **suite conf -> Project Accounting**.  Set appropriate values for:
+
+* **User account for HPC tasks**
+* **Account group for HPC tasks**
+
+3.  Under **suite conf -> Domain Decomposition -> Atmosphere**, set:
+
+* **Use max processes per node** to `false`
+* **Max number of processes/node** to `128`
+
+4.  Under **suite conf -> Testing**, set the following to `false`:
 
 * **Test restartability**
 * **Test rigorous compiler option**
@@ -83,11 +95,21 @@ In addition, the following tests (see below) must be turned off when running on 
 * **Archive integrity**
 * **CPMIP Analysis -> CPMIP load balancing analysis**
 
-Output files created by the suite running on ARCHER2 may be archived to disk. The options for requesting this can be found under the **postproc -> Post Processing - common settings** control panel. Set **archive_command** to `Archer2` and provide values for **archive_root_path** and **archive_name** in the subpanel **Archer Archiving** to specify the location of the archived files on ARCHER2.
+Output files created by the suite running on ARCHER2 may be archived to disk. The options for requesting this can be found under the **postproc -> Post Processing - common settings** control panel. Set **archive_command** to `Archer` and then, under **postproc -> Post Processing - common settings -> Archer Archiving**, provide values for:
 
-Following archiving, the files may be optionally transferred to a remote machine such as JASMIN. Provide values for **remote_host** (the address of the remote machine) and **transfer_dir** (the location of the archived files on the remote machine) in the subpanel **JASMIN Transfer**. In addition, transferring must be turned on by setting **suite conf -> Build and Run -> PP Transfer** to `true`.
+* **archive_root_path** (the location on Archer2 where the files are to be archived)
+* **archive_name** (the name of the archive)
 
-Note that, before transfer from Archer to JASMIN can work, some setup of communications (specifically, both between PUMA and Archer data transfer node, and between Archer data transfer node and JASMIN) is required.
+to specify the location of the archived files on ARCHER2.
+
+Following archiving, the files may be optionally transferred to a remote machine such as JASMIN. Under **postproc -> Post Processing - common settings -> JASMIN transfer**, provide values for:
+
+* **remote_host** (the address of the remote machine) 
+* **transfer_dir** (the location of the archived files on the remote machine)
+
+In addition, transferring must be turned on by setting **suite conf -> Build and Run -> PP Transfer** to `true`.
+
+Note that, before transfer from Archer to JASMIN can work, some setup of communications (specifically, both between PUMA and Archer data transfer node, and between Archer data transfer node and JASMIN) is required.  See https://github.com/jprb-walton/cms-website/blob/main/_archer2/pptransfer.md
 
 ## Using the model in a CMIP6 production run
 Using the model in a CMIP6 production run requires the provision of extra information (for example, the MIP and the experiment to which the run is contributing). This information must be specified in the suite, and the suite will check its validity. See ​[here on MOSRS](https://code.metoffice.gov.uk/trac/ukcmip6/wiki/CMIP6/RoseSuiteMetadata) for more details about this information.
