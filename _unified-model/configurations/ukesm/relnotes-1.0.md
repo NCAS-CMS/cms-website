@@ -23,7 +23,7 @@ A full description of how to access and run each configuration can be found on t
 
 ## CMIP6 Data
 
-Datasets from CMIP6 experiments run using UKESM1.0 are available from the Earth System Grid Federation (ESGF).  Full details are available from the following Digital Object Identifiers (DOIs):
+Datasets from CMIP6 experiments run using UKESM1 are available from the Earth System Grid Federation (ESGF).  Full details are available from the following Digital Object Identifiers (DOIs):
 
 | Experiment | DOI |
 | DECK | https://doi.org/10.22033/ESGF/CMIP6.1569 |
