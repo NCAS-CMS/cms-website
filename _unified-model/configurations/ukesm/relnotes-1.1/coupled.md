@@ -84,7 +84,7 @@ To run on ARCHER2, the NERC platform, first set **suite conf -> Machine Options 
 * **User account for HPC tasks**
 * **Account group for HPC tasks**
 
-3.  Under **suite conf -> Domain Decomposition -> Atmosphere**, set:
+3. Under **suite conf -> Domain Decomposition -> Atmosphere**, set:
 
 * **Use max processes per node** to `false`
 * **Max number of processes/node** to `128`
