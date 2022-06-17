@@ -64,7 +64,7 @@ The model may be run on other (i.e. non-Met Office) machines. See the [introduct
 ### Monsoon2
 To run on Monsoon2, the Met Office / NERC collaborative platform, set **suite conf -> Machine Options -> Site at which model is being run** to `MONSooN`.
 
-Output files created by the suite running on Monsoon2 may be archived via the Met Office Operational Storage Environment (MOOSE). The options for requesting this can be found under the **postproc -> Post Processing - common settings** control panel. Set **archive_command** to `Moose` and provide (or check) values for further options in the subpanel **Moose Archiving**. See [below](#archiving-of-duplexed-data) for more on the `non_duplexed_set` option.
+Output files created by the suite running on Monsoon2 may be archived via the Met Office Operational Storage Environment (MOOSE). The options for requesting this can be found under the **postproc -> Post Processing - common settings** control panel. Set **archive_command** to `Moose` and provide (or check) values for further options in the subpanel **Moose Archiving**. See [below](#archiving-of-duplexed-data) for more on the **non_duplexed_set** option.
 
 Note that you must have a MOOSE account before archiving will work - see [below](#support) for help.
 
@@ -155,7 +155,7 @@ Note that the ocean must be rebuilt (by setting **suite conf -> Build and Run ->
 
 Setting these parameters to other values may require load balancing to ensure that HPC resources are being used in the most efficient fashion.
 
-## Calculation of node count
+### Calculation of node count
 On **suite conf -> Domain Decomposition -> Atmosphere**, the number of processes used by the UM can be set via **Atmosphere: Processes East-West** and **Atmosphere: Processes North-South**; additional processes for the IO Server may be requested using **IO Server Processes**. Finally, **OpenMP threads for the atmosphere** sets the number of threads for each process; multiplying this by the number of processes gives the number of compute tasks.
 
 Using the parameter values for the 36 node suite, the number of tasks used by the UM is `(32 * 18 + 0) * 2 = 1152`. Dividing by the number of cores per node (in this case `36`) and rounding up (because different executables cannot run on the same node) gives 32 compute nodes used by the atmosphere.
