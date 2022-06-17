@@ -61,17 +61,23 @@ Note that you must have a MOOSE account before archiving can work - see [below](
 ### ARCHER2
 
 #### Setup
-To run on Archer, the NERC platform, set *"suite conf -> Host Machine -> Site at which model is being run"* to Archer.
+To run on ARCHER2, the NERC platform, first set **suite conf -> Host Machine -> Site at which model is being run** to `Archer2`.  Then
 
-When running on Archer, the maximum number of processes per node (see suite conf -> Domain Decomposition -> Atmosphere -> Max number of processes/node) must be set to 24. This value must also be set for the Max number of process/node parameter in suite conf -> Testing -> Processor Decomposition and suite conf -> Testing -> OpenMP if the respective tests have been turned on (see below).
+1. Setting the site to `Archer2` causes other options to appear under **suite conf -> Project Accounting**.  Set appropriate values for:
 
-In addition, the following options (see below) must be turned off when running on Archer:
+* **User account for HPC tasks**
+* **Account group for HPC tasks**
 
-suite conf -> Tasks -> Archive UM wallclock times
-suite conf -> Tasks -> Archive UM output logs
-suite conf -> Tasks -> Supermeans
-suite conf -> Testing -> OpenMP -> Run No OpenMP test
-suite conf -> Testing -> Diagnostics -> Run increment budget test
+2. Under **suite conf -> Domain Decomposition -> Atmosphere**, set **Max number of processes/node** to `128`. This value must also be set for the **Max number of process/node** parameter in **suite conf -> Testing -> Processor Decomposition** and **suite conf -> Testing -> OpenMP** if the respective tests have been turned on (see below).
+
+In addition, the following options (see below) must be turned off (i.e. set to `false`) when running on Archer2:
+
+* **suite conf -> Tasks -> Archive UM wallclock times**
+* **suite conf -> Tasks -> Archive UM output logs**
+* **suite conf -> Tasks -> Supermeans**
+* **suite conf -> Testing -> OpenMP -> Run No OpenMP test**
+* **suite conf -> Testing -> Diagnostics -> Run increment budget test**
+
 Output files created by the suite running on Archer may be archived to disk. The options for requesting this can be found under the postproc -> Post Processing - common settings control panel. Set archive_command to Archer and provide values for archive_root_path and archive_name in the subpanel Archer Archiving to specify the location of the archived files on Archer.
 
 Following archiving, the files may be optionally transferred to a remote machine such as JASMIN. Provide values for remote_host (the address of the remote machine) and transfer_dir (the location of the archived files on the remote machine) in the subpanel JASMIN Transfer. In addition, transferring must be turned on by setting suite conf -> Tasks -> PP Transfer to true.
