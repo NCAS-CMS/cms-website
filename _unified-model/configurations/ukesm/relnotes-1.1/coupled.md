@@ -59,7 +59,7 @@ Options for specifying the account under which jobs will be run are available in
 * If the option is `other`, then enter the account explicitly in **'Other' user account**.
 
 ## Running on other machines
-The model may be run on other (i.e. non-Met Office) machines. See the [introduction to UKESM1](/_unified-model/configurations/ukesm) for more on available resources and how to access them. More specific instructions for suite settings for different machines are given in the following subsections.
+The model may be run on other (i.e. non-Met Office) machines. See the [introduction to UKESM](/_unified-model/configurations/ukesm) for more on available resources and how to access them. More specific instructions for suite settings for different machines are given in the following subsections.
 
 ### Monsoon2
 To run on Monsoon2, the Met Office / NERC collaborative platform, set **suite conf -> Machine Options -> Site at which model is being run** to `MONSooN`.
