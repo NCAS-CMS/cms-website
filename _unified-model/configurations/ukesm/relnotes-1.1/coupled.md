@@ -47,7 +47,7 @@ clim_fcg_years_co2=1849
 See [below](#science-notes) for more on the science settings of the model.
 
 ## Running on the Met Office HPC
-By default, each UKESM1.1 suite is set up to run the model on the Met Office HPC (i.e. **suite conf -> Machine Options -> Site at which model is being run** is set to `MetO Cray`). The suite offers several options for specifying how the model is to be run, including:
+By default, each UKESM1.1 suite is set up to run the model on the Met Office HPC (i.e. **suite conf -> Machine Options -> Site at which model is being run** is set to `MetO Cray`). Each suite offers several options for specifying how the model is to be run, including:
 
 * login node to be used for submission to Met Office HPC: **suite conf -> Machine Options -> MetO Cray login node**
 * Met Office queue to which jobs will be submitted: **suite conf -> Machine Options -> HPC queue**
@@ -131,7 +131,7 @@ are specified in `opt` files - specifically:
 * `app/um/ocean_passive_tracers/rose-app-archer2.conf`
 
 ## Archiving of duplexed data
-When running on Met Office machines (including Monsoon2), the suite will, by default, archive a single copy of its data to MOOSE. For critical model runs, this setting may be changed to archive two copies of the data (i.e. duplex) by switching `non_duplexed_set` in **postproc -> Post Processing-common settings -> Moose Archiving** to `false`. Further guidance on when to choose this option is available at [MassNonDuplexPolicy](http://www-twiki/Main/MassNonDuplexPolicy) (note that this link only works from within the Met Office).
+When running on Met Office machines (including Monsoon2), the suite will, by default, archive a single copy of its data to MOOSE. For critical model runs, this setting may be changed to archive two copies of the data (i.e. duplex) by switching **non_duplexed_set** in **postproc -> Post Processing-common settings -> Moose Archiving** to `false`. Further guidance on when to choose this option is available at [MassNonDuplexPolicy](http://www-twiki/Main/MassNonDuplexPolicy) (note that this link only works from within the Met Office).
 
 ## Compute Resource Usage
 The compute resources used by the suite can be set via parameters on the **suite conf -> Machine Options** and **suite conf -> Domain Decomposition** control panels. The following discussion is specific to the Met Office HPC for the most part, but may still be helpful for users of other machines.
@@ -177,8 +177,8 @@ Note that we do not select this version of the chemistry solver by default becau
 It should be noted that changing the PE decomposition for the ocean in UKESM will also change results because this changes results for both the iceberg code in NEMO and for the CICE code. This behaviour cannot be rectified by setting a single variable (that is, there is no analogue of **l_ukca_asad_columns** for NEMO and CICE).
 
 ## Known issues
-* Development work on the UKESM1.1 um12.1 coupled configurations (including instructions on how to upgrade suites, where necessary) is documented in  [ticket #830](https://code.metoffice.gov.uk/trac/UKESM/ticket/830) on MOSRS.
+* Development work on the UKESM1.1 um12.1 configurations (including instructions on how to upgrade suites, where necessary) is documented in [ticket #830](https://code.metoffice.gov.uk/trac/UKESM/ticket/830) on MOSRS.
 
 ## Support
-* NERC users requiring assistance running this suite on NERC machines (ARCHER2 & Monsoon) should raise a ticket on the [NCAS-CMS helpdesk](https://cms-helpdesk.ncas.ac.uk).
+* NERC users requiring assistance running this suite on NERC machines (ARCHER2 & Monsoon2) should raise a ticket on the [NCAS-CMS helpdesk](https://cms-helpdesk.ncas.ac.uk).
 * Users running this suite on other machines should contact local support services.
