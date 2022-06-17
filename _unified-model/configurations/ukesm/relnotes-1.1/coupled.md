@@ -98,7 +98,7 @@ To run on ARCHER2, the NERC platform, first set **suite conf -> Machine Options 
 * **CPMIP Analysis -> CPMIP load balancing analysis**
 
 #### Archiving model output
-Output files created by the suite running on ARCHER2 may be archived to disk. The options for requesting this can be found under the **postproc -> Post Processing - common settings** control panel. First, set **archive_command** to `Archer`. This causes the subpanels **Archer Archiving** and **JASMIN transfer** to appear under **postproc -> Post Processing - common settings**.  
+Output files created by the suites running on ARCHER2 may be archived to disk. The options for requesting this can be found under the **postproc -> Post Processing - common settings** control panel. First, set **archive_command** to `Archer`. This causes the subpanels **Archer Archiving** and **JASMIN transfer** to appear under **postproc -> Post Processing - common settings**.  
 
 In **Archer Archiving**, specify the location of the archived files on ARCHER2 by providing values for:
 
