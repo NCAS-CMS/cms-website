@@ -22,7 +22,6 @@ There are also additional coupled configurations for the CMIP6 **abrupt4xCO2** a
 A full description of how to access and run each configuration can be found on the [AMIP](relnotes-1.0/amip.md) and [Coupled](relnotes-1.0/coupled.md) configuration pages.
 
 ## CMIP6 Data
-
 Datasets from CMIP6 experiments run using UKESM1 are available from the Earth System Grid Federation (ESGF).  Full details are available from the following Digital Object Identifiers (DOIs):
 
 | Experiment | DOI |
@@ -35,6 +34,11 @@ Datasets from CMIP6 experiments run using UKESM1 are available from the Earth Sy
 | ScenarioMIP - ssp434 | https://doi.org/10.22033/ESGF/CMIP6.6389	|
 | ScenarioMIP - ssp534-over | https://doi.org/10.22033/ESGF/CMIP6.6397	|
 | ScenarioMIP - ssp585 | 	https://doi.org/10.22033/ESGF/CMIP6.6405	|
+
+## Documentation
+UKESM1 is documented in:
+
+Alistair A. Sellar, Colin G. Jones, Jane P. Mulcahy, Yongming Tang, Andrew Yool, Andy Wiltshire, Fiona M. O'Connor, Marc Stringer, Richard Hill, Julien Palmieri, Stephanie Woodward, Lee de Mora, Till Kuhlbrodt, Steven T. Rumbold, Douglas I. Kelley, Rich Ellis, Colin E. Johnson, Jeremy Walton, Nathan Luke Abraham, Martin B. Andrews, Timothy Andrews, Alex T. Archibald, Ségolène Berthou, Eleanor Burke, Ed Blockley, Ken Carslaw, Mohit Dalvi, John Edwards, Gerd A. Folberth, Nicola Gedney, Paul T. Griffiths, Anna B. Harper, Maggie A. Hendry, Alan J. Hewitt, Ben Johnson, Andy Jones, Chris D. Jones, James Keeble, Spencer Liddicoat, Olaf Morgenstern, Robert J. Parker, Valeriu Predoi, Eddy Robertson, Antony Siahaan, Robin S. Smith, Ranjini Swaminathan, Matthew T. Woodhouse, Guang Zeng, Mohamed Zerroukat (2019). *UKESM1: Description and evaluation of the U.K. Earth System Model*. Journal of Advances in Modeling Earth Systems, 11, 4513– 4558. https://doi.org/10.1029/2019MS001739
 
 ## Support
 * NERC users requiring assistance running this suite on NERC machines (ARCHER, NEXCS, Monsoon) should raise a ticket on the [NCAS-CMS helpdesk](https://cms-helpdesk.ncas.ac.uk).
