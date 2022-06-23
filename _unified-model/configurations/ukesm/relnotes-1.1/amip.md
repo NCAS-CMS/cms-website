@@ -14,15 +14,15 @@ teaser: Release notes for the atmosphere-only (AMIP) configuration of version 1.
 
 <div class="medium-8 medium-pull-4 columns" markdown="1">
 
-[Fully coupled configurations of UKESM1.1](/_unified-model/configurations/ukesm/relnotes-1.1/coupled) are also available.
+[Fully coupled configurations of UKESM1.1](/unified-model/configurations/ukesm/relnotes-1.1/coupled) are also available.
 
 ## Model and Suite Specifications
 
 The current version of UKESM1.1 has an atmospheric resolution of N96 (~140 km) and a one degree resolution in the ocean. The vertical resolution is 85 levels in the atmosphere and 75 levels in the ocean.
 
-Each configuration of the model is distributed and run as a [Rose]({{site.baseurl}}/pages/rose-cylc) suite.
+Each configuration of the model is distributed and run as a [Rose]({{site.baseurl}}/rose-cylc) suite.
 
-*Note: that links to suites (and to a couple of other pages) require access to the Met Office Science Repository Service (MOSRS) - see the [introduction to UKESM](/_unified-model/configurations/ukesm) for more details.*
+*Note: that links to suites (and to a couple of other pages) require access to the Met Office Science Repository Service (MOSRS) - see the [introduction to UKESM](/unified-model/configurations/ukesm) for more details.*
 
 | UM Version | AMIP |
 | vn12.1 | [u-cj514](https://code.metoffice.gov.uk/trac/roses-u/browser/c/j/5/1/4/trunk) |
