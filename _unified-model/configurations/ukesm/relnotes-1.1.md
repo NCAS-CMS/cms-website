@@ -1,7 +1,7 @@
 ---
 title: UKESM1.1 Release Notes
+teaser: These are the notes for UKESM1.1, the latest release of the UK Earth System Model. Some background information on the model, its components and the prerequisites for using it can be found in the <a href="https:/cms.ncas.ac.uk/unified-model/configurations/ukesm">introduction to UKESM</a>.
 ---
-These are the notes for UKESM1.1, the latest release of the UK Earth System Model. Some background information on the model, its components and the prerequisites for using it can be found in the [introduction to UKESM](/unified-model/configurations/ukesm).
 
 The first release of UKESM is also available.  See the [UKESM1 release notes](../relnotes-1.0).
 
@@ -26,10 +26,10 @@ A full description of how to access and run each configuration can be found on t
 Datasets from CMIP6 experiments run using UKESM1.1 are available from the Earth System Grid Federation (ESGF).  Full details are available from the following Digital Object Identifiers (DOIs):
 
 | Experiment | DOI |
-| DECK | https://doi.org/10.22033/ESGF/CMIP6.16781 |
-| Historical | https://doi.org/10.22033/ESGF/CMIP6.16797 |
-| ScenarioMIP - ssp126 | https://doi.org/10.22033/ESGF/CMIP6.16841 |
-| ScenarioMIP - ssp370 | https://doi.org/10.22033/ESGF/CMIP6.16845 |
+| DECK | [https://doi.org/10.22033/ESGF/CMIP6.16781](https://doi.org/10.22033/ESGF/CMIP6.16781) |
+| Historical | [https://doi.org/10.22033/ESGF/CMIP6.16797](https://doi.org/10.22033/ESGF/CMIP6.16797) |
+| ScenarioMIP - ssp126 | [https://doi.org/10.22033/ESGF/CMIP6.16841](https://doi.org/10.22033/ESGF/CMIP6.16841) |
+| ScenarioMIP - ssp370 | [https://doi.org/10.22033/ESGF/CMIP6.16845](https://doi.org/10.22033/ESGF/CMIP6.16845) |
 
 ## Support
 * NERC users requiring assistance running this suite on NERC machines (ARCHER, NEXCS, Monsoon) should raise a ticket on the [NCAS-CMS helpdesk](https://cms-helpdesk.ncas.ac.uk).

@@ -1,7 +1,7 @@
 ---
 title: UKESM1 Release Notes
+teaser: These are the notes for UKESM1, the first release of the UK Earth System Model. Some background information on the model, its components and the prerequisites for using it can be found in the <a href="https:/cms.ncas.ac.uk/unified-model/configurations/ukesm">introduction to UKESM</a>.
 ---
-These are the notes for UKESM1, the first release of the UK Earth System Model. Some background information on the model, its components and the prerequisites for using it can be found in the [introduction to UKESM](/unified-model/configurations/ukesm).
 
 A later release, UKESM1.1 is avaiable, see the [UKESM1.1 release notes](../relnotes-1.1).
 
@@ -25,15 +25,15 @@ A full description of how to access and run each configuration can be found on t
 Datasets from CMIP6 experiments run using UKESM1 are available from the Earth System Grid Federation (ESGF).  Full details are available from the following Digital Object Identifiers (DOIs):
 
 | Experiment | DOI |
-| DECK | https://doi.org/10.22033/ESGF/CMIP6.1569 |
-| Historical | https://doi.org/10.22033/ESGF/CMIP6.6113 |
-| ScenarioMIP - ssp119 |	https://doi.org/10.22033/ESGF/CMIP6.6329 |
-| ScenarioMIP - ssp126 | https://doi.org/10.22033/ESGF/CMIP6.6333 |
-| ScenarioMIP - ssp245 | https://doi.org/10.22033/ESGF/CMIP6.6339	|
-| ScenarioMIP - ssp370 | https://doi.org/10.22033/ESGF/CMIP6.6347 |
-| ScenarioMIP - ssp434 | https://doi.org/10.22033/ESGF/CMIP6.6389	|
-| ScenarioMIP - ssp534-over | https://doi.org/10.22033/ESGF/CMIP6.6397	|
-| ScenarioMIP - ssp585 | 	https://doi.org/10.22033/ESGF/CMIP6.6405	|
+| DECK | [https://doi.org/10.22033/ESGF/CMIP6.1569](https://doi.org/10.22033/ESGF/CMIP6.1569) |
+| Historical | [https://doi.org/10.22033/ESGF/CMIP6.6113](https://doi.org/10.22033/ESGF/CMIP6.6113) |
+| ScenarioMIP - ssp119 |	[https://doi.org/10.22033/ESGF/CMIP6.6329](https://doi.org/10.22033/ESGF/CMIP6.6329) |
+| ScenarioMIP - ssp126 | [https://doi.org/10.22033/ESGF/CMIP6.6333](https://doi.org/10.22033/ESGF/CMIP6.6333) |
+| ScenarioMIP - ssp245 | [https://doi.org/10.22033/ESGF/CMIP6.6339](https://doi.org/10.22033/ESGF/CMIP6.6339)	|
+| ScenarioMIP - ssp370 | [https://doi.org/10.22033/ESGF/CMIP6.6347](https://doi.org/10.22033/ESGF/CMIP6.6347) |
+| ScenarioMIP - ssp434 | [https://doi.org/10.22033/ESGF/CMIP6.6389](https://doi.org/10.22033/ESGF/CMIP6.6389)	|
+| ScenarioMIP - ssp534-over | [https://doi.org/10.22033/ESGF/CMIP6.6397](https://doi.org/10.22033/ESGF/CMIP6.6397)	|
+| ScenarioMIP - ssp585 | 	[https://doi.org/10.22033/ESGF/CMIP6.6405](https://doi.org/10.22033/ESGF/CMIP6.6405)	|
 
 ## Documentation
 UKESM1 is documented in:

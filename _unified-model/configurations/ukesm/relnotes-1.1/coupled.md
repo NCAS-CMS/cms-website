@@ -14,7 +14,7 @@ teaser: Release notes for the fully coupled configurations of version 1.1 of the
 
 <div class="medium-8 medium-pull-4 columns" markdown="1">
 
-An [atmosphere-only (AMIP) configuration of UKESM1.1](amip) is also available for use.
+An [atmosphere-only (AMIP) configuration of UKESM1.1](/unified-model/configurations/ukesm/relnotes-1.1/amip) is also available for use.
 
 ## Model and suite specifications
 The current version of UKESM1.1 has an atmospheric resolution of N96 (~140 km) and a one degree resolution in the ocean. The vertical resolution is 85 levels in the atmosphere and 75 levels in the ocean.
@@ -74,23 +74,19 @@ Note that you must have a MOOSE account before archiving will work - see [below]
 To run on ARCHER2, the NERC platform, first set **suite conf -> Machine Options -> Site at which model is being run** to `Archer2` and then:
 
 1. Set these other **Machine Options**:
-
 * **Use Environment Modules** to `Custom module files`
 * **Science Configuration Module Name** to `GC3-PrgEnv/2.0/2021.12.15`
 * **Module file location** to `/work/y07/shared/umshared/moci/modules/modules`
 
 2. Setting the site to `Archer2` causes other options to appear under **suite conf -> Project Accounting**.  Set appropriate values for:
-
 * **User account for HPC tasks**
 * **Account group for HPC tasks**
 
 3. Under **suite conf -> Domain Decomposition -> Atmosphere**, set:
-
 * **Use max processes per node** to `false`
 * **Max number of processes/node** to `128`
 
 4.  Under **suite conf -> Testing**, set the following to `false`:
-
 * **Test restartability**
 * **Test rigorous compiler option**
 * **Test PE decomposition change**

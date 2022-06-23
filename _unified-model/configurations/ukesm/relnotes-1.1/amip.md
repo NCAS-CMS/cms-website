@@ -59,7 +59,7 @@ Output files created by the suite running on Monsoon2 may be archived via the Me
 Note that you must have a MOOSE account before archiving can work - see [below](#support) for help.
 
 #### Optional configuration settings
-To aid portability, the suites use site-specific optional configuration settings which override default values for some parameters when **suite conf -> Machine Options -> Site at which model is being run** is set to `MONSooN`. In particular, when running on Monsoon2, the names for ancillaries in 
+To aid portability, the suite uses site-specific optional configuration settings which override default values for some parameters when **suite conf -> Machine Options -> Site at which model is being run** is set to `MONSooN`. In particular, when running on Monsoon2, the names for ancillaries in 
 
 * **um -> namelist -> Reconfiguration and Ancillary Control -> Configure ancils and initialise dump fields**
 
@@ -71,22 +71,21 @@ are specified in `app/um/opt/rose-app-monsoon.conf`.
 To run on ARCHER2, the NERC platform, first set **suite conf -> Host Machine -> Site at which model is being run** to `Archer2`.  Then
 
 1. Setting the site to `Archer2` causes other options to appear under **suite conf -> Project Accounting**.  Set appropriate values for:
+  * **User account for HPC tasks**
+  * **Account group for HPC tasks**
 
-* **User account for HPC tasks**
-* **Account group for HPC tasks**
-
-2. Under **suite conf -> Domain Decomposition -> Atmosphere**, set **Max number of processes/node** to `128`. This value must also be set for the **Max number of process/node** parameter in **suite conf -> Testing -> Processor Decomposition** and **suite conf -> Testing -> OpenMP** if the respective tests have been turned on (see below).
+2. Under **suite conf -> Domain Decomposition -> Atmosphere**:
+  * Set **Max number of processes/node** to `128`.
+  * This value must also be set for the **Max number of process/node** parameter in **suite conf -> Testing -> Processor Decomposition** and **suite conf -> Testing -> OpenMP** if the respective tests have been turned on (see below).
 
 3. Under **suite conf -> Tasks**, set the following to `false`:
-
-* **Archive UM wallclock times**
-* **Archive UM output logs**
-* **Supermeans**
+  * **Archive UM wallclock times**
+  * **Archive UM output logs**
+  * **Supermeans**
 
 4. Under **suite conf -> Testing**, set the following to `false`:
-
-* **OpenMP -> Run No OpenMP test**
-* **Diagnostics -> Run increment budget test**
+  * **OpenMP -> Run No OpenMP test**
+  * **Diagnostics -> Run increment budget test**
 
 #### Archiving model output
 Output files created by the suite running on ARCHER2 may be archived to disk. The options for requesting this can be found under the **postproc -> Post Processing - common settings** control panel. First, set **archive_command** to `Archer`. This causes the subpanels **Archer Archiving** and **JASMIN transfer** to appear under **postproc -> Post Processing - common settings**.  
