@@ -14,14 +14,14 @@ teaser: Release notes for the fully coupled configurations of version 1 of the U
 
 <div class="medium-8 medium-pull-4 columns" markdown="1">
 
-An [atmosphere-only (AMIP) configuration of UKESM1](/unified-model/configurations/ukesm/relnotes-1.0/amip.md) is also available for use.
+An [atmosphere-only (AMIP) configuration of UKESM1](/unified-model/configurations/ukesm/relnotes-1.0/amip) is also available for use.
 
 ## Model and suite specifications
 The current version of UKESM1 has an atmospheric resolution of N96 (~140 km) and a one degree resolution in the ocean. The vertical resolution is 85 levels in the atmosphere and 75 levels in the ocean.
 
-Each configuration of the model is distributed and run as a [Rose]({{site.baseurl}}/pages/rose-cylc) suite.
+Each configuration of the model is distributed and run as a [Rose]({{site.baseurl}}/rose-cylc) suite.
 
-*Note that links to suites (and to a couple of other pages) require access to the Met Office Science Repository Service (MOSRS) - see the [introduction to UKESM](/_unified-model/configurations/ukesm.md) for more details.*
+*Note that links to suites (and to a couple of other pages) require access to the Met Office Science Repository Service (MOSRS) - see the [introduction to UKESM](/unified-model/configurations/ukesm) for more details.*
 
 ### historical, pre-industrial control
 There are two fully coupled UKESM1 configurations which each make use of all model components: one with science settings for a historical experiment, and one with settings for a pre-industrial control experiment.
@@ -59,7 +59,7 @@ Options for specifying the account under which jobs will be run are available in
 * If the option is `other`, then enter the account explicitly in **'Other' user account**.
 
 ## Running on other machines
-The model may be run on other (i.e. non-Met Office) machines. See the [introduction to UKESM1](/_unified-model/configurations/ukesm) for more on available resources and how to access them. More specific instructions for suite settings for different machines are given in the following subsections.
+The model may be run on other (i.e. non-Met Office) machines. See the [introduction to UKESM1](/unified-model/configurations/ukesm) for more on available resources and how to access them. More specific instructions for suite settings for different machines are given in the following subsections.
 
 ### Monsoon
 To run on Monsoon, the Met Office / NERC collaborative platform, set **suite conf -> Machine Options -> Site at which model is being run** to `MONSooN`.

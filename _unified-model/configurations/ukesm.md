@@ -7,19 +7,20 @@ More information about the contents and development of UKESM is available on the
 
 ### Background and prerequisites
 
-UKESM makes use of several scientific components, including the [Unified Model](https://www.metoffice.gov.uk/research/modelling-systems/unified-model) (UM) weather and climate modelling application.  See [here]({{site.baseurl}}/pages/unified-model) for more on the UM.
+UKESM makes use of several scientific components, including the [Unified Model](https://www.metoffice.gov.uk/research/modelling-systems/unified-model) (UM) weather and climate modelling application.  See [here]({{site.baseurl}}/unified-model) for more on the UM.
 
-UKESM is distributed and run as a [Rose](https://www.metoffice.gov.uk/research/modelling-systems/rose) suite; Rose is a framework for developing and running meteorological applications.  Some details about Rose are available [here]({{site.baseurl}}/pages/rose-cylc).
+UKESM is distributed and run as a [Rose](https://www.metoffice.gov.uk/research/modelling-systems/rose) suite; Rose is a framework for developing and running meteorological applications.  Some details about Rose are available [here]({{site.baseurl}}/rose-cylc).
 
-The UKESM suites incorporate switches to choose the machine on which it is run; full details of how to do this are in the release notes - see [below](#ukesm-release-notes).  Available resources include [ARCHER2](http://www.archer2.ac.uk/), the UKRI platform, and [Monsoon2](http://www.jwcrp.org.uk/infrastructure/monsoon.asp), the Met Office / NERC collaborative platform.  Both are accessible from the [PUMA service]({{site.baseurl}}/pages/puma).  See [here]({{site.baseurl}}/pages/archer2) for more on ARCHER2, and [here]({{site.baseurl}}/pages/monsoon2) for more about Monsoon2 (including how to get registered on these machines).
+The UKESM suites incorporate switches to choose the machine on which it is run; full details of how to do this are in the release notes - see [below](#ukesm-release-notes).  Available resources include [ARCHER2](http://www.archer2.ac.uk/), the UKRI platform, and [Monsoon2](http://www.jwcrp.org.uk/infrastructure/monsoon.asp), the Met Office / NERC collaborative platform.  Both are accessible from the [PUMA service]({{site.baseurl}}/puma).  See [here]({{site.baseurl}}/archer2) for more on ARCHER2, and [here]({{site.baseurl}}/monsoon2) for more about Monsoon2 (including how to get registered on these machines).
 
-The UKESM1 suites are available from the [Met Office Science Repository Service](https://code.metoffice.gov.uk/trac/home/) (MOSRS).  Note that you must have a registered account to access this service.  If you are a NERC user, please [contact us]({{site.baseurl}}/pages/contact) to get one, otherwise please contact **Scientific_Partnerships AT metoffice.gov.uk** for advice about gaining access.
+The UKESM1 suites are available from the [Met Office Science Repository Service](https://code.metoffice.gov.uk/trac/home/) (MOSRS).  Note that you must have a registered account to access this service.  If you are a NERC user, please [contact us]({{site.baseurl}}/contact) to get one, otherwise please contact **Scientific_Partnerships AT metoffice.gov.uk** for advice about gaining access.
 
 ### UKESM release notes
 
 The [UKESM release notes](relnotes-1.1) describe the different types of experiment which can be run using the model, how to access the suites, options for running the model (including selecting the target machine) and further configuration of the suites.  Note that these pages contain links to the MOSRS, which is only accessible to registered users (see [above](#background-and-prerequisites)).
 
-Release notes for UKESM1.1 are [here](relnotes-1.1), while those for UKESM1 are [here](relnotes-1.0).
+ * [Release notes for UKESM1.1](relnotes-1.1)
+ * [Release notes for UKESM1](relnotes-1.0)
 
 
 

@@ -1,25 +1,25 @@
 ---
 title: UKESM1.1 Release Notes
 ---
-These are the notes for UKESM1.1, the latest release of the UK Earth System Model. Some background information on the model, its components and the prerequisites for using it can be found in the [introduction to UKESM](/_unified-model/configurations/ukesm.md).
+These are the notes for UKESM1.1, the latest release of the UK Earth System Model. Some background information on the model, its components and the prerequisites for using it can be found in the [introduction to UKESM](/unified-model/configurations/ukesm).
 
-UKESM1 was the first release of UKESM.  Its release notes are [here](relnotes-1.0.md).
+The first release of UKESM is also available.  See the [UKESM1 release notes](../relnotes-1.0).
 
 ## Model Configurations
 
 The model is available in a number of configurations for running different types of experiment:
 
-* [Atmosphere-only](relnotes-1.1/amip.md):
+* [Atmosphere-only](amip):
 The so-called **AMIP** configuration, in which the model atmosphere is forced by observed sea surface temperature and sea ice boundary conditions.
 
-* [Coupled](relnotes-1.1/coupled.md):
+* [Coupled](coupled):
 Two fully coupled configurations, which each make use of all model components:
   * one set up to run the CMIP6 **pre-industrial** control experiment, and
   * one to run the CMIP6 **historical** experiment.
 
 There are also additional coupled configurations for the CMIP6 **abrupt4xCO2** and **1%CO2** experiments, which can be created using the pre-industrial control experiment as a starting point.
 
-A full description of how to access and run each configuration can be found on the [AMIP](relnotes-1.1/amip.md) and [Coupled](relnotes-1.1/coupled.md) configuration pages.
+A full description of how to access and run each configuration can be found on the [AMIP](amip) and [Coupled](coupled) configuration pages.
 
 ## CMIP6 Data
 
