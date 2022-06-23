@@ -1,6 +1,6 @@
 ---
 title: UKESM1-coupled Release Notes
-teaser: Release notes for the fully coupled configurations of the UK Earth System Model (UKESM1).
+teaser: Release notes for the fully coupled configurations of version 1 of the UK Earth System Model (UKESM1).
 ---
 <div class="row">
 <div class="medium-4 medium-push-8 columns" markdown="1">
@@ -19,15 +19,15 @@ An [atmosphere-only (AMIP) configuration of UKESM1](/unified-model/configuration
 ## Model and suite specifications
 The current version of UKESM1 has an atmospheric resolution of N96 (~140 km) and a one degree resolution in the ocean. The vertical resolution is 85 levels in the atmosphere and 75 levels in the ocean.
 
-Each configuration of the model is distributed and run as a [Rose](#TODO) suite.
+Each configuration of the model is distributed and run as a [Rose]({{site.baseurl}}/rose-cylc) suite.
 
-*Note that links to suites (and to a couple of other pages) require access to the Met Office Science Repository Service (MOSRS) - see the [introduction to UKESM1](/unified-model/configurations/ukesm) for more details.*
+*Note that links to suites (and to a couple of other pages) require access to the Met Office Science Repository Service (MOSRS) - see the [introduction to UKESM](/unified-model/configurations/ukesm) for more details.*
 
 ### historical, pre-industrial control
 There are two fully coupled UKESM1 configurations which each make use of all model components: one with science settings for a historical experiment, and one with settings for a pre-industrial control experiment.
 
 | UM version | historical | pre-industrial control |
-| vn11.2 | ​[u-bc613](https://code.metoffice.gov.uk/trac/roses-u/browser/b/c/6/1/3/trunk) | [u-bc964](https://code.metoffice.gov.uk/trac/roses-u/browser/b/c/9/6/4/trunk) |
+| vn11.2 | [u-bc613](https://code.metoffice.gov.uk/trac/roses-u/browser/b/c/6/1/3/trunk) | [u-bc964](https://code.metoffice.gov.uk/trac/roses-u/browser/b/c/9/6/4/trunk) |
 
 </div><!-- /.medium-8.columns -->
 </div><!-- /.row -->
@@ -35,24 +35,24 @@ There are two fully coupled UKESM1 configurations which each make use of all mod
 ### abrupt4xCO2, 1%CO2
 Configurations for abrupt4xCO2 and 1%CO2 experiments can be created using the pre-industrial control experiment as a starting point.
 
-To create a suite for the abrupt4xCO2 experiment, first make a copy of the ​[pre-industrial control suite](https://code.metoffice.gov.uk/trac/roses-u/browser/b/c/9/6/4/trunk), then in *"um -> namelist -> UM Science Settings -> Section 01-02 - Radation -> GAS MMRs"*, set `co2_mmr=1.72728e-03`.
+To create a suite for the abrupt4xCO2 experiment, first make a copy of the [pre-industrial control suite](https://code.metoffice.gov.uk/trac/roses-u/browser/b/c/9/6/4/trunk), then in **um -> namelist -> UM Science Settings -> Section 01-02 - Radation -> GAS MMRs**, set `co2_mmr=1.72728e-03`.
 
-To create a suite for the 1xCO2 experiment, first make a copy of the ​[pre-industrial control suite](https://code.metoffice.gov.uk/trac/roses-u/browser/b/c/9/6/4/trunk), then in *"um -> namelist -> UM Science Settings -> Section 01-02 - Radation -> GAS MMRs -> Varying gas MMRs"*, set `l_clmchfcg=.true.` to enable time-varying GHGs. Finally, in the sub-panel *"Varying CO2 MMRs"*, set
+To create a suite for the 1xCO2 experiment, first make a copy of the [pre-industrial control suite](https://code.metoffice.gov.uk/trac/roses-u/browser/b/c/9/6/4/trunk), then in **um -> namelist -> UM Science Settings -> Section 01-02 - Radation -> GAS MMRs -> Varying gas MMRs**, set `l_clmchfcg=.true.` to enable time-varying GHGs. Finally, in the sub-panel **Varying CO2 MMRs**, set
 ~~~
 clim_fcg_levls_co2=4.3182e-04
 clim_fcg_nyears_co2=1
 clim_fcg_rates_co2=1.0
 clim_fcg_years_co2=1849
 ~~~
-See [below](#TODO) for more on the science settings of the model.
+See [below](#science-notes) for more on the science settings of the model.
 
 ## Running on the Met Office HPC
-By default, each UKESM1 suite is set up to run the model on the Met Office HPC (i.e. *"suite conf -> Machine Options -> Site at which model is being run"* is set to **MetO Cray**). The suite offers several options for specifying how the model is to be run, including:
+By default, each UKESM1 suite is set up to run the model on the Met Office HPC (i.e. **suite conf -> Machine Options -> Site at which model is being run** is set to `MetO Cray`). The suite offers several options for specifying how the model is to be run, including:
 
-* login node to be used for submission to Met Office HPC: *"suite conf -> Machine Options -> MetO Cray login node"*
-* Met Office queue to which jobs will be submitted: *"suite conf -> Machine Options -> HPC queue"*
-* 
-Options for specifying the account under which jobs will be run are available in *"suite conf -> Project Accounting"*:
+* login node to be used for submission to Met Office HPC: **suite conf -> Machine Options -> MetO Cray login node**
+* Met Office queue to which jobs will be submitted: **suite conf -> Machine Options -> HPC queue**
+
+Options for specifying the account under which jobs will be run are available in **suite conf -> Project Accounting**:
 
 * Select **Use default account** to use the default account for your department.
 * If this is set to `false`, then choose an option from the **Account** menu.
@@ -62,11 +62,11 @@ Options for specifying the account under which jobs will be run are available in
 The model may be run on other (i.e. non-Met Office) machines. See the [introduction to UKESM1](/unified-model/configurations/ukesm) for more on available resources and how to access them. More specific instructions for suite settings for different machines are given in the following subsections.
 
 ### Monsoon
-To run on Monsoon, the Met Office / NERC collaborative platform, set *"suite conf -> Machine Options -> Site at which model is being run"* to **MONSooN**.
+To run on Monsoon, the Met Office / NERC collaborative platform, set **suite conf -> Machine Options -> Site at which model is being run** to `MONSooN`.
 
-Output files created by the suite running on Monsoon may be archived via the Met Office Operational Storage Environment (MOOSE). The options for requesting this can be found under the *"postproc -> Post Processing - common settings"* control panel. Set `archive_command` to **Moose** and provide (or check) values for further options in the subpanel *"Moose Archiving"*. See [below](#TODO) for more on the `non_duplexed_set` option.
+Output files created by the suite running on Monsoon may be archived via the Met Office Operational Storage Environment (MOOSE). The options for requesting this can be found under the **postproc -> Post Processing - common settings** control panel. Set **archive_command** to `Moose` and provide (or check) values for further options in the subpanel **Moose Archiving**. See [below](#archiving-of-duplexed-data) for more on the `non_duplexed_set` option.
 
-Note that you must have a MOOSE account before archiving will work - see [below](#TODO) for help.
+Note that you must have a MOOSE account before archiving will work - see [below](#support) for help.
 
 ### Archer2
 {% include alert warning="Rewrite for ARCHER2 suites" %}
