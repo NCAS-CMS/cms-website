@@ -53,3 +53,5 @@ CMS maintain a number of standard suite configuations on ARCHER2. All standard s
 See the [porting page]({{ '/archer2/porting/' | relative_url }}) for instructions on how to port a UM suite or UMUI job to ARCHER2. Example suites that CMS have already ported can also be found on this page.
 
 ## Performance
+
+The performance of various standard configurations on ARCHER can be found on the [performance](/unified-model/performance/) page.
