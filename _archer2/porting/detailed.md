@@ -116,8 +116,9 @@ Review one or more of the coupled suites listed in the [Standard Jobs](http://TO
 
 The moci modules have been rebuilt for use on ARCHER2 to work correctly with MPI threading.
 
-|= XIOS revision =|= OASIS revision =|= moci module =|= comment =|
-| 952 | 2466 | GC3-PrgEnv/2.0/2021.21.15 | Typically used for UKESM suites and older UM version coupled suites |
+| XIOS revision | OASIS revision | moci module | comment |
+| ------------- | -------------- | ----------- | ------- |
+| 952 | 2466 | GC3-PrgEnv/2.0/2021.12.15 | Typically used for UKESM suites and older UM version coupled suites |
 | 2245 | 2466 | GC3-PrgEnv/2.0/2021.11.22 | |
 | 952 | 10f61316 | GC4-PrgEnv/2021.12.1 | Used in GC4.0 suites | 
 
