@@ -32,14 +32,14 @@ permalink: /tools-and-utilities/
   NCO, netCDF Operators, are a suite of programs known as operators. The operators take netCDF files as input, then perfom a set of operations and produce a netCDF files as output. NCO are designed to aid manipulation and analysis of gridded scientific data.
 
 * **xconv** \\
-  [http://cms.ncas.ac.uk/documents/xconv/](http://cms.ncas.ac.uk/documents/xconv/) \\
-  Xconv is a program designed to convert model output into a format suitable for use in various plotting packages. Xconv is designed to be simple to use with a point and click, windows based interface. Xconv can read Met. Office Unified Model, Met. Office PP, GRIB, netCDF and grads format data. Data can be output in netCDF and grads format. TODO - check link
+  [https://ncas-cms.github.io/xconv-doc](https://ncas-cms.github.io/xconv-doc) \\
+  Xconv is a program designed to convert model output into a format suitable for use in various plotting packages. Xconv is designed to be simple to use with a point and click, windows based interface. Xconv can read Met. Office Unified Model, Met. Office PP, GRIB, netCDF and grads format data. Data can be output in netCDF and grads format.
 
 ## UM Tools
 
 ### Modelling Tools
 
 * **xancil** \\
-  [http://cms.ncas.ac.uk/documents/xancil](http://cms.ncas.ac.uk/documents/xancil) \\
+  [https://ncas-cms.github.io/xancil-doc/singlehtml/index.html](https://ncas-cms.github.io/xancil-doc/singlehtml/index.html) \\
   Xancil is a X-windows based application for creating Unified Model ancillary files from netCDF input files.
 
