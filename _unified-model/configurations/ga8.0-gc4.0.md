@@ -24,3 +24,4 @@ teaser: Information and list of standard suites for the Global Coupled model con
 | :------: | :------: | :------: | :------: | :------ |
 | u-cb151 | rosalynhatcher | [u-bs991](https://code.metoffice.gov.uk/trac/GA/wiki/GAJobs/u-bs991) | 11.6 | N96 ORCA025 GC4.0 main assessment run (CMIP6 forcing) |
 | u-cf362 | rosalynhatcher | [u-ce633](https://code.metoffice.gov.uk/trac/GA/wiki/GAJobs/u-ce633) | 11.9 | N96 ORCA025 GC4.0 UM11.9 |
+| u-cm785/archer2 | dancopsey | [u-cm785](https://code.metoffice.gov.uk/trac/GA/wiki/GAJobs/u-cm785) | 12.2 | N96 ORCA025 GC4.0 UM 12.2 |
