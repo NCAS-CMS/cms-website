@@ -12,6 +12,7 @@ teaser: Information and list of standard suites for the Global Coupled model con
 | ARCHER2 suite id <br> and revision no. | Owner | Original Met Office <br> suite id | UM Version | Description |
 | :------: | :------: | :------: | :------: | :------ | 
 | u-ca634 | rosalynhatcher | [u-bw062](https://code.metoffice.gov.uk/trac/gmed/wiki/GADocumentation/GAJobs/u-bw062) | 11.7 | N96 GA8.0 AMIP Climate Development (1988 - 2008) |
+| u-cq166 | rosalynhatcher | [u-cp949] | 13.0 | GA8.0 GL9.0 N96 UM13.0 AMIP CMIP6 Climate Development (1988 - 2008) |
 
 
 ## Global Coupled 4.0
