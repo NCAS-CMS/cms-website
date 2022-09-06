@@ -7,7 +7,9 @@ breadcrumb: true
 ---
 The now-recommended method for transferring data between ARCHER2 and JASMIN is using GridFTP using certificate authentication.  This allows data transfers to run on the ARCHER2 serial nodes using certificate-based authentication rather than SSH.  Certificates are valid for up to a month from initiation and can be easily extended/regenerated for longer running simulations.
 
-These instructions show how to setup your GridFTP certificate and modify a suite to run the `pptransfer` task on the ARCHER2 serial nodes to push the data across to JASMIN from ARCHER2 `/work` disk.  
+These instructions show how to setup your GridFTP certificate and modify a suite to run the `pptransfer` task on the ARCHER2 serial nodes to push the data across to JASMIN from ARCHER2 `/work` disk. 
+
+**Note:** In order to use GridFTP to JASMIN you must have access to the **hpxfer (High Performance Data Transfer Service)**. Access can be requested via the [JASMIN Accounts Portal](https://accounts.jasmin.ac.uk/).
 
 **Note:** Instructions cannot cover all possible suite setup combinations so you may need to adjust them accordingly. For example, tasks may be named slightly differently or inherit differently.
 
