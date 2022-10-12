@@ -2,7 +2,7 @@
 layout: page-fullwidth
 title: Configuring PPTransfer
 subheadline: Data Transfer from ARCHER2 to JASMIN
-permalink: '/archer2/pptransfer/'
+permalink: '/unified-model/pptransfer/'
 breadcrumb: true
 ---
 The now-recommended method for transferring data between ARCHER2 and JASMIN is using GridFTP using certificate authentication.  This allows data transfers to run on the ARCHER2 serial nodes using certificate-based authentication rather than SSH.  Certificates are valid for up to a month from initiation and can be easily extended/regenerated for longer running simulations.
@@ -14,8 +14,6 @@ These instructions show how to setup your GridFTP certificate and modify a suite
 **Note:** Instructions cannot cover all possible suite setup combinations so you may need to adjust them accordingly. For example, tasks may be named slightly differently or inherit differently.
 
 ## Obtaining a JASMIN short-lived credential
-
-A fuller explanation of the process is given in the document [Data Transfer Tools: GridFTP (certificate-based authentication)](https://help.jasmin.ac.uk/article/3808-data-transfer-tools-gridftp-cert-based-auth)
 
 * Login to ARCHER2.
 
@@ -47,45 +45,19 @@ notAfter=Apr 10 17:32:59 2022 GMT
 
 This means you can use this certificate for the following 30days, after which you will need to repeat this step to obtain a new one.
 
-## Suite Changes
+A fuller explanation of the process is given in the document [Data Transfer Tools: GridFTP (certificate-based authentication)](https://help.jasmin.ac.uk/article/3808-data-transfer-tools-gridftp-cert-based-auth)
 
-Note, see **u-be303/archer2** for a complete working postproc and pptransfer example suite.
+## Suite Settings
 
-In the rose suite editor go to *"postproc -> Post processing - common settings"*:
-
-*  In panel *"Archer Archiving"* change **archive_root_path** to be a directory on the `/work` disk \\
+*  In panel *"postproc -> Post Processing - common settings -> Archer Archiving"* change **archive_root_path** to be a directory on the `/work` disk \\
 For example; `/work/n02/n02/<username>/archive` where `<username>` is your ARCHER2 username.  \\
 This will be a temporary area to stage your data before transfer to JASMIN.
 
-* In panel *"JASMIN Transfer"*:
+* In panel *"postproc -> Post Processing - common settings -> JASMIN Transfer"*:
   * Set **transfer_type** to `Push`
   * Set **remote_host** to `gridftp1.jasmin.ac.uk` 
   * Set **gridftp** to `true`
 
-Ideally you will have an ARCHER2 specific cylc `.rc` file, `~/roses/<SUITEID>/site/archer2.rc` 
+**Note:**  See **u-be303/archer2** for a complete working postproc and pptransfer example suite.
 
-Ideally, `archer2.rc` will include sections `[[POSTPROC_RESOURCE]]` and `[[PPTRANSFER_RESOURCE]]` (that may not be precisely the case, but what follows should guide you to configure your suite):
-
-Make your suite look like this:
-~~~
-    [[POSTPROC_RESOURCE]]
-        inherit = HPC_SERIAL
-        pre-script = """module load postproc
-                        module list 2>&1
-                        ulimit -s unlimited
-                     """
-                     
-    [[PPTRANSFER_RESOURCE]]
-        inherit = POSTPROC_RESOURCE
-~~~
-
-If there is no `[[POSTPROC_RESOURCE]]` section, make `[[PPTRANSFER_RESOURCE]]` look like this:
-~~~
-    [[PPTRANSFER_RESOURCE]]
-        inherit = HPC_SERIAL
-        pre-script = """module load postproc
-                        module list 2>&1
-                        ulimit -s unlimited
-                     """
-~~~
 

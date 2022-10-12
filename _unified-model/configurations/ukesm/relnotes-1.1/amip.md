@@ -102,7 +102,7 @@ Following archiving, the files may be optionally transferred to a remote machine
 
 and turn on the transferring of the files by setting **suite conf -> Build and Run -> PP Transfer** to `true`.
 
-Note that, before transfer from ARCHER2 to JASMIN can work, some setup of communication between ARCHER2 and JASMIN is required.  To do this, follow the instructions under **Obtaining a JASMIN short-lived credential** on [this page]({{site.baseurl}}/_archer2/pptransfer) (the section on **Suite Changes** on that page can be ignored, since these suites are already set up for transfer).
+Note that, before transfer from ARCHER2 to JASMIN can work, some setup of communication between ARCHER2 and JASMIN is required.  To do this, follow the instructions under **Obtaining a JASMIN short-lived credential** on [this page]({{site.baseurl}}/unified-model/pptransfer) (the section on **Suite Changes** on that page can be ignored, since these suites are already set up for transfer).
 
 #### Optional configuration settings
 To aid portability, the suites use site-specific optional configuration settings which override default values for some parameters when **suite conf -> Machine Options -> Site at which model is being run** is set to `Archer2`. In particular, when running on ARCHER2, the names for ancillaries in 

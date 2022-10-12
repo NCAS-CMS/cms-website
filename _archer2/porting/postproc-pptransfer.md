@@ -5,7 +5,7 @@ subheadline: Porting a UM suite to ARCHER2
 permalink: '/archer2/porting/postproc-pptransfer/'
 breadcrumb: true
 ---
-In `~/roses/<SUITEID>/site/archer2.rc` ensure that `[[POSTPROC_RESOURCE]]` loads the correct module and sets the stack limit, thus:
+In `~/roses/<SUITEID>/site/archer2.rc` ensure that `[[POSTPROC_RESOURCE]]` loads the correct module and sets the stack limit. PPTransfer should inherit the PostProc settings.:
 ~~~
     [[POSTPROC_RESOURCE]]
         inherit = HPC_SERIAL
@@ -13,6 +13,9 @@ In `~/roses/<SUITEID>/site/archer2.rc` ensure that `[[POSTPROC_RESOURCE]]` loads
                         module list 2>&1
                         ulimit -s unlimited
                      """
+
+    [[PPTRANSFER_RESOURCE]]
+        inherit = POSTPROC_RESOURCE
 ~~~
 For **coupled jobs** make the following suite changes:
 
@@ -27,4 +30,4 @@ For **coupled jobs** make the following suite changes:
   * Set **means_cmd** to `ncra --64bit_offset -O`
   * **Note:** Some suites have an optional configuration override file so you may find you need to change this in the override file: `app/postproc/opt/rose-app-archer2.conf`
 
-For guidance on configuring the data transfer app see: [Configuring PPTransfer]({{ '/archer2/pptransfer' | relative_url }}).
+For guidance on configuring the data transfer app see: [Configuring PPTransfer]({{ '/unified-model/pptransfer' | relative_url }}).
