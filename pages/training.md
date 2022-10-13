@@ -32,9 +32,11 @@ NCAS-CMS organises 3-day workshops that introduce the UM infrastructure for UK r
 
 Further details, including how to apply can be found on the [NCAS Website](https://ncas.ac.uk/study-with-us/introduction-to-unified-model/).
 
-Material from previous courses:
-
-* [November 2019]({{ '/services/training/um-training-nov-2019' | relative_url }})
+Material from previous course:
+ 
+* November 2021:
+  * [Practicals](https://ncas-cms.github.io/um-training)
+  * Presentations
 
 ----
 
