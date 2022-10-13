@@ -50,7 +50,7 @@ Before you can use the JDMA to migrate data to Elastic Tape you must install the
 
 ### Add Tasks to suite.rc File
 
-As suites vary in their structure it is impossible to provide instructions that will cover all eventualities.  The following points are provided for guidance only.
+As suites vary in their structure it is impossible to provide instructions that will cover all eventualities.  The following points are provided for guidance only.  We need to add the `jdma` task to the suite graph so that it runs after the `pptransfer` task has run.
 
 1. Locate `pptransfer` in the cylc graph. For UKESM and GA suites this is something like:. 
 ```{% raw %}
