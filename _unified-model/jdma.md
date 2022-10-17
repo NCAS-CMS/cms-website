@@ -140,7 +140,7 @@ ControlPersist yes
 ~~~
 if [[ $(hostname) = sci*.jasmin.ac.uk || $(hostname) = cylc*.jasmin.ac.uk ]]; then
   # Rose/cylc on jasmin-sci & Lotus nodes
-  export PATH=/apps/contrib/metomi/bin:$PATH
+  export PATH=/apps/jasmin/metomi/bin:$PATH
 fi
 ~~~
 
