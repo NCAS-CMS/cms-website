@@ -7,8 +7,19 @@ permalink: '/unified-model/jdma'
 ## Setup and initialise JDMA on JASMIN
 Before you can use the JDMA to migrate data to Elastic Tape you must install the jdma client on JASMIN and initialise some user settings.
  
-* Install JDMA client software: [JDMA client installation](https://cedadev.github.io/jdma_client/docs/build/html/jdma_client/installation.html)
-* Follow instructions in the [Setting up the user, user settings and user info](https://cedadev.github.io/jdma_client/docs/build/html/jdma_client/tutorial.html#setting-up-the-user-user-settings-and-user-info) section of the JDMA Tutorial.
+1. Install JDMA client software:
+    * Login to a JASMIN sci machine
+    * Load python2:  
+      `module load jaspy/2.7`
+    * Create a virtual environment in your home directory:  
+      `virtualenv ~/jdma_venv_py2`
+    * Activate the virtual environment:  
+      `source ~/jdma_venv_py2/bin/activate`
+    * Install the jdma client into the virtualenv:  
+      `pip install git+https://github.com/cedadev/jdma_client`
+
+2. Follow instructions in the [Setting up the user, user settings and user info](https://cedadev.github.io/jdma_client/docs/build/html/jdma_client/tutorial.html#setting-up-the-user-user-settings-and-user-info) section of the JDMA Tutorial.
+
 
 ## UM Rose suite changes
 
@@ -81,7 +92,7 @@ jdma {{'=> \\' if HOUSEKEEP else '' }}
 ```{% raw %}
 {% if JDMA %}
     [[JDMA_RESOURCE]]
-        pre-script = "PS1=${PS1:-}; source ~/venvs/jdma_venv_py3/bin/activate"
+        pre-script = "PS1=${PS1:-}; source ~/jdma_venv_py2/bin/activate"
         [[[job]]]
             batch system = background
             execution time limit = PT1H
