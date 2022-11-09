@@ -32,6 +32,8 @@ pumanew$ cylc --version
 
 3. Restart the suite with `rose suite-restart`.  The suite will continuing running from where it left off on pumatest.
 
+    If you get a message saying the suite is already running you need to remove the contact file `~/cylc-run/SUITEID/.service/contact` first.
+
 **Note:** If you don't update the cylc version, the suite will continue to run ok, but cylc will fail to pull log files back from the remote machine (e.g. ARCHER2). This is due to a change in the behaviour of the newer version of rsync.
 
 Any problems please raise them on the CMS Helpdesk: [https://cms-helpdesk.ncas.ac.uk/](https://cms-helpdesk.ncas.ac.uk/)
