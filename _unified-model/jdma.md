@@ -61,9 +61,19 @@ Before you can use the JDMA to migrate data to Elastic Tape you must install the
 
 ### Add Tasks to suite.rc File
 
-As suites vary in their structure it is impossible to provide instructions that will cover all eventualities.  The following points are provided for guidance only.  We need to add the `jdma` task to the suite graph so that it runs after the `pptransfer` task has run.
+As suites vary in their structure it is impossible to provide instructions that will cover all eventualities.  The following points are provided for guidance only.  We need to add the build of postproc jdma scripts and the `jdma` task to the suite graph so that it runs after the `pptransfer` task has run.
 
-1. Locate `pptransfer` in the cylc graph. For UKESM and GA suites this is something like:. 
+1. Add `fcm_make_pp_jamsin` tasks to cylc graph in `[[[R1]]]`. After the line:
+``` 
+ {{ 'fcm_make_pp => fcm_make2_pp' + (' => POSTPROC_GROUP' if RUN else '')}}
+``` 
+insert
+``` 
+ {{ 'fcm_make_pp_jasmin => fcm_make2_pp_jasmin => jdma' if JDMA else '' }}
+```
+ 
+{:start="2"}
+2. Locate `pptransfer` in the cylc graph. For UKESM and GA suites this is something like:
 ```{% raw %}
     graph =
     ...
@@ -86,24 +96,44 @@ jdma {{'=> \\' if HOUSEKEEP else '' }}
     {% endif %}
     ...
 {% endraw %} ```
-
-{:start="2"}
-2. Add jdma task definition to end of file before any {% raw %} {% include ... %} {% endraw %}:
+ 
+{:start="3"}
+3. Add jdma task definition to end of file before any {% raw %} {% include ... %} {% endraw %}:
 ```{% raw %}
-{% if JDMA %}
-    [[JDMA_RESOURCE]]
-        pre-script = "PS1=${PS1:-}; source ~/jdma_venv_py2/bin/activate"
-        [[[job]]]
-            batch system = background
-            execution time limit = PT1H
-        [[[remote]]]
-            host = sci5.jasmin.ac.uk
+ {% if JDMA %}
+    [[JASMIN]]
         [[[environment]]]
             PLATFORM = Linux
             UMDIR = ~um
+            OCEANDIR = ~um
+        [[[remote]]]
+            host = sci5.jasmin.ac.uk
+        [[[job]]]
+            batch system = background
+
+    [[PPBUILD_RESOURCE_JASMIN]]
+        inherit = JASMIN
+        [[[job]]]
+            execution time limit = PT20M
+
+    [[fcm_make_pp_jasmin]]
+        inherit = None, EXTRACT_RESOURCE
+        [[[environment]]]
+            ROSE_TASK_APP = fcm_make_pp
+
+    [[fcm_make2_pp_jasmin]]
+        inherit = None, PPBUILD_RESOURCE_JASMIN
+        [[[environment]]]
+            ROSE_TASK_APP = fcm_make_pp
+
+    [[JDMA_RESOURCE]]
+        inherit = JASMIN
+        pre-script = "PS1=${PS1:-}; source /home/users/rshatcher/venvs/jdma_venv_py2/bin/activate"
+        [[[job]]]
+            execution time limit = PT1H
 
     [[jdma]]
-        inherit = JDMA_RESOURCE, POSTPROC
+        inherit = JDMA_RESOURCE
         [[[environment]]]
             CYCLEPERIOD = {{FMT}}
             ROSE_TASK_APP = postproc
