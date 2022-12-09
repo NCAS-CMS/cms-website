@@ -64,13 +64,13 @@ Before you can use the JDMA to migrate data to Elastic Tape you must install the
 As suites vary in their structure it is impossible to provide instructions that will cover all eventualities.  The following points are provided for guidance only.  We need to add the build of postproc jdma scripts and the `jdma` task to the suite graph so that it runs after the `pptransfer` task has run.
 
 1. Add `fcm_make_pp_jamsin` tasks to cylc graph in `[[[R1]]]`. After the line:
-``` 
+```{% raw %}
  {{ 'fcm_make_pp => fcm_make2_pp' + (' => POSTPROC_GROUP' if RUN else '')}}
-``` 
+{% endraw %}``` 
 insert
-``` 
+```{% raw %}
  {{ 'fcm_make_pp_jasmin => fcm_make2_pp_jasmin => jdma' if JDMA else '' }}
-```
+{% endraw %}```
  
 {:start="2"}
 2. Locate `pptransfer` in the cylc graph. For UKESM and GA suites this is something like:
