@@ -70,6 +70,16 @@
   position:
   ncas_id: 10574
 
+- firstname: David
+  lastname: Livings
+  position: "Hydro-JULES"
+  ncas_id: 10595
+  
+- firstname: Ankit
+  lastname: Bhandekar
+  position:
+  ncas_id: 10629
+  
 - firstname: Patrick
   lastname: McGuire
   position: "Land surface modelling development and support"
@@ -82,7 +92,7 @@
 
 - firstname: Annette
   lastname: Osprey
-  position: "High Resolution Climate Modelling support (On maternity leave till Summer 2022)"
+  position: "High Resolution Climate Modelling support"
   ncas_id: 10171
 
 - firstname: Marc
