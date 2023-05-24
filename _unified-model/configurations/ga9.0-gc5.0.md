@@ -1,9 +1,9 @@
 ---
 title: GA9.0/GC5.0 Standard Suites
-teaser: Information and list of standard suites for the Global Coupled model configuration GC5.0(GC5) and its components (Global Atmosphere 9 (GA9), Global Land 9 (GL9), Global Ocean 9 (GOSI9) and SI3 (SI3_4.0.4)).
+teaser: Information and list of standard suites for the Global Coupled model configuration GC5.0(GC5) and its components (Global Atmosphere and Land 9 (GAL9.0),  Global Ocean and Sea Ice 9 (GOSI9.0).
 ---
 
-## Global Atmosphere 9.0/Global Land 9.0
+## Global Atmosphere and Land 9.0
 
 [GA Documentation](https://code.metoffice.gov.uk/trac/gmed/wiki/GADocumentation/GAL9)
 ### Standard Rose Suites:
