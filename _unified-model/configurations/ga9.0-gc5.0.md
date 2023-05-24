@@ -1,6 +1,6 @@
 ---
 title: GA9.0/GC5.0 Standard Suites
-teaser: Information and list of standard suites for the Global Coupled model configuration GC5.0(GC5) and its components (Global Atmosphere and Land 9 (GAL9.0),  Global Ocean and Sea Ice 9 (GOSI9.0).
+teaser: Information and list of standard suites for the Global Coupled model configuration GC5.0(GC5) and its components (Global Atmosphere and Land 9 (GAL9.0),  Global Ocean and Sea Ice 9 (GOSI9.0)).
 ---
 
 ## Global Atmosphere and Land 9.0
