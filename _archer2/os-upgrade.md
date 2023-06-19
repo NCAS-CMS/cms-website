@@ -1,7 +1,7 @@
 ---
 layout: page-fullwidth
-title: Archer2 O/S upgrade
-subheadline: Updating a UM suite after Archer2 O/S upgrade 
+title: ARCHER2 O/S Upgrade
+subheadline: Updating a UM suite after the ARCHER2 O/S upgrade 
 permalink: '/archer2/os-upgrade/'
 breadcrumb: true
 ---
