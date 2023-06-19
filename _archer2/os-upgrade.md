@@ -44,7 +44,7 @@ to
  ```
 
 3. Update the ```ROSE_LAUNCHER_PREOPTS``` for the UM, NEMO, and XIOS. There is no longer any need to distinguish singly and multithreaded cases, but note the options ``` --hint=nomultithread --distribution=block:block``` must appear in the ```ROSE_LAUNCHER_PREOPTS``` for the UM, NEMO, and XIOS.
-   ```
+```
    [[UM_RESOURCE]]
        [[[environment]]]
               ROSE_LAUNCHER_PREOPTS_UM  = --het-group=0 --nodes={{ATMOS_NODES}} --ntasks={{ATMOS_TASKS}} --tasks-per-node={{ATMOS_PPNU*NUMA}} --cpus-per-task={{OMPTHR_ATM}} --hint=nomultithread --distribution=block:block --export=all,OMP_NUM_THREADS={{OMPTHR_ATM}},HYPERTHREADS={{HYPERTHREADS}},OMP_PLACES=cores
@@ -61,7 +61,7 @@ to
 ## Ported suites 
 
 | UM version | Suite id | Description | Branches + Notes |
-
+| --- | --- | --- | --- |
 | 11.1 | u-be303 | UKESM1.0 AMIP |  |
 | 11.2 | u-bc613 | UKESM1.0 Historical | see changes to the hetjob config in site/archer2.rc |
 | 11.2 | u-bc994 | UKESM1.0 pre-industrial control | see changes to the hetjob config in site/archer2.rc |
