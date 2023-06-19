@@ -63,19 +63,21 @@ to
              [[[environment]]]
                   ROSE_LAUNCHER_PREOPTS_NEMO  = --het-group=1 --nodes={{OCEAN_NODES}} --ntasks={{OCEAN_TASKS}} --tasks-per-node={{OCEAN_PPNU*NUMA}} --cpus-per-task={{OMPTHR_OCN}} --hint=nomultithread --distribution=block:block --export=all,OMP_NUM_THREADS={{OMPTHR_OCN}},HYPERTHREADS={{HYPERTHREADS}},OMP_PLACES=cores
     
-                  {% if XIOS_NPROC is defined and XIOS_NPROC > 0 %}
+                  {%&percent; if XIOS_NPROC is defined and XIOS_NPROC > 0 %}
                   ROSE_LAUNCHER_PREOPTS_XIOS  = --het-group=2 --nodes={{XIOS_NODES}} --ntasks={{XIOS_TASKS}} --tasks-per-node={{XIOS_PPNU*NUMA}} --cpus-per-task=1 --hint=nomultithread --distribution=block:block --export=all,OMP_NUM_THREADS=1,HYPERTHREADS=1
 ```
 
 
 ## Ported suites 
 
-UM version | Suite id | Description | Branches + Notes
-:---------:|:--------:|:-----------:|:----------------:
-11.1 | u-be303 | UKESM1.0 AMIP | n/a
-11.2 | u-bc613 | UKESM1.0 Historical | see changes to the hetjob config in site/archer2.rc
-11.2 | u-bc994 | UKESM1.0 pre-industrial control | see changes to the hetjob config in site/archer2.rc
-11.6 | u-bs251 | GA7.0 N96 AMIP Climate Development | n/a
-
+| UM version | Suite id | Description | Branches + Note |
+| --- | --- | --- | --- |
+| 11.1 | u-be303 | UKESM1.0 AMIP | |
+| 11.2 | u-bc613 | UKESM1.0 Historical | see changes to the hetjob config in site/archer2.rc |
+| 11.2 | u-bc994 | UKESM1.0 pre-industrial control | see changes to the hetjob config in site/archer2.rc |
+| 11.6 | u-bs251 | GA7.0 N96 AMIP Climate Development | |
+| 11.7 | 
+| 12.2 | u-cm785 | GC4 N96 ORCA025| |
+| ? | u-co779 | GC5 N216 ORCA025 | |
 
 ## How to restart suites that were running at the time ARCHER2 went down
