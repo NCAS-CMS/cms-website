@@ -66,7 +66,7 @@ to
                   {% if XIOS_NPROC is defined and XIOS_NPROC > 0 % }
                   ROSE_LAUNCHER_PREOPTS_XIOS  = --het-group=2 --nodes={{XIOS_NODES}} --ntasks={{XIOS_TASKS}} --tasks-per-node={{XIOS_PPNU*NUMA}} --cpus-per-task=1 --hint=nomultithread --distribution=block:block --export=all,OMP_NUM_THREADS=1,HYPERTHREADS=1
     ```
-(%endraw %}```
+{% endraw %}```
 
 ## Ported suites 
 
