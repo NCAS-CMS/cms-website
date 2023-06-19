@@ -14,8 +14,10 @@ We have ported and tested some of the commonly-used suites, listed below. And we
 
 ## Instructions 
 
+The following instructions draw on the naming style typically found in climate suites, but the ideas should apply to all UM suites. Suite modifications derive to accommodate changes to the slurm job scheduler. Minimal user-level changes are required and suites should run successfully once the UM executables for the reconfigurarion and the atmosphere model have been rebuilt.
+
 ### Atmosphere
-For atmosphere-only suites that use standard build configurations, minimal user-level changes are required and such suites should run successfully once the UM executables for the reconfigurarion and the atmosphere model have been rebuilt. Add the ```--cpus-per-task={{MAIN_OMPTHR_ATM}}``` clause to the atmopshere resources ```[[[environment]]]``` section:
+For atmosphere-only suites add the ```--cpus-per-task={{MAIN_OMPTHR_ATM}}``` clause to the atmopshere resources ```[[[environment]]]``` section in ```archer2.rc```:
 ```
 [[ATMOS_RESOURCE]]
 ...
@@ -25,9 +27,9 @@ For atmosphere-only suites that use standard build configurations, minimal user-
 ```
 
 ### Coupled
-Coupled atmosphere-ocean suites do require some user level changes to suite files.
-1. Change the Science Configuration Module (see the table below for the required mappings)
-2. Update the cce module version and remove the ucx module swap entries in archer2.rc, ie, change
+Coupled atmosphere-ocean suites require changes to suite files ```rose-suite.conf``` and ```archer2.rc```.
+1. In ```rose-suite.conf``` change the Science Configuration Module (see the table below for the required mappings)
+2. Update the cce module version and remove the ucx module swap entries in ```archer2.rc```, ie, change
     ```
      module load cce/12.0.0
      module swap craype-network-ofi craype-network-ucx
@@ -41,7 +43,7 @@ to
     {{MODULE_CMD}}
  ```
 
-3. Update the ROSE_LAUNCHER_PREOPTS for the UM, NEMO, and XIOS. There is no longer any need to distinguish singly and multithreaded cases, but note the options ``` --hint=nomultithread --distribution=block:block``` must appear in the ROSE_LAUNCHER_PREOPTS for the UM, NEMO, and XIOS.
+3. Update the ```ROSE_LAUNCHER_PREOPTS``` for the UM, NEMO, and XIOS. There is no longer any need to distinguish singly and multithreaded cases, but note the options ``` --hint=nomultithread --distribution=block:block``` must appear in the ```ROSE_LAUNCHER_PREOPTS``` for the UM, NEMO, and XIOS.
    ```
    [[UM_RESOURCE]]
        [[[environment]]]
