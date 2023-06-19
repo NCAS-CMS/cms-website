@@ -63,7 +63,7 @@ to
              [[[environment]]]
                   ROSE_LAUNCHER_PREOPTS_NEMO  = --het-group=1 --nodes={{OCEAN_NODES}} --ntasks={{OCEAN_TASKS}} --tasks-per-node={{OCEAN_PPNU*NUMA}} --cpus-per-task={{OMPTHR_OCN}} --hint=nomultithread --distribution=block:block --export=all,OMP_NUM_THREADS={{OMPTHR_OCN}},HYPERTHREADS={{HYPERTHREADS}},OMP_PLACES=cores
     
-                  {%&percent; if XIOS_NPROC is defined and XIOS_NPROC > 0 %}
+                  {%&percent; if XIOS_NPROC is defined and XIOS_NPROC > 0 %&percent;}
                   ROSE_LAUNCHER_PREOPTS_XIOS  = --het-group=2 --nodes={{XIOS_NODES}} --ntasks={{XIOS_TASKS}} --tasks-per-node={{XIOS_PPNU*NUMA}} --cpus-per-task=1 --hint=nomultithread --distribution=block:block --export=all,OMP_NUM_THREADS=1,HYPERTHREADS=1
 ```
 
