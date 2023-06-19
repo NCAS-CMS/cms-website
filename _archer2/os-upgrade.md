@@ -52,9 +52,9 @@ to
     {{MODULE_CMD}}
  ```
 
-3. Update the ```ROSE_LAUNCHER_PREOPTS``` for the UM, NEMO, and XIOS. There is no longer any need to distinguish singly and multithreaded cases, but note the clauses ``` --hint=nomultithread --distribution=block:block``` must appear in the ```ROSE_LAUNCHER_PREOPTS``` for the UM, NEMO, and XIOS.
-
-```
+3. Update the ```ROSE_LAUNCHER_PREOPTS``` for the UM, NEMO, and XIOS. There is no longer any need to distinguish singly and multithreaded cases, but note the clauses ``` --hint=nomultithread --distribution=block:block``` must appear in the ```ROSE_LAUNCHER_PREOPTS``` for the UM, NEMO, and XIOS
+```{% raw %}
+    ```
        [[UM_RESOURCE]]
            [[[environment]]]
                   ROSE_LAUNCHER_PREOPTS_UM  = --het-group=0 --nodes={{ATMOS_NODES}} --ntasks={{ATMOS_TASKS}} --tasks-per-node={{ATMOS_PPNU*NUMA}} --cpus-per-task={{OMPTHR_ATM}} --hint=nomultithread --distribution=block:block --export=all,OMP_NUM_THREADS={{OMPTHR_ATM}},HYPERTHREADS={{HYPERTHREADS}},OMP_PLACES=cores
@@ -63,10 +63,10 @@ to
              [[[environment]]]
                   ROSE_LAUNCHER_PREOPTS_NEMO  = --het-group=1 --nodes={{OCEAN_NODES}} --ntasks={{OCEAN_TASKS}} --tasks-per-node={{OCEAN_PPNU*NUMA}} --cpus-per-task={{OMPTHR_OCN}} --hint=nomultithread --distribution=block:block --export=all,OMP_NUM_THREADS={{OMPTHR_OCN}},HYPERTHREADS={{HYPERTHREADS}},OMP_PLACES=cores
     
-                  {&percnt; if XIOS_NPROC is defined and XIOS_NPROC > 0 &percnt; }
+                  {% if XIOS_NPROC is defined and XIOS_NPROC > 0 % }
                   ROSE_LAUNCHER_PREOPTS_XIOS  = --het-group=2 --nodes={{XIOS_NODES}} --ntasks={{XIOS_TASKS}} --tasks-per-node={{XIOS_PPNU*NUMA}} --cpus-per-task=1 --hint=nomultithread --distribution=block:block --export=all,OMP_NUM_THREADS=1,HYPERTHREADS=1
-```
-
+    ```
+(%endraw %}```
 
 ## Ported suites 
 
