@@ -29,6 +29,15 @@ For atmosphere-only suites add the ```--cpus-per-task={{MAIN_OMPTHR_ATM}}``` cla
 ### Coupled
 Coupled atmosphere-ocean suites require changes to suite files ```rose-suite.conf``` and ```archer2.rc```.
 1. In ```rose-suite.conf``` change the Science Configuration Module (see the table below for the required mappings)
+
+| pre OS upgrade moci module | post OS upgrade moci module |
+| --- | ---|
+| GC3-PrgEnv/2.0/2021.12.15 | GC3-PrgEnv/v1|
+|GC3-PrgEnv/2.0/2021.11.22 |  GC3-PrgEnv/v2 |
+|GC3-PrgEnv/2.0/2022.12.09 |  GC3-PrgEnv/v3 |
+|GC4-PrgEnv/2021.12.1      |  GC4-PrgEnv/v1 |
+|GC5-PrgEnv/2023.01.1      |  GC5-PrgEnv/v1 |
+
 2. Update the cce module version and remove the ucx module swap entries in ```archer2.rc```, ie, change
     ```
      module load cce/12.0.0
