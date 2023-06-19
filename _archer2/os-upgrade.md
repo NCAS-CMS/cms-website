@@ -44,6 +44,7 @@ to
  ```
 
 3. Update the ```ROSE_LAUNCHER_PREOPTS``` for the UM, NEMO, and XIOS. There is no longer any need to distinguish singly and multithreaded cases, but note the clauses ``` --hint=nomultithread --distribution=block:block``` must appear in the ```ROSE_LAUNCHER_PREOPTS``` for the UM, NEMO, and XIOS.
+
 ```
    [[UM_RESOURCE]]
        [[[environment]]]
@@ -62,10 +63,10 @@ to
 
 UM version | Suite id | Description | Branches + Notes
 :---------:|:--------:|:-----------:|:----------------:
-11.1 | u-be303 | UKESM1.0 AMIP |
+11.1 | u-be303 | UKESM1.0 AMIP | n/a
 11.2 | u-bc613 | UKESM1.0 Historical | see changes to the hetjob config in site/archer2.rc
 11.2 | u-bc994 | UKESM1.0 pre-industrial control | see changes to the hetjob config in site/archer2.rc
-11.6 | u-bs251 | GA7.0 N96 AMIP Climate Development |
+11.6 | u-bs251 | GA7.0 N96 AMIP Climate Development | n/a
 
 
 ## How to restart suites that were running at the time ARCHER2 went down
