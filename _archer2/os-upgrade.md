@@ -14,9 +14,32 @@ We have ported and tested some of the commonly-used suites, listed below. And we
 
 ## Instructions 
 
+### Atmosphere
+For atmosphere-only suites that use standard build configurations, user-level changes are not required and such suites should run successfully once the UM executables for the reconfigurarion and the atmosphere model have been rebuilt.
 
+### Coupled
+Coupled atmosphere-ocean suites do require some user level changes to suite files.
+1. Change the Science Configuration Module (see the table below for the required mappings)
+2. Update the cce module version and remove the ucx module swap entries in archer2.rc, ie, change
+    ```
+     module load cce/12.0.0
+     module swap craype-network-ofi craype-network-ucx
+     module swap cray-mpich cray-mpich-ucx/8.1.15
+    {{MODULE_CMD}}
+    ```
+to
+
+ ```
+    module load cce/15.0.0
+    {{MODULE_CMD}}
+ ```
 ## Ported suites 
 
 | UM version | Suite id | Description | Branches + Notes |
-| ---------- | ------------ | ----------- | ----- |
 
+| 11.1 | u-be303 | UKESM1.0 AMIP |  |
+| 11.2 | u-bc613 | UKESM1.0 Historical | see changes to the hetjob config in site/archer2.rc |
+| 11.2 | u-bc994 | UKESM1.0 pre-industrial control | see changes to the hetjob config in site/archer2.rc |
+
+
+## How to restart suites that were running at the time ARCHER2 went down
