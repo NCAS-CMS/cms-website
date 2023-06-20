@@ -100,22 +100,22 @@ The following suites have been updated and tested following the OS Upgrade.
 Suites that were running at the time ARCHER2 went down need to have their fcm_make* tasks re-inserted and re-run in order to rebuild the module executables.
 
 * After making the above changes, restart the suite in a held state:  
-  ```rose suite-run --restart -- --hold```
+  ```puma$ rose suite-run --restart -- --hold```
   
 * Identify the cycle-point of the last active cycle (e.g. 19990401T0000Z)
 
-* For atmos only suites:  
-  ```cylc insert --no-check SUITE-ID fcm_make_um.CYCLE-POINT``` \\
-  ```cylc insert --no-check SUITE-ID fcm_make2_um.CYCLE-POINT```
+* For atmos only suites, insert the build tasks by running:  
+  ```puma$ cylc insert --no-check SUITE-ID fcm_make_um.CYCLE-POINT``` \\
+  ```puma$ cylc insert --no-check SUITE-ID fcm_make2_um.CYCLE-POINT```
 
   For example:  
   ```cylc insert --no-check u-cm123 fcm_make_um.19990401T0000Z```
 
-* For coupled suites:  
-  ```cylc insert --no-check SUITE-ID fcm_make_um.CYCLE-POINT``` \\
-  ```cylc insert --no-check SUITE-ID fcm_make2_um.CYCLE-POINT``` \\
-  ```cylc insert --no-check SUITE-ID fcm_make_ocean.CYCLE-POINT``` \\
-  ```cylc insert --no-check SUITE-ID fcm_make2_ocean.CYCLE-POINT```
+* For coupled suites, insert the build tasks by running:  
+  ```puma$ cylc insert --no-check SUITE-ID fcm_make_um.CYCLE-POINT``` \\
+  ```puma$ cylc insert --no-check SUITE-ID fcm_make2_um.CYCLE-POINT``` \\
+  ```puma$ cylc insert --no-check SUITE-ID fcm_make_ocean.CYCLE-POINT``` \\
+  ```puma$ cylc insert --no-check SUITE-ID fcm_make2_ocean.CYCLE-POINT```
 
 * Right click on the ```fcm_make_*``` tasks and select **"Release"**
 
