@@ -1,7 +1,7 @@
 ---
 layout: page-fullwidth
-title: ARCHER2 O/S Upgrade
-subheadline: Updating a UM suite after the ARCHER2 O/S upgrade 
+title: Updating a UM suite after the ARCHER2 O/S upgrade
+subheadline:  ARCHER2 O/S Upgrade 
 permalink: '/archer2/os-upgrade/'
 breadcrumb: true
 ---
@@ -16,30 +16,30 @@ We have ported and tested some of the commonly-used suites, listed below. And we
 
 The following instructions draw on the naming style typically found in climate suites, but the ideas should apply to all UM suites. Suite modifications derive to accommodate changes to the slurm job scheduler. Minimal user-level changes are required and suites should run successfully once the UM executables for the reconfigurarion and the atmosphere model have been rebuilt.
 
-### Atmosphere
-For atmosphere-only suites add the {% raw %} --cpus-per-task={{MAIN_OMPTHR_ATM}} {% endraw %} clause to the atmopshere resources ```[[[environment]]]``` section in ```archer2.rc```:
+### Atmosphere Suites
+For atmosphere-only suites add the ```{% raw %} --cpus-per-task={{MAIN_OMPTHR_ATM}} {% endraw %}``` clause to the atmopshere resources ```[[[environment]]]``` section in ```archer2.rc```. For example:
 
 {% raw %}
 ~~~
 [[ATMOS_RESOURCE]]
-...
-      [[[environment]]]
-            OMP_NUM_THREADS={{MAIN_OMPTHR_ATM}}
-            ROSE_LAUNCHER_PREOPTS = {{ATM_SLURM_FLAGS}} --cpus-per-task={{MAIN_OMPTHR_ATM}}
+    ...
+    [[[environment]]]
+        OMP_NUM_THREADS={{MAIN_OMPTHR_ATM}}
+        ROSE_LAUNCHER_PREOPTS = {{ATM_SLURM_FLAGS}} --cpus-per-task={{MAIN_OMPTHR_ATM}}
 ~~~
 {% endraw %}
 
-### Coupled
-Coupled atmosphere-ocean suites require changes to suite files ```rose-suite.conf``` and ```archer2.rc```.
+### Coupled Suites
+Coupled atmosphere-ocean suites require changes to suite files ```rose-suite.conf``` and ```archer2.rc.```
 1. In ```rose-suite.conf``` change the Science Configuration Module (see the table below for the required mappings)
 
-| pre OS upgrade moci module | post OS upgrade moci module |
-| --- | ---|
-| GC3-PrgEnv/2.0/2021.12.15 |  GC3-PrgEnv/v1 |
-| GC3-PrgEnv/2.0/2021.11.22 |  GC3-PrgEnv/v2 |
-| GC3-PrgEnv/2.0/2022.12.09 |  GC3-PrgEnv/v3 |
-| GC4-PrgEnv/2021.12.1      |  GC4-PrgEnv/v1 |
-| GC5-PrgEnv/2023.01.1      |  GC5-PrgEnv/v1 |
+  | Pre OS upgrade MOCI module | Post OS upgrade MOCI module |
+  | --- | ---|
+  | GC3-PrgEnv/2.0/2021.12.15 |  GC3-PrgEnv/v1 |
+  | GC3-PrgEnv/2.0/2021.11.22 |  GC3-PrgEnv/v2 |
+  | GC3-PrgEnv/2.0/2022.12.09 |  GC3-PrgEnv/v3 |
+  | GC4-PrgEnv/2021.12.1      |  GC4-PrgEnv/v1 |
+  | GC5-PrgEnv/2023.01.1      |  GC5-PrgEnv/v1 |
 
 {:start="2"}
 2. Update the cce module version and remove the ucx module swap entries in ```archer2.rc```, ie, change
@@ -63,7 +63,8 @@ to
 {% endraw %}
 
 {:start="3"}
-3. Update the ```ROSE_LAUNCHER_PREOPTS``` for the UM, NEMO, and XIOS. There is no longer any need to distinguish singly and multithreaded cases, but note the clauses ``` --hint=nomultithread --distribution=block:block``` must appear in the ```ROSE_LAUNCHER_PREOPTS``` for the UM, NEMO, and XIOS
+3. Update the ```ROSE_LAUNCHER_PREOPTS``` for the UM, NEMO, and XIOS. \\
+  There is no longer any need to distinguish between single and multithreaded cases, but note the clauses ``` --hint=nomultithread --distribution=block:block``` must appear in the ```ROSE_LAUNCHER_PREOPTS``` for the UM, NEMO, and XIOS
 
 {% raw %}
 ~~~
@@ -83,6 +84,8 @@ to
 
 ## Ported suites 
 
+The following suites have been updated and tested following the OS Upgrade.
+
 | UM version | Suite id | Description | Branches + Note |
 | --- | --- | --- | --- |
 | 11.1 | u-be303 | UKESM1.0 AMIP | |
@@ -90,7 +93,32 @@ to
 | 11.2 | u-bc994 | UKESM1.0 pre-industrial control | see changes to the hetjob config in site/archer2.rc |
 | 11.6 | u-bs251 | GA7.0 N96 AMIP Climate Development | |
 | 11.7 | u-ca634 | GA8.0GL9.0 AMIP Climate Development| |
-| 12.2 | u-cm785 | GC4 N96 ORCA025| |
+| 12.2 | u-cm785/archer2 | GC4 N96 ORCA025| |
 
-## How to restart suites that were running at the time ARCHER2 went down
-more  stuff still yet
+## How to restart suites
+
+Suites that were running at the time ARCHER2 went down need to have their fcm_make* tasks re-inserted and re-run in order to rebuild the module executables.
+
+* After making the above changes, restart the suite in a held state:  
+  ```rose suite-run --restart -- --hold```
+  
+* Identify the cycle-point of the last active cycle (e.g. 19990401T0000Z)
+
+* For atmos only suites:  
+  ```cylc insert --no-check SUITE-ID fcm_make_um.CYCLE-POINT``` \\
+  ```cylc insert --no-check SUITE-ID fcm_make2_um.CYCLE-POINT```
+
+  For example:  
+  ```cylc insert --no-check u-cm123 fcm_make_um.19990401T0000Z```
+
+* For coupled suites:  
+  ```cylc insert --no-check SUITE-ID fcm_make_um.CYCLE-POINT``` \\
+  ```cylc insert --no-check SUITE-ID fcm_make2_um.CYCLE-POINT``` \\
+  ```cylc insert --no-check SUITE-ID fcm_make_ocean.CYCLE-POINT``` \\
+  ```cylc insert --no-check SUITE-ID fcm_make2_ocean.CYCLE-POINT```
+
+* Right click on the ```fcm_make_*``` tasks and select **"Release"**
+
+* Wait for the code extraction tasks to finish, then right click on the ```fcm_make2_*``` tasks and select **"Release"** to rebuild the code.
+
+* Once the rebuild tasks have finished release the suite to continue running by selecting menu item **"Control -> Release Suite (unpause)"**
