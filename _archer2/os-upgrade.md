@@ -35,11 +35,11 @@ Coupled atmosphere-ocean suites require changes to suite files ```rose-suite.con
 
 | pre OS upgrade moci module | post OS upgrade moci module |
 | --- | ---|
-| GC3-PrgEnv/2.0/2021.12.15 | GC3-PrgEnv/v1|
-|GC3-PrgEnv/2.0/2021.11.22 |  GC3-PrgEnv/v2 |
-|GC3-PrgEnv/2.0/2022.12.09 |  GC3-PrgEnv/v3 |
-|GC4-PrgEnv/2021.12.1      |  GC4-PrgEnv/v1 |
-|GC5-PrgEnv/2023.01.1      |  GC5-PrgEnv/v1 |
+| GC3-PrgEnv/2.0/2021.12.15 |  GC3-PrgEnv/v1 |
+| GC3-PrgEnv/2.0/2021.11.22 |  GC3-PrgEnv/v2 |
+| GC3-PrgEnv/2.0/2022.12.09 |  GC3-PrgEnv/v3 |
+| GC4-PrgEnv/2021.12.1      |  GC4-PrgEnv/v1 |
+| GC5-PrgEnv/2023.01.1      |  GC5-PrgEnv/v1 |
 
 2. Update the cce module version and remove the ucx module swap entries in ```archer2.rc```, ie, change
 
@@ -86,7 +86,7 @@ to
 | 11.2 | u-bc613 | UKESM1.0 Historical | see changes to the hetjob config in site/archer2.rc |
 | 11.2 | u-bc994 | UKESM1.0 pre-industrial control | see changes to the hetjob config in site/archer2.rc |
 | 11.6 | u-bs251 | GA7.0 N96 AMIP Climate Development | |
-| 11.7 | | | |
+| 11.7 | u-ca634 | GA8.0GL9.0 AMIP Climate Development| |
 | 12.2 | u-cm785 | GC4 N96 ORCA025| |
 
 ## How to restart suites that were running at the time ARCHER2 went down
