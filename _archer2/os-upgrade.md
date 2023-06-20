@@ -18,6 +18,7 @@ The following instructions draw on the naming style typically found in climate s
 
 ### Atmosphere
 For atmosphere-only suites add the {% raw %} --cpus-per-task={{MAIN_OMPTHR_ATM}} {% endraw %} clause to the atmopshere resources ```[[[environment]]]``` section in ```archer2.rc```:
+
 {% raw %}
 ~~~
 [[ATMOS_RESOURCE]]
@@ -41,6 +42,7 @@ Coupled atmosphere-ocean suites require changes to suite files ```rose-suite.con
 |GC5-PrgEnv/2023.01.1      |  GC5-PrgEnv/v1 |
 
 2. Update the cce module version and remove the ucx module swap entries in ```archer2.rc```, ie, change
+
 {% raw %}
 ~~~
      module load cce/12.0.0
@@ -49,6 +51,7 @@ Coupled atmosphere-ocean suites require changes to suite files ```rose-suite.con
     {{MODULE_CMD}}
 ~~~
 {% endraw %}
+
 to
 
 {% raw %}
