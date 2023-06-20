@@ -18,13 +18,15 @@ The following instructions draw on the naming style typically found in climate s
 
 ### Atmosphere
 For atmosphere-only suites add the {% raw %} --cpus-per-task={{MAIN_OMPTHR_ATM}} {% endraw %} clause to the atmopshere resources ```[[[environment]]]``` section in ```archer2.rc```:
-```{% raw %}
+{% raw %}
+~~~
 [[ATMOS_RESOURCE]]
 ...
       [[[environment]]]
             OMP_NUM_THREADS={{MAIN_OMPTHR_ATM}}
             ROSE_LAUNCHER_PREOPTS = {{ATM_SLURM_FLAGS}} --cpus-per-task={{MAIN_OMPTHR_ATM}}
-{% endraw %}```
+~~~
+{% endraw %}
 
 ### Coupled
 Coupled atmosphere-ocean suites require changes to suite files ```rose-suite.conf``` and ```archer2.rc```.
@@ -39,22 +41,27 @@ Coupled atmosphere-ocean suites require changes to suite files ```rose-suite.con
 |GC5-PrgEnv/2023.01.1      |  GC5-PrgEnv/v1 |
 
 2. Update the cce module version and remove the ucx module swap entries in ```archer2.rc```, ie, change
-    ```{% raw %}
+{% raw %}
+~~~
      module load cce/12.0.0
      module swap craype-network-ofi craype-network-ucx
      module swap cray-mpich cray-mpich-ucx/8.1.15
     {{MODULE_CMD}}
-    {% endraw %}```
+~~~
+{% endraw %}
 to
 
- ```{% raw %}
+{% raw %}
+~~~
     module load cce/15.0.0
     {{MODULE_CMD}}
- {% endraw %}```
+~~~
+{% endraw %}
 
 3. Update the ```ROSE_LAUNCHER_PREOPTS``` for the UM, NEMO, and XIOS. There is no longer any need to distinguish singly and multithreaded cases, but note the clauses ``` --hint=nomultithread --distribution=block:block``` must appear in the ```ROSE_LAUNCHER_PREOPTS``` for the UM, NEMO, and XIOS
 
-```{% raw %}
+{% raw %}
+~~~
        [[UM_RESOURCE]]
            [[[environment]]]
                   ROSE_LAUNCHER_PREOPTS_UM  = --het-group=0 --nodes={{ATMOS_NODES}} --ntasks={{ATMOS_TASKS}} --tasks-per-node={{ATMOS_PPNU*NUMA}} --cpus-per-task={{OMPTHR_ATM}} --hint=nomultithread --distribution=block:block --export=all,OMP_NUM_THREADS={{OMPTHR_ATM}},HYPERTHREADS={{HYPERTHREADS}},OMP_PLACES=cores
@@ -65,8 +72,8 @@ to
     
                   {% if XIOS_NPROC is defined and XIOS_NPROC > 0 % }
                   ROSE_LAUNCHER_PREOPTS_XIOS  = --het-group=2 --nodes={{XIOS_NODES}} --ntasks={{XIOS_TASKS}} --tasks-per-node={{XIOS_PPNU*NUMA}} --cpus-per-task=1 --hint=nomultithread --distribution=block:block --export=all,OMP_NUM_THREADS=1,HYPERTHREADS=1
-
-{% endraw %}```
+~~~
+{% endraw %}
 
 ## Ported suites 
 
