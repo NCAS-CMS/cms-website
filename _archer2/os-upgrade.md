@@ -86,7 +86,7 @@ to
 | 11.2 | u-bc613 | UKESM1.0 Historical | see changes to the hetjob config in site/archer2.rc |
 | 11.2 | u-bc994 | UKESM1.0 pre-industrial control | see changes to the hetjob config in site/archer2.rc |
 | 11.6 | u-bs251 | GA7.0 N96 AMIP Climate Development | |
-| 11.7 | 
+| 11.7 | | | |
 | 12.2 | u-cm785 | GC4 N96 ORCA025| |
 
 ## How to restart suites that were running at the time ARCHER2 went down
