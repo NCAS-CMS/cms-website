@@ -2,7 +2,7 @@
 layout: page-fullwidth
 title: Unified Model on ARCHER2
 subheadline: ARCHER2
-teaser: CMS have installed UM versions 7.3, 8.4, 10.7, 11.1+ and 12.x on ARCHER2
+teaser: CMS have installed UM versions 7.3, 8.4, 10.7, 11.1+, 12.x & 13.x on ARCHER2
 permalink: '/archer2/unified-model/'
 breadcrumb: true
 ---
@@ -47,10 +47,6 @@ Users may set `UMDIR` in their `~/.bash_profile` but remember that batch jobs ca
 ## Standard Suites
 
 CMS maintain a number of standard suite configuations on ARCHER2. All standard suites available are detailed on the [UM Configurations]({{ '/unified-model/configurations' | relative_url }}) page.
-
-## Porting a suite from ARCHER to ARCHER2
-
-See the [porting page]({{ '/archer2/porting/' | relative_url }}) for instructions on how to port a UM suite or UMUI job to ARCHER2. Example suites that CMS have already ported can also be found on this page.
 
 ## Performance
 
