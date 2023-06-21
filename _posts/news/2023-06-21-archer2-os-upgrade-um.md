@@ -1,7 +1,7 @@
 ---
 layout: page
 subheadline:  "ARCHER2"
-title:  "ARCHER2 OS upgrade - Unified Model"
+title:  "OS upgrade - Unified Model"
 teaser: "Details of changes required to UM suites following ARCHER2 OS Upgrade"
 categories:
     - news
