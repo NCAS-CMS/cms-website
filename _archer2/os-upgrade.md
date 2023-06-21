@@ -6,7 +6,9 @@ permalink: '/archer2/os-upgrade/'
 breadcrumb: true
 ---
 
-<font color="red"><b>!! This page is under construction !!</b></font>
+
+
+{% include alert info="This page will be continually updated." %}
 
 In May/June 2023, Archer2 underwent a [major software upgrade](https://docs.archer2.ac.uk/faq/upgrade-2023/). All the system software, including compilers and libraries were updated, and as a result, we have had to rebuild much of the UM supporting software. This means users need to make some changes to their suites and test their workflows before resuming work. 
 
