@@ -100,7 +100,7 @@ The following suites have been updated and tested following the OS Upgrade.
 
 ## How to restart suites
 
-**Note - only follow this section if the fcm_make tasks do not appear in the Cylc gui for the last active cycle**
+**Note - only follow this section if the fcm_make\* tasks do not appear in the Cylc gui for the last active cycle**
 
 Suites that were running at the time ARCHER2 went down need to have their fcm_make* tasks re-inserted and re-run in order to rebuild the module executables.
 
@@ -115,7 +115,7 @@ Suites that were running at the time ARCHER2 went down need to have their fcm_ma
   ```archer2$ cd <your-suite>/share``` \\
   ```archer2$ mv fcm_make_um fcm_make_um_preupgrade```
 
-Insert the build tasks by running:
+  Insert the build tasks by running:
     
   ```puma$ cylc insert --no-check SUITE-ID fcm_make_um.CYCLE-POINT``` \\
   ```puma$ cylc insert --no-check SUITE-ID fcm_make2_um.CYCLE-POINT```
