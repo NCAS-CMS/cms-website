@@ -111,12 +111,9 @@ Suites that were running at the time ARCHER2 went down need to have their fcm_ma
 * Identify the cycle-point of the last active cycle (e.g. 19990401T0000Z)
 
 * For atmos only suites
-
-   On ARCHER2:
   
-  ```archer2$ cd <your suite>/share```
-
-   ```archer2$ mv fcm_make_um fcm_make_um_preupgrade```
+  ```archer2$ cd <your-suite>/share``` \\
+  ```archer2$ mv fcm_make_um fcm_make_um_preupgrade```
 
 * Insert the build tasks by running:
     
@@ -127,15 +124,10 @@ Suites that were running at the time ARCHER2 went down need to have their fcm_ma
   ```cylc insert --no-check u-cm123 fcm_make_um.19990401T0000Z```
 
 * For coupled suites
-
-   On ARCHER2:
   
-  ```archer2$ cd <your suite>/share```
-
-   ```archer2$ mv fcm_make_um fcm_make_um_preupgrade```
-
-   ```archer2$ mv fcm_make_ocean fcm_make_ocean_preupgrade```
-
+  ```archer2$ cd <your-suite>/share``` \\
+  ```archer2$ mv fcm_make_um fcm_make_um_preupgrade``` \\
+  ```archer2$ mv fcm_make_ocean fcm_make_ocean_preupgrade```
 
 * Insert the build tasks by running:
   ```puma$ cylc insert --no-check SUITE-ID fcm_make_um.CYCLE-POINT``` \\
