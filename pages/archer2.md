@@ -23,4 +23,4 @@ CMS has installed and undertaken limited testing of several versions of the Unif
 
 * [Unified Model on ARCHER2]({{ '/archer2/unified-model/' | relative_url }})
 
-
+* [OS Upgrade - June 2023]({{'/archer2/os-upgrade/' | relative_url }})
