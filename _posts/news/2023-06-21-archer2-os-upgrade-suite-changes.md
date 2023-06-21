@@ -17,6 +17,8 @@ Before restarting UM suites, however, there are a number of changes that need to
 
 Suite changes and instructions on how to restart a suite are detailed on our [ARCHER2 OS Upgrade]({{ '/archer2/os-upgrade/' | relative_url }}) page.
 
+Please note, we are working to increase the coverage for less frequently used suites and versions of the model, so please check the instructions for further updates.
+
 If you encounter any problems please raise them on the [NCAS-CMS Helpdesk](https://cms-helpdesk.ncas.ac.uk)
 
 {% comment %} Leave below here {% endcomment %}
