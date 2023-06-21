@@ -115,7 +115,7 @@ Suites that were running at the time ARCHER2 went down need to have their fcm_ma
   ```archer2$ cd <your-suite>/share``` \\
   ```archer2$ mv fcm_make_um fcm_make_um_preupgrade```
 
-* Insert the build tasks by running:
+Insert the build tasks by running:
     
   ```puma$ cylc insert --no-check SUITE-ID fcm_make_um.CYCLE-POINT``` \\
   ```puma$ cylc insert --no-check SUITE-ID fcm_make2_um.CYCLE-POINT```
@@ -129,7 +129,7 @@ Suites that were running at the time ARCHER2 went down need to have their fcm_ma
   ```archer2$ mv fcm_make_um fcm_make_um_preupgrade``` \\
   ```archer2$ mv fcm_make_ocean fcm_make_ocean_preupgrade```
 
-* Insert the build tasks by running:
+  Insert the build tasks by running:
   
   ```puma$ cylc insert --no-check SUITE-ID fcm_make_um.CYCLE-POINT``` \\
   ```puma$ cylc insert --no-check SUITE-ID fcm_make2_um.CYCLE-POINT``` \\
