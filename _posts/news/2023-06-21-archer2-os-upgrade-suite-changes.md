@@ -11,9 +11,9 @@ tags:
 author: ros
 #header: no
 ---
-Following the ARCHER2 OS Upgrade, NCAS-CMS have now rebuilt all software that we maintain centrally under ```$UMDIR```.
+Following the ARCHER2 OS Upgrade, NCAS-CMS have now rebuilt and tested the majority of underpinning UM software that we maintain. We are happy to announce that users can now resume running the UM on ARCHER2.
 
-Before restarting UM suites there are a number of changes that users need to make to their suites.  The model executables must also be rebuilt before resuming the run.
+Before restarting UM suites, however, there are a number of changes that need to make to the suites.  The model executables must also be rebuilt before resuming the run.
 
 Suite changes and instructions on how to restart a suite are detailed on our [ARCHER2 OS Upgrade]({{ '/archer2/os-upgrade/' | relative_url }}) page.
 
