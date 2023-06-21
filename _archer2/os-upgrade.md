@@ -16,7 +16,8 @@ We have ported and tested some of the commonly-used suites, listed below. And we
 
 ## Instructions 
 
-The following instructions draw on the naming style typically found in climate suites, but the ideas should apply to all UM suites. Suite modifications derive to accommodate changes to the slurm job scheduler. Minimal user-level changes are required and suites should run successfully once the UM executables for the reconfigurarion and the atmosphere model have been rebuilt.
+The following instructions draw on the naming style typically found in climate suites, but the ideas should apply to all UM suites. Suite modifications derive to accommodate changes to the slurm job scheduler. Minimal user-level changes are required and suites should run successfully. We stress that **the UM executables for the reconfigurarion and the atmosphere model must be rebuilt**.
+
 
 ### Atmosphere Suites
 For atmosphere-only suites add the ```{% raw %} --cpus-per-task={{MAIN_OMPTHR_ATM}} {% endraw %}``` clause to the atmopshere resources ```[[[environment]]]``` section in ```archer2.rc```. For example:
