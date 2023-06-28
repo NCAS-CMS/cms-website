@@ -21,4 +21,4 @@ teaser: Information and list of standard suites for the Global Coupled model con
 
 | ARCHER2 suite id <br> and revision no. | Owner | Original Met Office <br> suite id | UM Version | Description |
 | :------: | :------: | :------: | :------: | :------ |
-| u-cy010 | rosalynhatcher | [u-cx557](https://code.metoffice.gov.uk/trac/gmed/wiki/GCDev/GCDocumentation/u-cx557)| | GC5 N216 ORCA025 UM13.2 YR2000 pesent day control run (cylc7) |
+| u-cy010 | rosalynhatcher | [u-cx557](https://code.metoffice.gov.uk/trac/gmed/wiki/GCDev/GCDocumentation/u-cx557)| 13.2 | GC5 N216 ORCA025 UM13.2 YR2000 pesent day control run (cylc7) |
