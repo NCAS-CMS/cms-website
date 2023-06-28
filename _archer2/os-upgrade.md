@@ -97,6 +97,7 @@ The following suites have been updated and tested following the OS Upgrade.
 | 11.6 | u-bs251 | GA7.0 N96 AMIP Climate Development | |
 | 11.7 | u-ca634 | GA8.0GL9.0 AMIP Climate Development| |
 | 12.2 | u-cm785/archer2 | GC4 N96 ORCA025| |
+| 13.2 | u-cy010 | GC5 N216 ORCA025 | |
 
 ## How to restart suites
 
