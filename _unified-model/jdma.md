@@ -53,7 +53,7 @@ Before you can use the JDMA to migrate data to Elastic Tape you must install the
     * **config_base:** fcm:moci.xm-br/dev/rosalynhatcher/postproc_2.4_archer2_jasmin_rewrite
     * **config_rev:** <blank>
     * **pp_rev:** postproc_2.4
-    * **pp_sources:** branches/dev/rosalynhatcher/postproc_2.4_archer2_jasmin_rewrite@4462
+    * **pp_sources:** branches/dev/rosalynhatcher/postproc_2.4_archer2_jasmin_rewrite@4665
 
 3. In panel *postproc -> Post Processing - common settings -> ARCHER2-JASMIN Archiving -> Elastic Tape*:
     * Set **default_workspace** to **False**
