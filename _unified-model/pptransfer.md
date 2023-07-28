@@ -54,6 +54,7 @@ For example; `/work/n02/n02/<username>/archive` where `<username>` is your ARCHE
 This will be a temporary area to stage your data before transfer to JASMIN.
 
 * In panel *"postproc -> Post Processing - common settings -> JASMIN Transfer"*:
+  * Set **transfer_dir** to be a directory on your Jasmin group workspace, e.g. `/gws/nopw/j04/ncas_cms/aosprey/archive`
   * Set **transfer_type** to `Push`
   * Set **remote_host** to `gridftp1.jasmin.ac.uk` 
   * Set **gridftp** to `true`
