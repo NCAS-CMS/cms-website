@@ -18,7 +18,7 @@ such as cylc-8, which will eventually be controlled via a web interface.
 Unfortuantely, the puma server we've been using recently was only an interim solution after the demise of our old machine,
 and not suitable as a long-term replacement. 
 
-***This is the current process. It may be a bit different for real users.***
+***This is the current process for testing. I haven't yet tried copying my files over and using PUMA2 for real.***
 
 ### 1. Applying for an account 
 
@@ -38,8 +38,9 @@ You will be sent an email when your PUMA2 account is ready for use.
 PUMA2 is accessed from the ARCHER2 login nodes, and uses the same username and password. 
 
 [Login to ARCHER2](https://docs.archer2.ac.uk/quick-start/quickstart-users/#login-to-archer2) as usual.
-We recommend users **do not forward their ssh-agent** from their local system, 
-as this can cause problems with Rose/cylc job submission. 
+
+**Important: We recommend users ***do not forward their ssh-agent*** from their local system, 
+as this can cause problems with Rose/cylc job submission.**
 
 Once you are on the ARCHER2 login nodes, type ```ssh -Y puma2```. Enter your ARCHER2 password when prompted.
   
@@ -62,9 +63,7 @@ with a strong passphrase protecting your ARCHER2 ssh-key**
 * Copy the key over to PUMA2:
   ```ssh-copy-id -i ~/.ssh/id_rsa_puma2 puma2```
 
-* Next, create a file called ```~/.ssh/config``` if it doesn't already exist.
-* Add the following lines: 
-
+* Next, create a file called ```~/.ssh/config```, and add the following lines: 
   ```
   Host puma2
         IdentityFile ~/.ssh/id_rsa_puma2
@@ -72,24 +71,42 @@ with a strong passphrase protecting your ARCHER2 ssh-key**
   ````
 
 * Test it works by typing ```ssh puma2```.
-  Note that this should have set up X11 forwarding, so you no longer need the `-Y`. 
+  Note that this should have set up X11 forwarding, so you no longer need the `-Y`.
+  You should not be prompted for your password. 
 
 ### 4. Copying over your files 
 
-***This is a placeholder. I'm assuming we aren't doing this just yet.***
+***This is a placeholder***
 
 ### 5. Setting up your PUMA2 environment 
+
+***Some of this will be added to user's enviornment centrally.***
+
+To setup your environment, copy the standard ```.profile``` and ```.bashrc```. 
+```
+cd
+cp ~um1/um-training/.profile .
+cp ~um1/um-training/.bashrc . 
+```
+
+To pick up these settings, logout of PUMA2 and back in again (or source the files): 
+
+You should be prompted for your MOSRS password, then username. 
+To check this is setup correctly, see if you can access the UM repository: 
+```
+fcm info fcm:um.x
+```
 
 ### 6. Setting up your ssh agent 
 
 As on the old puma server, you need to have an ssh-agent running in order to submit jobs to 
 ARCHER2 and JASMIN.
 
-***This might be different if we copied over the files from the old puma.***
+***Would we get users to copy over their old .ssh ?***
 
 * Copy your ARCHER ssh-keys to PUMA2. ***How?***
 
-* Copy the `ssh-setup` script to your `.ssh` directory. (Note the `um` user has changed to `um1` on PUMA2). 
+* Copy the `ssh-setup` script to your `.ssh` directory.
 
   ```
   cp ~um1/um-training/setup/ssh-setup ~/.ssh
@@ -114,12 +131,45 @@ ARCHER2 and JASMIN.
   ```
 
 * To test this is working, run:
-  ```rose host-select archer2```
+  ```
+  rose host-select archer2
+  ```
+  It should return one of the login nodes, e.g. ```ln01```.
+  If it returns a message like ```[WARN] ln03: (ssh failed)``` then something has gone wrong with the ssh setup. 
 
 
 ### 7. Setting up your ARCHER2 environment 
 
-But... what happens if you just use the normal rose-um-env ? 
+***Users will not need to do this***
+
+***The default version of Rose and cylc are the same, 
+so you can skip this step if you don't want to mess up your A2 setup.***
+
+To test the PUMA2-managed Rose, cylc and FCM, edit your ```.bash_profile``` (or wherever), 
+and replace this line: 
+```
+. /work/y07/shared/umshared/bin/rose-um-env
+```
+with this one: 
+```
+. /work/y07/shared/umshared/bin/rose-um-env-puma2
+```
+
+Check you are picking up the PUMA2 versions, with: 
+```
+which cylc
+```
+This should return 
+```
+/work/y07/shared/umshared/metomi/bin/cylc
+```
 
 ### 8. Restarting suites 
 
+***This is a placeholder***
+
+### 9. UMUI 
+
+***This is a placeholder***
+
+Is anything point to ```~um``` or ```/home/um```? This is now ```~um1``` or ```/home/n02/n02/um1```.
