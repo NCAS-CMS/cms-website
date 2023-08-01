@@ -18,7 +18,7 @@ such as cylc-8, which will eventually be controlled via a web interface.
 Unfortuantely, the puma server we've been using recently was only an interim solution after the demise of our old machine,
 and not suitable as a long-term replacement. 
 
-***This is the current process. It mauy be a bit different for real users.***
+***This is the current process. It may be a bit different for real users.***
 
 ### 1. Applying for an account 
 
@@ -76,29 +76,50 @@ with a strong passphrase protecting your ARCHER2 ssh-key**
 
 ### 4. Copying over your files 
 
-This is a placeholder. I'm assuming we aren't doing this just yet. 
+***This is a placeholder. I'm assuming we aren't doing this just yet.***
 
-### 5. Setting up your ssh agent 
+### 5. Setting up your PUMA2 environment 
+
+### 6. Setting up your ssh agent 
 
 As on the old puma server, you need to have an ssh-agent running in order to submit jobs to 
 ARCHER2 and JASMIN.
 
-```
-cp ~um/um-training/setup/ssh-setup ~/.ssh
+***This might be different if we copied over the files from the old puma.***
 
-```
+* Copy your ARCHER ssh-keys to PUMA2. ***How?***
 
-- add Jasmin key
-- add archer key
-- config
-- Test you can access 
+* Copy the `ssh-setup` script to your `.ssh` directory. (Note the `um` user has changed to `um1` on PUMA2). 
 
-### 6. Setting up your PUMA2 environment 
+  ```
+  cp ~um1/um-training/setup/ssh-setup ~/.ssh
+  ```
+
+* Log out of PUMA2 and back in again to start the ssh-agent (or run ```. ~/.ssh/ssh-setup```)
+
+* Add your ARCHER key to the ssh agent: 
+  ```
+  ssh-add ~/.ssh/id_rsa_archer
+  ```
+  Type your passphrase when prompted
+  
+* If it doesn't exist, create the file: ```~/.ssh/config```,
+  and add the following lines:
+  ```
+  Host ln* 
+     IdentityFile ~/.ssh/id_rsa_archer
+
+  Host *
+     ForwardAgent no
+  ```
+
+* To test this is working, run:
+  ```rose host-select archer2```
 
 
 ### 7. Setting up your ARCHER2 environment 
 
 But... what happens if you just use the normal rose-um-env ? 
 
-### 7. Restarting suites 
+### 8. Restarting suites 
 
