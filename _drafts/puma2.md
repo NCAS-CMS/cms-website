@@ -20,6 +20,18 @@ and not suitable as a long-term replacement.
 
 ***This is the current process for testing. I haven't yet tried copying my files over and using PUMA2 for real.***
 
+### To do
+
+Some things to figure out: 
+* Instructions for copying files over
+* Do we edit existing .profile/.bashrc or start fresh one?
+* Do we edit existing .ssh/config?
+
+### Miscellaneous
+
+* The ```um``` user account is now ```um1```
+* Home directory paths have changed from ```/home/``` to  ```/home/n02/n02/```.
+
 ### 1. Applying for an account 
 
 If you don't already have an ARCHER2 account, 
@@ -191,4 +203,4 @@ The new PUMA2-managed software is under: ```/work/y07/shared/umshared/metomi/bin
 
 ***This is a placeholder***
 
-Is anything point to ```~um``` or ```/home/um```? This is now ```~um1``` or ```/home/n02/n02/um1```.
+
