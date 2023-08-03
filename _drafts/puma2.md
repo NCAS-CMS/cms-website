@@ -70,8 +70,8 @@ with a strong passphrase protecting your ARCHER2 ssh-key**
 * Next, create a file called ```~/.ssh/config```, and add the following lines: 
   ```
   Host puma2
-  IdentityFile ~/.ssh/id_rsa_puma2
-  ForwardX11 yes
+     IdentityFile ~/.ssh/id_rsa_puma2
+     ForwardX11 yes
   ```
 
 * Test it works by typing ```ssh puma2```.
@@ -115,10 +115,6 @@ Replace this with the name of your key.
 
 ***Think about how to do this***
 
-You could copy your exisiting ssh-key pair. But maybe we shouldn't really be moving private keys around. 
-
-Or generate a new key-pair, with a passphrase and add to SAFE. 
-
 #### ii. Now start up you ssh-agent and add the ARCHER2 key
 
 * Copy the `ssh-setup` script to your `.ssh` directory.
@@ -140,11 +136,12 @@ Or generate a new key-pair, with a passphrase and add to SAFE.
 
 #### iii. Configure access to the ARCHER2 login nodes 
 
-***Do we want to make a standard .ssh/config with Jasmin stuff in too?***
+***Are we getting users to edit their .ssh/config from old puma, or start a new one?***
 
 * If it doesn't exist, create the file: ```~/.ssh/config```,
   and add the following lines:
   ```
+  # ARCHER2 login nodes
   Host ln* 
      IdentityFile ~/.ssh/id_rsa_archer2
 
@@ -157,7 +154,13 @@ Or generate a new key-pair, with a passphrase and add to SAFE.
   rose host-select archer2
   ```
   It should return one of the login nodes, e.g. ```ln01```.
-  If it returns a message like ```[WARN] ln03: (ssh failed)``` then something has gone wrong with the ssh setup. 
+  If it returns a message like ```[WARN] ln03: (ssh failed)``` then something has gone wrong with the ssh setup.
+
+#### iv. Configure access to JASMIN 
+
+If you want to be able to submit jobs to JASMIN (e.g. for JDMA):  
+* Follow the instructions in the "Setup connection to JASMIN sci nodes" section on [this page](https://cms.ncas.ac.uk/unified-model/jdma)
+* Replace ```login1``` with ```login2``` in your ```~/.ssh/config``` file, as we can't currently access login1 from puma2. 
 
 ### 7. Setting up your ARCHER2 environment 
 
