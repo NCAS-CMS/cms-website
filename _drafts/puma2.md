@@ -6,16 +6,16 @@ teaser: Getting started with PUMA2
 
 ## PUMA2
 
-We are moving to a new server PUMA2, hosted at ARCHER2, 
-and jointly managed by CMS and EPCC.
+We are moving to a new server PUMA. 
+It will be hosted at ARCHER2, and jointly managed by CMS and EPCC.
 
-Having PUMA2 hosted at ARCHER2 will make the system easier for users to navigate, 
+Having PUMA2 in the same place as ARCHER2 will make the system easier to navigate, 
 and for CMS to manage. 
-In particular, you will use the same account to access both systems. 
+In particular, you will use the same account to access both machines. 
 
-Upgrading the server also allows us to support forthcoming UM infrastructure
-such as cylc-8, which will eventually be controlled via a web interface. 
-Unfortuantely, the puma server we've been using recently was only an interim solution after the demise of our old machine,
+Upgrading the server also means we will be able to support new UM infrastructure,
+such as cylc-8, which will eventually be controlled by a web interface. 
+Unfortuantely, the puma server we've been using recently, was only an interim solution after the demise of our old machine,
 and not suitable as a long-term replacement. 
 
 ***This is the current process for testing. I haven't yet tried copying my files over and using PUMA2 for real.***
