@@ -31,7 +31,8 @@ Some things to figure out:
 
 * The ```um``` user account is now ```um1```
 * Home directory paths have changed from ```/home/``` to  ```/home/n02/n02/```.
-* We have to go via jasmin login2 now. 
+* We have to go via jasmin login2 now.
+* The MOSRS password caching scripts are different now. 
 
 ### 1. Applying for an account 
 
@@ -196,11 +197,28 @@ The new PUMA2-managed software is under: ```/work/y07/shared/umshared/metomi/bin
   . /work/y07/shared/umshared/bin/rose-um-env-puma2
   ```
 
-### 8. Restarting suites 
+### 8. Running suites
+
+You should be able to checkout and run suites as before.
+
+Changes required: 
+
+* In your ```site/archer2.rc``` file replace lines line this:
+  ```
+  host = login.archer2.ac.uk
+  ```
+  with this:
+  ```
+  host = $(rose host-select archer2)
+  ```
 
 ***This is a placeholder***
 
-### 9. UMUI 
+### 9. Restarting suites 
+
+***This is a placeholder***
+
+### 10. UMUI 
 
 ***This is a placeholder***
 
