@@ -31,6 +31,7 @@ Some things to figure out:
 
 * The ```um``` user account is now ```um1```
 * Home directory paths have changed from ```/home/``` to  ```/home/n02/n02/```.
+* We have to go via jasmin login2 now. 
 
 ### 1. Applying for an account 
 
