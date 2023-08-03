@@ -6,7 +6,7 @@ teaser: Getting started with PUMA2
 
 ## PUMA2
 
-We are moving to a new server PUMA. 
+We are moving to a new server called PUMA2. 
 It will be hosted at ARCHER2, and jointly managed by CMS and EPCC.
 
 Having PUMA2 in the same place as ARCHER2 will make the system easier to navigate, 
@@ -37,14 +37,14 @@ You will be sent an email when your PUMA2 account is ready for use.
 
 PUMA2 is accessed from the ARCHER2 login nodes, and uses the same username and password. 
 
-[Login to ARCHER2](https://docs.archer2.ac.uk/quick-start/quickstart-users/#login-to-archer2) as usual.
+* [Login to ARCHER2](https://docs.archer2.ac.uk/quick-start/quickstart-users/#login-to-archer2) as usual.
 
 **Important: We recommend users ***do not forward their ssh-agent*** from their local system, 
 as this can cause problems with Rose/cylc job submission.**
 
-Once you are on the ARCHER2 login nodes, type ```ssh -Y puma2```. Enter your ARCHER2 password when prompted.
+* Once you are on the ARCHER2 login nodes, type ```ssh -Y puma2```. Enter your ARCHER2 password when prompted.
   
-You should now be logged into to PUMA2. To go back to the ARCHER2 login nodes, type ```exit```
+* You should now be logged into to PUMA2. To go back to the ARCHER2 login nodes, type ```exit```
 
 ### 3. Setting up passwordless access
 
@@ -56,23 +56,27 @@ with a strong passphrase protecting your ARCHER2 ssh-key**
 
 * From the ARCHER2 login nodes, type 
 
-  ```ssh-keygen -t rsa -C your@email.ac.uk -f ~/.ssh/id_rsa_puma2```
+  ```
+  ssh-keygen -t rsa -f ~/.ssh/id_rsa_puma2
+  ```
 
 * At the prompt, press enter for an empty passphrase.
 
 * Copy the key over to PUMA2:
-  ```ssh-copy-id -i ~/.ssh/id_rsa_puma2 puma2```
+  ```
+  ssh-copy-id -i ~/.ssh/id_rsa_puma2 puma2
+  ```
 
 * Next, create a file called ```~/.ssh/config```, and add the following lines: 
   ```
   Host puma2
-        IdentityFile ~/.ssh/id_rsa_puma2
-        ForwardX11 yes
-  ````
+  IdentityFile ~/.ssh/id_rsa_puma2
+  ForwardX11 yes
+  ```
 
 * Test it works by typing ```ssh puma2```.
+  You should not be prompted for your password.
   Note that this should have set up X11 forwarding, so you no longer need the `-Y`.
-  You should not be prompted for your password. 
 
 ### 4. Copying over your files 
 
@@ -82,29 +86,40 @@ with a strong passphrase protecting your ARCHER2 ssh-key**
 
 ***Some of this will be added to user's enviornment centrally.***
 
-To setup your environment, copy the standard ```.profile``` and ```.bashrc```. 
-```
-cd
-cp ~um1/um-training/.profile .
-cp ~um1/um-training/.bashrc . 
-```
+* To setup your environment, copy the standard ```.profile``` and ```.bashrc```. 
+  ```
+  cd
+  cp ~um1/um-training/puma2/.profile .
+  cp ~um1/um-training/puma2/.bashrc . 
+  ```
 
-To pick up these settings, logout of PUMA2 and back in again (or source the files): 
+* To pick up these settings, logout of PUMA2 and back in again.
+  Ignore the warning about `ssh-setup: No such file or directory`. 
 
-You should be prompted for your MOSRS password, then username. 
-To check this is setup correctly, see if you can access the UM repository: 
-```
-fcm info fcm:um.x
-```
+* You should be prompted for your MOSRS password, then username.
+  (Note that it asks for your **password** first.)
+  If the password caching works,  you should see: 
+  ```
+  Subversion password cached
+  Rosie password cached
+  ```
 
 ### 6. Setting up your ssh agent 
 
-As on the old puma server, you need to have an ssh-agent running in order to submit jobs to 
-ARCHER2 and JASMIN.
+You need to have an ssh-agent running in order to submit jobs to ARCHER2.
 
-***Would we get users to copy over their old .ssh ?***
+These instructions assume your ARCHER2 key is called `~/.ssh/id_rsa_archer2`. 
+Replace this with the name of your key. 
 
-* Copy your ARCHER ssh-keys to PUMA2. ***How?***
+#### i. Copy your ARCHER2 ssh-key pair to PUMA2  
+
+***Think about how to do this***
+
+You could copy your exisiting ssh-key pair. But maybe we shouldn't really be moving private keys around. 
+
+Or generate a new key-pair, with a passphrase and add to SAFE. 
+
+#### ii. Now start up you ssh-agent and add the ARCHER2 key
 
 * Copy the `ssh-setup` script to your `.ssh` directory.
 
@@ -112,19 +127,26 @@ ARCHER2 and JASMIN.
   cp ~um1/um-training/setup/ssh-setup ~/.ssh
   ```
 
-* Log out of PUMA2 and back in again to start the ssh-agent (or run ```. ~/.ssh/ssh-setup```)
-
+* Log out of PUMA2 and back in again to start the ssh-agent. You should see:
+  ```
+  Initialising new SSH agent...
+  ```
+  
 * Add your ARCHER key to the ssh agent: 
   ```
-  ssh-add ~/.ssh/id_rsa_archer
+  ssh-add ~/.ssh/id_rsa_archer2
   ```
   Type your passphrase when prompted
-  
+
+#### iii. Configure access to the ARCHER2 login nodes 
+
+***Do we want to make a standard .ssh/config with Jasmin stuff in too?***
+
 * If it doesn't exist, create the file: ```~/.ssh/config```,
   and add the following lines:
   ```
   Host ln* 
-     IdentityFile ~/.ssh/id_rsa_archer
+     IdentityFile ~/.ssh/id_rsa_archer2
 
   Host *
      ForwardAgent no
@@ -137,32 +159,26 @@ ARCHER2 and JASMIN.
   It should return one of the login nodes, e.g. ```ln01```.
   If it returns a message like ```[WARN] ln03: (ssh failed)``` then something has gone wrong with the ssh setup. 
 
-
 ### 7. Setting up your ARCHER2 environment 
 
-***Users will not need to do this***
+* If you have not previously run on ARCHER2 before, copy the standard `.profile` to your environment: 
+  ```
+  cp /work/y07/shared/umshared/um-training/rose-profile ~/.profile
+  ```
 
 ***The default version of Rose and cylc are the same, 
 so you can skip this step if you don't want to mess up your A2 setup.***
 
-To test the PUMA2-managed Rose, cylc and FCM, edit your ```.bash_profile``` (or wherever), 
-and replace this line: 
-```
-. /work/y07/shared/umshared/bin/rose-um-env
-```
-with this one: 
-```
-. /work/y07/shared/umshared/bin/rose-um-env-puma2
-```
+The new PUMA2-managed software is under: ```/work/y07/shared/umshared/metomi/bin/cylc```
 
-Check you are picking up the PUMA2 versions, with: 
-```
-which cylc
-```
-This should return 
-```
-/work/y07/shared/umshared/metomi/bin/cylc
-```
+* To test this, edit your ```.profile```, and replace this line: 
+  ```
+  . /work/y07/shared/umshared/bin/rose-um-env
+  ```
+  with this one: 
+  ```
+  . /work/y07/shared/umshared/bin/rose-um-env-puma2
+  ```
 
 ### 8. Restarting suites 
 
