@@ -9,30 +9,16 @@ teaser: PUMA2
 ## PUMA2
 
 We are moving the PUMA service to a new home at ARCHER2. 
-The new server will be called PUMA2 and it will be jointly managed by CMS and EPCC.
-Having PUMA2 in the same place as ARCHER2 will make things easier in the long-term, 
-as you will use the same account (username, password and ssh key) to access both machines.
+The new server is called PUMA2 and  is jointly managed by CMS and EPCC.
+Having PUMA2 in the same place as ARCHER2 will make things easier 
+as you will use the same account to access both machines.
 
 We need to upgrade the puma server in order to support new UM infrastructure,
 such as cylc-8, which will eventually be controlled by a web interface. 
 The puma server we've been using was only ever meant to be an interim solution after the demise of the old machine, 
 and it is not suitable as a long-term replacement. 
 
-## Summary of changes 
-
-***Possibly move this somewhere else***
-
-* The ```um``` user account is now ```um1```
-* Home directory paths have changed from ```/home/``` to  ```/home/n02/n02/```.
-* We access JASMIN via login2.
-* The MOSRS password caching scripts are different. 
-* The paths to Rose, cylc and FCM are different on PUMA2 and ARCHER2, but the default versions are the same
-* We have cylc-8 on PUMA2. You can use the terminal UI.
-* Suites need to specify ```host = $(rose host-select archer2)```
-
 ## Moving over to PUMA2
-
-***These are draft instructions and are subject to change.***
 
 The process of moving from PUMA to PUMA2 is as follows: 
 * Apply for a PUMA2 account.
@@ -40,11 +26,15 @@ The process of moving from PUMA to PUMA2 is as follows:
 * Copy your files over.
 * Set up your PUMA2 environment.
 * Set up your ssh connection to ARCHER2 (and JASMIN if required).
-* Restart any running suites. 
+* Restart any running suites.
+
+***Maybe just put in a table of contents here?***
 
 Please follow the instructions carefully. 
 There are several steps, and some subtle differences to the old puma server. 
 If you have any issues, contact the [CMS helpdesk](https://cms-helpdesk.ncas.ac.uk/).
+
+***These are draft instructions and subject to change.***
 
 ### 1. Apply for an account 
 
@@ -76,8 +66,10 @@ as this can cause problems with Rose/cylc job submission.**
 
 ### 3. Stop any suites you have running on PUMA. 
 
-If you have any suites running on PUMA that you wish to continue on PUMA2, 
+Before going any further, if you have any suites running on PUMA that you wish to continue on PUMA2, 
 stop them now, before copying your files over. 
+
+* Login to the old PUMA
 
 * To see which suites you have running, run:
 ```
@@ -97,12 +89,14 @@ You might want to have a clear out and only copy over the files you need.
 But make sure to copy over your ```cylc-run``` and ```roses``` directories 
 if you have running suites you wish to continue on PUMA2. 
 
-#### Method i: Push from PUMA to ARCHER2 
+#### Preferred method: Push from PUMA to ARCHER2 
 
 If you have been running suites on ARCHER2, you should have an archerum key installed. 
 You can this to push files directly from PUMA. 
 
-* To check your connection is working, run: 
+* Login to the old PUMA
+
+* To check your connection to ARCHER2 is working, run: 
   ```
   ssh login.archer2.ac.uk
   ```
@@ -113,9 +107,10 @@ You can this to push files directly from PUMA.
   Connection to login.archer2.ac.uk closed.
   ```
 
-Conveniently, the PUMA2 filesystem is cross-mounted on the ARCHER2 login nodes.   
+Conveniently, the PUMA2 filesystem is cross-mounted on the ARCHER2 login nodes, 
+so we don't need to login to PUMA2.   
 
-* To move all your files, run: 
+* To move all your files over, run: 
   ```
   rsync -a . login.archer2.ac.uk:/home/n02/n02-puma/<archer-username>
   ```
@@ -124,7 +119,7 @@ Conveniently, the PUMA2 filesystem is cross-mounted on the ARCHER2 login nodes.
 **Note: I'm not sure if it's entirely safe to copy over all the hidden files, 
 so let's see if this works. Otherwise use --exclude '.*'**
 
-#### Method ii: Pull from PUMA2
+#### Alternative method: Pull from PUMA2
 
 If you don't have an archerum key installed, you will not be able to access ARCHER2 from PUMA, 
 so you will need to login to PUMA2 and pull your files over. 
@@ -146,8 +141,9 @@ so that you don't have to type your password every time.
   ```
   ssh-copy-id -i ~/.ssh/id_rsa_puma2 puma2
   ```
+  Type in your ARCHER2 password when prompted. 
 
-* Next, create a file called ```~/.ssh/config```, and add the following lines: 
+* Next, create a file called ```~/.ssh/config``` (if it doesn't already exist), and add the following lines: 
   ```
   Host puma2
   IdentityFile ~/.ssh/id_rsa_puma2
@@ -215,7 +211,7 @@ You need to have an ssh-agent running in order to submit jobs to ARCHER2.
   
 * Add your ARCHER key to the ssh agent: 
   ```
-  ssh-add ~/.ssh/id_rsa_archer2
+  ssh-add ~/.ssh/<archer-key>
   ```
   Type your passphrase when prompted
 
@@ -235,7 +231,7 @@ You need to change how we ssh to ARCHER2
   ```
   # ARCHER2 login nodes
   Host ln* 
-  IdentityFile ~/.ssh/id_rsa_archer2
+  IdentityFile ~/.ssh/<archer-key>
   ```
 
 * To test this is working, run:
@@ -323,6 +319,16 @@ Changes required:
   host = $(rose host-select archer2)
   ```
 
+## Summary of changes 
 
+***Possibly move this somewhere else***
+
+* The ```um``` user account is now ```um1```
+* Home directory paths have changed from ```/home/``` to  ```/home/n02/n02/```.
+* We access JASMIN via login2.
+* The MOSRS password caching scripts are different. 
+* The paths to Rose, cylc and FCM are different on PUMA2 and ARCHER2, but the default versions are the same
+* We have cylc-8 on PUMA2. You can use the terminal UI.
+* Suites need to specify ```host = $(rose host-select archer2)```
 
 
