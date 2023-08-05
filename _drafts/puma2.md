@@ -71,14 +71,17 @@ stop them now, before copying your files over.
 
 * Login to the old PUMA
 
-* To see which suites you have running, run:
+* You can see which suites you have running with:
 ```
 cylc gscan
 ```
 
-* Double-click on a suite to launch the suite control GUI, or ```cd``` to the roses directory and run ```rose sgc```. 
-
-* In the "Suite" menu, select "Stop now (restart will follow up on orphaned tasks)".
+* To stop a suite, open up the rose suite control GUI: 
+  ```
+  rose sgc
+  ```
+  
+* Then in the "Suite" menu, select "Stop now (restart will follow up on orphaned tasks)".
   This stops the suite, but leaves any running tasks going.
 
 When we restart the suite on PUMA2, cylc will pick up the latest status of each task. 
@@ -158,13 +161,22 @@ so that you don't have to type your password every time.
 
 ### 6. Set up your PUMA2 environment 
 
-* If you wish to save your ```.profile```, ```.bashrc``` or ```.bash_profile``` from the old PUMA, 
-  move these out the way first, and copy in anything you need afterwards. 
+When you login to PUMA2 you will probably get some warnings like: 
+```
+bash: cylc: command not found...
+bash: rose: command not found...
+bash: fcm: command not found...
+-bash: mosrs-setup-gpg-agent: No such file or directory
+```
+That's because the location of this software has changed on PUMA2, so you need to update your environment. 
+
+* If you wish to save your old ```.profile```, ```.bashrc``` or ```.bash_profile```
+  move these out the way first: 
   ```
   cd
-  cp .profile .profile.SAVE
-  cp .bashrc .bashrc.SAVE
-  cp .bash_profile .bash_profile.SAVE
+  mv .profile .profile.SAVE
+  mv .bashrc .bashrc.SAVE
+  mv .bash_profile .bash_profile.SAVE
   ```
 
 * To setup your PUMA2 environment, copy the standard ```.profile``` and ```.bashrc```. 
@@ -175,7 +187,6 @@ so that you don't have to type your password every time.
   ```
 
 * To pick up these settings, logout of PUMA2 and back in again.
-  Ignore the warning about `ssh-setup: No such file or directory`. 
 
 * You should be prompted for your MOSRS password, then username.
   (Note that it asks for your **password** first.)
@@ -191,6 +202,8 @@ You need to have an ssh-agent running in order to submit jobs to ARCHER2.
 
 #### i. Copy your ARCHER2 ssh-key pair to PUMA2  
 
+You may already have this in your ```.ssh``` directory, otherwise you will need to copy it over. 
+
 * From your local system, run: 
   ```
   scp ~/.ssh/<archer-key>* <archer-username>:/home/n02/n02-puma/<archer-username>/.ssh
@@ -198,26 +211,20 @@ You need to have an ssh-agent running in order to submit jobs to ARCHER2.
 
 #### ii. Now start up you ssh-agent and add the ARCHER2 key
 
-* On PUMA2, copy the `ssh-setup` script to your `.ssh` directory.
+You should alreay have the `ssh-setup` script in your `.ssh` directory.
+And your agent should have been launched when you logged in. 
 
-  ```
-  cp ~um1/um-training/setup/ssh-setup ~/.ssh
-  ```
-
-* Log out of PUMA2 and back in again to start the ssh-agent. You should see:
-  ```
-  Initialising new SSH agent...
-  ```
-  
 * Add your ARCHER key to the ssh agent: 
   ```
   ssh-add ~/.ssh/<archer-key>
   ```
   Type your passphrase when prompted
 
+***What if this doesn't work?***
+
 #### iii. Configure access to the ARCHER2 login nodes 
 
-You need to change how we ssh to ARCHER2
+Since we are using our regular ARCHER2 key, and not the archerum key, we need to edit our ssh config file. 
 
 * In your ```.ssh/config``` file delete the following lines:
   ```
@@ -227,7 +234,6 @@ You need to change how we ssh to ARCHER2
   ``` 
 
 * Replace with these lines:
-
   ```
   # ARCHER2 login nodes
   Host ln* 
@@ -244,32 +250,19 @@ You need to change how we ssh to ARCHER2
 #### iv. Configure access to JASMIN 
 
 If you want to be able to submit jobs to JASMIN (e.g. for JDMA), you need to set up ssh access. 
-Note that we need to use JASMIN login2. 
+This assumes you already had JASMIN access on old PUMA.
+***If not: link to instructions*** 
 
-* Add the following lines to the top of your ```.ssh/config``` file,
-  editing for your JASMIN username and the path to your JASMIN key:
+We need to login to JASMIN via login2 now. 
+
+* Edit your ```.ssh/config``` file and replace ```login1``` with ```login2```, e.g.
   ````
   # JASMIN
   Host login2
   Hostname login2.jasmin.ac.uk
-  User <jasmin_username> 
-  IdentityFile ~/.ssh/<jasmin-ssh-key>
-  ForwardAgent yes
-  ControlMaster auto
-  ControlPath /tmp/ssh-socket-%r@%h-%p
-  ControlPersist yes
-
-  Host sci? cylc1
-  Hostname %h.jasmin.ac.uk
-
-  Host sci* cylc*
-  User <jasmin_username>
-  IdentityFile ~/.ssh/<jasmin-ssh-key>
-  ForwardAgent yes
+  ...
   ProxyCommand ssh -Y login2 -W %h:%p
-  ControlMaster auto
-  ControlPath /tmp/ssh-socket-%r@%h-%p
-  ControlPersist yes
+  ...
   ````
   
 * Add your JASMIN ssh-key to your ssh-agent:
@@ -282,14 +275,10 @@ Note that we need to use JASMIN login2.
   ssh sci3.jasmin.ac.uk
   ```
   
-You should now be logged into the JASMIN sci node without prompt for your JASMIN passphrase.
+You should now be logged into the JASMIN sci node without prompt for your JASMIN passphrase. 
+If this hangs, double check you don't have any instances of ```login1``` in your ```.ssh/config```. 
 
 ### 8. Set up your ARCHER2 environment 
-
-* If you have not previously run on ARCHER2 before, copy the standard `.profile` to your environment: 
-  ```
-  cp /work/y07/shared/umshared/um-training/rose-profile ~/.profile
-  ```
 
 ***Note: the Rose/cylc versions are the same, so we should be able to switch this already??**
 
@@ -304,13 +293,11 @@ The new PUMA2-managed software is under: ```/work/y07/shared/umshared/metomi/bin
   . /work/y07/shared/umshared/bin/rose-um-env-puma2
   ```
   
-### 9. Restart your suites 
+### 9. Restarting and running suites
 
-You should be able to checkout and run suites as before.
+You should now be able to checkout and run suites as before, with the following change: 
 
-Changes required: 
-
-* In your ```site/archer2.rc``` file replace lines line this:
+* Edit ```site/archer2.rc``` file and replace any lines like this:
   ```
   host = login.archer2.ac.uk
   ```
@@ -318,6 +305,13 @@ Changes required:
   ```
   host = $(rose host-select archer2)
   ```
+
+* If you have any suites to restart, run:
+  ```
+  rose suite-run --restart 
+  ```
+
+***This picks up any changes including the above. Maybe restart the other way?***
 
 ## Summary of changes 
 
