@@ -8,15 +8,15 @@ teaser: PUMA2
 
 ## PUMA2
 
-We are moving the PUMA service to a new home at ARCHER2. 
-The new server is called PUMA2 and  is jointly managed by CMS and EPCC.
-Having PUMA2 in the same place as ARCHER2 will make things easier 
-as you will use the same account to access both machines.
+We are moving to a new server PUMA2, 
+hosted at ARCHER2 and jointly managed by CMS and EPCC.
+Having PUMA2 co-located with ARCHER2 should make things easier, 
+since you will use the same account to access both machines.
 
-We need to upgrade the puma server in order to support new UM infrastructure,
+Upgrading PUMA also allows us to support new UM infrastructure,
 such as cylc-8, which will eventually be controlled by a web interface. 
-The puma server we've been using was only ever meant to be an interim solution after the demise of the old machine, 
-and it is not suitable as a long-term replacement. 
+Unfortunately, the PUMA server we've been using has several limitations
+and was only ever meant to be an interim solution after the demise of the old machine. 
 
 ## Moving over to PUMA2
 
@@ -62,26 +62,18 @@ as this can cause problems with Rose/cylc job submission.**
 
 * Once you are on the ARCHER2 login nodes, type ```ssh -Y puma2```. Enter your ARCHER2 password when prompted.
   
-* You should now be logged into to PUMA2. To go back to the ARCHER2 login nodes, type ```exit```
+* You should now be logged into PUMA2. To go back to the ARCHER2 login nodes, type ```exit```
 
 ### 3. Stop any suites you have running on PUMA. 
 
 Before going any further, if you have any suites running on PUMA that you wish to continue on PUMA2, 
 stop them now, before copying your files over. 
 
-* Login to the old PUMA
+* Login to the old PUMA. You can see which suites you have running with ```cylc gscan```
 
-* You can see which suites you have running with:
-```
-cylc gscan
-```
-
-* To stop a suite, open up the rose suite control GUI: 
-  ```
-  rose sgc
-  ```
+* To stop a suite, open up the rose suite control GUI with ```rose sgc```
   
-* Then in the "Suite" menu, select "Stop now (restart will follow up on orphaned tasks)".
+* Then in the "Suite" menu, select "Stop Suite", then "Stop now (restart will follow up on orphaned tasks)".
   This stops the suite, but leaves any running tasks going.
 
 When we restart the suite on PUMA2, cylc will pick up the latest status of each task. 
@@ -117,10 +109,7 @@ so we don't need to login to PUMA2.
   ```
   rsync -a . login.archer2.ac.uk:/home/n02/n02-puma/<archer-username>
   ```
-  This might take a little while if you have lots of files.
-
-**Note: I'm not sure if it's entirely safe to copy over all the hidden files, 
-so let's see if this works. Otherwise use --exclude '.*'**
+  This might take a while if you have lots of files.
 
 #### Alternative method: Pull from PUMA2
 
@@ -311,7 +300,7 @@ You should now be able to checkout and run suites as before, with the following 
   rose suite-run --restart 
   ```
 
-***This picks up any changes including the above. Maybe restart the other way?***
+***Check this***
 
 ## Summary of changes 
 
