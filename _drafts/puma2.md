@@ -237,13 +237,11 @@ Since we are using our regular ARCHER2 key, and not the archerum key, we need to
   It should return one of the login nodes, e.g. ```ln01```.
   If it returns a message like ```[WARN] ln03: (ssh failed)``` then something has gone wrong with the ssh setup.
 
-#### iv. Configure access to JASMIN 
+#### iv. (Optional) Configure access to JASMIN 
 
-If you want to be able to submit jobs to JASMIN (e.g. for JDMA), you need to set up ssh access. 
-This assumes you already had JASMIN access on old PUMA.
-***If not: link to instructions*** 
-
-We need to login to JASMIN via login2 now. 
+If you want to be able to submit jobs to JASMIN (e.g. for [data migration to JDMA](https://cms.ncas.ac.uk/unified-model/jdma), 
+you need to set up ssh access. 
+This assumes you already had JASMIN access on old PUMA. 
 
 * Edit your ```.ssh/config``` file and replace ```login1``` with ```login2```, e.g.
   ````
@@ -300,7 +298,6 @@ You should now be able to checkout and run suites as before, with the following 
   ```
   rose suite-run --restart 
   ```
-
 
 ## Summary of changes 
 
