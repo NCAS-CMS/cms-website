@@ -36,14 +36,27 @@ If you have any issues, contact the [CMS helpdesk](https://cms-helpdesk.ncas.ac.
 
 ***These are draft instructions and subject to change.***
 
-### 1. Apply for an account 
+### 1. Stop any suites you have running on PUMA. 
+
+First shutdown any suites you have running on PUMA. 
+You need to wait for any remote tasks to finish before moving over, so it's wise to do this first. 
+You can restart your suites again on PUMA2 once you have completed the setup - instructions are at the end of this page. 
+
+* You can see which suites you have running with ```cylc gscan```
+
+* To stop a suite, open up the rose suite control GUI with ```rose sgc```
+  
+* Then in the "Suite" menu, select "Stop Suite", and "Stop after active tasks have finished" (the default).
+  Once any running tasks have finished the suite will shutdown. 
+
+You can move on to Steps 2 and 3 whilst waiting for your suites to stop. 
+
+### 2. Apply for an account
+
+(If you don't already have an ARCHER2 account, 
+follow [these instructions](https://docs.archer2.ac.uk/quick-start/quickstart-users/#request-an-account-on-archer))
 
 You will need to request a PUMA2 account via SAFE. 
-
-If you don't already have an ARCHER2 account, 
-follow [these instructions](https://docs.archer2.ac.uk/quick-start/quickstart-users/#request-an-account-on-archer)
-
-To request access to PUMA2: 
 * Login to [SAFE](https://safe.epcc.ed.ac.uk/)
 * From the "Login accounts" menu, select your username
 * Scroll down near the bottom, and select "Add Machine"
@@ -51,9 +64,9 @@ To request access to PUMA2:
 
 You will be sent an email when your PUMA2 account is ready for use. 
 
-### 2. Login to PUMA2
+### 3. Login to PUMA2
 
-PUMA2 is accessed from the ARCHER2 login nodes, and uses the same username and password. 
+PUMA2 is accessed from the ARCHER2 login nodes, and you will use the same username and password. 
 
 * [Login to ARCHER2](https://docs.archer2.ac.uk/quick-start/quickstart-users/#login-to-archer2) as usual.
 
@@ -64,21 +77,9 @@ as this can cause problems with Rose/cylc job submission.**
   
 * You should now be logged into PUMA2. To go back to the ARCHER2 login nodes, type ```exit```
 
-### 3. Stop any suites you have running on PUMA. 
-
-Before going any further, if you have any suites running on PUMA that you wish to continue on PUMA2, 
-stop them now, before copying your files over. 
-
-* Login to the old PUMA. You can see which suites you have running with ```cylc gscan```
-
-* To stop a suite, open up the rose suite control GUI with ```rose sgc```
-  
-* Then in the "Suite" menu, select "Stop Suite", then "Stop now (restart will follow up on orphaned tasks)".
-  This stops the suite, but leaves any running tasks going.
-
-When we restart the suite on PUMA2, cylc will pick up the latest status of each task. 
-
 ### 4. Copy over your files 
+
+**Important: You must wait for your suites to shutdown properly before moving your files over**
 
 You might want to have a clear out and only copy over the files you need. 
 But make sure to copy over your ```cylc-run``` and ```roses``` directories 
@@ -200,8 +201,8 @@ You may already have this in your ```.ssh``` directory, otherwise you will need 
 
 #### ii. Now start up you ssh-agent and add the ARCHER2 key
 
-You should alreay have the `ssh-setup` script in your `.ssh` directory.
-And your agent should have been launched when you logged in. 
+You should alreay have the `ssh-setup` script in your `.ssh` directory, 
+and your agent should have been launched when you logged in. 
 
 * Add your ARCHER key to the ssh agent: 
   ```
@@ -300,18 +301,17 @@ You should now be able to checkout and run suites as before, with the following 
   rose suite-run --restart 
   ```
 
-***Check this***
 
 ## Summary of changes 
 
-***Possibly move this somewhere else***
+Some of the differeneces between PUMA and PUMA2
 
 * The ```um``` user account is now ```um1```
 * Home directory paths have changed from ```/home/``` to  ```/home/n02/n02/```.
-* We access JASMIN via login2.
-* The MOSRS password caching scripts are different. 
-* The paths to Rose, cylc and FCM are different on PUMA2 and ARCHER2, but the default versions are the same
-* We have cylc-8 on PUMA2. You can use the terminal UI.
-* Suites need to specify ```host = $(rose host-select archer2)```
+* JASMIN can only be accessed by login2.
+* Suites need to specify ```host = $(rose host-select archer2)```.
+* The MOSRS password caching scripts are different.
+* The paths to Rose, cylc and FCM are different on PUMA2 and ARCHER2, but the default versions are the same. 
+* We have cylc-8 on PUMA2. You can use the terminal UI. You should also be able to use the web GUI with port forwarding. 
 
-
+We have also taken this opportunity to archive some old files and directories. 
