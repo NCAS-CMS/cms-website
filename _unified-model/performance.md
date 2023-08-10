@@ -23,7 +23,7 @@ teaser: Performance figures for a variety of standard UM configurations on ARCHE
 | u-cb151 | GC4 N96 ORCA025 | 11.6 | 01/21 | A:32x20x1 O:32x20x1 X:6 (5:5:1) | 30 | 30 | 01:10 | 43 | | 151 CU | 1.6 | |
 | u-cb431 | MetUM-GOML N216 | 10.3 | 09/21 | A:32x24x2 O:64 (12:1) | 30 | 10 | 01:10 | 94 | | 182 CU | 1.67 | |
 | u-cn134 | GC3.1 N216 ORCA025 | 11.6 | 02/23 | A:32x32x2 O:32x36x1 X:24 (16:9:6) | 90 | 30 | 03:45 | 126 | |240 CU | | |
-| u-cy010 | GC5 N216 ORCA025 | 13.2 | 08/23 | A:64x16x2 O:397 procs X:6 (16:4:1) | 30 | 30 | 0:49 | | Land Suppression | 203 CU | 2.47 | 26082 |
+| u-cy010 | GC5 N216 ORCA025 | 13.2 | 08/23 | A:64x16x2 O:397 procs X:6 (16:4:1) | 30 | 30 | 00:49 | | Land Suppression | 203 CU | 2.47 | 26082 |
 
 \* *A = Atmos (EWxNSxOMP), O = Ocean (EWxNS), X = XIOS processes (nodes)* <br>
 *Note: SYPD extrapolated from shorter runs.*
