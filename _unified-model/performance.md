@@ -41,6 +41,6 @@ teaser: Performance figures for a variety of standard UM configurations on ARCHE
 
 ## GC5 Performance Graph
 ![GC5 Performance Graph]({{site.urlimg}}GC5_Performance.png)
-*Plot Produced by Maarlon Fernandez(Nuffield Research Student August 2023)*
+*Plot Produced by Maarlon Fernandez (Nuffield Research Student August 2023)*
 
 
