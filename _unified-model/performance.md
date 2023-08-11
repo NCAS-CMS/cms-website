@@ -39,5 +39,7 @@ teaser: Performance figures for a variety of standard UM configurations on ARCHE
 \* *A = Atmos (EWxNSxOMP), O = Ocean (EWxNS), X = XIOS processes (nodes)* <br>
 *Note: SYPD extrapolated from shorter runs.*
 
+## GC5 Performance Graph
+![GC5 Performance Graph]({{site.urlimg}}Model.png)
 
 
