@@ -40,6 +40,6 @@ teaser: Performance figures for a variety of standard UM configurations on ARCHE
 *Note: SYPD extrapolated from shorter runs.*
 
 ## GC5 Performance Graph
-![GC5 Performance Graph]({{site.urlimg}}Model.png)
+![GC5 Performance Graph]({{site.urlimg}}GC5_Performance.png)
 
 
