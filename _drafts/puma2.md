@@ -310,13 +310,37 @@ You should now be able to checkout and run suites as before, with the following 
 
 * To restart a suite:
   ```
-  rose suite-run --restart 
+  rose suite-run --restart
   ```
+
+## Troubleshooting 
+
+You tried to restart your suite and get the following error: 
+ ```
+ [FAIL] Suite "u-cs488" appears to be running:
+ [FAIL] Contact info from: "/home/n02/n02/annette/cylc-run/u-cs488/.service/contact"
+ [FAIL]     CYLC_SUITE_HOST=pumanew.novalocal
+ [FAIL]     CYLC_SUITE_OWNER=annette
+ [FAIL]     CYLC_SUITE_PORT=43041
+ [FAIL]     CYLC_SUITE_PROCESS=15885 python2 /home/fcm/cylc-7.8.12/bin/cylc-run u-cs488
+ [FAIL] Try "cylc stop 'u-cs488'" first?
+ ```
+
+ * First check the suite is not actually still running on old PUMA. 
+
+ * If it is still running, shut the suite down and re-sync the cylc-run directory for that suite:
+   ```
+   rysnc -a --delete ~/cylc-run/<suite-id> login.archer2.ac.uk:/home/n02/n02-puma/<archer-username>/cylc-run
+   ```
+ 
+  * Then try restarting.
+
+  * If you still get an error, or the suite is not still running on old PUMA,
+    delete the ```.service/contact``` file mentioned in the error message. 
 
 ## Summary of changes 
 
 Some of the differeneces between PUMA and PUMA2
-
 
 * Home directory paths have changed from ```/home/``` to  ```/home/n02/n02/```.
 * Suites need to specify ```host = $(rose host-select archer2)```.
