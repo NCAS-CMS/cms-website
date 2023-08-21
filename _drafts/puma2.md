@@ -39,7 +39,7 @@ If you have any issues, contact the [CMS helpdesk](https://cms-helpdesk.ncas.ac.
 ### 1. Stop any suites you have running on PUMA. 
 
 First shutdown any suites you have running on PUMA. 
-You need to wait for any remote tasks to finish before moving over, so it's wise to do this first. 
+***You need to wait for any remote tasks to finish*** before moving over, so it's wise to do this first. 
 You can restart your suites again on PUMA2 once you have completed the setup - instructions are at the end of this page. 
 
 * You can see which suites you have running with ```cylc gscan```
@@ -294,6 +294,8 @@ You should now be able to checkout and run suites as before, with the following 
   host = $(rose host-select archer2)
   ```
 
+* If anything in your suite points to a local directory like ```/home/<user>``` then you will need to change this path to ```/home/n02/n02/<user>```. 
+
 * If you are using slack alerts, you need to force the ```bin/notify.py``` script to pick up the python3 libraries first.
   Edit the first few lines to look like the following:
   ```
@@ -356,6 +358,9 @@ We have also taken this opportunity to archive some old files and directories.
 
 ## Known issues 
 
+* You will not be able to view job log files in the cylc GUI for tasks that ran on old PUMA. 
+  This is because cylc will try to retrieve the files from the remote host using the old hostname.
+  You can still view the logs in your ```cylc-run``` directory on PUMA2 or ARCHER2. 
 * The UMUI currently doesn't work. 
 * The old UM, NEMO and CICE repositories have not yet been moved over. 
 * ```fcm_make_pp``` will have fail because ```fcm:nemo``` is not defined.
