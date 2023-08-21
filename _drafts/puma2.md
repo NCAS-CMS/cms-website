@@ -358,6 +358,7 @@ We have also taken this opportunity to archive some old files and directories.
 
 ## Known issues 
 
+* Code checkouts are slow. 
 * You will not be able to view job log files in the cylc GUI for tasks that ran on old PUMA. 
   This is because cylc will try to retrieve the files from the remote host using the old hostname.
   You can still view the logs in your ```cylc-run``` directory on PUMA2 or ARCHER2. 
