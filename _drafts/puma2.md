@@ -268,7 +268,7 @@ If this hangs, double check you don't have any instances of ```login1``` in your
 
 ### 8. Set up your ARCHER2 environment 
 
-***Note: the Rose/cylc versions are the same, so we should be able to switch this already??**
+***Note: the Rose/cylc versions are the same, so could we switch this under the hood for everyone?**
 
 The new PUMA2-managed software is under: ```/work/y07/shared/umshared/metomi/bin/cylc```
 
@@ -294,7 +294,21 @@ You should now be able to checkout and run suites as before, with the following 
   host = $(rose host-select archer2)
   ```
 
-* If you have any suites to restart, run:
+* If you are using slack alerts, you need to force the ```bin/notify.py``` script to pick up the python3 libraries first.
+  Edit the first few lines to look like the following:
+  ```
+  #!/home/n02/n02/fcm/metomi/conda/mambaforge/bin/python
+  
+  import sys
+  sys.path.insert(0,'/home/n02/n02/fcm/metomi/conda/mambaforge/lib/python3.10')
+  
+  import argparse
+  import http
+  import json
+  import urllib3
+  ```
+
+* To restart a suite:
   ```
   rose suite-run --restart 
   ```
