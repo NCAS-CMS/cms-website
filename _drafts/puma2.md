@@ -317,13 +317,16 @@ You should now be able to checkout and run suites as before, with the following 
 
 Some of the differeneces between PUMA and PUMA2
 
-* The ```um``` user account is now ```um1```
+
 * Home directory paths have changed from ```/home/``` to  ```/home/n02/n02/```.
-* JASMIN can only be accessed by login2.
 * Suites need to specify ```host = $(rose host-select archer2)```.
 * The MOSRS password caching scripts are different.
 * The paths to Rose, cylc and FCM are different on PUMA2 and ARCHER2, but the default versions are the same. 
-* We have cylc-8 on PUMA2. You can use the terminal UI. You should also be able to use the web GUI with port forwarding. 
+* The ```um``` user account is now ```um1```.
+* JASMIN can only be accessed by login2.
+* We have cylc-8 on PUMA2. You can use the terminal UI. You should also be able to use the web GUI with port forwarding.
+* Emacs works.
+* Cylc graph works. 
 
 We have also taken this opportunity to archive some old files and directories. 
 
