@@ -326,3 +326,13 @@ Some of the differeneces between PUMA and PUMA2
 * We have cylc-8 on PUMA2. You can use the terminal UI. You should also be able to use the web GUI with port forwarding. 
 
 We have also taken this opportunity to archive some old files and directories. 
+
+## Known issues 
+
+* The UMUI currently doesn't work. 
+* The old UM, NEMO and CICE repositories have not yet been moved over. 
+* ```fcm_make_pp``` will have fail because ```fcm:nemo``` is not defined.
+  As a work-around, edit ```app/fcm_make_pp/rose-app.conf``` and set: 
+  ```
+  config_base=/home/n02/n02/annette/moci/postproc_2.4_canari
+  ```
