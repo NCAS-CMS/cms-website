@@ -172,7 +172,7 @@ That's because the location of this software has changed on PUMA2, so you need t
 * To setup your PUMA2 environment, copy the standard ```.profile``` and ```.bashrc```. 
   ```
   cd
-  cp ~um1/um-training/puma2/.profile .
+  cp ~um1/um-training/puma2/.bash_profile .
   cp ~um1/um-training/puma2/.bashrc . 
   ```
 
