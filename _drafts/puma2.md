@@ -363,9 +363,3 @@ We have also taken this opportunity to archive some old files and directories.
   This is because cylc will try to retrieve the files from the remote host using the old hostname.
   You can still view the logs in your ```cylc-run``` directory on PUMA2 or ARCHER2. 
 * The UMUI currently doesn't work. 
-* The old UM, NEMO and CICE repositories have not yet been moved over. 
-* ```fcm_make_pp``` will have fail because ```fcm:nemo``` is not defined.
-  As a work-around, edit ```app/fcm_make_pp/rose-app.conf``` and set: 
-  ```
-  config_base=/home/n02/n02/annette/moci/postproc_2.4_canari
-  ```
