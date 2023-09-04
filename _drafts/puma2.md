@@ -275,7 +275,7 @@ The new PUMA2-managed software is under: ```/work/y07/shared/umshared/metomi/bin
   . /work/y07/shared/umshared/bin/rose-um-env-puma2
   ```
   
-### 9. Restart any previously running suites
+### 9. Update suites to run on PUMA2
 
 You should now be able to checkout and run suites as before, with the following change: 
 
