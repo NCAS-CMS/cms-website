@@ -1,60 +1,58 @@
 ---
 layout: page-fullwidth
 title: PUMA2
-teaser: PUMA2
+subheadline: Transition to PUMA2 
+teaser: Here you will find instructions for getting setup on our new server PUMA2, including copying data and moving over live suites. 
 ---
 
-***These are draft instructions and are subject to change.***
+**Table of Contents** {: #toc } * TOC {:toc}
+
+{% include alert info="These are draft instructions and are subject to change." %}
 
 ## PUMA2
 
-We are moving to a new server PUMA2, 
-hosted at ARCHER2 and jointly managed by CMS and EPCC.
-Having PUMA2 co-located with ARCHER2 should make things easier, 
-since you will use the same account to access both machines.
+The PUMA service was setup by NCAS-CMS to provide the UK research community with centralised access to the UM on ARCHER2 and other national HPCs. 
+It hosts mirrors of the Met Office Science Repositories and provides access to Rose & Cylc enabling submission of model simulations to ARCHER2 and other HPCs/clusters.
+
+We are transitioning to a new server PUMA2, hosted at ARCHER2 and jointly managed by CMS and EPCC. 
+Having PUMA2 co-located with ARCHER2 will make things easier for users, 
+since the same account will be used for both machines.
 
 Upgrading PUMA also allows us to support new UM infrastructure,
 such as cylc-8, which will eventually be controlled by a web interface. 
-Unfortunately, the PUMA server we've been using has several limitations
-and was only ever meant to be an interim solution after the demise of the old machine. 
+Unfortunately, the old PUMA has several limitations
+and was only ever meant to be an interim solution. 
 
 ## Moving over to PUMA2
 
-The process of moving from PUMA to PUMA2 is as follows: 
-* Apply for a PUMA2 account.
-* Stop any suites you have running on the old PUMA.
-* Copy your files over.
-* Set up your PUMA2 environment.
-* Set up your ssh connection to ARCHER2 (and JASMIN if required).
-* Restart any running suites.
-
-***Maybe just put in a table of contents here?***
-
+Users will be invited to move over in batches to help CMS manage the transition. 
 Please follow the instructions carefully. 
-There are several steps, and some subtle differences to the old puma server. 
+There are several steps, and some subtle differences to the old PUMA server. 
 If you have any issues, contact the [CMS helpdesk](https://cms-helpdesk.ncas.ac.uk/).
 
-***These are draft instructions and subject to change.***
+New users can skip sections 1, 4 and 9. 
 
 ### 1. Stop any suites you have running on PUMA. 
 
+**Important: Follow this section carefully to continue running your suites on PUMA2.**
+
 First shutdown any suites you have running on PUMA. 
-***You need to wait for any remote tasks to finish*** before moving over, so it's wise to do this first. 
-You can restart your suites again on PUMA2 once you have completed the setup - instructions are at the end of this page. 
+***You need to wait for any remote tasks to finish*** before moving over. 
+You can restart your suites again on PUMA2 once you have completed the setup - instructions are in the final step. 
 
 * You can see which suites you have running with ```cylc gscan```
 
 * To stop a suite, open up the rose suite control GUI with ```rose sgc```
   
-* Then in the "Suite" menu, select "Stop Suite", and "Stop after active tasks have finished" (the default).
+* Then in the "Suite" menu, select "Stop Suite", and ***"Stop after active tasks have finished"*** (the default).
   Once any running tasks have finished the suite will shutdown. 
 
 You can move on to Steps 2 and 3 whilst waiting for your suites to stop. 
 
 ### 2. Apply for an account
 
-(If you don't already have an ARCHER2 account, 
-follow [these instructions](https://docs.archer2.ac.uk/quick-start/quickstart-users/#request-an-account-on-archer))
+If you don't already have an ARCHER2 account, 
+follow [these instructions](https://docs.archer2.ac.uk/quick-start/quickstart-users/#request-an-account-on-archer)
 
 You will need to request a PUMA2 account via SAFE. 
 * Login to [SAFE](https://safe.epcc.ed.ac.uk/)
@@ -169,7 +167,7 @@ That's because the location of this software has changed on PUMA2, so you need t
   mv .bash_profile .bash_profile.SAVE
   ```
 
-* To setup your PUMA2 environment, copy the standard ```.profile``` and ```.bashrc```. 
+* To setup your PUMA2 environment, copy the standard ```.bash_profile``` and ```.bashrc```. 
   ```
   cd
   cp ~um1/um-training/puma2/.bash_profile .
@@ -210,8 +208,6 @@ and your agent should have been launched when you logged in.
   ```
   Type your passphrase when prompted
 
-***What if this doesn't work?***
-
 #### iii. Configure access to the ARCHER2 login nodes 
 
 Since we are using our regular ARCHER2 key, and not the archerum key, we need to edit our ssh config file. 
@@ -239,7 +235,7 @@ Since we are using our regular ARCHER2 key, and not the archerum key, we need to
 
 #### iv. (Optional) Configure access to JASMIN 
 
-If you want to be able to submit jobs to JASMIN (e.g. for [data migration to JDMA](https://cms.ncas.ac.uk/unified-model/jdma), 
+If you want to be able to submit jobs to JASMIN, e.g. for [data migration to JDMA](https://cms.ncas.ac.uk/unified-model/jdma), 
 you need to set up ssh access. 
 This assumes you already had JASMIN access on old PUMA. 
 
@@ -267,8 +263,6 @@ You should now be logged into the JASMIN sci node without prompt for your JASMIN
 If this hangs, double check you don't have any instances of ```login1``` in your ```.ssh/config```. 
 
 ### 8. Set up your ARCHER2 environment 
-
-***Note: the Rose/cylc versions are the same, so could we switch this under the hood for everyone?**
 
 The new PUMA2-managed software is under: ```/work/y07/shared/umshared/metomi/bin/cylc```
 
@@ -353,8 +347,7 @@ Some of the differeneces between PUMA and PUMA2
 * We have cylc-8 on PUMA2. You can use the terminal UI. You should also be able to use the web GUI with port forwarding.
 * Emacs works.
 * Cylc graph works. 
-
-We have also taken this opportunity to archive some old files and directories. 
+* Some old files and directories have been archived. Let us know if you think we've archived something that is still in use. 
 
 ## Known issues 
 
