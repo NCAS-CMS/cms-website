@@ -1,12 +1,22 @@
 ---
 layout: page-fullwidth
-title: PUMA2
-subheadline: Transition to PUMA2 
+subheadline: PUMA2
+title: Transition to PUMA2 
 teaser: Here you will find instructions for getting setup on our new server PUMA2, including copying data and moving over live suites. 
 permalink: /puma2/
 ---
 
-**Table of Contents** {: #toc } * TOC {:toc}
+<div class="row">
+<div class="medium-4 medium-push-8 columns" markdown="1">
+<div class="panel radius" markdown="1">
+**Table of Contents**
+{: #toc }
+*  TOC
+{:toc}
+</div><!-- /.panel -->
+</div><!-- /.medium-4 -->
+
+<div class="medium-8 medium-pull-4 columns" markdown="1">
 
 {% include alert info="These are draft instructions and are subject to change." %}
 
