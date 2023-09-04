@@ -3,6 +3,7 @@ layout: page-fullwidth
 title: PUMA2
 subheadline: Transition to PUMA2 
 teaser: Here you will find instructions for getting setup on our new server PUMA2, including copying data and moving over live suites. 
+permalink: /puma2/
 ---
 
 **Table of Contents** {: #toc } * TOC {:toc}
