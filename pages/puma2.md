@@ -113,7 +113,7 @@ You can this to push files directly from PUMA.
   ```
 
 Conveniently, the PUMA2 filesystem is cross-mounted on the ARCHER2 login nodes, 
-so we don't need to login to PUMA2.   
+so you don't need to login to PUMA2.   
 
 * To move all your files over, run: 
   ```
@@ -221,7 +221,7 @@ and your agent should have been launched when you logged in.
 
 #### iii. Configure access to the ARCHER2 login nodes 
 
-Since we are using our regular ARCHER2 key, and not the archerum key, we need to edit our ssh config file. 
+Since you are using your regular ARCHER2 key, and not the archerum key, you need to edit your ssh config file. 
 
 * In your ```.ssh/config``` file delete the following lines:
   ```
