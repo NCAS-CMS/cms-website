@@ -30,7 +30,7 @@ Please follow the instructions carefully.
 There are several steps, and some subtle differences to the old PUMA server. 
 If you have any issues, contact the [CMS helpdesk](https://cms-helpdesk.ncas.ac.uk/).
 
-New users can skip sections 1, 4 and 9. 
+New users can skip sections 1, 4 and 10. 
 
 ### 1. Stop any suites you have running on PUMA. 
 
@@ -277,7 +277,7 @@ The new PUMA2-managed software is under: ```/work/y07/shared/umshared/metomi/bin
   
 ### 9. Update suites to run on PUMA2
 
-You should now be able to checkout and run suites as before, with the following change: 
+ARCHER2 jobs are submitted via the login nodes using ```rose host-select```. All ARCHER2 suites need the following change: 
 
 * Edit ```site/archer2.rc``` file and replace any lines like this:
   ```
@@ -287,6 +287,8 @@ You should now be able to checkout and run suites as before, with the following 
   ```
   host = $(rose host-select archer2)
   ```
+
+You may also need to make a few other changes: 
 
 * If anything in your suite points to a local directory like ```/home/<user>``` then you will need to change this path to ```/home/n02/n02/<user>```. 
 
@@ -304,14 +306,38 @@ You should now be able to checkout and run suites as before, with the following 
   import urllib3
   ```
 
-* To restart a suite:
+### 10. Restart any previously running suites. 
+
+You need to pick up the suite changes you have made. 
+
+* Restart by running:
   ```
   rose suite-run --restart
   ```
 
 ## Troubleshooting 
 
-You tried to restart your suite and get the following error: 
+Below are some errors that might occur when moving suites over from PUMA. 
+Please check you have followed the instructions correctly. 
+If you have any other issues, contact the [CMS helpdesk](https://cms-helpdesk.ncas.ac.uk/).
+
+### Connection timed out error 
+
+Running or restarting a suite gives the following error: 
+
+```
+[FAIL] ssh -oBatchMode=yes -oStrictHostKeyChecking=no -oConnectTimeout=8 -n login.archer2.ac.uk env\ ROSE_VERSION=2019.01.3\ CYLC_VERSION=7.8.12\ bash\ -l\ -c\ \'\"$0\"\ \"$@\"\'\ rose\ suite-run\ -vv\ -n\ u-bz764\ --run=run\ --remote=uuid=b330b450-6f0d-48fd-8689-cd8d2b51f312,now-str=20230904T095548Z # return-code=255, stderr=
+[FAIL] ssh: connect to host login.archer2.ac.uk port 22: Connection timed out
+```
+
+* Make sure you have ```host = $(rose host-select archer2)``` in the ```site/archer2.rc``` file.
+
+* If you have restarted the suite, make sure you restarted with ```rose suite-run --restart``` in order to pick up any changes. 
+
+### Suite appears to be running error
+
+Restarting a suite gives this: 
+
  ```
  [FAIL] Suite "u-cs488" appears to be running:
  [FAIL] Contact info from: "/home/n02/n02/annette/cylc-run/u-cs488/.service/contact"
@@ -334,6 +360,20 @@ You tried to restart your suite and get the following error:
   * If you still get an error, or the suite is not still running on old PUMA,
     delete the ```.service/contact``` file mentioned in the error message. 
 
+### Tasks not updating 
+
+If you shut down the suite without waiting for active tasks to finish, 
+the suite will not be able to pick up the task status since it can't connect to the host the tasks 
+ran on (login.archer2.ac.uk).
+
+* In the suite log you will see errors like this. 
+
+```
+ssh: connect to host login.archer2.ac.uk port 22: Connection timed out
+```
+
+* You should be able to recover by manually resetting the task status once the tasks have finished. New tasks should then be triggerd and run correctly.
+  
 ## Summary of changes 
 
 Some of the differeneces between PUMA and PUMA2
