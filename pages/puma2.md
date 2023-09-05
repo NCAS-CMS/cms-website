@@ -20,10 +20,13 @@ permalink: /puma2/
 
 {% include alert info="These are draft instructions and are subject to change." %}
 
-## PUMA2
+
+## The PUMA service 
 
 The PUMA service was setup by NCAS-CMS to provide the UK research community with centralised access to the UM on ARCHER2 and other national HPCs. 
 It hosts mirrors of the Met Office Science Repositories and provides access to Rose & Cylc enabling submission of model simulations to ARCHER2 and other HPCs/clusters.
+
+## PUMA2
 
 We are transitioning to a new server PUMA2, hosted at ARCHER2 and jointly managed by CMS and EPCC. 
 Having PUMA2 co-located with ARCHER2 will make things easier for users, 
@@ -96,8 +99,8 @@ if you have running suites you wish to continue on PUMA2.
 
 #### Preferred method: Push from PUMA to ARCHER2 
 
-If you have been running suites on ARCHER2, you should have an archerum key installed. 
-You can this to push files directly from PUMA. 
+If you have been running suites on ARCHER2, you should have an ```archerum``` key installed. 
+You can use this to push files directly from PUMA. 
 
 * Login to the old PUMA
 
@@ -160,7 +163,8 @@ so that you don't have to type your password every time.
 
 ### 6. Set up your PUMA2 environment 
 
-When you login to PUMA2 you will probably get some warnings like: 
+When you next login to PUMA2 after copying your files over from PUMA, 
+you will probably get some warnings like: 
 ```
 bash: cylc: command not found...
 bash: rose: command not found...
@@ -169,8 +173,8 @@ bash: fcm: command not found...
 ```
 That's because the location of this software has changed on PUMA2, so you need to update your environment. 
 
-* If you wish to save your old ```.profile```, ```.bashrc``` or ```.bash_profile```
-  move these out the way first: 
+* If you wish to save your old ```.profile```, ```.bashrc``` or ```.bash_profile```,
+  move these out of the way first: 
   ```
   cd
   mv .profile .profile.SAVE
@@ -195,42 +199,71 @@ That's because the location of this software has changed on PUMA2, so you need t
   Rosie password cached
   ```
 
+  If you get a warning about ```~/.ssh/ssh-setup``` not being found, ignore this for now. 
+
 ### 7. Set up your ssh agent 
 
-You need to have an ssh-agent running in order to submit jobs to ARCHER2.
+In order to submit jobs to ARCHER2 and JASMIN, 
+you need to have an ssh-agent running with your ssh-keys for each machine added. 
 
 #### i. Copy your ARCHER2 ssh-key pair to PUMA2  
 
-You may already have this in your ```.ssh``` directory, otherwise you will need to copy it over. 
+Your ARCHER2 key is the one that you use to ssh into the ARCHER2 login nodes. 
+
+**Note: If you have already been running suites on ARCHER2 from old PUMA, 
+you will also have an ```archerum``` key,
+but we recommend you no longer use this, 
+just to simplify the number of keys in your workflow.**
+
+You need to copy both the public and private keys into your ```.ssh/``` directory on PUMA2. 
 
 * From your local system, run: 
   ```
-  scp ~/.ssh/<archer-key>* <archer-username>:/home/n02/n02-puma/<archer-username>/.ssh
+  scp ~/.ssh/<archer-key>* login.archer2.ac.uk:/home/n02/n02-puma/<archer-username>/.ssh
   ```
 
-#### ii. Now start up you ssh-agent and add the ARCHER2 key
+#### ii. New users only: Start up your ssh agent
 
-You should alreay have the `ssh-setup` script in your `.ssh` directory, 
+If you are not moving over from the old PUMA, or you were not setup to run suites, 
+then you need to do an extra bit of setup to launch your ssh-agent. 
+
+* First copy the ```ssh-setup``` script to your ```.ssh/``` directory. 
+
+  ```
+  cp ~um1/um-training/setup/ssh-setup ~/.ssh
+  ```
+
+* Now log out of PUMA2 and back in again to start up your ssh-agent.
+  You should see the following message:
+  ```
+  Initialising new SSH agent...
+  ```
+
+#### iii. Add the ARCHER2 key
+
+You should have the ```ssh-setup``` script in your ```.ssh``` directory, 
 and your agent should have been launched when you logged in. 
 
-* Add your ARCHER key to the ssh agent: 
+* Add your ARCHER2 key to the ssh agent: 
   ```
   ssh-add ~/.ssh/<archer-key>
   ```
   Type your passphrase when prompted
 
-#### iii. Configure access to the ARCHER2 login nodes 
+#### iv. Configure access to the ARCHER2 login nodes 
 
-Since you are using your regular ARCHER2 key, and not the archerum key, you need to edit your ssh config file. 
+You need to edit your ssh config file to point to your ARCHER2 key. 
+If you were previously running on PUMA, 
+you will need to replace any lines referring to your archerum key. 
 
-* In your ```.ssh/config``` file delete the following lines:
+* If you have lines like these in your ```.ssh/config```, file delete them:
   ```
   Host login.archer2.ac.uk
   User <archer-username>
   IdentityFile ~/.ssh/id_rsa_archerum
   ``` 
 
-* Replace with these lines:
+* Add these lines instead:
   ```
   # ARCHER2 login nodes
   Host ln* 
@@ -244,11 +277,13 @@ Since you are using your regular ARCHER2 key, and not the archerum key, you need
   It should return one of the login nodes, e.g. ```ln01```.
   If it returns a message like ```[WARN] ln03: (ssh failed)``` then something has gone wrong with the ssh setup.
 
-#### iv. (Optional) Configure access to JASMIN 
+#### v. (Optional) Configure access to JASMIN 
 
 If you want to be able to submit jobs to JASMIN, e.g. for [data migration to JDMA](https://cms.ncas.ac.uk/unified-model/jdma), 
 you need to set up ssh access. 
-This assumes you already had JASMIN access on old PUMA. 
+
+These instructions assume you already had JASMIN access on PUMA. 
+If you are doing this for the first time, follow [these instructions](https://cms.ncas.ac.uk/unified-model/jdma#setup-connection-to-jasmin-sci-nodes).  
 
 * Edit your ```.ssh/config``` file and replace ```login1``` with ```login2```, e.g.
   ````
@@ -275,9 +310,17 @@ If this hangs, double check you don't have any instances of ```login1``` in your
 
 ### 8. Set up your ARCHER2 environment 
 
-The new PUMA2-managed software is under: ```/work/y07/shared/umshared/metomi/bin/cylc```
+You now need to setup your ARCHER2 environment to point to the new installations 
+of Rose, cylc and FCM under: ```/work/y07/shared/umshared/metomi/bin/cylc```
 
-* Edit your ```.profile```, and replace this line: 
+Note: the software versions are the same as before, 
+but we have changed the management process to be compatible with PUMA2. 
+
+#### Existing users 
+
+* Login to ARCHER2.
+
+* Edit your ```.profile``` or ```.bash_profile```, and replace this line: 
   ```
   . /work/y07/shared/umshared/bin/rose-um-env
   ```
@@ -285,10 +328,28 @@ The new PUMA2-managed software is under: ```/work/y07/shared/umshared/metomi/bin
   ```
   . /work/y07/shared/umshared/bin/rose-um-env-puma2
   ```
+
+#### New users
+
+* Login to ARCHER2.
+
+* Copy the standard profile into your account:
+  ```
+  cp /work/y07/shared/umshared/um-training/rose-profile ~/.bash_profile
+  ```
+
+* Change the permissions on your /home and /work directories to enable the NCAS-CMS team to help with any queries:
+  ```
+  chmod -R g+rX /home/n02/n02/<your-username>
+  chmod -R g+rX /work/n02/n02/<your-username> 
+  ```
   
 ### 9. Update suites to run on PUMA2
 
-ARCHER2 jobs are submitted via the login nodes using ```rose host-select```. All ARCHER2 suites need the following change: 
+You should now be ready to checkout and run suites on PUMA2! 
+The final thing to do is make a few changes to the suites themselves. 
+
+ARCHER2 jobs are submitted via the login nodes using ```rose host-select```. 
 
 * Edit ```site/archer2.rc``` file and replace any lines like this:
   ```
