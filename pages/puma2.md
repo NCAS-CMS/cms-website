@@ -41,7 +41,7 @@ and was only ever meant to be an interim solution.
 
 Users will be invited to move over in batches to help CMS manage the transition. 
 
-To use PUMA2, you will need to move over your files from the old PUMA,
+To use PUMA2, you will need to move over your files from old PUMA,
 and then setup your account on the new system. 
 This involves making some changes to your user environment, 
 and configuring an ssh-agent to run jobs on ARCHER2 and JASMIN. 
@@ -62,7 +62,7 @@ You can restart your suites again on PUMA2 once you have completed the setup - i
 
 * You can see which suites you have running with ```cylc gscan```
 
-* To stop a suite, open up the rose suite control GUI with ```rose sgc```
+* Double-click on any running suites to bring up the suite control GUI. 
   
 * Then in the "Suite" menu, select "Stop Suite", and ***"Stop after active tasks have finished"*** (the default).
   Once any running tasks have finished the suite will shutdown. 
