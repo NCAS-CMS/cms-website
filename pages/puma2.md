@@ -40,6 +40,12 @@ and was only ever meant to be an interim solution.
 ## Moving over to PUMA2
 
 Users will be invited to move over in batches to help CMS manage the transition. 
+
+To use PUMA2, you will need to move over your files from the old PUMA,
+and then setup your account on the new system. 
+This involves making some changes to your user environment, 
+and configuring an ssh-agent to run jobs on ARCHER2 and JASMIN. 
+
 Please follow the instructions carefully. 
 There are several steps, and some subtle differences to the old PUMA server. 
 If you have any issues, contact the [CMS helpdesk](https://cms-helpdesk.ncas.ac.uk/).
@@ -338,7 +344,7 @@ but we have changed the management process to be compatible with PUMA2.
   cp /work/y07/shared/umshared/um-training/rose-profile ~/.bash_profile
   ```
 
-* Change the permissions on your /home and /work directories to enable the NCAS-CMS team to help with any queries:
+* Change the permissions on your ```/home``` and ```/work``` directories to enable the NCAS-CMS team to help with any queries:
   ```
   chmod -R g+rX /home/n02/n02/<your-username>
   chmod -R g+rX /work/n02/n02/<your-username> 
