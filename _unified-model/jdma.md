@@ -146,8 +146,8 @@ jdma {{'=> \\' if HOUSEKEEP else '' }}
 {% raw %}
 ~~~
 # JASMIN
-Host login1
-Hostname login1.jasmin.ac.uk
+Host login2
+Hostname login2.jasmin.ac.uk
 User <jasmin_username> 
 IdentityFile ~/.ssh/<jasmin-ssh-key>
 ForwardAgent yes
@@ -162,7 +162,7 @@ Host sci* cylc*
 User <jasmin_username>
 IdentityFile ~/.ssh/<jasmin-ssh-key>
 ForwardAgent yes
-ProxyCommand ssh -Y login1 -W %h:%p
+ProxyCommand ssh -Y login2 -W %h:%p
 ControlMaster auto
 ControlPath /tmp/ssh-socket-%r@%h-%p
 ControlPersist yes
