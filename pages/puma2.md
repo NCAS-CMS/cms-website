@@ -218,8 +218,7 @@ Your ARCHER2 key is the one that you use to ssh into the ARCHER2 login nodes.
 
 **Note: If you have already been running suites on ARCHER2 from old PUMA, 
 you will also have an ```archerum``` key,
-but we recommend you no longer use this, 
-just to simplify the number of keys in your workflow.**
+but we recommend you no longer use this.**
 
 You need to copy both the public and private keys into your ```.ssh/``` directory on PUMA2. 
 
