@@ -137,8 +137,13 @@ so you will need to login to PUMA2 and pull your files over.
 
 ### 5. Set up passwordless access to PUMA2
 
-You can set up a passphrase-less ssh-key to access PUMA2, 
-so that you don't have to type your password every time.
+In order to avoid typing your password every time you login to PUMA2, 
+you can set up an ssh-key without a passphrase. 
+This means you can log straight in without a password, passphrase or ssh-agent running. 
+
+**Note: Usually we would never advise using an ssh-key without a passphrase, 
+but in this case it's safe to do so since we are already authenticated 
+within the Archer2 system.**
 
 * From the ARCHER2 login nodes, type 
 
