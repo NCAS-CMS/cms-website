@@ -22,6 +22,8 @@
     url: "/monsoon2/"
   - title: "PUMA"
     url: "/puma/"
+  - title: "PUMA2"
+    url: "/puma2/"
   - title: "Rose, Cylc & FCM"
     url: "/rose-cylc/"
   - title: "Tools & Utilities"
