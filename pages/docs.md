@@ -14,7 +14,7 @@ header:
 
 * #### [Unified Model]({{ 'unified-model' | relative_url }})
 
-* #### [PUMA]({{ 'puma' | relative_url }})
+* #### [PUMA2]({{ 'puma2' | relative_url }})
 
 * #### [Monsoon2]({{ 'monsoon2' | relative_url }})
 
