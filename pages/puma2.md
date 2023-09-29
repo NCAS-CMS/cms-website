@@ -18,7 +18,7 @@ permalink: /puma2/
 
 <div class="medium-8 medium-pull-4 columns" markdown="1">
 
-{% include alert info="These are draft instructions and are subject to change." %}
+{% include alert info="PUMA2 is a new service. Please contact the helpdesk if you have any issues." %}
 
 
 ## The PUMA service 
@@ -454,7 +454,11 @@ ran on (login.archer2.ac.uk).
 ssh: connect to host login.archer2.ac.uk port 22: Connection timed out
 ```
 
-* You should be able to recover by manually resetting the task status once the tasks have finished. New tasks should then be triggerd and run correctly.
+* You should be able to recover by manually resetting the task status once the tasks have finished. Look in the log directory on Archer2 to check whether the task succeeded or failed. This will be logged in the `job.status` file with the `CYLC_JOB_EXIT` variable. This should be either `SUCCEEDED` or `EXIT` (i.e. failed). 
+
+* Right click on the task, and reset the state appropriately. 
+  
+* This should prompt cylc to trigger any new tasks. You may need to trigger failed tasks manually.
   
 ## Summary of changes 
 
