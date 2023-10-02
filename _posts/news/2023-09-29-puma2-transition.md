@@ -2,7 +2,7 @@
 layout: page
 subheadline:  "PUMA2"
 title:  "Transition to PUMA2"
-teaser: "We have just launched our new server, PUMA2, hosted at ARCHER2."
+teaser: "We have just launched our new server, PUMA2, hosted at ARCHER2. Rose/cylc users should move over to the new system as soon as possible."
 categories:
     - news
 tags:
@@ -16,7 +16,6 @@ Full details can be found [here]({{ '/puma2/' | relative_url }}),
 where you will find instructions for getting setup on PUMA2, 
 including copying data, and moving over live suites.
 
-Rose/cylc users should move over to the new system as soon as possible. 
 Note that the old PUMA server will be unavailable during the 
 [Jasmin downtime in October](https://www.ceda.ac.uk/blog/reminder-advance-notice-of-jasmin-power-maintenance-autumn-2023/) 
 and will be decomissioned in due course. 
