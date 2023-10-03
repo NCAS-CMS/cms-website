@@ -18,7 +18,7 @@ permalink: /puma2/
 
 <div class="medium-8 medium-pull-4 columns" markdown="1">
 
-{% include alert info="PUMA2 is a new service. Please contact the [helpdesk](https://cms-helpdesk.ncas.ac.uk/) if you have any issues." %}
+{% include alert info="PUMA2 is a new service. Please contact the CMS helpdesk if you have any issues." %}
 
 
 ## The PUMA service 
