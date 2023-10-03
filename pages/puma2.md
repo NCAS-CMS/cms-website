@@ -71,10 +71,10 @@ You can move on to Steps 2 and 3 whilst waiting for your suites to stop.
 
 ### 2. Apply for an account
 
-If you don't already have an ARCHER2 account, 
-follow [these instructions](https://docs.archer2.ac.uk/quick-start/quickstart-users/#request-an-account-on-archer)
+You need to request a PUMA2 account through SAFE. 
+If you don't already have an ARCHER2 account, follow [these instructions first](https://docs.archer2.ac.uk/quick-start/quickstart-users/#request-an-account-on-archer).
 
-You will need to request a PUMA2 account via SAFE. 
+To request a PUMA2 account. 
 * Login to [SAFE](https://safe.epcc.ed.ac.uk/)
 * From the "Login accounts" menu, select your username
 * Scroll down near the bottom, and select "Add Machine"
