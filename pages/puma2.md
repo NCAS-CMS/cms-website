@@ -369,6 +369,7 @@ ARCHER2 jobs are submitted via the login nodes using ```rose host-select```.
   ```
   host = $(rose host-select archer2)
   ```
+Note: Not all suites will have a ```site/archer2.rc``` file so you may need to search for the relevant file to edit.
 
 You may also need to make a few other changes: 
 
