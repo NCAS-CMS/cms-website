@@ -295,7 +295,7 @@ you need to set up ssh access.
 These instructions assume you already had JASMIN access on PUMA. 
 If you are doing this for the first time, follow [these instructions](https://cms.ncas.ac.uk/unified-model/jdma#setup-connection-to-jasmin-sci-nodes).  
 
-* Edit your ```.ssh/config``` file and replace ```login1``` with ```login2```, e.g.
+* Edit your ```.ssh/config``` file and replace ```login1``` with ```login2``` in the following places: 
   ````
   # JASMIN
   Host login2
@@ -304,6 +304,7 @@ If you are doing this for the first time, follow [these instructions](https://cm
   ProxyCommand ssh -Y login2 -W %h:%p
   ...
   ````
+  The config lines should look like the text [on this page](https://cms.ncas.ac.uk/unified-model/jdma#setup-connection-to-jasmin-sci-nodes)
   
 * Add your JASMIN ssh-key to your ssh-agent:
   ```
