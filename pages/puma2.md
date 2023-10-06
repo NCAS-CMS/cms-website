@@ -18,7 +18,7 @@ permalink: /puma2/
 
 <div class="medium-8 medium-pull-4 columns" markdown="1">
 
-{% include alert info="PUMA2 is a new service. Please contact the CMS helpdesk if you have any issues." %}
+{% include alert info="UMUI users should wait for further instructions. We will announce the UMUI changeover date shortly." %}
 
 
 ## The PUMA service 
