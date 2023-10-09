@@ -340,7 +340,7 @@ but we have changed the management process to be compatible with PUMA2.
   . /work/y07/shared/umshared/bin/rose-um-env-puma2
   ```
 
-* Make sure you don't have these lines in your ```.profile``` or ```.bash_profile``:
+* Make sure you don't have these lines in your ```.profile``` or ```.bash_profile```:
   ```
   export FCM_VERSION=pumatest
   export CYLC_VERSION=pumatest
