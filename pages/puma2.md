@@ -229,7 +229,7 @@ You need to copy both the public and private keys into your ```.ssh/``` director
 
 * From your local system, run: 
   ```
-  scp ~/.ssh/<archer-key>* login.archer2.ac.uk:/home/n02/n02-puma/<archer-username>/.ssh
+  scp ~/.ssh/<archer-key>* <archer-username>@login.archer2.ac.uk:/home/n02/n02-puma/<archer-username>/.ssh
   ```
 
 #### ii. New users only: Start up your ssh agent
@@ -338,6 +338,13 @@ but we have changed the management process to be compatible with PUMA2.
   with this one: 
   ```
   . /work/y07/shared/umshared/bin/rose-um-env-puma2
+  ```
+
+* Make sure you don't have these lines in your ```.profile``` or ```.bash_profile``:
+  ```
+  export FCM_VERSION=pumatest
+  export CYLC_VERSION=pumatest
+  export ROSE_VERSION=pumatest
   ```
 
 #### New users
