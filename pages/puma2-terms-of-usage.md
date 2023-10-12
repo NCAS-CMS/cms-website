@@ -2,6 +2,7 @@
 layout: page-fullwidth
 subheadline: PUMA2 
 title: PUMA2 Terms of Usage
+permalink: /puma2/terms-of-usage
 ---
 
 {% include alert info="Draft only !!! " %}
