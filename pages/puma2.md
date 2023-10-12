@@ -48,11 +48,9 @@ Please follow the instructions carefully.
 There are several steps, and some subtle differences to the old PUMA server. 
 If you have any issues, contact the [CMS helpdesk](https://cms-helpdesk.ncas.ac.uk/).
 
-New users can skip sections 1, 4 and 10. 
+**New users** can skip steps 1, 4 and 10. 
 
-UMUI users running on ARCHER2 should follow steps 1-8, 
-and then refer to the instructions on the [UMUI page]({{ '/puma2/umui' | relative_url }}). 
-
+**UMUI users** should refer to the instructions on the [UMUI page]({{ '/puma2/umui' | relative_url }}). UMUI users running on ARCHER2 should follow steps 1-8 of the setup below. 
 
 ### 1. Stop any suites you have running on PUMA. 
 
