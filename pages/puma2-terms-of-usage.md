@@ -5,8 +5,6 @@ title: Terms of Usage
 permalink: /puma2/terms-of-usage
 ---
 
-{% include alert info="Draft only !!! " %}
-
 As a PUMA2 user, you must agree to abide by these terms. 
 Failure to do so will lead to the closure of you account. 
 
