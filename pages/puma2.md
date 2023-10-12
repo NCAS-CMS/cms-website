@@ -51,7 +51,7 @@ If you have any issues, contact the [CMS helpdesk](https://cms-helpdesk.ncas.ac.
 New users can skip sections 1, 4 and 10. 
 
 UMUI users running on ARCHER2 should follow steps 1-8, 
-and then refer to the instructions on the [UMUI page]({{ '/puma2/umui/' | relative_url }}). 
+and then refer to the instructions on the [UMUI page]({{ '/puma2/umui' | relative_url }}). 
 
 
 ### 1. Stop any suites you have running on PUMA. 
