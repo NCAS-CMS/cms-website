@@ -18,8 +18,6 @@ permalink: /puma2/
 
 <div class="medium-8 medium-pull-4 columns" markdown="1">
 
-{% include alert info="UMUI users should wait for further instructions. We will announce the UMUI changeover date shortly." %}
-
 
 ## The PUMA service 
 
@@ -51,6 +49,10 @@ There are several steps, and some subtle differences to the old PUMA server.
 If you have any issues, contact the [CMS helpdesk](https://cms-helpdesk.ncas.ac.uk/).
 
 New users can skip sections 1, 4 and 10. 
+
+UMUI users running on ARCHER2 should still follow steps 1-8, 
+and then refer to the instructions on the [UMUI page]({{ '/puma2/umui/' | relative_url }}). 
+
 
 ### 1. Stop any suites you have running on PUMA. 
 
