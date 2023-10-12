@@ -17,7 +17,7 @@ It is not to be used for any other purpose.
 You must follow the [ARCHER2 terms of usage](https://www.archer2.ac.uk/about/policies/tandc.html), 
 which you will have agreed to when registering for an ARCHER2 account. 
 
-By registering for a PUMA2 account, you are agreeing to the UM licensing conditions that you will:
+By registering for a PUMA2 account, you are agreeing that you will:
 * NOT give the UM to others
 * NOT use the UM for commercial purposes
 * NOT publish or do anything that could bring the UM or Met office into disrepute.
