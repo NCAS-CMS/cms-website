@@ -1,13 +1,13 @@
 ---
 layout: page-fullwidth
 subheadline: PUMA2 
-title: PUMA2 Terms of Usage
+title: Terms of Usage
 permalink: /puma2/terms-of-usage
 ---
 
 {% include alert info="Draft only !!! " %}
 
-As a PUMA2 users you must agree to abide by these terms. 
+As a PUMA2 user, you must agree to abide by these terms. 
 Failure to do so will lead to the closure of you account. 
 
 The PUMA2 service is provided to support 
