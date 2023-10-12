@@ -491,4 +491,3 @@ Some of the differeneces between PUMA and PUMA2
 * You will not be able to view job log files in the cylc GUI for tasks that ran on old PUMA. 
   This is because cylc will try to retrieve the files from the remote host using the old hostname.
   You can still view the logs in your ```cylc-run``` directory on PUMA2 or ARCHER2. 
-* The UMUI currently doesn't work. 
