@@ -17,7 +17,7 @@ permalink: /puma2/umui
 
 2) Change the run host from `login.archer2.ac.uk` to one of the ARCHER2 login nodes: `ln01`, `ln02`, `ln03` or `ln04`.
 
-4) Any paths to local directory like `/home/<user>` need to be changed to /home/n02/n02/<user>.
+4) Any paths to local directories like `/home/<user>` need to be changed to `/home/n02/n02/<user>`.
 
 5) The SUBMIT button no longer works.  To submit a job to ARCHER2, after processing the job as usual, you will then need to run the UMSUBMT_ARCHER2 on the command line:
    ```
