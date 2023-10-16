@@ -480,7 +480,6 @@ Some of the differeneces between PUMA and PUMA2
 * The paths to Rose, cylc and FCM are different on PUMA2 and ARCHER2, but the default versions are the same. 
 * The ```um``` user account is now ```um1```.
 * JASMIN can only be accessed by login2.
-* We have cylc-8 on PUMA2. You can use the terminal UI. You should also be able to use the web GUI with port forwarding.
 * Emacs works.
 * Cylc graph works. 
 * Some old files and directories have been archived. Let us know if you think we've archived something that is still in use. 
