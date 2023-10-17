@@ -69,6 +69,9 @@ You can restart your suites again on PUMA2 once you have completed the setup - i
 
 You can move on to Steps 2 and 3 whilst waiting for your suites to stop. 
 
+</div><!-- /.medium-8.columns -->
+</div><!-- /.row -->
+
 ### 2. Apply for an account
 
 You need to request a PUMA2 account through SAFE. 
