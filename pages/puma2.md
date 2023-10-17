@@ -447,7 +447,7 @@ Restarting a suite gives this:
 
  * If it is still running, shut the suite down and re-sync the cylc-run directory for that suite:
    ```
-   rysnc -a --delete ~/cylc-run/<suite-id> login.archer2.ac.uk:/home/n02/n02-puma/<archer-username>/cylc-run
+   rsync -a --delete ~/cylc-run/<suite-id> login.archer2.ac.uk:/home/n02/n02-puma/<archer-username>/cylc-run
    ```
  
   * Then try restarting.
