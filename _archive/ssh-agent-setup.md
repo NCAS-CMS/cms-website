@@ -2,7 +2,7 @@
 layout: page-fullwidth
 title: SSH setup for submission of UM suites
 subheadline: ARCHER2
-permalink: '/archer2/ssh-agent-setup/'
+#permalink: '/archer2/ssh-agent-setup/'
 breadcrumb: true
 ---
 
