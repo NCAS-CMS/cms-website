@@ -28,7 +28,6 @@ Rose is a toolkit for writing, editing and running application configurations.  
 * Rose Tutorial: [https://metomi.github.io/rose/doc/html/tutorial/rose/index.html](https://metomi.github.io/rose/doc/html/tutorial/rose/index.html)
 * Cylc Tutorial: [https://metomi.github.io/rose/doc/html/tutorial/cylc/index.html](https://metomi.github.io/rose/doc/html/tutorial/cylc/index.html)
 * Hints and Tips: [Hints, Tips & Troubleshooting]({{ 'rose-cylc-hints' | relative_url }})
-* Rose bush on PUMA: [https://puma.nerc.ac.uk/rose-bush](https://puma.nerc.ac.uk/rose-bush)
 * Rose bush on Monsoon2: `firefox http://localhost/rose-bush`
 </div><!-- /.medium-8.columns -->
 </div><!-- /.row -->
@@ -44,7 +43,7 @@ Rose is a toolkit for writing, editing and running application configurations.  
 
 In order to run UM10.x and newer, access roses-u suite repository or any other codes held in a MOSRS repository you first need an account on the Met Office Science Repository Service (MOSRS). Please contact NCAS-CMS to request an account.
 
-Some setup on PUMA (for submission to Archer2) or Monsoon2 is then required to access the remote repository. This is detailed here:
+Some setup on Monsoon2 is then required to access the remote repository. This is detailed here:
 
 * [MOSRS FAQ Configuring Subversion Access](https://code.metoffice.gov.uk/trac/home/wiki/FAQ#ConfiguringSubversionaccess) (Note: you need to log in with your MOSRS account to see this)
 
@@ -53,6 +52,8 @@ Then follow the link on "how to cache your password":
 * [https://code.metoffice.gov.uk/trac/home/wiki/AuthenticationCaching](https://code.metoffice.gov.uk/trac/home/wiki/AuthenticationCaching)
 
 This is a little complicated so be sure to follow the instructions carefully. 
+
+For ARCHER2 users, the setup is included in the [PUMA2 instruction page]({{ '/puma2/' | relative_url }}). 
 
 ### Running on Monsoon2
 
@@ -64,11 +65,9 @@ A guide to using Rose/Cylc on Monsoon2 can be found in the [Monsoon User Guide](
 
 ### Running on ARCHER2
 
-Rose suites are submitted from PUMA.
+Rose suites are submitted from PUMA2.
 
-There is some setup required on PUMA & ARCHER2 to enable submission of suites to ARCHER2; this includes environment setup and creation of a special `archerum` workflow key to allow Cylc to talk to ARCHER2.  Follow the [setup instructions](https://ncas-cms.github.io/um-training/getting-setup.html#set-up-your-archer2-environment) in our online training.
-
-* [https://ncas-cms.github.io/um-training/getting-setup.html#set-up-your-archer2-environment](https://ncas-cms.github.io/um-training/getting-setup.html#set-up-your-archer2-environment)
+There is some setup required to enable submission of suites to ARCHER2.  Follow the [PUMA2 setup instructions]({{ '/puma2/' | relative_url }}). 
 
 ### Configuring your environment
 
