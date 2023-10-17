@@ -25,7 +25,7 @@ Several setup steps are required before running the UM for the first time on ARC
 For those that have never run the UM before:
 * Register for an n02 [ARCHER2 account](https://docs.archer2.ac.uk/quick-start/quickstart-users/#request-an-account-on-archer).
 * Register for a PUMA2 account via SAFE.
-* Setup your PUMA and ARCHER2 environments by following the [set up instructions](https://ncas-cms.github.io/um-training/getting-setup.html#set-up-your-archer2-environment) in our online training.
+* Setup your PUMA and ARCHER2 environments by following the [set up instructions](https://ncas-cms.github.io/um-training/getting-setup-selfstudy.html) in our online training.
 
 For those that have previously run the UM on ARCHER:
 * Register for an [ARCHER2 account](https://docs.archer2.ac.uk/quick-start/quickstart-users/#request-an-account-on-archer).
