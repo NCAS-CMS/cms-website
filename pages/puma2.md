@@ -386,13 +386,17 @@ Where to change this depends on how your suite it set up.
   it's likely you will need to do the following:
 
   Change:
+  {% raw %}
   ```
   {% set HPC_HOST = “login.archer2.ac.uk" %}
   ```
+  {% endraw %}
   to
+  {% raw %}
   ```
   {% set HPC_HOST = "archer2” %}
   ```
+  {% endraw %}
   
   And
   ```
