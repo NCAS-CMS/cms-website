@@ -399,13 +399,17 @@ Where to change this depends on how your suite it set up.
   {% endraw %}
   
   And
+  {% raw %}
   ```
   host = {{HPC_HOST}}
   ```
+  {% endraw %}
   to
+  {% raw %}
   ```
   host = $(rose host-select {{HPC_HOST}})
   ```
+  {% endraw %}
 
 * If you have a ```site/archer2.rc``` file and replace any lines like this:
   ```
