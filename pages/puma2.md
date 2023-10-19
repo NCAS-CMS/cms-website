@@ -214,7 +214,13 @@ That's because the location of this software has changed on PUMA2, so you need t
   Rosie password cached
   ```
 
-  If you get a warning about ```~/.ssh/ssh-setup``` not being found, ignore this for now. 
+  If you get a warning about ```~/.ssh/ssh-setup``` not being found, ignore this for now.
+
+* Finally change your permission so CMS can see your files, in case you need to contact us.
+
+  ```
+  chmod -R g+rX /home/n02/n02/<your-username>
+  ```
 
 ### 7. Set up your ssh agent 
 
@@ -365,6 +371,8 @@ but we have changed the management process to be compatible with PUMA2.
   chmod -R g+rX /home/n02/n02/<your-username>
   chmod -R g+rX /work/n02/n02/<your-username> 
   ```
+
+  Note you need to do this for your PUMA2 and ARCHER2 accounts. 
   
 ### 9. Update suites to run on PUMA2
 
@@ -372,8 +380,30 @@ You should now be ready to checkout and run suites on PUMA2!
 The final thing to do is make a few changes to the suites themselves. 
 
 ARCHER2 jobs are submitted via the login nodes using ```rose host-select```. 
+Where to change this depends on how your suite it set up. 
 
-* Edit ```site/archer2.rc``` file and replace any lines like this:
+* If your suite has a file ```site/ncas-cray-ex/suite-adds.rc```,
+  it's likely you will need to do the following:
+
+  Change:
+  ```
+  {% set HPC_HOST = “login.archer2.ac.uk" %}
+  ```
+  to
+  ```
+  {% set HPC_HOST = "archer2” %}
+  ```
+  
+  And
+  ```
+  host = {{HPC_HOST}}
+  ```
+  to
+  ```
+  host = $(rose host-select {{HPC_HOST}})
+  ```
+
+* If you have a ```site/archer2.rc``` file and replace any lines like this:
   ```
   host = login.archer2.ac.uk
   ```
@@ -381,7 +411,8 @@ ARCHER2 jobs are submitted via the login nodes using ```rose host-select```.
   ```
   host = $(rose host-select archer2)
   ```
-Note: Not all suites will have a ```site/archer2.rc``` file so you may need to search for the relevant file to edit.
+
+  Note: your suite might not quite follow these patterns. Please contact the [CMS helpdesk](https://cms-helpdesk.ncas.ac.uk/) if you can't see where to make changes. 
 
 You may also need to make a few other changes: 
 
