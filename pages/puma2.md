@@ -139,6 +139,17 @@ so you don't need to login to PUMA2.
 If you don't have an archerum key installed, you will not be able to access ARCHER2 from PUMA, 
 so you will need to login to PUMA2 and pull your files over. 
 
+* First copy your PUMA keys to PUMA2. From whatever machine you usually login to old PUMA, run:
+  ```
+  scp ~/.ssh/id_rsa_puma* <archer-username>@login.archer2.ac.uk:/home/n02/n02-puma/<archer-username>/.ssh
+  ```
+  This assumes your PUMA key is called ```id_rsa_puma```. 
+
+* Then copy your files over. To sync your whole home directory, run: 
+  ```
+  rsync -a -e "ssh -i ~/.ssh/id_rsa_puma" annette@192.171.169.138: .
+  ```
+
 ### 5. Set up passwordless access to PUMA2
 
 In order to avoid typing your password every time you login to PUMA2, 
