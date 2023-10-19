@@ -147,7 +147,7 @@ so you will need to login to PUMA2 and pull your files over.
 
 * Then copy your files over. To sync your whole home directory, run: 
   ```
-  rsync -a -e "ssh -i ~/.ssh/id_rsa_puma" annette@192.171.169.138: .
+  rsync -a -e "ssh -i ~/.ssh/id_rsa_puma" <puma-username>@192.171.169.138: .
   ```
 
 ### 5. Set up passwordless access to PUMA2
@@ -242,9 +242,7 @@ you need to have an ssh-agent running with your ssh-keys for each machine added.
 
 Your ARCHER2 key is the one that you use to ssh into the ARCHER2 login nodes. 
 
-**Note: If you have already been running suites on ARCHER2 from old PUMA, 
-you will also have an ```archerum``` key,
-but we recommend you no longer use this.**
+**Note: The ```archerum``` keys that were used to submit jobs from old PUMA are going to be deactivated so cannot be used to submit jobs from PUMA2.**
 
 You need to copy both the public and private keys into your ```.ssh/``` directory on PUMA2. 
 
