@@ -216,7 +216,7 @@ That's because the location of this software has changed on PUMA2, so you need t
 
   If you get a warning about ```~/.ssh/ssh-setup``` not being found, ignore this for now.
 
-* Finally change your permission so CMS can see your files, in case you need to contact us.
+* Finally change the permissions on your PUMA2 home directory so CMS can assist you with any queries.
 
   ```
   chmod -R g+rX /home/n02/n02/<your-username>
