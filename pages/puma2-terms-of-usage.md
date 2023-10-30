@@ -6,7 +6,7 @@ permalink: /puma2/terms-of-usage
 ---
 
 As a PUMA2 user, you must agree to abide by these terms. 
-Failure to do so will lead to the closure of you account. 
+Failure to do so will lead to the closure of your account. 
 
 The PUMA2 service is provided to support 
 numerical modelling in climate, weather and earth-system research.
