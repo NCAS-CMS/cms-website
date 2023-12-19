@@ -2,6 +2,7 @@
 layout: page-fullwidth
 subheadline: Cylc 8
 title: Cylc 8 on PUMA2 and ARCHER2
+permalink: /cylc8/
 ---
 
 Cylc 8 is available on PUMA2 and ARCHER2, but is not yet fully supported. 
