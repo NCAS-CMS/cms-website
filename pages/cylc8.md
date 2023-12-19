@@ -76,7 +76,7 @@ On PUMA2 the following platforms are available:
 * JASMIN:
   * ```lotus``` : Slurm job 
   * ```sci_bg``` : background job on random sci machine
-  * ```sci[1-8]_ng``` : background job on specific sci machine
+  * ```sci[1-8]_bg``` : background job on specific sci machine
 
 Note that multiplexing is no longer needed to submit jobs to Jasmin. 
 
