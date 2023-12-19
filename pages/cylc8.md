@@ -7,7 +7,6 @@ permalink: /cylc8/
 
 Cylc 8 is available on PUMA2 and ARCHER2, but is not yet fully supported. 
 We are still testing the system, and so the software configuration is subject to change. 
-However we encourage you to try it out if you are interested. 
 See the links below for further information. 
 Report any issues to the helpdesk. 
 
