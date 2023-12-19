@@ -5,8 +5,8 @@ title: Cylc 8 on PUMA2 and ARCHER2
 permalink: /cylc8/
 ---
 
-**Cylc 8 is available on PUMA2 and ARCHER2, but is not yet fully supported. 
-We are still testing the system, and so the software configuration is subject to change.** 
+***Cylc 8 is available on PUMA2 and ARCHER2, but is not yet fully supported. 
+We are still testing the system, and so the software configuration is subject to change.***
 
 See the links below for further information. 
 Report any issues to the helpdesk. 
@@ -26,8 +26,6 @@ Note that in Cylc 8 terminology "suites" have become "workflows".
 
 ## Using Cylc 8 on PUMA2 and ARCHER2
 
-Note that we do not yet have any UM workflows available for ARCHER2. 
-
 ### Setting the Cylc version 
 
 Set the Cylc version in the terminal: 
@@ -40,6 +38,8 @@ you should not need to make any further changes.
 The workflow will simply pick up the appropriate Cylc version when it runs. 
 
 ### Running a workflow
+
+***Note that we do not yet have any UM workflows available for ARCHER2.***
 
 To run a simple test, copy my workflow ```test.platforms.c8```: 
 ```
