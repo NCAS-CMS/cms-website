@@ -82,7 +82,7 @@ Note that multiplexing is no longer needed to submit jobs to Jasmin.
 
 There are still sometimes issues if a host is not available, or not fully functional (for example if it can't see the file system or Slurm queue). 
 
-### Using the tui 
+### Using the TUI
 
 To track the progress of a running workflow via the terminal user interface: 
 ```
