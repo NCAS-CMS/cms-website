@@ -33,6 +33,7 @@ Set the Cylc version in the terminal:
 export CYLC_VERSION=8
 ```
 You should be able to do this alongside any Cylc 7 suites you have running.  
+
 Assuming you have set up your ARCHER2 and Jasmin environments to have Cylc 7 available, 
 you should not need to make any further changes. 
 The workflow will simply pick up the appropriate Cylc version when it runs. 
@@ -47,9 +48,9 @@ cd ~/roses
 cp -r ~annette/roses/test.platforms.c8 . 
 ```
 
-In the ```test.platforms.c8``` directory, edit the ```rose-suite.conf``` file to set your ARCHER2 username and project code. 
+In the ```test.platforms.c8``` directory, edit the ```rose-suite.conf``` file to set your ARCHER2 username and project code.
 
-Then run with: 
+Run the workflow with: 
 ```
 cylc vip 
 ```
@@ -58,10 +59,10 @@ See the [Cylc 8 cheat sheet](https://cylc.github.io/cylc-doc/stable/html/7-to-8/
 
 ### Platforms 
 
-The ```cylc.flow``` file replaces ```suite.rc```. 
 The ```test.platforms.c8``` workflow runs tasks on ARCHER2 and JASMIN in the background and via the Slurm scheduler. 
-The way remote tasks are specified is quite different to Cylc 7. 
-You specify a "platform" which combines the host and job running method. 
+
+Look in the ```cylc.flow``` file (this replaces ```suite.rc```) to see how remote tasks are specified in Cylc 8.
+Tasks are assigned a "platform", which combines the host and job running method. 
 See the [Cylc 8 platform documentation](https://cylc.github.io/cylc-doc/stable/html/reference/config/writing-platform-configs.html#adminguide-platformconfigs) for details. 
 
 On PUMA2 the following platforms are available: 
