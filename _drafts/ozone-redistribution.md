@@ -31,12 +31,13 @@ It also specifies some additonal STASH needed for the OR:
 (30, 453) Height at Tropopause Level
 ```
 These are output as monthly means to a stream `po` with one file for the full year. 
-Postproc converts these to pp format, and keeps two years worth of files on disk for processing. 
 
-At the end of the simulation year, `retrieve_ozone` runs again. This time it adds in symlinks for the `po` file(s) in `share/data/ozone_redistribution`, 
+At the end of the year, `postproc` converts these to pp format, and keeps two years worth of files on disk for processing. 
+
+Then `retrieve_ozone` runs again. This time it adds in symlinks for the `po` file(s) in `share/data/ozone_redistribution`, 
 and adds a symlink for the new ozone ancil file that the OR code will create (in `share/data/etc/ozone`). 
 
-Then the `redistribute_ozone` task runs the actual OR code, which generates a new ozone ancillary file. 
+After this, the `redistribute_ozone` runs the actual OR code, which generates a new ozone ancillary file. 
 The model runs the next year of the simulation using the updated file.
 
 So the OR is not actually run until the end of the first year of the simulation, and then it just uses data from this first year. 
