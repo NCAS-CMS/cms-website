@@ -143,7 +143,7 @@ source=${UM_MODEL_ANCILS_LINK}/orography/globe30/qrparm.orog
 
 * Check the UM output streams. By default the new `po` stream goes to a file id `pp145` and usage profile `UPO`. If these clash with existing settings in your suite, you will need to rename them in `app/um/opt/rose-app-ozone.conf`. 
 
-* Set up postproc to convert the `po` stream to pp, and make sure it is saved on disk for the OR. In "postproc -> Atmosphere", either set `process_all_stream=true`, or make sure `po` is in the list under `process_streams`. Under "File transformation" make sure the `po` stream is being converted to pp, usually with `convert_pp=true` and `convpp_all_streams=true`. Next set `preserve_ozone=true` and `ozone_source_stream=po`. 
+* Set up postproc to convert the `po` stream to pp, and make sure it is saved on disk for the OR. In "postproc -> Atmosphere", either set `process_all_stream=true`, or make sure `po` is in the list under `process_streams`. Under "Atmosphere -> File transformation" make sure the `po` stream is being converted to pp, usually with `convert_pp=true` and `convpp_all_streams=true`. Next set `preserve_ozone=true` and `ozone_source_stream=po`. 
 
 The OR scheme is quite complicated, and your suite may require some additional changes to get it working properly. 
 Contact the [CMS helpdesk](https://cms-helpdesk.ncas.ac.uk) if you need advice. 
