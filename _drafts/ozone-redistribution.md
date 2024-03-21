@@ -15,36 +15,47 @@ due to the difference in infrastructure.
 
 ## How it works in a suite
 
-The UM outputs some additional fields needed for the OR to a new file stream 'po', 
-which is then converted to pp format when postproc is run. 
-At the end of the simulation year, 
-a new task `retrieve_ozone` sets up symlinks to the input files needed for the OR code. 
-Then the `redistribute_ozone` task runs the actual OR code, and generates a new ozone ancillary file. 
-The model runs the next year of the simulation using the updated ozone ancillary file.
+_This is just a technical outline of what the suite is doing. The science is descibed in the paper above._
 
-The OR is not run until the end of the first year of the simulation, 
-and just uses data from this first year. 
-For subsequent years it uses the previous two years worth of data. 
+The run must start from 1st January, and the cycle length can not be longer than 1 year. 
+
+A new task `retrieve_ozone` runs before the UM, and checks the input data required for the OR code is available.  
+It then sets up symlinks to the orography and ozone ancillary in a directory: `share/data/ozone_redistribution`.
+It also sets up a symlink to the ozone file the model will use in: `share/data/etc/ozone`. 
+For the first year of the run this is just the original ozone ancil. 
+
+The UM uses an optional configuration (`app/um/opt/rose-app-ozone.conf`) which tells it to use the ozone file defined above. 
+It also specifies some additonal STASH needed for the OR: 
+```
+(0, 253)  DENSITY*R*R AFTER TIMESTEP
+(30, 453) Height at Tropopause Level
+```
+These are output as monthly means to a stream `po` with one file for the full year. 
+Postproc converts these to pp format, and keeps two years worth of files on disk for processing. 
+
+At the end of the simulation year, `retrieve_ozone` runs again. This time it adds in symlinks for the `po` file(s) in `share/data/ozone_redistribution`, 
+and adds a symlink for the new ozone ancil file that the OR code will create (in `share/data/etc/ozone`). 
+
+Then the `redistribute_ozone` task runs the actual OR code, which generates a new ozone ancillary file. 
+The model runs the next year of the simulation using the updated file.
+
+So the OR is not actually run until the end of the first year of the simulation, and then it just uses data from this first year. 
+For subsequent years, it uses the previous two years worth of data. 
 This is a bit different to the system at the Met Office, 
-where data is extracted from MASS from a previous run,
+where data is extracted from MASS from a previous run 
 so that the redistribution can be done before the start of the simulation.
-
-There are some constraints on the system: 
-* You need to use a 3D ozone ancillary. 
-* The simulation must start from the 1st of January. 
-* The cycle length can't be longer than a year.
 
 ## Adding ozone redistribution to a suite.
 
 ### 1. Upgrade postproc
 
-Make sure postproc is using [version 2.4](unified-model/jdma.md#um-rose-suite-changes).  
+Make sure postproc is using [version 2.4](unified-model/jdma.md#um-rose-suite-changes). 
 If necessary set up [JASMIN transfer](unified_model/pptransfer/).
 Test that postproc works correctly, then proceed to the next step.
 
 ### 2. Checkout the refrence suite.
 
-The reference suite is `u-cr3351`, which is an Eocene suite with the OR code working in it.
+The reference suite is `u-cr335`, which is an Eocene suite with the OR code working in it.
 We will copy the new app files in from here.
 ```
 rosie co u-cr335
@@ -121,11 +132,14 @@ OZONE_USE_UPDATED_ANCIL=false
 
 * Check the output streams
 
-* Make sure the run starts from 1 Jan of the year, and the cycle length is less than a year. 
+* Make sure the run starts from 1 Jan of the year, and the cycle length is less than a year.
+
+The OR scheme is quite complicated, and your suite may require some additional changes to get it working properly. 
+Contact the helpdesk if you require advise. 
 
 ## Checking the output
 
-Look at the output dump from a cycle when OR is active to ensure that the correct ozone ancil is being read in by the model. 
+Follow the technical description above (link) and check that the correct links are being set up at each stage. When you think that you have the scheme working, take a look the output dump from a cycle when OR is active to ensure that the correct ozone ancil is being read in by the model. 
 The ozone at heights ~10000 should look like whats below. 
 There should be some horizontal banding added in by the OR; 
 if there's no banding, then something's gone wrong somewhere. 
