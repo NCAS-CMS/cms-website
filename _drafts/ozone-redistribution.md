@@ -7,7 +7,7 @@ breadcrumb: true
 
 ## About ozone redistribution
 
-The ozone redistribution (OR) scheme for GC3.1 is described here: https://doi.org/10.1029/2019MS001714
+The ozone redistribution (OR) scheme for GC3.1 used in CMIP6 is described here: https://doi.org/10.1029/2019MS001714
 
 The code lives in the [moci repository](https://code.metoffice.gov.uk/trac/moci/wiki/OzoneRedistribution). 
 It was ported to ARCHER2 by CMS, and works slightly differently than in the Met Office, 
@@ -21,8 +21,8 @@ The run must start from 1st January, and the cycle length can not be longer than
 
 A new task `retrieve_ozone` runs before the UM, and checks the input data required for the OR code is available.  
 It then sets up symlinks to the orography and ozone ancillary in a directory: `share/data/ozone_redistribution`.
-It also sets up a symlink to the ozone file the model will use in: `share/data/etc/ozone`. 
-For the first year of the run this is just the original ozone ancil. 
+It also sets up a symlink to the ozone file the model will use for the first year of the simulation in `share/data/etc/ozone`. 
+This just points to the original ozone ancil. 
 
 The UM uses an optional configuration (`app/um/opt/rose-app-ozone.conf`) which tells it to use the ozone file defined above. 
 It also specifies some additonal STASH needed for the OR: 
@@ -34,11 +34,10 @@ These are output as monthly means to a stream `po` with one file for the full ye
 
 At the end of the year, `postproc` converts these to pp format, and keeps two years worth of files on disk for processing. 
 
-Then `retrieve_ozone` runs again. This time it adds in symlinks for the `po` file(s) in `share/data/ozone_redistribution`, 
+Then `retrieve_ozone` runs again. This time it adds in symlinks for the `po` file(s) in `share/data/ozone_redistribution`. 
 and adds a symlink for the new ozone ancil file that the OR code will create (in `share/data/etc/ozone`). 
 
-After this, the `redistribute_ozone` runs the actual OR code, which generates a new ozone ancillary file. 
-The model runs the next year of the simulation using the updated file.
+After this, the `redistribute_ozone` runs the actual OR code, which generates a new ozone ancillary file for the next model year in `share/data/etc/ozone`. 
 
 So the OR is not actually run until the end of the first year of the simulation, and then it just uses data from this first year. 
 For subsequent years, it uses the previous two years worth of data. 
@@ -62,7 +61,7 @@ We will copy the new app files in from here.
 rosie co u-cr335
 ```
 
-### 3. Copy in the OR config files
+### 3. Copy in the OR configuration files
 
 Navigate to the suite you want to edit, and copy in the following files:
 ```
@@ -79,7 +78,7 @@ cp -r ../u-cr335/site/archer2_ozone.rc ./site
 cp -r ../u-cr335/site/archer2_python_env ./site
 ```
 
-### 4. Make sure the OR configs are included
+### 4. Add in the include files and suite variables. 
 
 * Open `meta/rose-meta.conf` and add the following line to the top of the file:
 ```
@@ -97,7 +96,8 @@ source=fcm:ancil_contrib.xm_br/dev/simonwilson/r9929_ozone_pp_header/OzoneConc/b
 [file:bin/retrieve_ozone_data.py]
 source=fcm:moci.xm_tr/Utilities/ozone_redistribution/retrieve_ozone_data.py@postproc_2.4
 ```
-* Then add the following lines to the list of variables:
+
+* Then add the following lines to the list of variables (we will configure these settings in the next step):
 ```
 OZONE_HOST='archer2'
 OZONE_INITIAL='/work/n02/n02/ssteinig/ancils/PI/n96e/ozone/timeslice_1850/mmro3_monthly_CMIP6_1850_N96_edited-ancil_2anc'
@@ -119,28 +119,40 @@ OZONE_USE_UPDATED_ANCIL=false
 	{% include 'ozone-redistribution.rc' %}
 ```
 
-## Configuring the suite 
+## Configure the suite 
 
-* Switch on 3D ozone. You will need a 3D ozone ancillary if you are not already using one in your suite.
+* Make sure the run starts from 1 Jan of the year, and the cycle length is a year or less.
 
-* There is an "Ozone redistribution" section in the rose edit GUI, with some options. 
-  Probably the only one you need to change is the "Initial ozone ancillary" which is the original 3D ozone file it's using.
+* The standard code requires you to use a 3D ozone ancillary file. If this is not already set up, then set the following variables in `app/um/rose-app.conf` or in the um section of the `rose edit` GUI:
+```
+  zon_av_ozone=.false.
+  i_ozone_int=1
+```
 
-* If you are changing the orography file, then you need to edit `site/archer2_ozone.rc`
-  and change `UM_MODEL_ANCILS_LINK` - this is the top-level directory for the ancils.
+* In the rose edit GUI, under "suite conf -> Ozone redistribution", set "Initial ozone ancillary" to be your 3D ozone ancillary file. If the file is large because it contains a long time-series this can slow down the code so we recommend you can split it into individual years (contact the [CMS helpdesk](https://cms-helpdesk.ncas.ac.uk) for advice on this). In this case you should select "Use split input ozone ancillaries", then edit "Name of split input ancillaries" as in the example below: 
+```
+/work/n02/n02/simon/canari/ozone/ancil/mmro3_monthly_CMIP6_\${THISYEAR}_N216_edited-ancil_2anc
+```
 
-* Check the paths to the orography
+* Check the name and location of the orography file used in the suite. If the top-level location is anything other than `$UMDIR/ancil`, then edit the variable `UM_MODEL_ANCILS_LINK` in `site/archer2_ozone.rc`. Next check the path set in `app/retrieve_ozone/rose-app.conf` as below. (Note that this may also be specified using an optional configuration.)
+```
+[file:$OZONE_SHARE/qrparm.orog]
+mode=symlink+
+source=${UM_MODEL_ANCILS_LINK}/orography/globe30/qrparm.orog
+```
 
-* Check the output streams
+* Check the UM output streams. By default the new `po` stream goes to a file id `pp145` and usage profile `UPO`. If these clash with existing settings in your suite, you will need to rename them in `app/um/opt/rose-app-ozone.conf`. 
 
-* Make sure the run starts from 1 Jan of the year, and the cycle length is less than a year.
+* Set up postproc to convert the `po` stream to pp, and make sure it is saved on disk for the OR. In "postproc -> Atmosphere", either set `process_all_stream=true`, or make sure `po` is in the list under `process_streams`. Under "File transformation" make sure the `po` stream is being converted to pp, usually with `convert_pp=true` and `convpp_all_streams=true`. Next set `preserve_ozone=true` and `ozone_source_stream=po`. 
 
 The OR scheme is quite complicated, and your suite may require some additional changes to get it working properly. 
-Contact the helpdesk if you require advise. 
+Contact the [CMS helpdesk](https://cms-helpdesk.ncas.ac.uk) if you need advice. 
 
 ## Checking the output
 
-Follow the technical description above (link) and check that the correct links are being set up at each stage. When you think that you have the scheme working, take a look the output dump from a cycle when OR is active to ensure that the correct ozone ancil is being read in by the model. 
+Follow the technical description above (link) and check that the correct links are being set up at each stage. 
+
+When you think that you have the scheme working, take a look the output dump from a cycle when OR is active to ensure that the correct ozone ancil is being read in by the model. 
 The ozone at heights ~10000 should look like whats below. 
 There should be some horizontal banding added in by the OR; 
 if there's no banding, then something's gone wrong somewhere. 
