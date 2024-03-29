@@ -157,4 +157,4 @@ The ozone at heights ~10000 should look like whats below.
 There should be some horizontal banding added in by the OR; 
 if there's no banding, then something's gone wrong somewhere. 
 
-<add image>
+![Ozone at ~ 10,000 after redistribution]({{site.urlimg}}ozone_redist.png)
