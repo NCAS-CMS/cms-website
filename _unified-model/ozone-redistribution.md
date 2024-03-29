@@ -37,6 +37,9 @@ It then sets up symlinks to the orography and ozone ancillary in a directory: `s
 It also sets up a symlink to the ozone file the model will use for the first year of the simulation in `share/data/etc/ozone`. 
 This just points to the original ozone ancil. 
 
+</div><!-- /.medium-8.columns -->
+</div><!-- /.row -->
+
 The UM uses an optional configuration (`app/um/opt/rose-app-ozone.conf`) which tells it to use the ozone file defined above. 
 It also specifies some additonal STASH needed for the OR: 
 ```
@@ -57,8 +60,6 @@ This is a bit different to the system at the Met Office,
 where data is extracted from MASS from a previous run 
 so that the redistribution can be done before the start of the simulation.
 
-</div><!-- /.medium-8.columns -->
-</div><!-- /.row -->
 
 ## Adding ozone redistribution to a suite.
 
