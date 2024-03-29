@@ -111,14 +111,14 @@ OZONE_USE_UPDATED_ANCIL=false
 ```
 
 * In `site/archer2.rc` add the following lines to the bottom of the file:
-```
+```{% raw %}
 	{% include 'site/' + SITE + '_ozone.rc' %}
-```
+{% endraw %}```
 
 * In `suite.rc`, add the following line to the bottomr of the file, or above the [visualization] line if there is one:
-```
+```{% raw %}
 	{% include 'ozone-redistribution.rc' %}
-```
+{% endraw %}```
 
 ### 5. Configure the suite 
 
