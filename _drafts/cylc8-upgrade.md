@@ -108,7 +108,7 @@ Check your `suite.rc` and/or `site/archer2.rc` file and remove any lines like th
 ~~~
 {% endraw %}
 
-### 6. Check the ARCHER2 slurm flags
+### 6. Update the ARCHER2 slurm flags
 
 The `--export=none` flag should be removed from the ARCHER2 slurm headers, 
 because it stops the required run environment from being loaded properly at Cylc 8. 
