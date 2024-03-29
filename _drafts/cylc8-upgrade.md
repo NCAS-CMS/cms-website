@@ -12,7 +12,7 @@ and that the workflow you are upgrading runs correctly under Cylc 7 on ARCHER2.
 Cylc 8 has a [compatibility mode](https://cylc.github.io/cylc-doc/stable/html/7-to-8/major-changes/compatibility-mode.html#cylc-7-compat-mode)
 that allows you to run an existing Cylc 7 workflow without fully upgrading. 
 
-On PUMA2-ARCHER2 there are still some changes required. 
+On PUMA2-ARCHER2 there are still several changes required. 
 
 ### 1. Check your workflow validates at Cylc 7
 
@@ -107,3 +107,18 @@ because it stops the required run environment from being loaded properly at Cylc
 
 Edit your `suite.rc` and/or `site/archer2.rc` file to remove the line, which will probably be under `[[HPC]] [[[directives]]]`.
 
+### 6. Set path to Rose/cylc libraries
+
+If you have a script that uses the rose or cylc python libraries, you will need to set the path directly (since the job environment is no longer inerited). For example the `xml` task for UM-XIOS uses rose macros. You can set the Python path using the [`ROSE_PYTHONPTH`](
+https://cylc.discourse.group/t/rose-pythonpath/862) environment variable, e.g.: 
+{% raw %}
+~~~
+    [[XML_RESOURCE]]
+        inherit = HPC_SERIAL
+	pre-script = """
+                     export ROSE_PYTHONPATH=/work/y07/shared/umshared/metomi/cylc-7/lib/python:$PYTHONPATH
+                     """
+~~~
+{% endraw %}
+
+To upgrade your scripts to Python 3 and the new Cylc 8 and Rose 2 libraries, see the next section. 
