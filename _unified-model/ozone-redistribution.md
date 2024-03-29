@@ -102,7 +102,8 @@ import=meta/ozone
 ```
 
 * In `rose-suite.conf` add the following lines to the top of the file:
-```{% raw %}
+{% raw %}
+~~~
 [file:bin/redistribute_ozone.py]
 source=fcm:ancil_contrib.xm_br/dev/simonwilson/r9929_ozone_pp_header/OzoneConc/bin/redistribute_ozone.py
 
@@ -111,7 +112,8 @@ source=fcm:ancil_contrib.xm_br/dev/simonwilson/r9929_ozone_pp_header/OzoneConc/b
 
 [file:bin/retrieve_ozone_data.py]
 source=fcm:moci.xm_tr/Utilities/ozone_redistribution/retrieve_ozone_data.py@postproc_2.4
-{% endraw %} ```
+~~~
+{% endraw %}
 
 * Then add the following lines to the list of variables (we will configure these settings in the next step):
 
