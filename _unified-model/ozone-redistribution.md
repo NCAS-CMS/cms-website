@@ -2,6 +2,7 @@
 layout: page-fullwidth
 title: Ozone redistribution
 teaser: Instructions for adding ozone redistribution to a GC3.1 suite
+permalink: '/unified-model/ozone-redistribution/'
 breadcrumb: true
 ---
 
