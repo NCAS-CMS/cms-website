@@ -6,6 +6,18 @@ permalink: '/unified-model/ozone-redistribution/'
 breadcrumb: true
 ---
 
+<div class="row">
+<div class="medium-4 medium-push-8 columns" markdown="1">
+<div class="panel radius" markdown="1">
+**Table of Contents**
+{: #toc }
+*  TOC
+{:toc}
+</div><!-- /.panel -->
+</div><!-- /.medium-4 -->
+
+<div class="medium-8 medium-pull-4 columns" markdown="1">
+
 ## About ozone redistribution
 
 The ozone redistribution (OR) scheme for GC3.1 used in CMIP6 is described here: https://doi.org/10.1029/2019MS001714
@@ -45,6 +57,9 @@ For subsequent years, it uses the previous two years worth of data.
 This is a bit different to the system at the Met Office, 
 where data is extracted from MASS from a previous run 
 so that the redistribution can be done before the start of the simulation.
+
+</div><!-- /.medium-8.columns -->
+</div><!-- /.row -->
 
 ## Adding ozone redistribution to a suite.
 
