@@ -102,7 +102,7 @@ import=meta/ozone
 ```
 
 * In `rose-suite.conf` add the following lines to the top of the file:
-{% raw %}```
+```{% raw %}
 [file:bin/redistribute_ozone.py]
 source=fcm:ancil_contrib.xm_br/dev/simonwilson/r9929_ozone_pp_header/OzoneConc/bin/redistribute_ozone.py
 
@@ -111,9 +111,10 @@ source=fcm:ancil_contrib.xm_br/dev/simonwilson/r9929_ozone_pp_header/OzoneConc/b
 
 [file:bin/retrieve_ozone_data.py]
 source=fcm:moci.xm_tr/Utilities/ozone_redistribution/retrieve_ozone_data.py@postproc_2.4
-{% endraw %}```
+{% endraw %} ```
 
 * Then add the following lines to the list of variables (we will configure these settings in the next step):
+
 ```
 OZONE_HOST='archer2'
 OZONE_INITIAL='/work/n02/n02/ssteinig/ancils/PI/n96e/ozone/timeslice_1850/mmro3_monthly_CMIP6_1850_N96_edited-ancil_2anc'
