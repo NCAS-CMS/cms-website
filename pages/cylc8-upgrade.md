@@ -1,7 +1,8 @@
 ---
 layout: page-fullwidth
-title: Cylc 8 upgrade
+title: Upgrading to Cylc 8
 teaser: Instructions for upgrading an ARCHER2 workflow from Cylc 7 to Cylc 8. 
+permalink: /cylc8/upgrading-workflows/
 ---
 
 These instructions assume you have followed the standard PUMA2 setup instructions, 
@@ -20,7 +21,7 @@ Your workflow may required additional changes, so do get in touch with the [CMS 
 
 ### 1. Check your workflow validates at Cylc 7
 
-Cylc 7 supports some depracted syntax, but you will need to upgrade this before moving to Cylc 8. 
+Cylc 7 supports some depracted syntax so you will need to upgrade this before moving to Cylc 8. 
 
 Navigate to the `roses` suite directory and run the following: 
 ```
@@ -37,8 +38,10 @@ If you are running a workflow that has the same name as a previous Cylc 7 run, y
 ### 3. Check your ssh setup 
 
 It is important that you have the `ssh-setup` script sourced in your `.bash_profile` and not `.bashrc` or any other file. 
-This is because Cylc 8 job scripts are now launched in a new subshell, 
-so we need to make sure the ssh agent is available for the `fcm_make` mirroring. 
+
+> [!NOTE] 
+> Cylc 8 job scripts are now launched in a new subshell and this only loads `.bash_profile` by default.
+> We need to make sure the `ssh-setup` script is run so that any `fcm_make` tasks can mirror code to ARCHER2. 
 
 In your `~/.bash_profile` you should have the following: 
 ```
@@ -48,11 +51,11 @@ In your `~/.bash_profile` you should have the following:
 
 ### 4. Add a `remote_setup` task to the graph
 
+We need a dummy task that sets up the `cylc-run` directory on ARCHER2 before any `fcm_make` mirrors start.
+
 If you have any `fcm_make` tasks in your workflow, the mirror step will try to copy files over to ARCHER2 
 before Cylc creates the `cylc-run` directory as a symlink to `$DATADIR`. 
 This is because at Cylc 8 [files are not installed until a remote task is actually submitted](https://cylc.github.io/cylc-doc/stable/html/7-to-8/major-changes/cylc-install.html#remote-installation). 
-
-The solution is to have a dummy task that sets up the `cylc-run` directory for the worfklow before the mirrors start.
 
 Edit the `suite.rc` file, and add in a new task `remote_setup` that runs before any `fcm_make` tasks, e.g.: 
 {% raw %}
