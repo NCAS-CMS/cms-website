@@ -17,7 +17,8 @@ that allows you to run an existing Cylc 7 workflow without fully upgrading.
 
 On PUMA2-ARCHER2 there are still several changes required, mostly to the top-level runtime settings. 
 You may not have to make all these changes to your workflow, but do check all of the points below.
-Your workflow may required additional changes, so do get in touch with the [CMS helpdesk](https://cms-helpdesk.ncas.ac.uk/) if you need further advice.  
+As ever, we can't cover all eventualities so your workflow may required additional changes. 
+Get in touch with the [CMS helpdesk](https://cms-helpdesk.ncas.ac.uk/) if you need further advice.  
 
 ### 1. Check your workflow validates at Cylc 7
 
@@ -39,9 +40,8 @@ If you are running a workflow that has the same name as a previous Cylc 7 run, y
 
 It is important that you have the `ssh-setup` script sourced in your `.bash_profile` and not `.bashrc` or any other file. 
 
-> [!NOTE] 
-> Cylc 8 job scripts are now launched in a new subshell and this only loads `.bash_profile` by default.
-> We need to make sure the `ssh-setup` script is run so that any `fcm_make` tasks can mirror code to ARCHER2. 
+**Information**: Cylc 8 job scripts are now launched in a new subshell and this only loads `.bash_profile` by default.
+We need to make sure the `ssh-setup` script is run so that any `fcm_make` tasks can mirror code to ARCHER2.
 
 In your `~/.bash_profile` you should have the following: 
 ```
@@ -51,11 +51,9 @@ In your `~/.bash_profile` you should have the following:
 
 ### 4. Add a `remote_setup` task to the graph
 
-We need a dummy task that sets up the `cylc-run` directory on ARCHER2 before any `fcm_make` mirrors start.
+We need a dummy task that sets up the `cylc-run` directory on ARCHER2 before any `fcm_make` mirrors start. 
 
-If you have any `fcm_make` tasks in your workflow, the mirror step will try to copy files over to ARCHER2 
-before Cylc creates the `cylc-run` directory as a symlink to `$DATADIR`. 
-This is because at Cylc 8 [files are not installed until a remote task is actually submitted](https://cylc.github.io/cylc-doc/stable/html/7-to-8/major-changes/cylc-install.html#remote-installation). 
+**Information**: On ARCHER2 the cylc-run directory for each workflow is symlinked from `/home` to `/work`. In Cylc 8, the symlink is not set up when the workflow starts, and so the [`fcm_make` mirrror copies data to the wrong location]( https://cylc.discourse.group/t/cylc-8-2-step-fcm-make-and-symlink-dirs/515). 
 
 Edit the `suite.rc` file, and add in a new task `remote_setup` that runs before any `fcm_make` tasks, e.g.: 
 {% raw %}
@@ -100,8 +98,9 @@ And this to the `site/archer2.rc`:
 
 ### 5. Remove any instances of `[runtime][task][remote]owner`
 
-You can no longer specify a remote user name in the workflow definition. 
-This should instead be set in your `.ssh/config` file. 
+Cylc 8 no longer supports remote usernames in the workflow definition. 
+
+**Information:** See [here](https://cylc.github.io/cylc-doc/stable/html/7-to-8/major-changes/remote-owner.html) for the details of this change. Remote user names should instead be set in your `.ssh/config` file. 
 If you followed the PUMA2 setup instructions, this should already be setup correctly for ARCHER2 and JASMIN. 
 
 Check your `suite.rc` and/or `site/archer2.rc` file and remove any lines like this: 
@@ -113,9 +112,9 @@ Check your `suite.rc` and/or `site/archer2.rc` file and remove any lines like th
 
 ### 6. Update the ARCHER2 slurm flags
 
-The `--export=none` flag should be removed from the ARCHER2 slurm headers, 
-because it stops the required run environment from being loaded properly at Cylc 8. 
-If it is incldued you will see an error like: 
+The `--export=none` flag should be removed from the ARCHER2 slurm headers. 
+
+**Information:** This setting stops the required run environment from being loaded properly at Cylc 8. If it is included you will see an error like: 
 ```
 /work/n02/n02/annette_test/cylc-run/u-cc519-comp/run1/share/fcm_make/build-recon/bin/um-recon.exe: error while loading shared libraries: libfabric.so.1: cannot open shared object file: No such file or directory
 ```
@@ -123,6 +122,7 @@ If it is incldued you will see an error like:
 Edit your `suite.rc` and/or `site/archer2.rc` and remove the `--export=none` line. It will probably be under `[[HPC]] [[[directives]]]`.
 
 ### 7. Set path to Rose/cylc libraries if needed
+
 
 If you have a script that uses the rose or cylc python libraries, you will need to set the path directly (since the job environment is no longer inerited). For example the `xml` task for UM-XIOS uses rose macros, so we need: 
 {% raw %}
@@ -136,13 +136,13 @@ If you have a script that uses the rose or cylc python libraries, you will need 
 ~~~
 {% endraw %}
 
-Note: We are using the old version of Rose to run the scripts. We will describe how to upgrade to the new Rose 2 and Cylc 8 python packages in the next section. 
+**Note:** Here we are still using the old version of Rose to run the scripts. We will describe how to upgrade to the new Rose 2 and Cylc 8 python packages in the next section. 
 
 ### 8. Make sure fcm make extracts from the mirror repositories
 
-Since Cylc 8 job scripts run under a new subshell, gpg agent will not be available to the fcm make extract tasks, therefore we need to use the MOSRS mirror repositiories on PUMA2. 
-
 In each of your `fcm_make_*` apps, check that any references to e.g. `fcm:moci.x` are changed to `fcm:moci.xm`.
+
+**Information:** Since Cylc 8 job scripts run under a new subshell, gpg agent will not be available to the fcm make extract tasks, therefore we need to use the MOSRS mirror repositiories on PUMA2. 
 
 ### 9. Check your workflow validates at Cylc 8 
 
@@ -164,4 +164,3 @@ Run:
 ```
 cylc vip 
 ```
-
