@@ -14,7 +14,7 @@ Report any issues to the helpdesk.
 ## Overview 
 
 Cylc 8 replaces the Python 2 based Cylc 7 software. 
-It is a complete rewrite in Python 3, and works quite differently from Cylc 7, so we encourage you to look at the documentation. 
+It is a complete rewrite in Python 3 and contains many changes from Cylc 7, so we encourage you to look at the documentation. 
 The user interface system is still being developed and does not yet have full functionality. 
 
 Useful links: 
@@ -40,9 +40,7 @@ The workflow will simply pick up the appropriate Cylc version when it runs.
 
 ### Running a workflow
 
-***Note that we do not yet have any UM workflows available for ARCHER2.***
-
-To run a simple test, copy my workflow ```test.platforms.c8```: 
+To run a simple test, copy the ```test.platforms.c8``` workflow: 
 ```
 cd ~/roses
 cp -r ~annette/roses/test.platforms.c8 . 
