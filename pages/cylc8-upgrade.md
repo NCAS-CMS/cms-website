@@ -8,7 +8,7 @@ permalink: /cylc8/upgrading-workflows/
 These instructions assume you have followed the standard PUMA2 setup instructions, 
 and that the workflow you are upgrading runs correctly under Cylc 7 on ARCHER2. 
 
-Please also refere to the Cylc 8 migration guide and the instructions for running Cylc 8 on PUMA2.  
+Please also refere to the [Cylc 8 migration guide](https://cylc.github.io/cylc-doc/stable/html/7-to-8/index.html) and the instructions for running [Cylc 8 on PUMA2](/cylc8/).  
 
 ## Compatibility mode
 
