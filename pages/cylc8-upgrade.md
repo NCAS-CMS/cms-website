@@ -32,9 +32,6 @@ You may not have to make all these changes to your workflow, but do check all of
 As ever, we can't cover all eventualities so your workflow may required additional changes. 
 Get in touch with the [CMS helpdesk](https://cms-helpdesk.ncas.ac.uk/) if you need further advice.  
 
-</div><!-- /.medium-8.columns -->
-</div><!-- /.row -->
-
 ### 1. Check your workflow validates at Cylc 7
 
 Cylc 7 supports some depracted syntax so you will need to upgrade this before moving to Cylc 8. 
@@ -46,6 +43,9 @@ rose suite-run --validate
 ```
 
 If any warning messages appear, follow the instructions until your suite is fully Cylc 7 compliant.
+
+</div><!-- /.medium-8.columns -->
+</div><!-- /.row -->
 
 ### 2. Remove existing Cylc 7 cylc-run directory
 
