@@ -5,6 +5,18 @@ teaser: Instructions for upgrading an ARCHER2 workflow from Cylc 7 to Cylc 8.
 permalink: /cylc8/upgrading-workflows/
 ---
 
+<div class="row">
+<div class="medium-4 medium-push-8 columns" markdown="1">
+<div class="panel radius" markdown="1">
+**Table of Contents**
+{: #toc }
+*  TOC
+{:toc}
+</div><!-- /.panel -->
+</div><!-- /.medium-4 -->
+
+<div class="medium-8 medium-pull-4 columns" markdown="1">
+
 These instructions assume you have followed the standard PUMA2 setup instructions, 
 and that the workflow you are upgrading runs correctly under Cylc 7 on ARCHER2. 
 
@@ -19,6 +31,9 @@ On PUMA2-ARCHER2 there are still several changes required, mostly to the top-lev
 You may not have to make all these changes to your workflow, but do check all of the points below.
 As ever, we can't cover all eventualities so your workflow may required additional changes. 
 Get in touch with the [CMS helpdesk](https://cms-helpdesk.ncas.ac.uk/) if you need further advice.  
+
+</div><!-- /.medium-8.columns -->
+</div><!-- /.row -->
 
 ### 1. Check your workflow validates at Cylc 7
 
