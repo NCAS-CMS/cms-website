@@ -12,7 +12,7 @@ author: annette
 #header: no
 ---
 
-Full details can be found on the [PUMA2 transition page]({{ '/puma2/' | relative_url }}), 
+Full details can be found on the [PUMA2 transition page]({{ '/puma2/transition' | relative_url }}), 
 where you will find instructions for getting setup on PUMA2, 
 including copying data, and moving over live suites.
 
