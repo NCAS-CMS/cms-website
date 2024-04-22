@@ -31,8 +31,8 @@ PUMA2 is accessed from the ARCHER2 login nodes, and you will use the same userna
 
 * [Login to ARCHER2](https://docs.archer2.ac.uk/quick-start/quickstart-users/#login-to-archer2) as usual.
 
-**Important: We recommend users ***do not forward their ssh-agent*** from their local system, 
-as this can cause problems with Rose/cylc job submission.**
+**Important:** We recommend users ***do not forward their ssh-agent*** from their local system, 
+as this can cause problems with Rose/cylc job submission.
 
 * Once you are on the ARCHER2 login nodes, type ```ssh -Y puma2```. Enter your ARCHER2 password when prompted.
   
