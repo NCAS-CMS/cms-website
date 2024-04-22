@@ -58,7 +58,7 @@ Nested limited area models can easily be set up using the Met Office ​[Nesting
 
 * [Configuring PPTransfer](pptransfer)
 * [How to add JASMIN ET data migration to UM Workflow](jdma)
-* [How to add Ozone Redistribution to a GC3.1 suite](ozone-redistribution)
+* [How to add ozone redistribution to a GC3.1 suite](ozone-redistribution)
 
 ## Single Column Model
 
