@@ -43,6 +43,6 @@ as this can cause problems with Rose/cylc job submission.
 Follow the [setup instructions](https://ncas-cms.github.io/um-training/getting-setup-selfstudy.html) in our online training to configure your environment to run UM suites on ARCHER2. 
 
 For more information on running UM jobs see our documentation: 
-* [Unified Model](unified-model)
-* [Rose/cylc](rose-cylc)
-* [UMUI]({{ '/puma2/umui' | relative_url }})
+* [Unified Model]({{ '/unified-model/'| relative_url }}) 
+* [Rose/cylc]({{ '/rose-cylc/'| relative_url }}) 
+* [UMUI](umui)
