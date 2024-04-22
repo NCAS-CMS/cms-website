@@ -1,7 +1,7 @@
 ---
 layout: page-fullwidth
 subheadline: PUMA2
-title: The PUMA2 service
+title: PUMA2
 permalink: /puma2/
 ---
 
