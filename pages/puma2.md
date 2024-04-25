@@ -45,12 +45,16 @@ You can access your PUMA2 home directory on ARCHER2 via:
 /home/n02/n02-puma/<username>/
 ```
 
-## Running the UM on ARCHER2
+## Running workflows on ARCHER2
 
-Follow the [setup instructions](https://ncas-cms.github.io/um-training/getting-setup-selfstudy.html) in our online training to configure your environment to run UM suites on ARCHER2. 
+Follow the [setup instructions](https://ncas-cms.github.io/um-training/getting-setup-selfstudy.html) in our online training to configure your environment to run workflows on ARCHER2. 
 
-For more information on running UM jobs see our documentation: 
+For more information, see our documentation: 
 * [Unified Model]({{ '/unified-model/'| relative_url }})
 * [Rose/cylc]({{ '/rose-cylc/'| relative_url }})
 * [Cylc 8]({{ '/cylc8/'| relative_url }})
 * [UMUI](umui)
+
+## Transition from the old PUMA server 
+
+See the [transition documentation](transition) for instructions on porting your environment from the old PUMA server, including details on porting suites. 
