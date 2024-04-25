@@ -49,7 +49,7 @@ Cylc-8 workflows available on ARCHER2:
 | u-de385   | u-cy010   | GC5-UM      |
 | u-cc519/cylc8  | u-cc519 | N48 GA6 (training suite) | 
 
-See the [instructions for migrating an ARCHER2 Cylc 7 suite to Cylc 8]({{ '/upgrading-workflows/'| relative_url }}). 
+See the [instructions for migrating an ARCHER2 Cylc 7 suite to Cylc 8](cylc8-upgrade). 
 
 ## Using Cylc 8 on PUMA2 and ARCHER2
 
