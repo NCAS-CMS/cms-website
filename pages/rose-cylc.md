@@ -28,6 +28,7 @@ Rose is a toolkit for writing, editing and running application configurations.  
 * Rose Tutorial: [https://metomi.github.io/rose/doc/html/tutorial/rose/index.html](https://metomi.github.io/rose/doc/html/tutorial/rose/index.html)
 * Cylc Tutorial: [https://metomi.github.io/rose/doc/html/tutorial/cylc/index.html](https://metomi.github.io/rose/doc/html/tutorial/cylc/index.html)
 * Hints and Tips: [Hints, Tips & Troubleshooting]({{ 'rose-cylc-hints' | relative_url }})
+* Cylc 8 on PUMA2 and ARCHER2: [Cylc 8]({{ 'cylc8' | relative_url }})
 * Rose bush on Monsoon2: `firefox http://localhost/rose-bush`
 </div><!-- /.medium-8.columns -->
 </div><!-- /.row -->
