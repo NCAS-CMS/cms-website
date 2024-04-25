@@ -18,6 +18,8 @@ permalink: /puma2/transition
 
 <div class="medium-8 medium-pull-4 columns" markdown="1">
 
+**Note: These instructions are for users moving over from the old PUMA server. New users should follow the [setup instructions](https://ncas-cms.github.io/um-training/getting-setup-selfstudy.html) in our online training. Users porting suites from old PUMA should see [section 9](#9-update-suites-to-run-on-puma2).**
+
 
 ## The PUMA service 
 
