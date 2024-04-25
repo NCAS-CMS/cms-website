@@ -5,7 +5,19 @@ title: Cylc 8 on PUMA2 and ARCHER2
 permalink: /cylc8/
 ---
 
-***Cylc 8 is available on PUMA2 and ARCHER2, but is not yet fully supported. 
+<div class="row">
+<div class="medium-4 medium-push-8 columns" markdown="1">
+<div class="panel radius" markdown="1">
+**Table of Contents**
+{: #toc }
+*  TOC
+{:toc}
+</div><!-- /.panel -->
+</div><!-- /.medium-4 -->
+
+<div class="medium-8 medium-pull-4 columns" markdown="1">
+
+***Cylc 8 is available on PUMA2 and ARCHER2, but has not yet been widely used.  
 We are still testing the system, and so the software configuration is subject to change.***
 
 See the links below for further information. 
@@ -20,9 +32,24 @@ The user interface system is still being developed and does not yet have full fu
 Useful links: 
 * [Cylc 8 documentation](https://cylc.github.io/cylc-doc/stable/html/index.html)
 * [Cylc 7 to Cylc 8 migration guide](https://cylc.github.io/cylc-doc/stable/html/7-to-8/index.html)
+* [Cylc 8 cheat sheet](https://cylc.github.io/cylc-doc/stable/html/7-to-8/cheat-sheet.html)
 * [Cylc discourse forum](https://cylc.discourse.group/) 
 
 Note that in Cylc 8 terminology "suites" have become "workflows". 
+
+</div><!-- /.medium-8.columns -->
+</div><!-- /.row -->
+
+## ARCHER2 workflows
+
+Cylc-8 workflows available on ARCHER2: 
+
+|Cylc 8 id |Cylc 7 id |Description | 
+| --- | --- | --- |
+| u-de385   | u-cy010   | GC5-UM      |
+| u-cc519/cylc8  | u-cc519 | N48 GA6 (training suite) | 
+
+See the [instructions for migrating an ARCHER2 Cylc 7 suite to Cylc 8]({{ '/upgrading-workflows/'| relative_url }}). 
 
 ## Using Cylc 8 on PUMA2 and ARCHER2
 
