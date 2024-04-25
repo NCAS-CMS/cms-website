@@ -57,4 +57,4 @@ For more information, see our documentation:
 
 ## Transition from the old PUMA server 
 
-See the [transition documentation](transition) for instructions on porting your environment from the old PUMA server, including details on porting suites. 
+See the [transition documentation](transition) for instructions on porting your environment from the old PUMA server, including details on [porting suites](transition#9-update-suites-to-run-on-puma2). 
