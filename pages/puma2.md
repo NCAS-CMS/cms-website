@@ -38,6 +38,13 @@ as this can cause problems with Rose/cylc job submission.
   
 * You should now be logged into PUMA2.
 
+## PUMA2 files
+
+You can access your PUMA2 home directory on ARCHER2 via:
+```
+/home/n02/n02-puma/<username>/
+```
+
 ## Running the UM on ARCHER2
 
 Follow the [setup instructions](https://ncas-cms.github.io/um-training/getting-setup-selfstudy.html) in our online training to configure your environment to run UM suites on ARCHER2. 
