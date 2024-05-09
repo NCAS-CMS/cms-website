@@ -12,11 +12,11 @@ permalink: /tools-and-utilities/
   The python cf package implements the CF data model for the reading, writing and processing of data and metadata. The package reads CF-netCDF, CFA-netCDF and PP format files, and creates CF-netCDF files. It uses Large Amounts of Massive Arrays (LAMA) functionality, which allows multiple fields larger than the available memory to exist and be manipulated. The package provides command line utilities for viewing CF fields (`cfdump`) and aggregating datasets (`cfa`).
 
 * **cf-plot** \\
-  [http://ajheaps.github.io/cf-plot/](http://ajheaps.github.io/cf-plot/) \\
+  [https://ncas-cms.github.io/cf-plot/build/](https://ncas-cms.github.io/cf-plot/build/) \\
   cf-plot is a set of Python routines for making the common contour and vector plots that climate researchers use. The data to make a contour plot can be passed to cf-plot using cf-python (above).
 
 * **cf-view** \\
-  [http://ajheaps.github.io/cf-view/](http://ajheaps.github.io/cf-view/) \\
+  [https://ncas-cms.github.io/cf-view/build/](https://ncas-cms.github.io/cf-view/build/) \\
   cf-view is a graphical user interface that is used for plotting Climate and Forecast convention, CF , data.
 
 * **CDO** \\
