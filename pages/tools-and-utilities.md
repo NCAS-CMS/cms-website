@@ -19,6 +19,14 @@ permalink: /tools-and-utilities/
   [https://ncas-cms.github.io/cf-view/build/](https://ncas-cms.github.io/cf-view/build/) \\
   cf-view is a Graphical User Interface (GUI) for earth science and aligned research which supports the exploration, analysis and plotting of netCDF and Met Office format (PP or fields) data. It uses PyQT, cf-plot and cf-python.
 
+* **cfdm** \\
+  [https://github.com/NCAS-CMS/cfdm](https://github.com/NCAS-CMS/cfdm) \\
+  A Python reference implementation of the CF data model.
+
+* **cfunits** \\
+  [https://ncas-cms.github.io/cfunits/](https://ncas-cms.github.io/cfunits/) \\
+  A Python interface to the UDUNITS-2 library with CF extensions.
+
 * **CDO** \\
   [https://code.mpimet.mpg.de/projects/cdo](https://code.mpimet.mpg.de/projects/cdo) \\
   CDO, Climate Data Operators, are a collection of command line operators to manipulate and analyse climate model data. Supported data formats are GRIB, netCDF, SERVICE, EXTRA and IEG.
