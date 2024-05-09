@@ -9,15 +9,15 @@ permalink: /tools-and-utilities/
 
 * **cf-python** \\
   [https://ncas-cms.github.io/cf-python/](https://ncas-cms.github.io/cf-python/) \\
-  The python cf package implements the CF data model for the reading, writing and processing of data and metadata. The package reads CF-netCDF, CFA-netCDF and PP format files, and creates CF-netCDF files. It uses Large Amounts of Massive Arrays (LAMA) functionality, which allows multiple fields larger than the available memory to exist and be manipulated. The package provides command line utilities for viewing CF fields (`cfdump`) and aggregating datasets (`cfa`).
+  cf-python, the Python CF package, implements the CF data model for the reading, writing and processing of data and metadata. The package reads CF-netCDF, CFA-netCDF and PP format files, and creates CF-netCDF files. It uses Dask for all of its array manipulation, which allows multiple fields larger than the available memory to exist and be manipulated. The package provides command line utilities for viewing CF fields (`cfdump`) and aggregating datasets (`cfa`).
 
 * **cf-plot** \\
   [https://ncas-cms.github.io/cf-plot/build/](https://ncas-cms.github.io/cf-plot/build/) \\
-  cf-plot is a set of Python routines for making the common contour and vector plots that climate researchers use. The data to make a contour plot can be passed to cf-plot using cf-python (above).
+  cf-plot allows you to produce and customise publication-quality contour, vector, line and more plots with the power of Python, matplotlib, Cartopy and cf-python, in as few lines of code as possible.
 
 * **cf-view** \\
   [https://ncas-cms.github.io/cf-view/build/](https://ncas-cms.github.io/cf-view/build/) \\
-  cf-view is a graphical user interface that is used for plotting Climate and Forecast convention, CF , data.
+  cf-view is a Graphical User Interface (GUI) for earth science and aligned research which supports the exploration, analysis and plotting of netCDF and Met Office format (PP or fields) data. It uses PyQT, cf-plot and cf-python.
 
 * **CDO** \\
   [https://code.mpimet.mpg.de/projects/cdo](https://code.mpimet.mpg.de/projects/cdo) \\
