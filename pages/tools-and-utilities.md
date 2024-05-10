@@ -20,7 +20,7 @@ permalink: /tools-and-utilities/
   cf-view is a Graphical User Interface (GUI) for earth science and aligned research which supports the exploration, analysis and plotting of netCDF and Met Office format (PP or fields) data. It uses PyQT, cf-plot and cf-python.
 
 * **cfdm** \\
-  [https://github.com/NCAS-CMS/cfdm](https://github.com/NCAS-CMS/cfdm) \\
+  [https://ncas-cms.github.io/cfdm/](https://ncas-cms.github.io/cfdm/) \\
   A Python reference implementation of the CF data model.
 
 * **cfunits** \\
