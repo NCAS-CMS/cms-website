@@ -89,9 +89,9 @@ cp ../u-cr335/app/um/opt/rose-app-ozone.conf ./app/um/opt
 cp ../u-cr335/bin/copy_ozone.sh ./bin
 cp ../u-cr335/bin/python_env ./bin
 cp -r ../u-cr335/meta/ozone ./meta
-cp -r ../u-cr335/ozone-redistribution.rc .
-cp -r ../u-cr335/site/archer2_ozone.rc ./site
-cp -r ../u-cr335/site/archer2_python_env ./site
+cp ../u-cr335/ozone-redistribution.rc .
+cp ../u-cr335/site/archer2_ozone.rc ./site
+cp ../u-cr335/site/archer2_python_env ./site
 ```
 
 ### 4. Add in the include files and suite variables. 
