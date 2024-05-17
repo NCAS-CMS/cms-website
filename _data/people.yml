@@ -25,11 +25,6 @@
   position: "UKCA development and support"
   ncas_id: 10166
 
-- firstname: Fanny
-  lastname: Adloff
-  position: "EU Project Scientific Officer (IS-ENES3)"
-  ncas_id: 10514
-
 - firstname: Sadie
   lastname: Bartholomew
   position: "CF-Python & ES-DOC (IS-ENES3)"
@@ -60,11 +55,6 @@
   position: "Software tools specialist - CF-Python (IS-ENES3)"
   ncas_id: 10288
 
-- firstname: Andy
-  lastname: Heaps
-  position: "System administration and visualisation specialist"
-  ncas_id: 10107
-
 - firstname: George
   lastname: O'Brien
   position:
@@ -74,11 +64,6 @@
   lastname: Livings
   position: "Hydro-JULES"
   ncas_id: 10595
-  
-- firstname: Ankit
-  lastname: Bhandekar
-  position:
-  ncas_id: 10629
   
 - firstname: Patrick
   lastname: McGuire
@@ -99,3 +84,8 @@
   lastname: Stringer
   position: "UKESM core team: performance"
   ncas_id: 10320
+
+- firstname: Sharar
+  lastname: Ahmadi
+  position: "AFESP Research Software Engineer"
+  ncas_id: 10699
