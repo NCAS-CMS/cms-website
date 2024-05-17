@@ -97,12 +97,12 @@ In **Archer Archiving**, specify the location of the archived files on ARCHER2 b
 
 Following archiving, the files may be optionally transferred to a remote machine such as JASMIN. In **JASMIN transfer**, provide values for:
 
-* **remote_host** (the address of the remote machine) 
+* **remote_host** (the address of the remote machine; for gridftp transfer this is `gridftp1.jasmin.ac.uk`) 
 * **transfer_dir** (the location of the archived files on the remote machine)
 
 and turn on the transferring of the files by setting **suite conf -> Build and Run -> PP Transfer** to `true`.
 
-Note that, before transfer from ARCHER2 to JASMIN can work, some setup of communication between ARCHER2 and JASMIN is required.  To do this, follow the instructions under **Obtaining a JASMIN short-lived credential** on [this page]({{site.baseurl}}/unified-model/pptransfer) (the section on **Suite Changes** on that page can be ignored, since these suites are already set up for transfer).
+Note that, before transfer from ARCHER2 to JASMIN can work you will need to setup a JASMIN short-lived credential.  To do this, follow the instructions under [Obtaining a JASMIN short-lived credential]({{site.baseurl}}/unified-model/pptransfer/#obtaining-a-jasmin-short-lived-credential) (the section on **Suite Changes** on that page can be ignored, since these suites are already set up for transfer).
 
 #### Optional configuration settings
 To aid portability, the suites use site-specific optional configuration settings which override default values for some parameters when **suite conf -> Machine Options -> Site at which model is being run** is set to `Archer2`. In particular, when running on ARCHER2, the names for ancillaries in 
