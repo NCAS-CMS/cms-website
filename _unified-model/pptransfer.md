@@ -11,8 +11,6 @@ These instructions show how to setup your GridFTP certificate and modify a suite
 
 **Note:** In order to use GridFTP to JASMIN you must have access to the **hpxfer (High Performance Data Transfer Service)**. Access can be requested via the [JASMIN Accounts Portal](https://accounts.jasmin.ac.uk/).
 
-**Note:** Instructions cannot cover all possible suite setup combinations so you may need to adjust them accordingly. For example, tasks may be named slightly differently or inherit differently.
-
 ## Obtaining a JASMIN short-lived credential
 
 * Login to ARCHER2.
