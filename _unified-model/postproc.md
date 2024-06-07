@@ -109,4 +109,4 @@ If you are transferring data to JASMIN please add the following to the Housekeep
 
 #### 6. Configure PPTransfer and JDMA tasks
 
-Now follow the instructions on how to configure PPTransfer to JASMIN and optionally Data migration to Elastic Tape.
+Now follow the instructions on how to configure [PPTransfer to JASMIN](pptransfer) and optionally [Data migration to Elastic Tape](jdma).
