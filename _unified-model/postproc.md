@@ -36,7 +36,7 @@ In panel *'fcm_make_pp -> Configuration'*, if **config_rev** and/or **pp_rev** i
   pp_sources=fcm:moci.xm-br/dev/rosalynhatcher/postproc_X.Y_archer2_jasmin_rewrite
   ~~~
 
-  Where `X.Y` is either 2.3 or 2.4 depending on which version of postproc your suite is using.
+  Where `X.Y` is either `2.3` or `2.4` depending on which version of postproc your suite is using.
 
 * Save and Exit the Rose edit GUI
 
@@ -49,7 +49,7 @@ In panel *'fcm_make_pp -> Configuration'*, if **config_rev** and/or **pp_rev** i
   rose app-upgrade -M /home/n02/n02/ros/meta/postproc_X.Y_archer2_jasmin_rewrite/rose-meta -a ppXY_t588
   ~~~
 
-  Where X.Y is either 2.3 or 2.4 and ppXY_t588 is either pp2.3_t588 or pp2.4_t588 as appropriate
+  Where `X.Y` is either `2.3` or `2.4` and `ppXY_t588` is either `pp2.3_t588` or `pp2.4_t588` as appropriate
 
   Type `y` when prompted to "Accept y/n"
 
