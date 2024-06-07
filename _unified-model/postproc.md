@@ -26,7 +26,7 @@ In panel *'fcm_make_pp -> Configuration'*, if **config_rev** and/or **pp_rev** i
   
 ## Upgrading Postproc to the ARCHER2/JASMIN branch
 
-### 1. Set branches for fcm_make_pp app
+#### 1. Set branches for fcm_make_pp app
 
 * In panel *'fcm_make_pp -> Configuration'* set
 
@@ -41,7 +41,7 @@ In panel *'fcm_make_pp -> Configuration'*, if **config_rev** and/or **pp_rev** i
 
 * Save and Exit the Rose edit GUI
 
-### 2. Upgrade postproc app to ppXY_t588
+#### 2. Upgrade postproc app to ppXY_t588
 
 * Run rose app-upgrade
 
@@ -70,7 +70,7 @@ In panel *'fcm_make_pp -> Configuration'*, if **config_rev** and/or **pp_rev** i
 
 * Save and Close the Rose Edit GUI.
 
-### 3. Add in the JDMA configuration file and suite metadata:
+#### 3. Add in the JDMA configuration file and suite metadata:
 
 * Copy standard config files
   
@@ -97,7 +97,7 @@ In panel *'fcm_make_pp -> Configuration'*, if **config_rev** and/or **pp_rev** i
 
 * Save
 
-### 4. Automatically delete data from ARCHER2 after successful transfer to JASMIN
+#### 4. Automatically delete data from ARCHER2 after successful transfer to JASMIN
 
 * In *'app/housekeeping/rose-app.conf'* add:
 
@@ -106,6 +106,6 @@ In panel *'fcm_make_pp -> Configuration'*, if **config_rev** and/or **pp_rev** i
   ~~~
 
 
-### 5. Configure PPTransfer and JDMA tasks
+#### 5. Configure PPTransfer and JDMA tasks
 
 Now follow the instructions on how to configure PPTransfer to JASMIN and optionally Data migration to Elastic Tape.
