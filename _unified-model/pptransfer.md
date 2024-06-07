@@ -49,7 +49,7 @@ A fuller explanation of the process is given in the document [Data Transfer Tool
 
 ## Suite Settings
 
-These settings assume you are using the ARCHER2/JASMIN version of postproc as detailed on the [Post-Processing page](postproc) and wish to automatically delete data from ARCHER2 after successful transfer to JASMIN.
+These settings assume you are using the ARCHER2/JASMIN version of postproc as detailed on the [Post-Processing page](/unified-model/postproc) and wish to automatically delete data from ARCHER2 after successful transfer to JASMIN.
 
 *  In panel *"postproc -> Post Processing - common settings -> ARCHER2-JASMIN Archiving"* set **archive_root_path** to be `$ROSE_DATAC`.  This evaluates to `cylc-run/<suiteid>/share/cycle`.  
 
