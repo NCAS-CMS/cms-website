@@ -81,9 +81,11 @@ In panel *'fcm_make_pp -> Configuration'*, if **config_rev** and/or **pp_rev** i
 
 * In `suite.rc` file add the following line to the bottom:
 
+  {% raw %}
   ~~~
   {%include 'jdma.rc'}
   ~~~
+  {% endraw %}
 
 * In `meta/rose-meta.conf` add the following line to the top of the file:
 
