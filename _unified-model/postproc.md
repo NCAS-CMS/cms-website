@@ -82,7 +82,7 @@ In panel *'fcm_make_pp -> Configuration'*, if **config_rev** and/or **pp_rev** i
 
   {% raw %}
   ~~~
-  {%include 'jdma.rc'}
+  {% include 'jdma.rc'}
   ~~~
   {% endraw %}
 
@@ -97,6 +97,8 @@ In panel *'fcm_make_pp -> Configuration'*, if **config_rev** and/or **pp_rev** i
 * Save
 
 #### 5. Automatically delete data from ARCHER2 after successful transfer to JASMIN
+
+If you are transferring data to JASMIN please add the following to the Housekeeping app to activate deletion of data from ARCHER2 following successful transfer to JASMIN.\
 
 * In *'app/housekeeping/rose-app.conf'* add:
 
