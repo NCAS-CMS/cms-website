@@ -17,11 +17,10 @@ This document details how to upgrade the version of postproc in your suite to in
 In panel *'fcm_make_pp -> Configuration'*, if **config_rev** and/or **pp_rev** is
 
 * **postproc_2.3**
-  
   * Follow instructions below substituting `X.Y` with `2.3` and `ppXY_t588` with `pp23_t588`
+
     
 * **postproc_2.4**
-
   * Follow instructions below substituting `X.Y` with `2.4` and `ppXY_t588` with `pp24_t588`
   
 ## Upgrading Postproc to the ARCHER2/JASMIN branch
