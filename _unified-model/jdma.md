@@ -36,6 +36,7 @@ Before you can use the JDMA to migrate data to Elastic Tape you must install the
 ### Setup connection to JASMIN sci nodes
 
 1. Add the following to your `~/.ssh/config` file on PUMA:
+
 {% raw %}
 ~~~
 # JASMIN
@@ -71,12 +72,13 @@ ControlPersist yes
     * You should be logged into the JASMIN sci node without prompt for your JASMIN passphrase.
 
 4. Add path to Rose/Cylc to your `~/.bash_profile` on JASMIN:
-~~~
-if [[ $(hostname) = sci*.jasmin.ac.uk || $(hostname) = cylc*.jasmin.ac.uk ]]; then
-  # Rose/cylc on jasmin-sci & Lotus nodes
-  export PATH=/apps/jasmin/metomi/bin:$PATH
-fi
-~~~
+   
+  ~~~
+  if [[ $(hostname) = sci*.jasmin.ac.uk || $(hostname) = cylc*.jasmin.ac.uk ]]; then
+    # Rose/cylc on jasmin-sci & Lotus nodes
+    export PATH=/apps/jasmin/metomi/bin:$PATH
+  fi
+  ~~~
 
 ### Configure PPTransfer
 If you haven't already done so follow the instructions for configuring PPTransfer and setting up Gridftp certificate: [Configuring PPTransfer]({{site.baseurl}}/unified-model/pptransfer)
