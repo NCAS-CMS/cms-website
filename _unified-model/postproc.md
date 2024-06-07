@@ -11,8 +11,10 @@ This document details how to upgrade the version of postproc in your suite to in
 
 1. Transfer data to JASMIN using Gridftp
 2. Migrate data to JASMIN Elastic Tape
+  
+## Upgrading Postproc to use the ARCHER2/JASMIN branch
 
-## Determine which version of Postproc your suite is currently using
+#### 1. Determine which version of Postproc your suite is currently using
 
 In panel *'fcm_make_pp -> Configuration'*, if **config_rev** and/or **pp_rev** is
 
@@ -22,10 +24,8 @@ In panel *'fcm_make_pp -> Configuration'*, if **config_rev** and/or **pp_rev** i
     
 * **postproc_2.4**
   * Follow instructions below substituting `X.Y` with `2.4` and `ppXY_t588` with `pp24_t588`
-  
-## Upgrading Postproc to the ARCHER2/JASMIN branch
-
-#### 1. Set branches for fcm_make_pp app
+ 
+#### 2. Set branches for fcm_make_pp app
 
 * In panel *'fcm_make_pp -> Configuration'* set
 
@@ -40,7 +40,7 @@ In panel *'fcm_make_pp -> Configuration'*, if **config_rev** and/or **pp_rev** i
 
 * Save and Exit the Rose edit GUI
 
-#### 2. Upgrade postproc app to ppXY_t588
+#### 3. Upgrade postproc app to ppXY_t588
 
 * Run rose app-upgrade
 
@@ -69,7 +69,7 @@ In panel *'fcm_make_pp -> Configuration'*, if **config_rev** and/or **pp_rev** i
 
 * Save and Close the Rose Edit GUI.
 
-#### 3. Add in the JDMA configuration file and suite metadata:
+#### 4. Add in the JDMA configuration file and suite metadata:
 
 * Copy standard config files
   
@@ -96,7 +96,7 @@ In panel *'fcm_make_pp -> Configuration'*, if **config_rev** and/or **pp_rev** i
 
 * Save
 
-#### 4. Automatically delete data from ARCHER2 after successful transfer to JASMIN
+#### 5. Automatically delete data from ARCHER2 after successful transfer to JASMIN
 
 * In *'app/housekeeping/rose-app.conf'* add:
 
@@ -105,6 +105,6 @@ In panel *'fcm_make_pp -> Configuration'*, if **config_rev** and/or **pp_rev** i
   ~~~
 
 
-#### 5. Configure PPTransfer and JDMA tasks
+#### 6. Configure PPTransfer and JDMA tasks
 
 Now follow the instructions on how to configure PPTransfer to JASMIN and optionally Data migration to Elastic Tape.
