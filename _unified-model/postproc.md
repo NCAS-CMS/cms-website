@@ -6,13 +6,7 @@ teaser: This page details how to upgrade postproc in your suite to include tasks
 permalink: '/unified-model/postproc/'
 breadcrumb: true
 ---
-{% include alert info="This page is currently under development." %}
 
-This document details how to upgrade the version of postproc in your suite to include tasks to:
-
-1. Transfer data to JASMIN using Gridftp
-2. Migrate data to JASMIN Elastic Tape
-  
 ## Upgrading Postproc to use the ARCHER2/JASMIN branch
 
 #### 1. Determine which version of Postproc your suite is currently using
