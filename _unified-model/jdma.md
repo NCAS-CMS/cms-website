@@ -65,13 +65,15 @@ ControlPersist yes
 
 {:start="2"}
 2. Add your JASMIN ssh-key to your ssh-agent:
+
     * `ssh-add ~/.ssh/<jasmin-ssh-key>`
 
 3. Test connection to JASMIN:
+   
     *  `ssh sci3.jasmin.ac.uk`
     * You should be logged into the JASMIN sci node without prompt for your JASMIN passphrase.
 
-4. Add path to Rose/Cylc to your `~/.bash_profile` on JASMIN:
+5. Add path to Rose/Cylc to your `~/.bash_profile` on JASMIN:
    
   ~~~
   if [[ $(hostname) = sci*.jasmin.ac.uk || $(hostname) = cylc*.jasmin.ac.uk ]]; then
