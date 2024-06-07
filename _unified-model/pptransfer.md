@@ -49,16 +49,16 @@ A fuller explanation of the process is given in the document [Data Transfer Tool
 
 ## Suite Settings
 
-*  In panel *"postproc -> Post Processing - common settings -> Archer Archiving"* change **archive_root_path** to be a directory on the `/work` disk \\
-For example; `/work/n02/n02/<username>/archive` where `<username>` is your ARCHER2 username.  \\
-This will be a temporary area to stage your data before transfer to JASMIN.
+These settings assume you are using the ARCHER2/JASMIN version of postproc as detailed on the [Post-Processing page]({{site.baseurl}}/unified-model/postproc) and wish to automatically delete data from ARCHER2 after successful transfer to JASMIN.
 
-* In panel *"postproc -> Post Processing - common settings -> JASMIN Transfer"*:
-  * Set **transfer_dir** to be a directory on your Jasmin group workspace, e.g. `/gws/nopw/j04/ncas_cms/aosprey/archive`
+*  In panel *"postproc -> Post Processing - common settings -> ARCHER2-JASMIN Archiving"* set **archive_root_path** to be `$ROSE_DATAC`.  This evaluates to `cylc-run/<suiteid>/share/cycle`.  
+
+* In panel *"postproc -> Post Processing - common settings -> ARCHER2-JASMIN Archiving -> Data Transfer"*:
+  * Set **transfer_dir** to be a directory on your Jasmin group workspace (e.g. `/gws/nopw/j04/ncas_cms/aosprey/archive`) or on the [JASMIN Transfer Cache](https://help.jasmin.ac.uk/docs/short-term-project-storage/xfc/) (e.g. `/work/xfc/vol5/user_cache/rshatcher/archive`)
   * Set **transfer_type** to `Push`
   * Set **remote_host** to `gridftp1.jasmin.ac.uk` 
   * Set **gridftp** to `true`
 
-**Note:**  See **u-be303/archer2** for a complete working postproc and pptransfer example suite.
+**Note:**  See **u-bc613/archer2** for a complete working postproc and pptransfer example suite.
 
 
