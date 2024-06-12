@@ -70,14 +70,14 @@ In panel *'fcm_make_pp -> Configuration'*, if **config_rev** and/or **pp_rev** i
   
   ~~~
   cp ~um1/jdma/jdma.rc ~/roses/<suiteid>
-  cp ~um1/jdma/metadata/ncas_extras ~/roses/meta
+  cp ~um1/jdma/metadata/ncas_extras ~/roses/<suite-id>/meta
   ~~~
 
 * In `suite.rc` file add the following line to the bottom:
 
   {% raw %}
   ~~~
-  {% include 'jdma.rc'}
+  {% include 'jdma.rc' %}
   ~~~
   {% endraw %}
 
