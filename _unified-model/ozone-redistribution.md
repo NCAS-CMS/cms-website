@@ -160,12 +160,27 @@ mode=symlink+
 source=${UM_MODEL_ANCILS_LINK}/orography/globe30/qrparm.orog
 ```
 
-* Check the UM output streams. By default the new `po` stream goes to a file id `pp145` and usage profile `UPO`. If these clash with existing settings in your suite, you will need to rename them in `app/um/opt/rose-app-ozone.conf`. 
+* Check the UM output streams. By default the new `po` stream goes to a file id `pp145` and usage profile `UPO`. If these clash with existing settings in your suite, you will need to rename them in `app/um/opt/rose-app-ozone.conf`.
 
-* Set up postproc to convert the `po` stream to pp, and make sure it is saved for the OR. In "postproc -> Atmosphere", either set `process_all_stream=true`, or make sure `po` is in the list under `process_streams`. Under "Atmosphere -> File transformation" make sure the `po` stream is being converted to pp, usually with `convert_pp=true` and `convpp_all_streams=true`. Next set `preserve_ozone=true` and `ozone_source_stream=po`. 
+* Set up postproc to convert the `po` stream to pp, and make sure it is saved for the OR. In "postproc -> Atmosphere", either set `process_all_stream=true`, or make sure `po` is in the list under `process_streams`. Under "Atmosphere -> File transformation" make sure the `po` stream is being converted to pp, and set postproc to handle the ozone file. The exact settings may depend on your configuration:
+```
+convert_pp=true
+convpp_all_streams=true
+preserve_ozone=true
+ozone_source_stream=po
+```
+
+* The example suite uses annual cycling. If your suite uses monthly cycling you will need to send the STASH required for the OR to a monthly mean file instead, and get postproc to generate the yearly `po` file. 
+  * Replace `app/um/opt/rose-app-ozone.conf` with [this file](https://code.metoffice.gov.uk/trac/roses-u/browser/d/e/7/1/5/monthly_cycling/app/um/opt/rose-app-ozone.conf?rev=292988). 
+  * In "postproc -> Atmosphere", set:
+```
+ozone_source_stream=p4
+ozone_output_stream=po
+ozone_fields=00253,30453
+```
 
 The OR scheme is quite complicated, and your suite may require some additional changes to get it working properly. 
-Contact the [CMS helpdesk](https://cms-helpdesk.ncas.ac.uk) if you need advice. 
+Contact the [CMS helpdesk](https://cms-helpdesk.ncas.ac.uk) if you need advice.
 
 ## Checking the output
 
