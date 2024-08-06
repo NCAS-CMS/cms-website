@@ -175,7 +175,7 @@ If you have a script that uses the rose or cylc python libraries, you will need 
 ~~~
 {% endraw %}
 
-**Note:** Here we are still using the old version of Rose to run the scripts. We will describe how to upgrade to the new Rose 2 and Cylc 8 python packages in the next section. 
+**Note:** Here we are still using the old version of Rose to run the scripts. To fully upgrade, the scripts should be [updated to Python 3 and the new Rose 2 and Cylc 8 packages](https://cylc.github.io/cylc-doc/latest/html/7-to-8/major-changes/python-2-3.html). 
 
 ### e. Make sure FCM extracts from the mirror repositories
 
