@@ -70,7 +70,9 @@ If you have any user configuration files for Rose or FCM on PUMA2 or ARCHER2, th
 
 ### c. Remove potentially conflicting Cylc 7 cylc-run directories
 
-If you are running a workflow that has the same name as a previous Cylc 7 run, you need to either i) rename the current workflow e.g. `u-cz422-cylc8`, or ii) move the old cylc-run directory out of the way first. Make sure there are no conflicting cylc-run directories on either PUMA2 or ARCHER2. 
+If you are running a workflow that has the same name as a previous Cylc 7 run, you need to either i) rename the current workflow e.g. `u-cz422-cylc8`, or ii) move the old cylc-run directory out of the way first. 
+
+Make sure there are no conflicting cylc-run directories on either PUMA2 or ARCHER2. 
 
 ## 2. Check your workflow validates at Cylc 7
 
@@ -290,7 +292,7 @@ Then run:
 cylc validate .
 ~~~
 {% endraw %}
-This produces a list of warnings which describe the syntax changes required to upgrade to Cylc 8. 
+This produces a list of warnings which describe the remaining syntax changes required to upgrade to Cylc 8. 
 
 For more details refer to the https://cylc.github.io/cylc-doc/stable/html/7-to-8/summary.html#upgrading-to-cylc-8
 
