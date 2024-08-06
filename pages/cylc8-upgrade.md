@@ -24,17 +24,52 @@ and that the workflow you are upgrading runs correctly under Cylc 7 on ARCHER2.
 
 Please also refer to the [Cylc 8 migration guide](https://cylc.github.io/cylc-doc/stable/html/7-to-8/index.html) and the instructions for running [Cylc 8 on PUMA2](/cylc8/).  
 
-## Compatibility mode
+# Overview
 
 Cylc 8 has a [compatibility mode](https://cylc.github.io/cylc-doc/stable/html/7-to-8/major-changes/compatibility-mode.html#cylc-7-compat-mode)
 that allows you to run an existing Cylc 7 workflow without fully upgrading. 
 
-On PUMA2-ARCHER2 there are still several changes required, mostly to the top-level runtime settings. 
+**Important: On PUMA2-ARCHER2 there are still several changes required to run even in compatability mode.** 
+
+These are mostly just changes to the top-level runtime settings. 
 You may not have to make all these changes to your workflow, but do check all of the points below.
 As ever, we can't cover all eventualities so your workflow may required additional changes. 
-Get in touch with the [CMS helpdesk](https://cms-helpdesk.ncas.ac.uk/) if you need further advice.  
+Get in touch with the [CMS helpdesk](https://cms-helpdesk.ncas.ac.uk/) if you need further advice.
 
-### 1. Check your workflow validates at Cylc 7
+After making these changes, you should then fully upgrade to Cylc 8. This is mainly syntax change to the suite definition files, 
+including replacing remote "hosts" with "[platforms](https://cylc.github.io/cylc-doc/stable/html/reference/config/writing-platform-configs.html#adminguide-platformconfigs)". 
+
+
+# 1. Check your PUMA2/ARCHER2 setup 
+
+## a. Check your ssh setup 
+
+It is important that you have the `ssh-setup` script sourced in your `.bash_profile` and not `.bashrc` or any other file. 
+
+**Information**: Cylc 8 job scripts are now launched in a new subshell and this only loads `.bash_profile` by default.
+We need to make sure the `ssh-setup` script is run so that any `fcm_make` tasks can mirror code to ARCHER2.
+
+In your `~/.bash_profile` you should have the following: 
+```
+# Ensure persistent ssh-agent
+. $HOME/.ssh/ssh-setup
+```
+
+## b. Check any user-specific settings
+
+Make sure your `.bash_profile` on ARCHER2 has the following line: 
+```
+. /work/y07/shared/umshared/bin/rose-um-env-puma2
+```
+Check that this is the **puma2** version and not `rose-um-env-puma`. Also check any other files such as `.profile` or `.bashrc`. 
+
+If you have any user configuration files for Rose or FCM on PUMA2 or ARCHER2, these may cause incompatibilies at Cylc 8. Rose and FCM configurations are under `.metomi`. 
+
+## c. Remove potentially conflicting Cylc 7 cylc-run directories
+
+If you are running a workflow that has the same name as a previous Cylc 7 run, you need to either i) rename the current workflow e.g. `u-cz422-cylc8`, or ii) move the old cylc-run directory out of the way first. Make sure there are no conflicting cylc-run directories on either puma2 or archer2. 
+
+# 2. Check your workflow validates at Cylc 7
 
 Cylc 7 supports some depracted syntax so you will need to upgrade this before moving to Cylc 8. 
 
@@ -49,24 +84,9 @@ If any warning messages appear, follow the instructions until your suite is full
 </div><!-- /.medium-8.columns -->
 </div><!-- /.row -->
 
-### 2. Remove existing Cylc 7 cylc-run directory
+# 3. Make Cylc 8 compatibility changes to your suite
 
-If you are running a workflow that has the same name as a previous Cylc 7 run, you need to either i) rename the current workflow e.g. `u-cz422-cylc8`, or ii) move the old cylc-run directory out of the way first. 
-
-### 3. Check your ssh setup 
-
-It is important that you have the `ssh-setup` script sourced in your `.bash_profile` and not `.bashrc` or any other file. 
-
-**Information**: Cylc 8 job scripts are now launched in a new subshell and this only loads `.bash_profile` by default.
-We need to make sure the `ssh-setup` script is run so that any `fcm_make` tasks can mirror code to ARCHER2.
-
-In your `~/.bash_profile` you should have the following: 
-```
-# Ensure persistent ssh-agent
-. $HOME/.ssh/ssh-setup
-```
-
-### 4. Add a `remote_setup` task to the graph
+## a. Add a `remote_setup` task to the graph
 
 We need a dummy task that sets up the `cylc-run` directory on ARCHER2 before any `fcm_make` mirrors start. 
 
@@ -114,7 +134,7 @@ And this to the `site/archer2.rc`:
 ~~~
 {% endraw %}
 
-### 5. Remove any instances of `[runtime][task][remote]owner`
+## b. Remove any instances of `[runtime][task][remote]owner`
 
 Cylc 8 no longer supports remote usernames in the workflow definition. 
 
@@ -128,7 +148,7 @@ Check your `suite.rc` and/or `site/archer2.rc` file and remove any lines like th
 ~~~
 {% endraw %}
 
-### 6. Update the ARCHER2 slurm flags
+## c. Update the ARCHER2 slurm flags
 
 The `--export=none` flag should be removed from the ARCHER2 slurm headers. 
 
@@ -139,8 +159,7 @@ The `--export=none` flag should be removed from the ARCHER2 slurm headers.
 
 Edit your `suite.rc` and/or `site/archer2.rc` and remove the `--export=none` line. It will probably be under `[[HPC]] [[[directives]]]`.
 
-### 7. Set path to Rose/cylc libraries if needed
-
+## d. Set path to Rose/cylc libraries if needed
 
 If you have a script that uses the rose or cylc python libraries, you will need to set the path directly (since the job environment is no longer inerited). For example the `xml` task for UM-XIOS uses rose macros, so we need: 
 {% raw %}
@@ -156,13 +175,15 @@ If you have a script that uses the rose or cylc python libraries, you will need 
 
 **Note:** Here we are still using the old version of Rose to run the scripts. We will describe how to upgrade to the new Rose 2 and Cylc 8 python packages in the next section. 
 
-### 8. Make sure fcm make extracts from the mirror repositories
+## e. Make sure fcm make extracts from the mirror repositories
 
 In each of your `fcm_make_*` apps, check that any references to e.g. `fcm:moci.x` are changed to `fcm:moci.xm`.
 
 **Information:** Since Cylc 8 job scripts run under a new subshell, gpg agent will not be available to the fcm make extract tasks, therefore we need to use the MOSRS mirror repositiories on PUMA2. 
 
-### 9. Check your workflow validates at Cylc 8 
+# 4. Check Cylc 7 compatibility mode
+
+## a. Check your workflow validates at Cylc 8 
 
 Run the following, from the rose workflow directory: 
 ```
@@ -173,15 +194,111 @@ cylc validate .
 If everything is OK you should get the following response: 
 ```
 WARNING - Backward compatibility mode ON
-Valid for cylc-8.2.3
+Valid for cylc-8.3.2
 ```
 
-### 10. Run with Cylc 8 
+## b. (Optionally) run in cylc 8 with compatibility mode 
 
-Run: 
+You should be able to run your suite under Cylc 8 at this point.  
 ```
 cylc vip 
 ```
+Note that this is still using old Cylc 7 syntax and you will need to fully upgrade to Cylc 8. 
 
+# 5. Uprade to a Cylc 8 workflow 
 
+## a. Add in workflow definition
 
+First rename the `suite.rc` file to`flow.cylc`. 
+
+Then at the top of the `rose suite.conf` file, replace the line: 
+{% raw %}
+~~~
+[jinja2:suite.rc]
+~~~
+{% endraw %}
+with 
+{% raw %}
+~~~
+[template variables]
+~~~
+{% endraw %}
+
+## b. Switch to platforms 
+
+Each task or family that defines a `host` and/or `batch system` should be replaced by a [platform](https://cylc.github.io/cylc-doc/stable/html/reference/config/writing-platform-configs.html#adminguide-platformconfigs). These might be set in the `suite.rc` file or the `site/archer2.rc` file (or both). For example: 
+
+* i. localhost
+{% raw %}
+~~~
+    [[NCAS_NOT_SUPPORTED]]
+        [[[job]]]
+            batch system = background
+~~~
+{% endraw %}
+becomes
+{% raw %}
+~~~
+    [[NCAS_NOT_SUPPORTED]]
+        platform = localhost
+~~~
+{% endraw %}
+
+* ii. ARCHER2 slurm 
+{% raw %}
+~~~
+    [[HPC]]
+        [[[remote]]]
+            host = $(rose host-select archer2)
+        [[[job]]]
+            batch system = slurm 
+~~~
+{% endraw %}
+becomes
+{% raw %}
+~~~
+    [[HPC]]
+        platform = archer2
+~~~
+{% endraw %}
+
+* iii Jasmin sci node background
+{% raw %}
+~~~
+    [[JASMIN]]
+        [[[remote]]]
+            host = sci2.jasmin.ac.uk
+        [[[job]]]
+            batch system = background
+~~~
+{% endraw %}
+becomes
+{% raw %}
+~~~
+    [[JASMIN]]
+        platform = sci_bg
+~~~
+{% endraw %}
+
+The platforms should be selected from the [list of supported platform for PUMA2](https://cms.ncas.ac.uk/cylc8/#platforms). 
+
+## c. Update to Cylc 8 syntax 
+
+Then run:
+{% raw %}
+~~~
+cylc validate .
+~~~
+{% endraw %}
+This produces a list of warnings which describe the syntax changes required to upgrade to Cylc 8. 
+
+For more details refer to the https://cylc.github.io/cylc-doc/stable/html/7-to-8/summary.html#upgrading-to-cylc-8
+
+## d. Run with Cylc 8
+
+Once you can run `cylc validate .` with no warnings, you are ready to try running your suite at Cylc 8 with: 
+{% raw %}
+~~~
+cylc vip
+~~~
+{% endraw %}
