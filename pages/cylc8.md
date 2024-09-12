@@ -97,15 +97,13 @@ On PUMA2 the following platforms are available:
 * ARCHER2:
   * ```archer2``` : Slurm job 
   * ```archer2_bg``` : background on random login node
-  * ```ln0[1-4]_bg``` : background job on specific login node 
+  * ```ln0[1-4]``` : background job on specific login node 
 * JASMIN:
   * ```lotus``` : Slurm job 
   * ```sci_bg``` : background job on random sci machine
-  * ```sci[1-8]_bg``` : background job on specific sci machine
+  * ```sci[1-8]``` : background job on specific sci machine
 
-Note that multiplexing is no longer needed to submit jobs to Jasmin. 
-
-There are still sometimes issues if a host is not available, or not fully functional (for example if it can't see the file system or Slurm queue). 
+Note that multiplexing is no longer needed to submit jobs to Jasmin. There are still some issues if a host is not available or not fully functional. 
 
 ### Using the TUI
 
