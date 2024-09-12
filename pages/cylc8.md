@@ -46,8 +46,8 @@ Cylc-8 workflows available on ARCHER2:
 
 | Cylc 8 id | Cylc 7 id | Description | 
 | :--- | :--- | :--- |
-| u-de385   | u-cy010   | GC5-UM      |
-| u-cc519/cylc8  | u-cc519 | N48 GA6 (training suite) | 
+| u-de385 | u-cy010   | GC5-UM      |
+| u-dj397 | u-cc519 | N48 GA6 (training suite) | 
 
 See the [instructions for migrating an ARCHER2 Cylc 7 suite to Cylc 8](upgrading-workflows/). 
 
@@ -61,32 +61,34 @@ export CYLC_VERSION=8
 ```
 You should be able to do this alongside any Cylc 7 suites you have running.  
 
-Assuming you have set up your ARCHER2 and Jasmin environments to have Cylc 7 available, 
+Assuming you have set up your ARCHER2 environment (and JASMIN if required) to have Cylc 7 available, 
 you should not need to make any further changes. 
 The workflow will simply pick up the appropriate Cylc version when it runs. 
 
 ### Running a workflow
 
-To run a simple test, copy the ```test.platforms.c8``` workflow: 
+To run a simple test, checkout `u-dj397`
 ```
-cd ~/roses
-cp -r ~annette/roses/test.platforms.c8 . 
+rosie co u-dj397
 ```
-
-In the ```test.platforms.c8``` directory, edit the ```rose-suite.conf``` file to set your ARCHER2 username and project code.
+Set your username and project account in `rose-suite.conf` or in the GUI via `rose edit`. 
 
 Run the workflow with: 
 ```
 cylc vip 
 ```
 
+Launch the terminal user interface to check on progress: 
+```
+cylc tui u-dj397
+```
+
 See the [Cylc 8 cheat sheet](https://cylc.github.io/cylc-doc/stable/html/7-to-8/cheat-sheet.html) for an overview of Cylc 8 commands. 
+
+## Further information
 
 ### Platforms 
 
-The ```test.platforms.c8``` workflow runs tasks on ARCHER2 and JASMIN in the background and via the Slurm scheduler. 
-
-Look in the ```cylc.flow``` file (this replaces ```suite.rc```) to see how remote tasks are specified in Cylc 8.
 Tasks are assigned a "platform", which combines the host and job running method. 
 See the [Cylc 8 platform documentation](https://cylc.github.io/cylc-doc/stable/html/reference/config/writing-platform-configs.html#adminguide-platformconfigs) for details. 
 
@@ -97,23 +99,19 @@ On PUMA2 the following platforms are available:
 * ARCHER2:
   * ```archer2``` : Slurm job 
   * ```archer2_bg``` : background on random login node
-  * ```ln0[1-4]``` : background job on specific login node 
+  * ```ln0[1-4]``` : background job on specific login node
+* ARCHER2 with the `cylc-run/runN/` `share/` and `work/` directories symlinked to the NVMe file system:
+  * ```archer2_nvme``` : Slurm job 
+  * ```archer2_nvme_bg``` : background on random login node
+  * ```ln0[1-4]_nvme``` : background job on specific login node 
 * JASMIN:
   * ```lotus``` : Slurm job 
   * ```sci_bg``` : background job on random sci machine
   * ```sci[1-8]``` : background job on specific sci machine
 
-Note that multiplexing is no longer needed to submit jobs to Jasmin. There are still some issues if a host is not available or not fully functional. 
+Note that multiplexing is no longer needed to submit jobs to Jasmin. There are still some issues if a host is not available or not fully functional. We have not yet set up support for the new Jasmin servers. 
 
-### Using the TUI
-
-To track the progress of a running workflow via the terminal user interface: 
-```
-cylc tui test.platforms.c8
-```
-
-You can't do everything via this interface, so you still need to use the command line interface, 
-for example to remove tasks from the graph or trigger tasks that are not visible in the current graph. 
+You can test submission to each of the platforms with the workflow u-dj398.
 
 ### Using the web-based UI with port-forwarding 
 
