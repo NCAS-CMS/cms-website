@@ -67,7 +67,7 @@ The workflow will simply pick up the appropriate Cylc version when it runs.
 
 ### Running a workflow
 
-To run a simple test, checkout `u-dj397`
+To run a simple test, checkout u-dj397
 ```
 rosie co u-dj397
 ```
