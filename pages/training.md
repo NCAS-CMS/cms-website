@@ -34,7 +34,7 @@ Further details, including how to apply can be found on the [NCAS Website](https
 
 Material from previous course:
  
-* February 2023:
+* November 2023:
   * [Practicals](https://ncas-cms.github.io/um-training)
   * [Presentations](/assets/docs/UM_Introduction_Presentations.pdf)
 
