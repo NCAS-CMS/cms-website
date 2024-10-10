@@ -17,9 +17,11 @@ permalink: /cylc8/
 
 <div class="medium-8 medium-pull-4 columns" markdown="1">
 
-***Please note we are still testing Cylc 8 on Puma2 and Archer2, and the software configuration is subject to change.***
+Cylc 8 is available on PUMA2 and ARCHER2, but we are still in the process of testing, porting key workflows, and developing user documentation. We are also working on deploying the web-based GUI.
 
-See the links below for further information. 
+At this stage the ***software configuration is still subject to change.***
+
+See the links below for further information on Cylc 8. 
 Report any issues to the helpdesk. 
 
 ## Overview 
@@ -34,8 +36,6 @@ Useful links:
 * [Cylc discourse forum](https://cylc.discourse.group/) 
 
 Note that in Cylc 8 terminology "suites" have become "workflows". 
-
-We are working on deploying the web-based GUI on puma2. 
 
 </div><!-- /.medium-8.columns -->
 </div><!-- /.row -->
