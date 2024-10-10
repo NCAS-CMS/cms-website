@@ -66,13 +66,7 @@ Make sure your `.bash_profile` on ARCHER2 has the following line:
 ```
 Check that this is the **puma2** version and not `rose-um-env-puma`. Also check any other files such as `.profile` or `.bashrc`. 
 
-If you have any user configuration files for Rose or FCM on PUMA2 or ARCHER2, these may cause incompatibilies at Cylc 8. Rose and FCM configurations are under `.metomi`. 
-
-### c. Remove potentially conflicting Cylc 7 cylc-run directories
-
-If you are running a workflow that has the same name as a previous Cylc 7 run, you need to either i) rename the current workflow e.g. `u-cz422-cylc8`, or ii) move the old cylc-run directory out of the way first. 
-
-Make sure there are no conflicting cylc-run directories on either PUMA2 or ARCHER2. 
+If you have any user configuration files for Rose or FCM on PUMA2 or ARCHER2, these may cause incompatibilies at Cylc 8. Rose and FCM configurations are under `~/.metomi`. 
 
 ## 2. Check your workflow validates at Cylc 7
 
@@ -163,7 +157,7 @@ Edit your `suite.rc` and/or `site/archer2.rc` and remove the `--export=none` lin
 
 ### d. Set path to Rose/cylc libraries if needed
 
-If you have a script that uses the rose or cylc python libraries, you will need to set the path directly (since the job environment is no longer inerited). For example the `xml` task for UM-XIOS uses rose macros, so we need: 
+If you have a script that uses the rose or Cylc python libraries, you will need to set the path directly (since the job environment is no longer inerited). For example the `xml` task for UM-XIOS uses rose macros, so we need: 
 {% raw %}
 ~~~
     [[XML_RESOURCE]]
@@ -175,7 +169,7 @@ If you have a script that uses the rose or cylc python libraries, you will need 
 ~~~
 {% endraw %}
 
-**Note:** Here we are still using the old version of Rose to run the scripts. To fully upgrade, the scripts should be [updated to Python 3 and the new Rose 2 and Cylc 8 packages](https://cylc.github.io/cylc-doc/latest/html/7-to-8/major-changes/python-2-3.html). 
+**Note:** Here we are still using the old version of Rose to run the scripts. To fully upgrade, the scripts would be [updated to Python 3 and the new Rose 2 and Cylc 8 packages](https://cylc.github.io/cylc-doc/latest/html/7-to-8/major-changes/python-2-3.html). 
 
 ### e. Make sure FCM extracts from the mirror repositories
 
@@ -207,9 +201,9 @@ cylc vip
 ```
 Note that this is still using old Cylc 7 syntax and you will need to fully upgrade to Cylc 8. 
 
-## 5. Uprade to a Cylc 8 workflow 
+## 5. Upgrade to a Cylc 8 workflow 
 
-### a. Add in workflow definition
+### a. Add in the workflow definition
 
 First rename the `suite.rc` file to`flow.cylc`. 
 
@@ -304,3 +298,13 @@ Once you can run `cylc validate .` with no warnings, you are ready to try runnin
 cylc vip
 ~~~
 {% endraw %}
+
+## 6.Other potential issues 
+
+### a. Cylc variables
+
+Cylc variables starting with `CYLC_SUITE_` are now depreacted and should technically be replaced with `CYLC_WORKFLOW_` versions. As of Cylc version 8.3.4 the old variables still seem to work but they may not be equivalent (see below). 
+
+### b. Cylc variable for pptransfer
+
+If you are using pptransfer with `archive_name=$CYLC_SUITE_NAME` at Cylc 8 this will change from e.g. `u-de385` to `u-de385/run1`. It will still work but it may not be how you want to store your data on Jasmin GWS or ET. Consider changing this to `archive_name=$CYLC_WORKFLOW_NAME` which will give `u-de385`. 
