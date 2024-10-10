@@ -17,8 +17,7 @@ permalink: /cylc8/
 
 <div class="medium-8 medium-pull-4 columns" markdown="1">
 
-***Cylc 8 is available on PUMA2 and ARCHER2, but has not yet been widely used.  
-We are still testing the system, and so the software configuration is subject to change.***
+***Please note we are still testing Cylc 8 on Puma2 and Archer2, and the software configuration is subject to change.***
 
 See the links below for further information. 
 Report any issues to the helpdesk. 
