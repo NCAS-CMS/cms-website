@@ -110,6 +110,8 @@ On PUMA2 the following platforms are available:
   * ```sci_bg``` : background job on random sci machine
   * ```sci[1-8]``` : background job on specific sci machine
 
-Note that multiplexing is no longer needed to submit jobs to Jasmin. There are still some issues if a host is not available or not fully functional. We have not yet set up support for the new Jasmin servers. 
+Note that multiplexing is no longer needed to submit jobs to Jasmin. There are still some issues if a host is not available or not fully functional, due to be fixed at Cylc 8.3.5. 
+
+We are working on support for submission to the new Jasmin servers as these become available. 
 
 You can test submission to each of the platforms with the workflow u-dj398.
