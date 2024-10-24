@@ -272,7 +272,7 @@ becomes
 {% raw %}
 ~~~
     [[JASMIN]]
-        platform = sci_bg
+        platform = sci-bg
 ~~~
 {% endraw %}
 
