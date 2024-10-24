@@ -98,19 +98,19 @@ On PUMA2 the following platforms are available:
   * ```localhost``` : background job
 * ARCHER2:
   * ```archer2``` : Slurm job 
-  * ```archer2_bg``` : background on random login node
+  * ```archer2-bg``` : background on random login node
   * ```ln0[1-4]``` : background job on specific login node
 * ARCHER2 with the `cylc-run/runN/` `share/` and `work/` directories symlinked to the NVMe file system:
-  * ```archer2_nvme``` : Slurm job 
-  * ```archer2_nvme_bg``` : background on random login node
-  * ```ln0[1-4]_nvme``` : background job on specific login node 
+  * ```archer2-nvme``` : Slurm job 
+  * ```archer2-nvme-bg``` : background on random login node
+  * ```ln0[1-4]-nvme``` : background job on specific login node 
 * JASMIN:
   * ```lotus``` : Slurm job 
-  * ```sci_bg``` : background job on random sci machine
-  * ```sci[1-8]``` : background job on specific sci machine
+  * ```sci-bg``` : background job on random sci machine (old CentOS 7 servers)
+  * ```sci[1-8]``` : background job on specific sci machine (old CentOS 7 servers)
+  * ```sci-vm``` : background job on random sci machine ([new Rocky 9 servers](https://help.jasmin.ac.uk/docs/software-on-jasmin/rocky9-migration-2024/#details-of-the-new-rocky-linux-9-environment))
+  * ```sci-vm-0[1-6]``` : background job on specific sci machine (new Rocky 9 servers)
 
-Note that multiplexing is no longer needed to submit jobs to Jasmin. There are still some issues if a host is not available or not fully functional, due to be fixed at Cylc 8.3.5. 
-
-We are working on support for submission to the new Jasmin servers as these become available. 
+Note that multiplexing is no longer needed to submit jobs to Jasmin. There are still some issues if a host is not available or not fully functional, due to be fixed at Cylc 8.3.6.
 
 You can test submission to each of the platforms with the workflow u-dj398.
