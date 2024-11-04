@@ -83,7 +83,7 @@ Launch the terminal user interface to check on progress:
 cylc tui u-dj397
 ```
 
-See the [Cylc 8 cheat sheet](https://cylc.github.io/cylc-doc/stable/html/7-to-8/cheat-sheet.html) for an overview of Cylc 8 commands. 
+See the [Cylc 8 cheat sheet](https://cylc.github.io/cylc-doc/stable/html/user-guide/cheat-sheet.html) for an overview of Cylc 8 commands. 
 
 ## Further information
 
@@ -114,3 +114,34 @@ On PUMA2 the following platforms are available:
 Note that multiplexing is no longer needed to submit jobs to Jasmin. There are still some issues if a host is not available or not fully functional, due to be fixed at Cylc 8.3.6.
 
 You can test submission to each of the platforms with the workflow u-dj398.
+
+### Using the web-based UI with port-forwarding 
+
+Copying the instructions documented [here](https://cylc.discourse.group/t/unclear-on-how-cylc-8-components-work-together/787/2)
+> First open an ssh tunnel, so that a given port on your local machine (e.g. your laptop) maps to the Cylc UI Server’s port on the HPC. On your local machine, type
+> ```
+> $ ssh -N -L PORT:localhost:PORT HOST
+> ```
+> where PORT is a valid port number and HOST is on the HPC. You will need to know the range of allowed ports (e.g.1024-49151). Choose any number in this range but make sure your port number is fairly unique to avoid clashing with other users. (Note the option -N opens the connection without logging you into the shell).
+> 
+> Then ssh to the host:
+> ```
+> $ ssh HOST
+> ```
+> and add the following to $HOME/.cylc/uiserver/jupyter_config.py on the HOST.
+> ```
+> c.ServerApp.open_browser=False
+> c.ServerApp.port=PORT
+> ```
+> where PORT and HOST match the values you selected when opening the ssh tunnel.
+>
+> You’re now ready to fire up the web graphical interface
+> ```
+> $ cylc gui
+> ```
+> Just copy the URL that looks like
+> ```
+> http://127.0.0.1:PORT/cylc?token=TOKEN
+> ```
+> into your web browser. (Again substitute HOST and PORT with the values chosen above.)
+Note that each user needs a unique port number. 
