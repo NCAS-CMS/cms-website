@@ -46,10 +46,10 @@ Note that in Cylc 8 terminology "suites" have become "workflows".
 
 Cylc-8 workflows available on ARCHER2: 
 
-| Cylc 8 id | Cylc 7 id | Description | 
-| :--- | :--- | :--- |
-| u-de385 | u-cy010   | GC5-UM      |
-| u-dj397 | u-cc519 | N48 GA6 (training suite) | 
+| Cylc 8 id | Cylc 7 id | UM version | Description | 
+| :--- | :--- | :--- | :--- |
+| u-dj397 | u-cc519 | 13.0 | N48 GA6 (training suite) | 
+| u-da412/archer2 | -   | 13.5 | GC5-UM      |
 
 See the [instructions for migrating an ARCHER2 Cylc 7 suite to Cylc 8](upgrading-workflows/). 
 
