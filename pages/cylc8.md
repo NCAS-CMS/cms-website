@@ -31,9 +31,11 @@ It is a complete rewrite in Python 3 and contains many changes from Cylc 7, so w
 
 Useful links: 
 * [Cylc 8 documentation](https://cylc.github.io/cylc-doc/stable/html/index.html)
+* [Cylc 8 cheat sheet](https://cylc.github.io/cylc-doc/stable/html/user-guide/cheat-sheet.html)
+* [Cylc discourse forum](https://cylc.discourse.group/)
+  
 * [Cylc 7 to Cylc 8 migration guide](https://cylc.github.io/cylc-doc/stable/html/7-to-8/index.html)
-* [Cylc 8 cheat sheet](https://cylc.github.io/cylc-doc/stable/html/7-to-8/cheat-sheet.html)
-* [Cylc discourse forum](https://cylc.discourse.group/) 
+* [Cylc 7 to Cylc 8 cheat sheet](https://cylc.github.io/cylc-doc/stable/html/7-to-8/cheat-sheet.html)
 
 Note that in Cylc 8 terminology "suites" have become "workflows". 
 
