@@ -54,7 +54,7 @@ ARCHER2> source /work/n02/n02/ros/venvs/globus_venv/bin/activate
 
 ## Authenticate to Globus using CLI
 
-1. Login to Globus
+* Login to Globus
 
 ```
 (globus_venv) ARCHER2-23cab> globus login
@@ -92,7 +92,7 @@ Logout of the Globus CLI with
   globus logout
 ```
 
-2. Check your identity:
+* Check your identity:
 ```
 (globus_venv) ARCHER2> globus whoami
 For information on which identities are in session see
@@ -100,7 +100,7 @@ For information on which identities are in session see
 rosalyn.hatcher@ncas.ac.uk@accounts.google.com
 ```
 
-3. Check that your have both ARCHER2 and JASMIN linked identities
+* Check that your have both ARCHER2 and JASMIN linked identities
 ```
 (globus_venv) ARCHER2> globus whoami --linked-identities
 For information on which identities are in session see
@@ -112,13 +112,13 @@ rshatcher@accounts.jasmin.ac.uk
 
 ## Run CLI-based check
 
-1. Check everything is setup correctly by running a quick manual CLI-based check:
+* Check everything is setup correctly by running a quick manual CLI-based check:
 
 `(globus_venv) ARCHER2> globus ls 3e90d018-0d05-461a-bbaf-aab605283d21:/~/`
 
 Follow the instructions.
 
-2. Once consent has been given run the command again and it should then list your `$HOME` directory.
+* Once consent has been given run the command again and it should then list your `$HOME` directory.
 
 ```
 (globus_venv) ARCHER2> globus ls 3e90d018-0d05-461a-bbaf-aab605283d21:/~/
@@ -134,13 +134,13 @@ software/
 temp/
 ```
 
-3. Repeat for JASMIN endpoint
+* Repeat for JASMIN endpoint
    
 `(globus_venv) ARCHER2> globus ls a2f53b7f-1b4e-4dce-9b7c-349ae760fee0:/~/`
 
 Follow the instructions.
 
-4. Rerun `globus ls a2f53b7f-1b4e-4dce-9b7c-349ae760fee0:/~/` and it should list your JASMIN home directory.
+* Rerun `globus ls a2f53b7f-1b4e-4dce-9b7c-349ae760fee0:/~/` and it should list your JASMIN home directory.
 
 
 ## Setup link to ~/.globus directory
