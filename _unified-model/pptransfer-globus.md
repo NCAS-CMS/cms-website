@@ -29,35 +29,16 @@ Stop when you reach the section "Setting up the other end of the transfer".
 Complete steps 1-9 here:
 [Setting up JASMIN Filesystems](https://help.jasmin.ac.uk/docs/data-transfer/globus-transfers-with-jasmin/)
 
-### 3. Install Globus CLI on ARCHER2
+### 3. Load Globus
 
-**Note:** Have asked ARCHER2 if a central install of Globus CLI can be installed to save everyone having to set up their own. Alternatively, we put an environment under `umshared`.
-
-For now use Ros' globus venv.
-```
-ARCHER2> source /work/n02/n02/ros/venvs/globus_venv/bin/activate
-```
-------
-
-Installation instructions should you want to create your own, otherwise skip to next section.
-
-[Installing Globus CLI](https://docs.globus.org/cli)
-
-```
-ARCHER2> python3 -m venv $DATADIR/venvs/globus_venv
-ARCHER2> cd venvs
-ARCHER2> ls
-globus_venv/
-ARCHER2> source /work/n02/n02/ros/venvs/globus_venv/bin/activate
-(globus_venv) ARCHER2-23cab> pip install globus-cli
-```
+`ARCHER2> module load globus-cli`
 
 ### 4. Authenticate to Globus using CLI
 
 * Login to Globus
 
 ```
-(globus_venv) ARCHER2-23cab> globus login
+ARCHER2> globus login
 ```
 
 Copy and paste the resulting url into your web browser and follow the instructions.
@@ -65,7 +46,7 @@ Copy and paste the resulting url into your web browser and follow the instructio
 You should get similar to the following on successfully completion:
 
 ```
-(globus_venv) ARCHER2> globus login
+ARCHER2> globus login
 Please authenticate with Globus here:
 ------------------------------------
 https://auth.globus.org/v2/oauth2/authorize?client_id=6bc10e81-1f06-4b9d-8558-38f8df88617b&
@@ -94,7 +75,7 @@ Logout of the Globus CLI with
 
 * Check your identity:
 ```
-(globus_venv) ARCHER2> globus whoami
+ARCHER2> globus whoami
 For information on which identities are in session see
   globus session show
 rosalyn.hatcher@ncas.ac.uk@accounts.google.com
@@ -102,7 +83,7 @@ rosalyn.hatcher@ncas.ac.uk@accounts.google.com
 
 * Check that your have both ARCHER2 and JASMIN linked identities
 ```
-(globus_venv) ARCHER2> globus whoami --linked-identities
+ARCHER2> globus whoami --linked-identities
 For information on which identities are in session see
   globus session show
 rosalyn.hatcher@ncas.ac.uk@accounts.google.com
@@ -114,14 +95,14 @@ rshatcher@accounts.jasmin.ac.uk
 
 * Check everything is setup correctly by running a quick manual CLI-based check:
 
-`(globus_venv) ARCHER2> globus ls 3e90d018-0d05-461a-bbaf-aab605283d21:/~/`
+`ARCHER2> globus ls 3e90d018-0d05-461a-bbaf-aab605283d21:/~/`
 
 Follow the instructions.
 
 * Once consent has been given run the command again and it should then list your `$HOME` directory.
 
 ```
-(globus_venv) ARCHER2> globus ls 3e90d018-0d05-461a-bbaf-aab605283d21:/~/
+ARCHER2> globus ls 3e90d018-0d05-461a-bbaf-aab605283d21:/~/
 23cab/
 archer_home/
 bin/
@@ -136,7 +117,7 @@ temp/
 
 * Repeat for JASMIN endpoint
    
-`(globus_venv) ARCHER2> globus ls a2f53b7f-1b4e-4dce-9b7c-349ae760fee0:/~/`
+`ARCHER2> globus ls a2f53b7f-1b4e-4dce-9b7c-349ae760fee0:/~/`
 
 Follow the instructions.
 
