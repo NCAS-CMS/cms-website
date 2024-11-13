@@ -18,18 +18,18 @@ JASMIN from ARCHER2 `/work` disk.
 
 Further information on Globus, including how to setup up one-off data transfers can be found here: https://docs.globus.org/
 
-### Setting up Globus for ARCHER2
+### 1. Setting up Globus for ARCHER2
 
 [Setting up ARCHER2 Filesystems](https://docs.archer2.ac.uk/data-tools/globus/#setting-up-archer2-filesystems)
 
 Stop when you reach the section "Setting up the other end of the transfer".
 
-### Setting up Globus for JASMIN
+### 2. Setting up Globus for JASMIN
 
 Complete steps 1-9 here:
 [Setting up JASMIN Filesystems](https://help.jasmin.ac.uk/docs/data-transfer/globus-transfers-with-jasmin/)
 
-### Install Globus CLI on ARCHER2
+### 3. Install Globus CLI on ARCHER2
 
 **Note:** Have asked ARCHER2 if a central install of Globus CLI can be installed to save everyone having to set up their own. Alternatively, we put an environment under `umshared`.
 
@@ -52,7 +52,7 @@ ARCHER2> source /work/n02/n02/ros/venvs/globus_venv/bin/activate
 (globus_venv) ARCHER2-23cab> pip install globus-cli
 ```
 
-### Authenticate to Globus using CLI
+### 4. Authenticate to Globus using CLI
 
 * Login to Globus
 
@@ -110,7 +110,7 @@ ros@safe.archer2.ac.uk
 rshatcher@accounts.jasmin.ac.uk
 ```
 
-## Run CLI-based check
+## 5. Run CLI-based check
 
 * Check everything is setup correctly by running a quick manual CLI-based check:
 
@@ -143,7 +143,7 @@ Follow the instructions.
 * Rerun `globus ls a2f53b7f-1b4e-4dce-9b7c-349ae760fee0:/~/` and it should list your JASMIN home directory.
 
 
-## Setup link to ~/.globus directory
+## 6. Link .globus directory
 
 ```
 ARCHER2> cd /work/n02/n02/<archer2_username>
