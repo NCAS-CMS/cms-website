@@ -31,14 +31,29 @@ Complete steps 1-9 here:
 
 ## Install Globus CLI on ARCHER2
 
+**Note:** Have asked ARCHER2 if a central install of Globus CLI can be installed to save everyone having to set up their own. Alternatively, we put an environment under `umshared`.
+
+For now use Ros' globus venv.
+
+ARCHER2> source /work/n02/n02/ros/venvs/globus_venv/bin/activate
+
+------
+
+Installation instructions should you want to create your own, otherwise skip to next section.
+
 [Installing Globus CLI](https://docs.globus.org/cli)
 
-**Note:** Have asked ARCHER2 if a central install of Globus CLI can be installed to save everyone having to do this.
-Alternatively, we could put an installation under `umshared` I suppose.
+```
+ARCHER2> python3 -m venv $DATADIR/venvs/globus_venv
+ARCHER2> cd venvs
+ARCHER2> ls
+globus_venv/
+ARCHER2> source /work/n02/n02/ros/venvs/globus_venv/bin/activate
+(globus_venv) ARCHER2-23cab> pip install globus-cli
+```
 
 ## Authenticate to Globus using CLI
 ```
-ARCHER2> source  /work/n02/n02/ros/venvs/globus_venv/bin/activate
 (globus_venv) ARCHER2-23cab> globus login
 ```
 
