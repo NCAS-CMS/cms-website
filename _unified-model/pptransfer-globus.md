@@ -110,7 +110,7 @@ ros@safe.archer2.ac.uk
 rshatcher@accounts.jasmin.ac.uk
 ```
 
-## 5. Run CLI-based check
+### 5. Run CLI-based check
 
 * Check everything is setup correctly by running a quick manual CLI-based check:
 
@@ -143,7 +143,7 @@ Follow the instructions.
 * Rerun `globus ls a2f53b7f-1b4e-4dce-9b7c-349ae760fee0:/~/` and it should list your JASMIN home directory.
 
 
-## 6. Link .globus directory
+### 6. Link .globus directory
 
 ```
 ARCHER2> cd /work/n02/n02/<archer2_username>
