@@ -30,9 +30,11 @@ Further information on Globus, including how to setup up one-off data transfers 
 ### 3. Authenticate to Globus using CLI
 
 * Load Globus module
-  
-  `ARCHER2> module load globus-cli`
 
+  ```
+  ARCHER2> module load globus-cli
+  ```
+  
 * Login to Globus
 
   ```
@@ -125,6 +127,7 @@ Further information on Globus, including how to setup up one-off data transfers 
 ### 6. Link .globus directory
 
 * Setup a symlink to your `.globus` directory
+  
   ```
   ARCHER2> cd /work/n02/n02/<archer2_username>
   ARCHER2> ln -s ~/.globus .globus
