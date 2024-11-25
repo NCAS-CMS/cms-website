@@ -8,13 +8,11 @@ breadcrumb: true
 JASMIN will be retiring the current gridftp server (gridftp1.jasmin.ac.uk) in December 2024.
 This means that everyone will need to use [Globus](https://docs.globus.org/) for data transfers between ARCHER2 and JASMIN.
 
-There is some initial setup to do, including authenticating to the ARCHER2 and JASMIN Globus endpoints.  As with gridftp
+There is some initial setup to do, including authenticating to the ARCHER2 and JASMIN Globus endpoints (collections).  As with gridftp
 authentication certificates are only valid for 30 days.  This means you will need to manually re-authenticate every 30 days
 to allow transfers to continue.
 
-The following instructions show how to setup Globus, authenticate to ARCHER2 and JASMIN endpoints, and modify a suite to 
-run the `pptransfer` task on the ARCHER2 serial nodes to push the data across to 
-JASMIN from ARCHER2 `/work` disk. 
+The following instructions show how to register for and setup Globus, as well as authenticate to the ARCHER2 and JASMIN endpoints.
 
 Further information on Globus, including how to setup up one-off data transfers can be found here: https://docs.globus.org/
 
@@ -29,21 +27,21 @@ Stop when you reach the section "Setting up the other end of the transfer".
 Complete steps 1-9 here:
 [Setting up JASMIN Filesystems](https://help.jasmin.ac.uk/docs/data-transfer/globus-transfers-with-jasmin/)
 
-### 3. Load Globus
+### 3. Authenticate to Globus using CLI
 
-`ARCHER2> module load globus-cli`
-
-### 4. Authenticate to Globus using CLI
+* Load Globus module
+  
+  `ARCHER2> module load globus-cli`
 
 * Login to Globus
 
-```
-ARCHER2> globus login
-```
+  ```
+  ARCHER2> globus login
+  ```
 
-Copy and paste the resulting url into your web browser and follow the instructions.
+  Copy and paste the resulting url into your web browser and follow the instructions.
 
-You should get similar to the following on successfully completion:
+  You should get similar to the following on successfully completion:
 
 ```
 ARCHER2> globus login
@@ -74,30 +72,30 @@ Logout of the Globus CLI with
 ```
 
 * Check your identity:
-```
-ARCHER2> globus whoami
-For information on which identities are in session see
-  globus session show
-rosalyn.hatcher@ncas.ac.uk@accounts.google.com
-```
+  ```
+  ARCHER2> globus whoami
+  For information on which identities are in session see
+    globus session show
+  rosalyn.hatcher@ncas.ac.uk@accounts.google.com
+  ```
 
 * Check that your have both ARCHER2 and JASMIN linked identities
-```
-ARCHER2> globus whoami --linked-identities
-For information on which identities are in session see
-  globus session show
-rosalyn.hatcher@ncas.ac.uk@accounts.google.com
-ros@safe.archer2.ac.uk
-rshatcher@accounts.jasmin.ac.uk
-```
+  ```
+  ARCHER2> globus whoami --linked-identities
+  For information on which identities are in session see
+    globus session show
+  rosalyn.hatcher@ncas.ac.uk@accounts.google.com
+  ros@safe.archer2.ac.uk
+  rshatcher@accounts.jasmin.ac.uk
+  ```
 
 ### 5. Run CLI-based check
 
 * Check everything is setup correctly by running a quick manual CLI-based check:
 
-`ARCHER2> globus ls 3e90d018-0d05-461a-bbaf-aab605283d21:/~/`
+  `ARCHER2> globus ls 3e90d018-0d05-461a-bbaf-aab605283d21:/~/`
 
-Follow the instructions.
+  Follow the instructions.
 
 * Once consent has been given run the command again and it should then list your `$HOME` directory.
 
@@ -117,9 +115,9 @@ temp/
 
 * Repeat for JASMIN endpoint
    
-`ARCHER2> globus ls a2f53b7f-1b4e-4dce-9b7c-349ae760fee0:/~/`
+  `ARCHER2> globus ls a2f53b7f-1b4e-4dce-9b7c-349ae760fee0:/~/`
 
-Follow the instructions.
+  Follow the instructions.
 
 * Rerun `globus ls a2f53b7f-1b4e-4dce-9b7c-349ae760fee0:/~/` and it should list your JASMIN home directory.
 
@@ -131,7 +129,7 @@ ARCHER2> cd /work/n02/n02/<archer2_username>
 ARCHER2> ln -s ~/.globus .globus
 ```
 
-You should now be setup to use Globus through a UM workflow, if you're lucky!!! 
+You should now be setup to use Globus through a UM workflow.
 
 
 
