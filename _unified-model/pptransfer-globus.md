@@ -18,14 +18,14 @@ Further information on Globus, including how to setup up one-off data transfers 
 
 ### 1. Setting up Globus for ARCHER2
 
-[Setting up ARCHER2 Filesystems](https://docs.archer2.ac.uk/data-tools/globus/#setting-up-archer2-filesystems)
+* [Setting up ARCHER2 Filesystems](https://docs.archer2.ac.uk/data-tools/globus/#setting-up-archer2-filesystems)
 
-Stop when you reach the section "Setting up the other end of the transfer".
+  Stop when you reach the section "Setting up the other end of the transfer".
 
 ### 2. Setting up Globus for JASMIN
 
-Complete steps 1-9 here:
-[Setting up JASMIN Filesystems](https://help.jasmin.ac.uk/docs/data-transfer/globus-transfers-with-jasmin/)
+* Complete steps 1-9 here:  
+  [Setting up JASMIN Filesystems](https://help.jasmin.ac.uk/docs/data-transfer/globus-transfers-with-jasmin/)
 
 ### 3. Authenticate to Globus using CLI
 
@@ -124,6 +124,7 @@ Complete steps 1-9 here:
 
 ### 6. Link .globus directory
 
+* Setup a symlink to your `.globus` directory
   ```
   ARCHER2> cd /work/n02/n02/<archer2_username>
   ARCHER2> ln -s ~/.globus .globus
