@@ -43,33 +43,33 @@ Complete steps 1-9 here:
 
   You should get similar to the following on successfully completion:
 
-```
-ARCHER2> globus login
-Please authenticate with Globus here:
-------------------------------------
-https://auth.globus.org/v2/oauth2/authorize?client_id=6bc10e81-1f06-4b9d-8558-38f8df88617b&
-redirect_uri=https%3A%2F%2Fauth.globus.org%2Fv2%2Fweb%2Fauth-code&scope=openid+profile+
-email+urn%3Aglobus%3Aauth%3Ascope%3Aauth.globus.org%3Aview_identity_set+urn%3Aglobus%3Aauth%
-3Ascope%3Atransfer.api.globus.org%3Aall+urn%3Aglobus%3Aauth%3Ascope%3Agroups.api.globus.org%3
-Aall+urn%3Aglobus%3Aauth%3Ascope%3Asearch.api.globus.org%3Aall+https%3A%2F%2Fauth.globus.org%2F
-scopes%2F524230d7-ea86-4a52-8312-86065a9e0417%2Ftimer%5Bhttps%3A%2F%2Fauth.globus.org%2Fscopes%2F
-actions.globus.org%2Ftransfer%2Ftransfer%5Burn%3Aglobus%3Aauth%3Ascope%3Atransfer.api.globus.org%3A
-all%5D%5D+https%3A%2F%2Fauth.globus.org%2Fscopes%2Feec9b274-0c81-4334-bdc2-54e90e689b9a%2F
-manage_flows+https%3A%2F%2Fauth.globus.org%2Fscopes%2Feec9b274-0c81-4334-bdc2-54e90e689b9a%2F
-view_flows+https%3A%2F%2Fauth.globus.org%2Fscopes%2Feec9b274-0c81-4334-bdc2-54e90e689b9a%2F
-run+https%3A%2F%2Fauth.globus.org%2Fscopes%2Feec9b274-0c81-4334-bdc2-54e90e689b9a%2F
-run_status+https%3A%2F%2Fauth.globus.org%2Fscopes%2Feec9b274-0c81-4334-bdc2-54e90e689b9a%2F
-run_manage&state=_default&response_type=code&access_type=offline&prompt=login
-------------------------------------
-Enter the resulting Authorization Code here: eDVZym2YOuz7zONxF5UB3g0IhiStk4
-You have successfully logged in to the Globus CLI!
-You can check your primary identity with
-  globus whoami
-For information on which of your identities are in session use
-  globus session show
-Logout of the Globus CLI with
-  globus logout
-```
+  ```
+  ARCHER2> globus login
+  Please authenticate with Globus here:
+  ------------------------------------
+  https://auth.globus.org/v2/oauth2/authorize?client_id=6bc10e81-1f06-4b9d-8558-38f8df88617b&
+  redirect_uri=https%3A%2F%2Fauth.globus.org%2Fv2%2Fweb%2Fauth-code&scope=openid+profile+
+  email+urn%3Aglobus%3Aauth%3Ascope%3Aauth.globus.org%3Aview_identity_set+urn%3Aglobus%3Aauth%
+  3Ascope%3Atransfer.api.globus.org%3Aall+urn%3Aglobus%3Aauth%3Ascope%3Agroups.api.globus.org%3
+  Aall+urn%3Aglobus%3Aauth%3Ascope%3Asearch.api.globus.org%3Aall+https%3A%2F%2Fauth.globus.org%2F
+  scopes%2F524230d7-ea86-4a52-8312-86065a9e0417%2Ftimer%5Bhttps%3A%2F%2Fauth.globus.org%2Fscopes%2F
+  actions.globus.org%2Ftransfer%2Ftransfer%5Burn%3Aglobus%3Aauth%3Ascope%3Atransfer.api.globus.org%3A
+  all%5D%5D+https%3A%2F%2Fauth.globus.org%2Fscopes%2Feec9b274-0c81-4334-bdc2-54e90e689b9a%2F
+  manage_flows+https%3A%2F%2Fauth.globus.org%2Fscopes%2Feec9b274-0c81-4334-bdc2-54e90e689b9a%2F
+  view_flows+https%3A%2F%2Fauth.globus.org%2Fscopes%2Feec9b274-0c81-4334-bdc2-54e90e689b9a%2F
+  run+https%3A%2F%2Fauth.globus.org%2Fscopes%2Feec9b274-0c81-4334-bdc2-54e90e689b9a%2F
+  run_status+https%3A%2F%2Fauth.globus.org%2Fscopes%2Feec9b274-0c81-4334-bdc2-54e90e689b9a%2F
+  run_manage&state=_default&response_type=code&access_type=offline&prompt=login
+  ------------------------------------
+  Enter the resulting Authorization Code here: eDVZym2YOuz7zONxF5UB3g0IhiStk4
+  You have successfully logged in to the Globus CLI!
+  You can check your primary identity with
+    globus whoami
+  For information on which of your identities are in session use
+    globus session show
+  Logout of the Globus CLI with
+    globus logout
+  ```
 
 * Check your identity:
   ```
@@ -99,19 +99,19 @@ Logout of the Globus CLI with
 
 * Once consent has been given run the command again and it should then list your `$HOME` directory.
 
-```
-ARCHER2> globus ls 3e90d018-0d05-461a-bbaf-aab605283d21:/~/
-23cab/
-archer_home/
-bin/
-cylc-run/
-cylc-suites/
-hpc-portal-backup/
-output/
-scripts/
-software/
-temp/
-```
+  ```
+  ARCHER2> globus ls 3e90d018-0d05-461a-bbaf-aab605283d21:/~/
+  23cab/
+  archer_home/
+  bin/
+  cylc-run/
+  cylc-suites/
+  hpc-portal-backup/
+  output/
+  scripts/
+  software/
+  temp/
+  ```
 
 * Repeat for JASMIN endpoint
    
@@ -124,10 +124,10 @@ temp/
 
 ### 6. Link .globus directory
 
-```
-ARCHER2> cd /work/n02/n02/<archer2_username>
-ARCHER2> ln -s ~/.globus .globus
-```
+  ```
+  ARCHER2> cd /work/n02/n02/<archer2_username>
+  ARCHER2> ln -s ~/.globus .globus
+  ```
 
 You should now be setup to use Globus through a UM workflow.
 
