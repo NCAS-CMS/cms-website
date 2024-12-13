@@ -180,13 +180,17 @@ If you have a script that uses the rose or Cylc python libraries, you will need 
 ### f. Change rose date to isodatetime
 
 Instances of `rose date` may need to be replaced with the [`isodatetime` command](https://cylc.github.io/cylc-doc/stable/html/7-to-8/cheat-sheet.html#datetime-operations). For example, 
-```
+{% raw %}
+~~~
 {% set ROSEDATE = "rose date -c --calendar=" + CALENDAR %}
-```
+~~~
+{% endraw %}
 should become: 
-```
+{% raw %}
+~~~
 {% set ROSEDATE = "isodatetime --calendar=" + CALENDAR %}
-```
+~~~
+{% endraw %}
 
 **Note** The `rose date` command will work on puma2, but it won't work in a task script run on Archer2. So you may not need to change all instances. 
 
