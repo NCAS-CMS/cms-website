@@ -108,12 +108,13 @@ On PUMA2 the following platforms are available:
   * ```ln0[1-4]-nvme``` : background job on specific login node 
 * JASMIN:
   * ```lotus``` : Slurm job 
-  * ```sci-bg``` : background job on random sci machine (old CentOS 7 servers)
-  * ```sci[1-8]``` : background job on specific sci machine (old CentOS 7 servers)
-  * ```sci-vm``` : background job on random sci machine ([new Rocky 9 servers](https://help.jasmin.ac.uk/docs/software-on-jasmin/rocky9-migration-2024/#details-of-the-new-rocky-linux-9-environment))
-  * ```sci-vm-0[1-6]``` : background job on specific sci machine (new Rocky 9 servers)
+  * ```sci-vm``` : background job on random [scientific analysis server](https://help.jasmin.ac.uk/docs/interactive-computing/sci-servers/)
+  * ```sci-vm-0[1-6]``` : background job on specific sci server
 
-Note that multiplexing is no longer needed to submit jobs to Jasmin. There are still some issues if a host is not available or not fully functional, due to be fixed at Cylc 8.3.6.
+Jasmin notes: 
+* Multiplexing is no longer needed to submit jobs to Jasmin. 
+* You will need to configure your ssh config file to be able to access the sci servers from puma2. 
+* You should not need to set the cylc path in your Jasmin `.bash_profile` or equivalent (not tested). 
 
 You can test submission to each of the platforms with the workflow u-dj398.
 
