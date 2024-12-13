@@ -155,7 +155,13 @@ The `--export=none` flag should be removed from the ARCHER2 slurm headers.
 
 Edit your `suite.rc` and/or `site/archer2.rc` and remove the `--export=none` line. It will probably be under `[[HPC]] [[[directives]]]`.
 
-### d. Set path to Rose/cylc libraries if needed
+### d. Make sure FCM extracts from the mirror repositories
+
+In each of your `fcm_make_*` apps, check that any references to e.g. `fcm:moci.x` are changed to `fcm:moci.xm`.
+
+**Information:** Since Cylc 8 job scripts run under a new subshell, gpg agent will not be available to the fcm make extract tasks, therefore we need to use the MOSRS mirror repositiories on PUMA2. 
+
+### e. Set path to Rose/cylc libraries if needed
 
 If you have a script that uses the rose or Cylc python libraries, you will need to set the path directly (since the job environment is no longer inerited). For example the `xml` task for UM-XIOS uses rose macros, so we need: 
 {% raw %}
@@ -171,11 +177,19 @@ If you have a script that uses the rose or Cylc python libraries, you will need 
 
 **Note:** Here we are still using the old version of Rose to run the scripts. To fully upgrade, the scripts would be [updated to Python 3 and the new Rose 2 and Cylc 8 packages](https://cylc.github.io/cylc-doc/latest/html/7-to-8/major-changes/python-2-3.html). 
 
-### e. Make sure FCM extracts from the mirror repositories
+### f. Change rose date to isodatetime
 
-In each of your `fcm_make_*` apps, check that any references to e.g. `fcm:moci.x` are changed to `fcm:moci.xm`.
+Instances of `rose date` may need to be replaced with the [`isodatetime` command](https://cylc.github.io/cylc-doc/stable/html/7-to-8/cheat-sheet.html#datetime-operations). For example, 
+```
+{% set ROSEDATE = "rose date -c --calendar=" + CALENDAR %}
+```
+should become: 
+```
+{% set ROSEDATE = "isodatetime --calendar=" + CALENDAR %}
+```
 
-**Information:** Since Cylc 8 job scripts run under a new subshell, gpg agent will not be available to the fcm make extract tasks, therefore we need to use the MOSRS mirror repositiories on PUMA2. 
+**Note** The `rose date` command will work on puma2, but it won't work in a task script run on Archer2. So you may not need to change all instances. 
+
 
 ## 4. Check Cylc 7 compatibility mode
 
