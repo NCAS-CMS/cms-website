@@ -132,7 +132,16 @@ Further information on Globus, including how to setup up one-off data transfers 
   ARCHER2> cd /work/n02/n02/<archer2_username>
   ARCHER2> ln -s ~/.globus .globus
   ```
+* Check that the symlink has been setup correctly.  You should see similar to the following with your username in place of `ros` below:
 
+  ```
+  ARCHER2-23cab> pwd
+  /work/n02/n02/ros
+  ARCHER2> ls -ld .globus
+  lrwxrwxrwx 1 ros n02 25 Aug 20 16:37 .globus -> /home/n02/n02/ros/.globus/
+  ```
+  If the symlink has not been created properly, please delete the `/work/n02/n02/<archer2_username>/.globus` directory and then redo the symlink command above.
+  
 You should now be setup to use Globus through a UM workflow.
 
 
