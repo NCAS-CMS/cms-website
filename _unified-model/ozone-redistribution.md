@@ -65,8 +65,8 @@ so that the redistribution can be done before the start of the simulation.
 
 ### 1. Upgrade postproc
 
-Make sure postproc is using [version 2.4](/unified-model/postproc). 
-If necessary set up [JASMIN transfer](/unified_model/pptransfer-globus).
+Make sure [postproc](/unified-model/postproc) is using version 2.4. 
+If necessary set up [JASMIN transfer](/unified-model/pptransfer-globus).
 Test that postproc works correctly, then proceed to the next step.
 
 ### 2. Checkout the refrence suite.
