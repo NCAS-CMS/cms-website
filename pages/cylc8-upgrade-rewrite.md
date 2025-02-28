@@ -1,4 +1,190 @@
 ---
+layout: page-fullwidth
+title: Upgrading to Cylc 8
+teaser: Instructions for upgrading an ARCHER2 workflow from Cylc 7 to Cylc 8. 
+permalink: /cylc8/upgrading-workflows/
+---
+
+<div class="row">
+<div class="medium-4 medium-push-8 columns" markdown="1">
+<div class="panel radius" markdown="1">
+**Table of Contents**
+{: #toc }
+*  TOC
+{:toc}
+</div><!-- /.panel -->
+</div><!-- /.medium-4 -->
+
+<div class="medium-8 medium-pull-4 columns" markdown="1">
+
+***We are still in the process of testing Cylc 8 on PUMA2 and ARCHER2. These instructions are under development.*** 
+
+These instructions assume you have followed the standard PUMA2 setup instructions, 
+and that the workflow you are upgrading runs correctly under Cylc 7 on ARCHER2. 
+
+Please also refer to the [Cylc 8 migration guide](https://cylc.github.io/cylc-doc/stable/html/7-to-8/index.html) and the instructions for running [Cylc 8 on PUMA2](/cylc8/).  
+
+## Overview
+
+This guide lists the steps required to upgrade a workflow from Cylc 7 to Cylc 8 on the PUMA2-ARCHER2 platfom. 
+It outlines the steps required to update to Cylc 8 syntax and details the platform-specific changes required. 
+You may not need to make all these changes to your workflow, but do check all of the points listed here.
+
+**Information:** Cylc 8 has a [compatibility mode](https://cylc.github.io/cylc-doc/stable/html/7-to-8/major-changes/compatibility-mode.html#cylc-7-compat-mode) that allows you to run an existing Cylc 7 workflow without fully upgrading. 
+Given that on PUMA2-ARCHER2 there are still several changes required to run even in compatability mode, 
+we recommend fully upgrading to Cylc 8 to avoid confusion.
+
+As ever, we can't cover all eventualities so your workflow may required additional changes. 
+Get in touch with the [CMS helpdesk](https://cms-helpdesk.ncas.ac.uk/) if you need further advice.
+
+## 1. Check your PUMA2/ARCHER2 setup 
+
+### a. Check your ssh setup 
+
+It is important that you have the `ssh-setup` script sourced in your `.bash_profile` and not `.bashrc` or any other file. 
+
+**Information**: Cylc 8 job scripts are now launched in a new subshell and this only loads `.bash_profile` by default.
+We need to make sure the `ssh-setup` script is run so that any `fcm_make` tasks can mirror code to ARCHER2.
+
+In your `~/.bash_profile` you should have the following: 
+```
+# Ensure persistent ssh-agent
+. $HOME/.ssh/ssh-setup
+```
+
+</div><!-- /.medium-8.columns -->
+</div><!-- /.row -->
+
+### b. Check any user-specific settings
+
+Make sure your `.bash_profile` on ARCHER2 has the following line: 
+```
+. /work/y07/shared/umshared/bin/rose-um-env-puma2
+```
+Check that this is the **puma2** version and not `rose-um-env-puma`. Also check any other files such as `.profile` or `.bashrc`. 
+
+If you have any user configuration files for Rose or FCM on PUMA2 or ARCHER2, these may cause incompatibilies at Cylc 8. Rose and FCM configurations are under `~/.metomi`. 
+
+## 2. Check your workflow validates at Cylc 7
+
+Cylc 7 supports some depracted syntax so you will need to upgrade this before moving to Cylc 8. 
+
+Navigate to the `roses` suite directory and run the following: 
+```
+export CYLC_VERSION=7
+rose suite-run --validate 
+```
+
+If any warning messages appear, follow the instructions until your suite is fully Cylc 7 compliant.
+
+## 3. Make Cylc 8 changes 
+
+### a. Add in the workflow definition
+
+First rename the `suite.rc` file to`flow.cylc`. 
+
+Then at the top of the `rose suite.conf` file, replace the line: 
+{% raw %}
+~~~
+[jinja2:suite.rc]
+~~~
+{% endraw %}
+with 
+{% raw %}
+~~~
+[template variables]
+~~~
+{% endraw %}
+
+### b. Update metadata 
+
+
+### c. Remove any instances of `[runtime][task][remote]owner`
+
+Cylc 8 no longer supports remote usernames in the workflow definition. 
+
+**Information:** See [here](https://cylc.github.io/cylc-doc/stable/html/7-to-8/major-changes/remote-owner.html) for the details of this change. Remote user names should instead be set in your `.ssh/config` file. 
+If you followed the PUMA2 setup instructions, this should already be setup correctly for ARCHER2 and JASMIN. 
+
+Check your `suite.rc` and/or `site/archer2.rc` file and remove any lines like this: 
+{% raw %}
+~~~
+          owner = {{ARCHER2_USERNAME}}
+~~~
+{% endraw %}
+
+### d. Switch to platforms 
+
+Each task or family that defines a `host` and/or `batch system` should be replaced by a [platform](https://cylc.github.io/cylc-doc/stable/html/reference/config/writing-platform-configs.html#adminguide-platformconfigs). These might be set in the `suite.rc` file or the `site/archer2.rc` file (or both). For example: 
+
+* i. localhost
+{% raw %}
+~~~
+    [[NCAS_NOT_SUPPORTED]]
+        [[[job]]]
+            batch system = background
+~~~
+{% endraw %}
+becomes
+{% raw %}
+~~~
+    [[NCAS_NOT_SUPPORTED]]
+        platform = localhost
+~~~
+{% endraw %}
+
+* ii. ARCHER2 slurm 
+{% raw %}
+~~~
+    [[HPC]]
+        [[[remote]]]
+            host = $(rose host-select archer2)
+        [[[job]]]
+            batch system = slurm 
+~~~
+{% endraw %}
+becomes
+{% raw %}
+~~~
+    [[HPC]]
+        platform = archer2
+~~~
+{% endraw %}
+
+* iii Jasmin sci node background
+{% raw %}
+~~~
+    [[JASMIN]]
+        [[[remote]]]
+            host = sci2.jasmin.ac.uk
+        [[[job]]]
+            batch system = background
+~~~
+{% endraw %}
+becomes
+{% raw %}
+~~~
+    [[JASMIN]]
+        platform = sci-bg
+~~~
+{% endraw %}
+
+The platforms should be selected from the [list of supported platform for PUMA2](https://cms.ncas.ac.uk/cylc8/#platforms). 
+
+### e. Update to Cylc 8 syntax 
+
+Then run:
+{% raw %}
+~~~
+export CYLC_VERSION=8
+cylc validate .
+~~~
+{% endraw %}
+This produces a list of warnings which describe the remaining syntax changes required to upgrade to Cylc 8. 
+
+For more details refer to the https://cylc.github.io/cylc-doc/stable/html/7-to-8/summary.html#upgrading-to-cylc-8
+
+Make changes until `cylc validate .` gives no further warnings. 
 
 ## 4. PUMA2/ARCHER2 specific changes 
 
@@ -85,7 +271,7 @@ If you have a script that uses the rose or Cylc python libraries, you will need 
 
 ### e. Change rose date to isodatetime
 
-Instances of `rose date` may need to be  replaced with the [`isodatetime` command](https://cylc.github.io/cylc-doc/stable/html/7-to-8/cheat-sheet.html#datetime-operations). For example, 
+Instances of `rose date` may need to be replaced with the [`isodatetime` command](https://cylc.github.io/cylc-doc/stable/html/7-to-8/cheat-sheet.html#datetime-operations). For example, 
 {% raw %}
 ~~~
 {% set ROSEDATE = "rose date -c --calendar=" + CALENDAR %}
