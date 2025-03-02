@@ -103,7 +103,7 @@ There may be sub-directories under `meta/` which will also need to be updated.
 
 Cylc 8 no longer supports remote usernames in the workflow definition. 
 
-Check your `suite.rc` and/or `site/archer2.rc` file and remove any lines like this: 
+Check your `flow.cylc` and/or `site/archer2.rc` file and remove any lines like this: 
 {% raw %}
 ~~~
           owner = {{ARCHER2_USERNAME}}
@@ -115,7 +115,7 @@ If you followed the PUMA2 setup instructions, this should already be setup corre
 
 ### d. Switch to platforms 
 
-Each task or family that defines a `host` and/or `batch system` should be replaced by a [platform](https://cylc.github.io/cylc-doc/stable/html/reference/config/writing-platform-configs.html#adminguide-platformconfigs). These might be set in the `suite.rc` file or the `site/archer2.rc` file (or both). 
+Each task or family that defines a `host` and/or `batch system` should be replaced by a [platform](https://cylc.github.io/cylc-doc/stable/html/reference/config/writing-platform-configs.html#adminguide-platformconfigs). These might be set in the `flow.cylc` file or the `site/archer2.rc` file (or both). 
 
 The platforms should be selected from the [list of supported platform for PUMA2](https://cms.ncas.ac.uk/cylc8/#platforms).
 You can also check what platforms are available by running the command `cylc config --platforms`
