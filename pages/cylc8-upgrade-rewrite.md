@@ -122,6 +122,11 @@ You can also check what platforms are available by running the command `cylc con
 
 Some examples: 
 
+| Header 1 | Header 2 |
+| -------- | -------- | 
+| {% raw %}~~~Test~~~{% endraw %} | |
+
+
 * i. localhost
 {% raw %}
 ~~~
