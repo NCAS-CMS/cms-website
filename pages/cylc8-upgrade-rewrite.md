@@ -122,19 +122,22 @@ You can also check what platforms are available by running the command `cylc con
 
 Some examples: 
 <table>
-<tr><th>Cylc 7</th><th>Cylc 8</th></tr>	
+<tr>
+<th>Cylc 7</th>
+<th>Cylc 8</th>
+</tr>
 <tr> 
 <td><pre>
     [[LINUX]]
         [[[job]]]
             batch system = background
 </pre></td>
-<tr></tr>
 <td><pre>
     [[LINUX]]
         platform = localhost
 </pre></td>
 </tr>
+<tr></tr>
 <tr> 
 <td><pre>
     [[HPC]]
