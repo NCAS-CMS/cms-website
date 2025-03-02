@@ -35,7 +35,7 @@ we recommend fully upgrading to Cylc 8.
 We can't cover all cases so your workflow may required additional changes. 
 Get in touch with the [CMS helpdesk](https://cms-helpdesk.ncas.ac.uk/) if you need further advice.
 
-## 1. Check your PUMA2/ARCHER2 setup 
+## 1. Check your PUMA2-ARCHER2 setup 
 
 ### a. Check your ssh setup 
 
