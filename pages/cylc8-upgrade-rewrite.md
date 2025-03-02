@@ -30,7 +30,7 @@ You may not need to make all these changes to your workflow, but do check all of
 
 **Information:** Cylc 8 has a [compatibility mode](https://cylc.github.io/cylc-doc/stable/html/7-to-8/major-changes/compatibility-mode.html#cylc-7-compat-mode) that allows you to run an existing Cylc 7 workflow without fully upgrading. 
 Given that on PUMA2-ARCHER2 several changes are required even in compatability mode, 
-we recommend fully upgrading to Cylc 8 to avoid confusion.
+we recommend fully upgrading to Cylc 8.
 
 We can't cover all cases so your workflow may required additional changes. 
 Get in touch with the [CMS helpdesk](https://cms-helpdesk.ncas.ac.uk/) if you need further advice.
