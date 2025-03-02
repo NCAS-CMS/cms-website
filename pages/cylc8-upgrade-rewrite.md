@@ -82,9 +82,17 @@ If any warning messages appear, follow the instructions until your suite is full
 First rename the `suite.rc` file to`flow.cylc`. 
 
 Then at the top of the `rose suite.conf` file, replace this line: 
-<pre>[jinja2:suite.rc]</pre>
-with 
-<pre>[template variables]</pre>
+{% raw %}
+~~~
+[jinja2:suite.rc]
+~~~
+{% endraw %}
+with
+{% raw %}
+~~~
+[template variables]
+~~~
+{% endraw %}
 
 ### b. Update the metadata
 
@@ -126,59 +134,33 @@ Some examples:
         platform = localhost
 </pre></td>
 </tr>
-</table>
-
-* i. localhost
-{% raw %}
-~~~
-    [[NCAS_NOT_SUPPORTED]]
-        [[[job]]]
-            batch system = background
-~~~
-{% endraw %}
-becomes
-{% raw %}
-~~~
-    [[NCAS_NOT_SUPPORTED]]
-        platform = localhost
-~~~
-{% endraw %}
-
-* ii. ARCHER2 slurm 
-{% raw %}
-~~~
+<tr> 
+<td><pre>
     [[HPC]]
         [[[remote]]]
             host = $(rose host-select archer2)
         [[[job]]]
-            batch system = slurm 
-~~~
-{% endraw %}
-becomes
-{% raw %}
-~~~
+            batch system = slurm
+</pre></td>
+<td><pre>
     [[HPC]]
         platform = archer2
-~~~
-{% endraw %}
-
-* iii Jasmin sci machine background
-{% raw %}
-~~~
+</pre></td>
+</tr>
+<tr> 
+<td><pre>
     [[JASMIN]]
         [[[remote]]]
             host = sci3.jasmin.ac.uk
         [[[job]]]
             batch system = background
-~~~
-{% endraw %}
-becomes
-{% raw %}
-~~~
+</pre></td>
+<td><pre>
     [[JASMIN]]
         platform = sci-vm
-~~~
-{% endraw %}
+</pre></td>
+</tr>
+</table>
 
 **Information:** The [Jasmin updates](https://help.jasmin.ac.uk/docs/software-on-jasmin/rocky9-migration-2024/) mean that most of the old sci nodes have been retired and the sci-vm servers should be used with Cylc 8. 
 
