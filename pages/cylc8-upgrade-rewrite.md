@@ -129,6 +129,7 @@ Some examples:
         [[[job]]]
             batch system = background
 </pre></td>
+<tr></tr>
 <td><pre>
     [[LINUX]]
         platform = localhost
@@ -147,6 +148,7 @@ Some examples:
         platform = archer2
 </pre></td>
 </tr>
+<tr></tr>
 <tr> 
 <td><pre>
     [[JASMIN]]
