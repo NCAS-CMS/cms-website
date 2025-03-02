@@ -81,22 +81,14 @@ If any warning messages appear, follow the instructions until your suite is full
 
 First rename the `suite.rc` file to`flow.cylc`. 
 
-Then at the top of the `rose suite.conf` file, replace the line: 
-{% raw %}
-~~~
-[jinja2:suite.rc]
-~~~
-{% endraw %}
+Then at the top of the `rose suite.conf` file, replace this line: 
+<pre>[jinja2:suite.rc]</pre>
 with 
-{% raw %}
-~~~
-[template variables]
-~~~
-{% endraw %}
+<pre>[template variables]</pre>
 
 ### b. Update the metadata
 
-Replace any instances of `jinja2:suite.rc` with `template variables` in the `meta/rose-meta.conf` file.
+Similarly, replace any instances of `jinja2:suite.rc` with `template variables` in the `meta/rose-meta.conf` file.
 There may be sub-directories under `meta/` which will also need to be updated. 
 
 ### c. Remove any instances of `[runtime][task][remote]owner`
@@ -121,11 +113,20 @@ The platforms should be selected from the [list of supported platform for PUMA2]
 You can also check what platforms are available by running the command `cylc config --platforms`
 
 Some examples: 
-
-| Header 1 | Header 2 |
-| -------- | -------- | 
-| {% raw %}~~~Test~~~{% endraw %} | |
-
+<table>
+<tr><th>Cylc 7</th><th>Cylc 8</th></tr>	
+<tr> 
+<td><pre>
+    [[LINUX]]
+        [[[job]]]
+            batch system = background
+</pre></td>
+<td><pre>
+    [[LINUX]]
+        platform = localhost
+</pre></td>
+</tr>
+</table>
 
 * i. localhost
 {% raw %}
