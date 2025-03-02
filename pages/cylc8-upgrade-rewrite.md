@@ -17,8 +17,6 @@ permalink: /cylc8/upgrading-workflows-rewrite/
 
 <div class="medium-8 medium-pull-4 columns" markdown="1">
 
-***We are still in the process of testing Cylc 8 on PUMA2 and ARCHER2. These instructions are under development.*** 
-
 These instructions assume you have followed the standard PUMA2 setup instructions, 
 and that the workflow you are upgrading runs correctly under Cylc 7 on ARCHER2. 
 
