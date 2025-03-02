@@ -113,8 +113,7 @@ On PUMA2 the following platforms are available:
 
 Jasmin notes: 
 * Multiplexing is no longer needed to submit jobs to Jasmin. 
-* You will need to configure your ssh config file to be able to access the sci servers from puma2. 
-* You should not need to set the cylc path in your Jasmin `.bash_profile` or equivalent (not tested). 
+* You will need to configure your ssh config file to be able to access the sci servers from puma2.
 
 You can test submission to each of the platforms with the workflow u-dj398.
 
