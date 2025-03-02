@@ -187,7 +187,7 @@ cylc validate .
 {% endraw %}
 This produces a list of warnings which describe the remaining syntax changes required to upgrade to Cylc 8. 
 
-For more details refer to the https://cylc.github.io/cylc-doc/stable/html/7-to-8/summary.html#upgrading-to-cylc-8
+For more details refer to the [Cylc 8 migration guide](https://cylc.github.io/cylc-doc/stable/html/7-to-8/summary.html#upgrading-to-cylc-8)
 
 Make changes until `cylc validate .` gives no further warnings. 
 
@@ -219,7 +219,7 @@ Add the task definition in the appropriate place.
 ~~~
 {% endraw %}
 
-* ii. If your workflow **does** have a  `site/archer2.rc` file, add this to the `suite.rc`: 
+* ii. If your workflow **does** have a  `site/archer2.rc` file, add this to the `flow.cylc`: 
 {% raw %}
 ~~~
     [[remote_setup]]
@@ -245,7 +245,7 @@ If you want to run on the nvme filesystem, make sure that you have `platform = a
 
 The `--export=none` flag should be removed from the ARCHER2 slurm headers. 
 
-Edit your `suite.rc` and/or `site/archer2.rc` and remove the `--export=none` line. It will probably be under `[[HPC]] [[[directives]]]`.
+Edit your `flow.cylc` and/or `site/archer2.rc` and remove the `--export=none` line. It will probably be under `[[HPC]] [[[directives]]]`.
 
 **Information:** This setting stops the required run environment from being loaded properly at Cylc 8. If it is included you will see an error like: 
 ```
@@ -297,17 +297,22 @@ should become:
 
 Cylc variables starting with `CYLC_SUITE_` are [now depreacted](https://cylc.github.io/cylc-doc/stable/html/user-guide/writing-workflows/configuration.html#id16) and should be replaced with `CYLC_WORKFLOW_` versions. As of Cylc version 8.4.0 the old variables still work but they may not be equivalent. 
 
-In particular, at Cylc 8 `$CYLC_SUITE_NAME` has the form, `u-de385/run1`.  Replace this with `$CYLC_WORKFLOW_NAME` to get the form `u-de385`. This may be used in pptransfer with `archive_name=$CYLC_SUITE_NAME`. 
+In particular, at Cylc 8 `$CYLC_SUITE_NAME` has the form, `u-de385/run1`.  Replace this with `$CYLC_WORKFLOW_NAME` to get the form `u-de385`. 
+
+For example, for pptransfer you may have the following set in `app/postproc/rose-app.conf`: 
+~~~
+archive_name=$CYLC_SUITE_NAME
+~~~
+Change this to: 
+~~~
+archive_name=$CYLC_WORKFLOW_NAME
+~~~
 
 ## 5. Run with Cylc 8 
 
-You should now be able to run your Cylc 8 workflow. Make sure you have cylc 8 loaded:
+You should now be able to run your Cylc 8 workflow: 
 ~~~
 export CYLC_VERSION=8
-~~~
-
-Then from the workflow directory `~/roses/<workflow-id>/`, run:  
-~~~
 cylc vip
 ~~~
 
