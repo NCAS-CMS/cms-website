@@ -120,7 +120,7 @@ Each task or family that defines a `host` and/or `batch system` should be replac
 The platforms should be selected from the [list of supported platform for PUMA2](https://cms.ncas.ac.uk/cylc8/#platforms).
 You can also check what platforms are available by running the command `cylc config --platforms`
 
-Sonme examples: 
+Some examples: 
 
 * i. localhost
 {% raw %}
