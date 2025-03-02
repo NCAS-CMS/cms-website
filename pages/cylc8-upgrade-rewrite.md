@@ -2,7 +2,7 @@
 layout: page-fullwidth
 title: Upgrading to Cylc 8
 teaser: Instructions for upgrading an ARCHER2 workflow from Cylc 7 to Cylc 8. 
-permalink: /cylc8/upgrading-workflows/
+permalink: /cylc8/upgrading-workflows-rewrite/
 ---
 
 <div class="row">
