@@ -61,7 +61,7 @@ Make sure your `.bash_profile` on ARCHER2 has the following line:
 ```
 Check that this is the **puma2** version and not `rose-um-env-puma`. Also check any other files such as `.profile` or `.bashrc`. 
 
-If you have any user configuration files for Rose or FCM on PUMA2 or ARCHER2, these may cause incompatibilies at Cylc 8. Cylc user configurations will be under `~/.cylc/`. Rose and FCM user configurations are under `~/.metomi/`. 
+If you have any user configuration files for Rose or FCM on PUMA2 or ARCHER2, these may cause incompatibilies at Cylc 8. User configurations will be under: `~/.cylc/` and/or `~/.metomi/`. 
 
 ## 2. Check your workflow validates at Cylc 7
 
