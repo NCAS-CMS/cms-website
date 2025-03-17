@@ -73,7 +73,11 @@ export CYLC_VERSION=7
 rose suite-run --validate 
 ```
 
-If any warning messages appear, follow the instructions until your suite is fully Cylc 7 compliant.
+Check for any warning messages about deprecated syntax, and follow the instructions until your suite is fully Cylc 7 compliant. These warnings will have the form: 
+```
+[INFO] 2025-03-17T11:10:21Z WARNING - deprecated items were automatically upgraded in 'suite definition':
+[INFO] 2025-03-17T11:10:21Z WARNING -  * (6.4.0) [runtime][postproc_nemo_rst][command scripting] -> [runtime][postproc_nemo_rst][script] - value unchanged
+```
 
 ## 3. Make Cylc 8 changes 
 
