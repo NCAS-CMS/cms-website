@@ -288,8 +288,6 @@ should become:
 ~~~
 {% endraw %}
 
-**Information** The `rose date` command will work on puma2, but it won't work in a task script run on Archer2. 
-
 ### f. Update cylc variables 
 
 Cylc variables starting with `CYLC_SUITE_` are [now depreacted](https://cylc.github.io/cylc-doc/stable/html/user-guide/writing-workflows/configuration.html#id16) and should be replaced with `CYLC_WORKFLOW_` versions. As of Cylc version 8.4.0 the old variables still work but they may not be equivalent. 
