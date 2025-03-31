@@ -107,7 +107,7 @@ On PUMA2 the following platforms are available:
   * ```archer2-nvme-bg``` : background on random login node
   * ```ln0[1-4]-nvme``` : background job on specific login node 
 * JASMIN:
-  * ```lotus``` : Slurm job on [lotus cluster](https://help.jasmin.ac.uk/docs/batch-computing/lotus-overview/)
+  * ```lotus2``` : Slurm job on [lotus2 cluster](https://help.jasmin.ac.uk/docs/software-on-jasmin/rocky9-migration-2024/#upgraded-lotus-cluster)
   * ```sci-vm``` : background job on random [scientific analysis server](https://help.jasmin.ac.uk/docs/interactive-computing/sci-servers/)
   * ```sci-vm-0[1-6]``` : background job on specific sci server
 
