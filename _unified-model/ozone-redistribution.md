@@ -141,7 +141,7 @@ In the rose edit GUI, under "suite conf -> Ozone redistribution", you will find 
 
 * "Host machine for ozone redistribution" should be set to "archer2". 
 
-* Set "Initial ozone ancillary" to be your ozone ancillary file. If the file is very large and takes a long time to load in iris, ou can split it into individual years (contact the [CMS helpdesk](https://cms-helpdesk.ncas.ac.uk) for advice on this).
+* Set "Initial ozone ancillary" to be your ozone ancillary file. If the file is very large and takes a long time to load in Iris, you can split it into individual years. Contact the [CMS helpdesk](https://cms-helpdesk.ncas.ac.uk) for advice on this.
 
 * Set "Orography ancillary" to be the full path and filename for the orography ancillary file used in the suite. To work out what this is, check the `install_ancil` app and potentially the optional configs. 
 
@@ -152,7 +152,12 @@ In the rose edit GUI, under "suite conf -> Ozone redistribution", you will find 
 OZONE_PRIMARY_ARCHIVE='/work/n02/n02/annette/archive/u-as037-ozone/18520101T0000Z/as037a.po'
 }}}
 
-Additionally you may need to check the following options: 
+Additionally you may need to check the following options:
+
+* This suite is a PI control, so the `YEAR` variable in `app/redistribute_ozone/rose-app.conf` is set 1850. For a time-varying ozone set: 
+```
+YEAR=$REFYEAR
+```
 
 * The standard code requires you to use a 3D ozone ancillary file. If this is not already set up, then set the following variables in `app/um/rose-app.conf` or in the um section of the `rose edit` GUI:
 ```
