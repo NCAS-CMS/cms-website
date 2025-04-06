@@ -18,19 +18,21 @@ breadcrumb: true
 
 <div class="medium-8 medium-pull-4 columns" markdown="1">
 
-## About ozone redistribution
+## Overview
 
-The ozone redistribution (OR) scheme for GC3.1 (CMIP6) is described [here](https://doi.org/10.1029/2019MS001714)
+The ozone redistribution (OR) scheme for GC3.1 (CMIP6) is described in a paper by [Hardiman, 2019](https://doi.org/10.1029/2019MS001714). 
+The Met Office also have [documentation](https://code.metoffice.gov.uk/trac/moci/wiki/OzoneRedistribution) for a how the OR works in a suite. 
 
-The code lives in the [moci repository](https://code.metoffice.gov.uk/trac/moci/wiki/OzoneRedistribution). 
-It was ported to ARCHER2 by CMS, and works slightly differently than in the Met Office, 
-due to the difference in infrastructure. 
+These instructions are for adding OR to a GC3.1 suite on Archer2. If you have a GC5 suite it may have OR already included, but changes will be required to run on Archer2. 
 
-These instructions are for adding OR to a GC3.1 suite. The run must start from 1st January, and the cycle length can not be longer than 1 year.
+See the reference suites for working examples: 
+
+| Config | Suite |
+| :----- | :---- |
+| GC3.1  | [u-as037/ozone_redistribution](https://code.metoffice.gov.uk/trac/roses-u/browser/a/s/0/3/7/ozone_redistribution) | 
+| GC5    | [u-da412/archer2_ozone](https://code.metoffice.gov.uk/trac/roses-u/browser/d/a/4/1/2/archer2_ozone) | 
 
 ## How it works in a suite
-
-_This is just a technical outline of what the suite is doing. The science is descibed in the paper above._
 
 A new task `retrieve_ozone` runs before the UM and checks the input data required for the OR code is available.  
 It then sets up symlinks to the orography and ozone ancillary in a directory: `share/data/ozone_redistribution`.
