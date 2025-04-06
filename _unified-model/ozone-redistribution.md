@@ -163,10 +163,7 @@ Additionally you may need to check the following options:
 
 * Check the UM output streams. By default the new `p4` stream goes to a file id `pp104` and usage profile `UP4`. In `u-as037` this stream already exists, so the optional config increses the number of reserved headers in  `app/um/opt/rose-app-ozone.conf`. If this stream does not exist you should set `reserved_headers=0`.
 
-* Check that the base of the archiving path in `rose_arch_ozone/opt/rose-app-archer2.conf` matches the location in postproc `archive_root_path`, e.g:
-{{{
-
-}}}
+* Check that the base of the archiving path in `rose_arch_ozone/opt/rose-app-archer2.conf` matches the location in postproc `archive_root_path`.
 
 The OR scheme is quite complicated, and your suite may require some additional changes to get it working properly. 
 Contact the [CMS helpdesk](https://cms-helpdesk.ncas.ac.uk) if you need advice.
