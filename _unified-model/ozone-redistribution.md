@@ -23,18 +23,18 @@ breadcrumb: true
 The ozone redistribution (OR) scheme for GC3.1 (CMIP6) is described in a paper by [Hardiman, 2019](https://doi.org/10.1029/2019MS001714). 
 The Met Office also have [documentation](https://code.metoffice.gov.uk/trac/moci/wiki/OzoneRedistribution) for a how the OR works in a suite. 
 
-These instructions are for adding OR to a GC3.1 suite on Archer2. If you have a GC5 suite, it may have OR already included but changes will be required to run on Archer2. Alternatively you may find it easier to use one of the refernce suites as a starting point.
+These instructions are for adding OR to a GC3.1 suite on Archer2. If you have a GC5 suite, it may have OR already included but changes will be required to run on Archer2. You may find it easier to use one of the reference suites as a starting point, rather than adding OR to your suite. 
 
-| Config | Suite |
-| :----- | :---- |
-| GC3.1  | [u-as037/ozone_redistribution](https://code.metoffice.gov.uk/trac/roses-u/browser/a/s/0/3/7/ozone_redistribution) | 
-| GC5    | [u-da412/archer2_ozone](https://code.metoffice.gov.uk/trac/roses-u/browser/d/a/4/1/2/archer2_ozone) | 
+| Suite | Config | Description | UM version | Met O suite| 
+| :----- | :---- | :--- | :--- | :--- | 
+| [u-as037/ozone_redistribution](https://code.metoffice.gov.uk/trac/roses-u/browser/a/s/0/3/7/ozone_redistribution) | GC3.1 | N96-ORCA1 PI Control for CMIP6 | 10.7 | [u-ar766](https://code.metoffice.gov.uk/trac/ukcmip6/wiki/runs/u-ar766) |
+| [u-da412/archer2_ozone](https://code.metoffice.gov.uk/trac/roses-u/browser/d/a/4/1/2/archer2_ozone) | GC5 | N216-ORCA025 | 13.5 | [u-da412](https://code.metoffice.gov.uk/trac/gmed/wiki/GADocumentation/GAJobs/GCDev/GCDocumentation/u-da412) |
 
 ## Ozone redistribution in a suite 
 
-See also this [description of the ozone redistribution scheme](https://code.metoffice.gov.uk/trac/moci/wiki/OzoneRedistribution)
+See also the Met Office ozone redistribution documentation linked above. 
 
-The OR requires several new tasks to be added to the suite, and changes made to some exisitng tasks. The diagram below shows the graph of a suite which includes OR.
+The OR requires several new tasks to be added to the suite, and changes made to some existing tasks. The diagram below shows the graph of a suite which includes OR.
 
 ![Graph of suite with ozone redistribution]({{site.urlimg}}ozone_graph.png)
 
@@ -46,9 +46,9 @@ The OR requires several new tasks to be added to the suite, and changes made to 
 
 * `postproc`: The monthly `p4` files are then gathered into an annual `po` file for use by the OR code. 
  
-* `retrieve_ozone`: This runs at the start of the year before the model and checks that input data required for the OR code are available. The scheme requires data from the previous 1 or 2 years of the simulation. This may be from this run or archived data. Source data is symlinked into a directory: `share/data/ozone_redistribution`. If no archived data is available the OR scheme will not be run for the first year. 
+* `retrieve_ozone`: This runs at the start of the year before the model and checks that input data required for the OR code are available. The scheme requires data from the previous 1 or 2 years of the simulation, which may be from archived data. Source data is symlinked into a directory: `share/data/ozone_redistribution`. If no data is available, the OR scheme will not be run for the first year. 
 
-* `redistribute_ozone`: Runs the actual redistribution code, creating a new ozone ancillary file for use in the next year of the simulation in: `share/data/etc/ozone`
+* `redistribute_ozone`: Runs the redistribution code, creating a new ozone ancillary file for use in the next year of the simulation in: `share/data/etc/ozone`
 
 * `rose_arch_zone`: Archives the newly created ancillary file and clears out the `share/data/ozone_redistribution` directory. 
 
@@ -66,7 +66,7 @@ Test that this works correctly before proceeding to the next step.
 
 ### 2. Checkout the reference suite.
 
-For GC3.1 the reference suite is `u-as037/ozone_redistribution`. Note that `u-as037` is based on Met Office suite-id u-ar766, the CMIP6 pre-industrial control config at N96-ORCA1 - see [CMIP6 standard jobs](https://code.metoffice.gov.uk/trac/ukcmip6/wiki/StandardJobs). 
+For GC3.1 the reference suite is `u-as037/ozone_redistribution`.
 ```
 rosie co u-as037/ozone_redistribution
 ```
