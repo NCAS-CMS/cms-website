@@ -28,10 +28,13 @@ These instructions are for adding OR to a GC3.1 suite on Archer2. If you have a 
 | Suite | Config | Description | UM version | Met O suite| 
 | :----- | :---- | :--- | :--- | :--- | 
 | [u-as037/ozone_redistribution](https://code.metoffice.gov.uk/trac/roses-u/browser/a/s/0/3/7/ozone_redistribution) | GC3.1 | N96-ORCA1 PI Control for CMIP6 | 10.7 | [u-ar766](https://code.metoffice.gov.uk/trac/ukcmip6/wiki/runs/u-ar766) |
-| [u-da412/archer2_ozone](https://code.metoffice.gov.uk/trac/roses-u/browser/d/a/4/1/2/archer2_ozone) | GC5 | N216-ORCA025 | 13.5 | [u-da412](https://code.metoffice.gov.uk/trac/gmed/wiki/GADocumentation/GAJobs/GCDev/GCDocumentation/u-da412) |
+
+<!-- | [u-da412/archer2_ozone](https://code.metoffice.gov.uk/trac/roses-u/browser/d/a/4/1/2/archer2_ozone) | GC5 | N216-ORCA025 | 13.5 | [u-da412](https://code.metoffice.gov.uk/trac/gmed/wiki/GADocumentation/GAJobs/GCDev/GCDocumentation/u-da412) | -->
 
 ## Ozone redistribution in a suite 
 
+</div><!-- /.medium-8.columns -->
+</div><!-- /.row -->
 See also the Met Office ozone redistribution documentation linked above. 
 
 The OR requires several new tasks to be added to the suite, and changes made to some existing tasks. The diagram below shows the graph of a suite which includes OR.
@@ -53,9 +56,6 @@ The OR requires several new tasks to be added to the suite, and changes made to 
 * `rose_arch_zone`: Archives the newly created ancillary file and clears out the `share/data/ozone_redistribution` directory. 
 
 * `coupled`: When the subsequent model task runs it will use the updated ozone ancillary file. 
-
-</div><!-- /.medium-8.columns -->
-</div><!-- /.row -->
 
 ## Adding ozone redistribution to a suite.
 
