@@ -79,8 +79,6 @@ app/ants_package_build/*
 app/contrib_package_build/*
 app/redistribute_ozone/*
 app/retrieve_ozone/*
-app/redistribute_ozone/*
-app/retrieve_ozone/*
 app/rose_arch_ozone/*
 ```
 
