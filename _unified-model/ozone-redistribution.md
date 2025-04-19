@@ -143,7 +143,7 @@ In the rose edit GUI, under "suite conf -> Ozone redistribution", you will find 
 
 * Set "Orography ancillary" to be the full path and filename for the orography ancillary file used in the suite. To work out what this is, check the `install_ancil` app and potentially the optional configs. 
 
-* Leave "Skip ozone redistribution in first year" as "false", unless you ozone files from a previous run.
+* Leave "Skip ozone redistribution in first year" as "true", unless you have ozone files from a previous run.
 
 * If you do have archived files, specify the path to the files in "Primary archive source", e.g.:
 {{{
