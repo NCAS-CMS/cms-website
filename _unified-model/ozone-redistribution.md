@@ -154,7 +154,7 @@ Additionally you may need to check the following options:
 
 * This suite is a PI control, so the `YEAR` variable in `app/redistribute_ozone/rose-app.conf` is set 1850. For a time-varying ozone set: 
 ```
-YEAR=$REFYEAR
+YEAR=$REF_YEAR
 ```
 
 * The standard code requires you to use a 3D ozone ancillary file. If this is not already set up, then set the following variables in `app/um/rose-app.conf` or in the um section of the `rose edit` GUI:
