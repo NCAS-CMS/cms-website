@@ -17,7 +17,7 @@ As announced by ARCHER2 there will be a full power outage at the Advanced Comput
 Friday 29th August 2025 to Monday 15th September 2025 in order to fix a significant Health and Safety risk 
 associated with the power supply to the site.  This means that both ARCHER2 & PUMA2 will be unavailable during this time.
 
-Further details at: https://www.archer2.ac.uk/support-access/status.html
+Further details at: [https://www.archer2.ac.uk/support-access/status.html](https://www.archer2.ac.uk/support-access/status.html)
 
 {% comment %} Leave below here {% endcomment %}
 ## All News Items
