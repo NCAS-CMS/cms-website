@@ -58,18 +58,13 @@
 - firstname: Juan
   lastname: Bilbao-Ludena
   position: "HPC, Workflows and modelling support"
-  ncas_id: 10574
+  ncas_id: 10727
 
 - firstname: David
   lastname: Livings
-  position: "Hydro-JULES"
+  position: "Hydro-JULES and JULES modelling support"
   ncas_id: 10595
   
-- firstname: Patrick
-  lastname: McGuire
-  position: "Land surface modelling development and support"
-  ncas_id: 10443
-
 - firstname: Annette
   lastname: Osprey
   position: "High Resolution Climate Modelling support"
