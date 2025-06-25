@@ -55,9 +55,9 @@
   position: "Software tools specialist - CF-Python (IS-ENES3)"
   ncas_id: 10288
 
-- firstname: George
-  lastname: O'Brien
-  position:
+- firstname: Juan
+  lastname: Bilbao-Ludena
+  position: "HPC, Workflows and modelling support
   ncas_id: 10574
 
 - firstname: David
@@ -69,11 +69,6 @@
   lastname: McGuire
   position: "Land surface modelling development and support"
   ncas_id: 10443
-
-- firstname: Andrew
-  lastname: Mirza
-  position: "High Resolution Climate Modelling support"
-  ncas_id: 10580
 
 - firstname: Annette
   lastname: Osprey
