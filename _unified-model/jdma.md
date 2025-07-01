@@ -10,12 +10,10 @@ Before you can use the JDMA to migrate data to Elastic Tape you must install the
  
 1. Install JDMA client software:
     * Login to a JASMIN sci machine
-    * Load python2:  
-      `module load jaspy/2.7`
     * Create a virtual environment in your home directory:  
-      `virtualenv ~/jdma_venv_py2`
+      `python3 -m venv ~/jdma_venv`
     * Activate the virtual environment:  
-      `source ~/jdma_venv_py2/bin/activate`
+      `source ~/jdma_venv/bin/activate`
     * Install the jdma client into the virtualenv:  
       `pip install git+https://github.com/cedadev/jdma_client`
 
