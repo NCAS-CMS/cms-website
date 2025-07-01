@@ -35,31 +35,24 @@ Before you can use the JDMA to migrate data to Elastic Tape you must install the
 
 ### Setup connection to JASMIN sci nodes
 
-1. Add the following to your `~/.ssh/config` file on PUMA:
+1. Add the following to your `~/.ssh/config` file on PUMA2:
 
 {% raw %}
 ~~~
 # JASMIN
-Host login2
-Hostname login2.jasmin.ac.uk
-User <jasmin_username> 
+Host login-0?
+User <jasmin-username>
 IdentityFile ~/.ssh/<jasmin-ssh-key>
 ForwardAgent yes
-ControlMaster auto
-ControlPath /tmp/ssh-socket-%r@%h-%p
-ControlPersist yes
 
-Host sci? cylc1
+Host cylc? login-0? sci-vm-0?
 Hostname %h.jasmin.ac.uk
 
 Host sci* cylc*
-User <jasmin_username>
+User <jasmin-username>
 IdentityFile ~/.ssh/<jasmin-ssh-key>
 ForwardAgent yes
-ProxyCommand ssh -Y login2 -W %h:%p
-ControlMaster auto
-ControlPath /tmp/ssh-socket-%r@%h-%p
-ControlPersist yes
+ProxyJump login-02
 ~~~
 {% endraw %}
 
@@ -70,7 +63,7 @@ ControlPersist yes
 
 3. Test connection to JASMIN:
    
-    *  `ssh sci3.jasmin.ac.uk`
+    *  `ssh sci-vm-03`
     * You should be logged into the JASMIN sci node without prompt for your JASMIN passphrase.
 
 5. Add path to Rose/Cylc to your `~/.bash_profile` on JASMIN:
@@ -83,6 +76,6 @@ ControlPersist yes
   ~~~
 
 ### Configure PPTransfer
-If you haven't already done so follow the instructions for configuring PPTransfer and setting up Gridftp certificate: [Configuring PPTransfer]({{site.baseurl}}/unified-model/pptransfer)
+If you haven't already done so follow the instructions for configuring PPTransfer and setting up Globus: [Configuring PPTransfer]({{site.baseurl}}/unified-model/pptransfer)
 
 You may wish to consider using the JASMIN transfer cache disk as the JASMIN transfer destination. This is a large temporary storage area separate to the Group Workspaces. See [JASMIN Transfer Cache](https://help.jasmin.ac.uk/article/4535-xfc) for more information.
