@@ -32,7 +32,7 @@ Further information on Globus, including how to setup up one-off data transfers 
 * Load Globus module
 
   ```
-  ARCHER2> module load globus-cli
+  ARCHER2> module load globus-cli/3.35.2
   ```
   
 * Login to Globus
