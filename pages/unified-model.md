@@ -14,13 +14,13 @@ The UM can be used in atmosphere only mode, or coupled to other models including
 
 ## Running the UM
 
+NCAS-CMS installs and maintains supported UM versions, workflow tools and other associated software on the UK national high performance computer, [ARCHER2]({{ 'archer2' | relative_url }}), via the [PUMA2]({{ 'puma2' | relative_url }}) service. All NCAS researchers can use the UM on this service, details of getting accounts can be found [here]({{ 'puma2' | relative_url }}).
+
 The UM is a complex software system; new users should either: 
 * attend one of our organized [UM Introduction training]({{ '/services/training' | relative_url }}) courses; or
 * complete the [online training](https://ncas-cms.github.io/um-training/).  
 
-This covers all the essential information needed in order to run a UM suite on the national HPC service; ARCHER2, including, how to set up your environment, common errors, use of the workflow management software, source code management, etc.
-
-NCAS-CMS installs and maintains the supported UM versions, workflow tools and other associated software on the UK national high performance computer, [ARCHER2]({{ 'archer2' | relative_url }}), via the [PUMA2]({{ 'puma2' | relative_url }}) service. All NCAS researchers can use the UM on this service, details of getting accounts can be found [here]({{ 'puma2' | relative_url }}).
+This covers all the essential information needed in order to run a UM suite on ARCHER2, including, how to set up your environment, common errors, use of the workflow management software, source code management, etc.
 
 ## UM Versions
 
@@ -37,7 +37,7 @@ In order to run the model, users need to have access to a set of files that will
 
 See the [UM Configurations](configurations) page for full details on suites that have been ported to ARCHER2.
 
-## Jasmin archiving
+## JASMIN archiving
 
 CMS have set up the infrastructure for automatic archiving of data from ARCHER2 to JASMIN. To include this in your workflow, follow the instructions below:  
 
