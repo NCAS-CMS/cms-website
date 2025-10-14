@@ -38,13 +38,6 @@ as this can cause problems with Rose/cylc job submission.
   
 * You should now be logged into PUMA2.
 
-## PUMA2 files
-
-You can access your PUMA2 home directory on ARCHER2 via:
-```
-/home/n02/n02-puma/<username>/
-```
-
 ## Running workflows on ARCHER2
 
 Follow the [setup instructions](https://ncas-cms.github.io/um-training/getting-setup-selfstudy.html) in our online training to configure your environment to run workflows on ARCHER2. 
@@ -55,6 +48,9 @@ For more information, see our documentation:
 * [Cylc 8]({{ '/cylc8/'| relative_url }})
 * [UMUI](umui)
 
-## Transition from the old PUMA server 
+## PUMA2 files
 
-See the [transition documentation](transition) for instructions on porting your environment from the old PUMA server, including details on [porting suites](transition#9-update-suites-to-run-on-puma2). 
+You can access your PUMA2 home directory on ARCHER2 via:
+```
+/home/n02/n02-puma/<username>/
+```
