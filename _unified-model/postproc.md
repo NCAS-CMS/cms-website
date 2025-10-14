@@ -104,4 +104,4 @@ If you are transferring data to JASMIN please add the following to the Housekeep
 
 #### 6. Configure PPTransfer and JDMA tasks
 
-Now follow the instructions on how to configure [PPTransfer to JASMIN](/unified-model/pptransfer) and optionally [Data migration to Elastic Tape](/unified-model/jdma).
+Now follow the instructions on how to configure [PPTransfer to JASMIN](/unified-model/pptransfer-globus) and optionally [Data migration to Elastic Tape](/unified-model/jdma).
