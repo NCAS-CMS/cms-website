@@ -74,6 +74,6 @@ ProxyJump login-02
   ~~~
 
 ### Configure PPTransfer
-If you haven't already done so follow the instructions for configuring PPTransfer and setting up Globus: [Configuring PPTransfer]({{site.baseurl}}/unified-model/pptransfer)
+If you haven't already done so follow the instructions for configuring PPTransfer and setting up Globus: [Configuring PPTransfer]({{site.baseurl}}/unified-model/pptransfer-globus)
 
 You may wish to consider using the JASMIN transfer cache disk as the JASMIN transfer destination. This is a large temporary storage area separate to the Group Workspaces. See [JASMIN Transfer Cache](https://help.jasmin.ac.uk/article/4535-xfc) for more information.
