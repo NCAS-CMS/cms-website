@@ -5,26 +5,12 @@ subheadline: Unified Model
 teaser: The Met Office <a href="https://www.metoffice.gov.uk/research/approach/modelling-systems/unified-model">Unified Model</a> (UM) is a numerical model of the atmosphere used for both weather and climate applications.
 permalink: /unified-model/
 ---
-<div class="row">
-<div class="medium-4 medium-push-8 columns" markdown="1">
-<div class="panel radius" markdown="1">
-**Table of Contents**
-{: #toc }
-*  TOC
-{:toc}
-</div><!-- /.panel -->
-</div><!-- /.medium-4 -->
-
-<div class="medium-8 medium-pull-4 columns" markdown="1">
 
 ## About the UM
 
 The Unified Model is used by the ​[UK Met Office](https://www.metoffice.gov.uk) for operational numerical weather prediction and by the ​[Hadley Centre for Climate Prediction and Research](https://www.metoffice.gov.uk/weather/climate/met-office-hadley-centre/index) to simulate and predict the Earth's climate.
 
 The UM can be used in atmosphere only mode, or coupled to other models including, but not limited to, the [NEMO ocean](https://www.nemo-ocean.eu/) and CICE sea-ice models via the [OASIS coupler](https://oasis.cerfacs.fr/en/home/), [UKCA chemistry and aerosols](https://www.ukca.ac.uk) and the [JULES land-surface model](https://jules.jchmr.org/).  It can also be used in other modes, including Single Column Model (SCM), Aquaplanet & Exoplanet.
-
-</div><!-- /.medium-8.columns -->
-</div><!-- /.row -->
 
 ## Running the UM
 
