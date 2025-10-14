@@ -14,7 +14,7 @@ ARCHER2 is an HPE Cray EX supercomputing system with an estimated peak performan
 
 ARCHER2 provide extensive [documentation](https://docs.archer2.ac.uk/) and [training materials](https://www.archer2.ac.uk/training/). 
 
-## NCAS on ARCHER2
+## n02 on ARCHER2
 
 To request an ARCHER2 account, follow [these instructions](https://docs.archer2.ac.uk/quick-start/quickstart-users/#request-an-account-on-archer). When asked to “Select correct project group” select: n02 - NCAS (National Centre for Atmospheric Science) from the drop down list.
 
@@ -27,7 +27,7 @@ See the [Unified Model pages](unified-model) for details of the UM infrastructur
 
 Users can use [SAFE](https://safe.epcc.ed.ac.uk/) to query their disk usage and project resources. 
 
-n02 users have access to 3 file systems (see [ARCHER2 storage](https://docs.archer2.ac.uk/user-guide/data/#archer2-storage): 
+n02 users have access to 3 file systems (see [ARCHER2 storage](https://docs.archer2.ac.uk/user-guide/data/#archer2-storage)): 
 * Home: Limited in size. Cannot be seen by the compute nodes.
 * Work: Parallel file system. 
 * NVMe: Parallel file system with good performance for heavy I/O jobs. Operates as a scratch system with a 28-day deletion policy. 
