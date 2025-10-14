@@ -27,9 +27,7 @@ See the [Unified Model pages](unified-model) for details of the UM infrastructur
 
 Users can use [SAFE](https://safe.epcc.ed.ac.uk/) to query their disk usage and project resources. 
 
-n02 users have access to 3 file systems: 
+n02 users have access to 3 file systems (see [ARCHER2 storage](https://docs.archer2.ac.uk/user-guide/data/#archer2-storage): 
 * Home: Limited in size. Cannot be seen by the compute nodes.
 * Work: Parallel file system. 
 * NVMe: Parallel file system with good performance for heavy I/O jobs. Operates as a scratch system with a 28-day deletion policy. 
- 
-For further information see: https://docs.archer2.ac.uk/user-guide/data/#archer2-storage
