@@ -25,7 +25,7 @@ See the [Unified Model pages](unified-model) for details of the UM infrastructur
 
 ## Using ARCHER2
 
-### File systems 
+Users can use [SAFE](https://safe.epcc.ed.ac.uk/) to query their disk usage and project resources. 
 
 n02 users have access to 3 file systems: 
 * Home: Limited in size. Cannot be seen by the compute nodes.
