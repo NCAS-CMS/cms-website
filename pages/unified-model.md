@@ -23,12 +23,18 @@ The Unified Model is used by the ​[UK Met Office](https://www.metoffice.gov.uk
 
 The UM can be used in atmosphere only mode, or coupled to other models including, but not limited to, the [NEMO ocean](https://www.nemo-ocean.eu/) and CICE sea-ice models via the [OASIS coupler](https://oasis.cerfacs.fr/en/home/), [UKCA chemistry and aerosols](https://www.ukca.ac.uk) and the [JULES land-surface model](https://jules.jchmr.org/).  It can also be used in other modes, including Single Column Model (SCM), Aquaplanet & Exoplanet.
 
-## Running the UM
-The UM is a complex software system; new users should either attend one of our organized [UM Introduction training]({{ '/services/training' | relative_url }}) courses or complete the [online training](https://ncas-cms.github.io/um-training/).  This covers all the essential information needed in order to run a UM suite on the national HPC service; ARCHER2, including, how to set up your environment, common errors, use of the workflow management software, source code management, etc.
-
 </div><!-- /.medium-8.columns -->
 </div><!-- /.row -->
-NCAS-CMS installs and maintains the supported UM versions, workflow tools and other associated software on the UK national high performance computer. All NCAS researchers can use the UM on this service, details of getting accounts can be found here.
+
+## Running the UM
+
+The UM is a complex software system; new users should either: 
+* attend one of our organized [UM Introduction training]({{ '/services/training' | relative_url }}) courses; or
+* complete the [online training](https://ncas-cms.github.io/um-training/).  
+
+This covers all the essential information needed in order to run a UM suite on the national HPC service; ARCHER2, including, how to set up your environment, common errors, use of the workflow management software, source code management, etc.
+
+NCAS-CMS installs and maintains the supported UM versions, workflow tools and other associated software on the UK national high performance computer, [ARCHER2]({{ 'archer2' | relative_url }}), via the [PUMA2]({{ 'puma2' | relative_url }}) service. All NCAS researchers can use the UM on this service, details of getting accounts can be found [here]({{ 'puma2' | relative_url }}).
 
 ## UM Versions
 
@@ -37,34 +43,18 @@ The UM undergoes significant changes as new scientific enhancements are introduc
 | **ARCHER2**: | 7.3 | 8.4 | 10.7 | 11.x | 12.x | 13.x |
 | **Monsoon3**: | | | | | | 13.x |
 
-The UM source code plus documentation relating to new UM versions, including the UM User Guides, are available on the [Met Office Science Repository Service](https://code.metoffice.gov.uk/doc/um/) (MOSRS).
+The UM source code is held in the [Met Office Science Repository Service](https://code.metoffice.gov.uk/doc/um/) (MOSRS), along with documentation relating to new versions, including the UM User Guides.
 
 ## UM Configurations
 
-### Climate Configurations
+In order to run the model, users need to have access to a set of files that will enable them to run a particular scientific version of the climate model (describing exactly the physical and dynamical choices within the UM system).  NCAS-CMS port certain "standard" configurations to the National HPC system ARCHER2.
 
-In order to run the climate model, users need to have access to a set of files that will enable them to run a particular scientific version of the climate model (describing exactly the physical and dynamical choices within the UM system).  NCAS-CMS port certain "standard" configurations to the National HPC system ARCHER2, including the HadGEM3 model family.
+See the [UM Configurations](configurations) page for full details on suites that have been ported to ARCHER2.
 
-See the [UM Configurations](configurations) page for full details on suites that have been ported to ARCHER2 and Monsoon2.
+## Jasmin archiving
 
-### Nesting Suite Configurations
-
-Nested limited area models can easily be set up using the Met Office ​[Nesting Suite](https://code.metoffice.gov.uk/trac/rmed/wiki/suites/nesting). These are Rose suites and can be run on ARCHER2 and Monsoon2, allowing scientists to define up to five nested domains, a choice of science configurations and easy ancillary file generation for the chosen domains. 
-
-| ARCHER2 suite id | Owner | Met Office original suite id | UM Version | Description |
-| :----: | :----: | :----: | :----: | ---- |
-| u-ca103 | grenvillelister | u-av356 | 11.1 | Nesting Suite for RA2 - February 2018 |
-| u-by395/archer2 | claudiosanchez| u-by395 | 11.7 | Nesting Suite for RA3+ |
-
-### Single Column Model
-
-The [Single Column Model](single-column-model) page explains how to run the Met Office Single Column model on various computers.
-
-## Common tasks 
-
-Documentation for PUMA2-ARCHER2 UM workflows. 
+CMS have set up the infrastructure for automatic archiving of data from ARCHER2 to JASMIN. To include this in your workflow, follow the instructions below:  
 
 * [Upgrading Postproc for ARCHER2/JASMIN](postproc)
 * [Configuring PPTransfer](pptransfer-globus)
 * [Adding JASMIN ET data migration to a UM workflow](jdma)
-* [Adding ozone redistribution to a GC3.1 suite](ozone-redistribution)
