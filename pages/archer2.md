@@ -8,19 +8,28 @@ image:
     title: archer2-1200x716.jpg
 ---
 
+## About ARCHER2
+
 ARCHER2 is an HPE Cray EX supercomputing system with an estimated peak performance of 28 PFLOP/s. The machine has 5,860 compute nodes, each with dual AMD EPYC 7742 64-core CPUs at 2.25GHz, giving 750,080 cores in total. Further details on the [ARCHER2 hardware](https://www.archer2.ac.uk/about/hardware.html) can be found on the [ARCHER2 website](https://www.archer2.ac.uk).
 
-ARCHER users will find the new machine very familiar in many respects but with some important differences - see ​[ARCHER2 YouTube Channel](https://www.youtube.com/channel/UCZi-oBdxoDV5CPEQnhmrCAg/videos) for a comprehensive array of presentations, in particular the one entitled ["Differences between ARCHER and ARCHER2"](https://www.youtube.com/watch?v=dmwGMk9uB-4).
+ARCHER2 provide extensive [documentation](https://docs.archer2.ac.uk/) and [training materials](https://www.archer2.ac.uk/training/). 
 
-CMS has installed and undertaken limited testing of several versions of the Unified Model and its auxiliary software. We encourage users where possible to migrate their workflows to use the latest versions of the UM.
+## NCAS on ARCHER2
 
-## Contents
+To request an ARCHER2 account, follow [these instructions](https://docs.archer2.ac.uk/quick-start/quickstart-users/#request-an-account-on-archer). When asked to “Select correct project group” select: n02 - NCAS (National Centre for Atmospheric Science) from the drop down list.
 
-* [ARCHER2 System Information]({{ '/archer2/system-info/' | relative_url }})
+UM data and supporting software is stored on ARCHER2 under the `umshared` package account: `/work/y07/shared/umshared`. 
+If you have completed the setup instructions this is equivalent to the `$UMDIR` environment variable.
 
-* [Request an account on ARCHER2](https://docs.archer2.ac.uk/quick-start/quickstart-users/#request-an-account-on-archer):\\
-  To apply for an n02 project account please follow the instructions in the link above.
+See the [Unified Model pages](unified-model) for details of the UM infrastructure supported by CMS on ARCHER2. 
 
-* [Unified Model on ARCHER2]({{ '/archer2/unified-model/' | relative_url }})
+## Using ARCHER2
 
-* [OS Upgrade - June 2023]({{'/archer2/os-upgrade/' | relative_url }})
+### File systems 
+
+n02 users have access to 3 file systems: 
+* Home: Limited in size. Cannot be seen by the compute nodes.
+* Work: Parallel file system. 
+* NVMe: Parallel file system with good performance for heavy I/O jobs. Operates as a scratch system with a 28-day deletion policy. 
+ 
+For further information see: https://docs.archer2.ac.uk/user-guide/data/#archer2-storage
