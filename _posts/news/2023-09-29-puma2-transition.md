@@ -9,8 +9,7 @@ tags:
     - puma2
     - news
 author: annette
-published: true
-expires: 2025-10-01
+published: false
 #header: no
 ---
 
