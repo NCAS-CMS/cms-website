@@ -11,10 +11,12 @@ Users have access to 3 file systems on ARCHER2:
 - Work file systems (/work)
 - Solid state (NVMe) file system (/scratch)
 
+Only the work and NVMe filesystems can be seen from the batch nodes. 
+
 The NVMe file system should give good and consistent performance for parallel I/O 
 but it is subject to a strict 28 day deletion policy.
 
-Full details on each of the file systems, including how to check your quota, can be found in the 
+Full details on each of the file systems, including how to check quotas, can be found in the 
 [ARCHER2 storage documentation](https://docs.archer2.ac.uk/user-guide/data/#archer2-storage)
 
 ## Managing disk space 
