@@ -13,8 +13,7 @@ Users have access to 3 file systems on ARCHER2:
 - Work file systems (/work)
 - Solid state (NVMe) file system (/scratch)
 
-Only the work and NVMe filesystems can be seen from the batch nodes. 
-
+Only the work and NVMe file systems can be seen from the batch nodes. 
 The NVMe file system should give good and consistent performance for parallel I/O 
 but it is subject to a strict 28 day deletion policy.
 
