@@ -43,7 +43,6 @@ Some advice for managing data from Rose/Cylc workflows:
 * **Use the NVMe scratch disk if possible.**
   It should be safe to use NVMe for simulations where data is being automatically archived,
   as long as you monitor your workflow.
-
   * For Cylc 8 workflows, use the `archer2-nvme` and `archer2-nvme-bg` platforms.
   * For Cylc 7 workflows, add the following lines to the top of your `rose-suite.conf` file:
 ```
