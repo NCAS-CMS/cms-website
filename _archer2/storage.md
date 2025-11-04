@@ -1,7 +1,9 @@
 ---
+layout: page-fullwidth
 title: ARCHER2 storage
 teaser: Information on the ARCHER2 storage systems and advice for managing user disk space.
 permalink: '/archer2/storage/'
+breadcrumb: true
 ---
 
 ## ARCHER2 storage 
@@ -29,7 +31,9 @@ such as [job timeouts and data corruption](https://docs.archer2.ac.uk/known-issu
 Some advice for managing data from Rose/Cylc workflows: 
 * **Archive simulation output to an external system.**
   Archer2 is not intended for long-term data storage.
-  For automatic archiving to Jasmin, including elastic tape see [https://cms.ncas.ac.uk/unified-model/postproc/](postproc)
+  See the documentation for how to:
+  * [transfer data to JASMIN using Globus]({{ 'unified-model/pptransfer-globus' | relative_url }}) and 
+  * [migrate data to JASMIN elastic tape]({{ 'unified-model/jdma' | relative_url }})
   
 * **Tidy up old `cylc-run` directories.**
   Even if workflows have been set up with archiving, the runs can often leave behind copies of data.
