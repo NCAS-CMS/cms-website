@@ -26,7 +26,8 @@ Full details on each of the file systems, including how to check quotas, can be 
 The n02 work file system is a finite resource, and shared amongst many users. 
 EPCC have found that when the file system gets too full it can cause severe issues,
 such as [job timeouts and data corruption](https://docs.archer2.ac.uk/known-issues/#when-close-to-storage-quota-jobs-may-slow-down-or-produce-corrupted-files-added-2024-02-27).
-**It is therefore crucial that all users carefully manage and minimise their data volume.**
+
+**It is crucial that all users carefully manage and minimise their data volume.**
 
 Some advice for managing data from Rose/Cylc workflows: 
 * **Archive simulation output to an external system.**
