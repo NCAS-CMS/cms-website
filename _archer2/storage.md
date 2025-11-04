@@ -29,12 +29,13 @@ such as [job timeouts and data corruption](https://docs.archer2.ac.uk/known-issu
 **It is crucial that all users carefully manage and minimise their data volume.**
 
 Some advice for managing data from Rose/Cylc workflows: 
+
 * **Archive simulation output to an external system.**
   Archer2 is not intended for long-term data storage.
   See the documentation for how to:
   * [transfer data to JASMIN using Globus]({{ 'unified-model/pptransfer-globus' | relative_url }}) and 
   * [migrate data to JASMIN elastic tape]({{ 'unified-model/jdma' | relative_url }})
-  
+
 * **Tidy up old `cylc-run` directories.**
   Even if workflows have been set up with archiving, the runs can often leave behind copies of data.
   Check the `share/cycle/`, `share/data` and `work/` sub-directories.
