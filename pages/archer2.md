@@ -12,22 +12,21 @@ image:
 
 ARCHER2 is an HPE Cray EX supercomputing system with an estimated peak performance of 28 PFLOP/s. The machine has 5,860 compute nodes, each with dual AMD EPYC 7742 64-core CPUs at 2.25GHz, giving 750,080 cores in total. Further details on the [ARCHER2 hardware](https://www.archer2.ac.uk/about/hardware.html) can be found on the [ARCHER2 website](https://www.archer2.ac.uk).
 
-ARCHER2 provide extensive [documentation](https://docs.archer2.ac.uk/) and [training materials](https://www.archer2.ac.uk/training/). 
-
 ## n02 on ARCHER2
 
 To request an ARCHER2 account, follow [these instructions](https://docs.archer2.ac.uk/quick-start/quickstart-users/#request-an-account-on-archer). When asked to “Select correct project group” select: n02 - NCAS (National Centre for Atmospheric Science) from the drop down list.
 
-UM data and supporting software is stored on ARCHER2 under the `umshared` package account: `/work/y07/shared/umshared`. 
-If you have completed the setup instructions this is equivalent to the `$UMDIR` environment variable.
+To run UM rose/cylc workflows, users will also need an account on [PUMA2]({{ 'puma2' | relative_url }}). 
 
-See the [Unified Model pages](unified-model) for details of the UM infrastructure supported by CMS on ARCHER2. 
+UM data and supporting software is stored on ARCHER2 under the `umshared` package account: `/work/y07/shared/umshared`. 
+If you have completed the [setup instructions](https://ncas-cms.github.io/um-training/getting-setup-selfstudy.html) this is equivalent to the `$UMDIR` environment variable.
+
+See the [Unified Model pages]({{ 'unified-model' | relative_url }}) for more details of the UM infrastructure supported by CMS on ARCHER2. 
 
 ## Using ARCHER2
 
+ARCHER2 provide extensive [documentation](https://docs.archer2.ac.uk/) and [training materials](https://www.archer2.ac.uk/training/). 
+
 Users can use [SAFE](https://safe.epcc.ed.ac.uk/) to query their disk usage and project resources. 
 
-n02 users have access to 3 file systems (see [ARCHER2 storage](https://docs.archer2.ac.uk/user-guide/data/#archer2-storage)): 
-* Home: Limited in size. Cannot be seen by the compute nodes.
-* Work: Parallel file system. 
-* NVMe: Parallel file system with good performance for heavy I/O jobs. Operates as a scratch system with a 28-day deletion policy. 
+For CMS advice on ARCHER2 storage and managing disk space see: [ARCHER2 storage](storage). 
