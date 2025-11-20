@@ -40,6 +40,7 @@ Some advice for managing data from Rose/Cylc workflows:
   * Check data in the `$DATADIR/archive` directory. 
   * Even if workflows have been set up with archiving, there can be copies of data left behind in `cylc-run`. Check the `share/cycle/`, `share/data` and `work/` sub-directories.
 
+
 * **Check if you have any "shared" data.**
   Data owned by you under `/work/n02/shared/` and `/work/n02/n02/shared` still counts towards your quota. To check if you have any directories in these locations:
 ``` 
