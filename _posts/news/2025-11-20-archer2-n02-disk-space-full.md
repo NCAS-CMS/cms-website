@@ -1,6 +1,6 @@
 ---
 layout: page
-subheadline:  "Archer2"
+subheadline:  "ARCHER2"
 title:  "Important: n02 disk space is full"
 teaser: "Urgent action required by all users to reduce n02 data usage"
 categories:
