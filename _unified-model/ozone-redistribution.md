@@ -146,9 +146,9 @@ In the rose edit GUI, under "suite conf -> Ozone redistribution", you will find 
 * Leave "Skip ozone redistribution in first year" as "true", unless you have ozone files from a previous run.
 
 * If you do have archived files, specify the path to the files in "Primary archive source", e.g.:
-{{{
+```
 OZONE_PRIMARY_ARCHIVE='/work/n02/n02/annette/archive/u-as037-ozone/18520101T0000Z/as037a.po'
-}}}
+```
 
 Additionally you may need to check the following options:
 
