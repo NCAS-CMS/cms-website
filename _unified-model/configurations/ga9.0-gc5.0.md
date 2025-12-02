@@ -26,6 +26,8 @@ teaser: Information and list of standard suites for the Global Coupled model con
 | u-dk922 | dancopsey | [u-dk922](https://code.metoffice.gov.uk/trac/gmed/wiki/GADocumentation/GAJobs/GCDev/GCDocumentation/u-dk922) | 13.9 | GC5 N96-ORCA1 present day control run (Cylc 8) |
 | u-da412 | dancopsey | [u-da412](https://code.metoffice.gov.uk/trac/gmed/wiki/GADocumentation/GAJobs/GCDev/GCDocumentation/u-da412) | 13.9 | GC5 N216-ORCA025 present day control run with gregorian calendar (Cylc 8) | 
 
+### Instructions for running GC5 on Archer2
+
 Users are strongly recommended to use the standard GC5 workflows u-dk922 or u-da412. 
 These are updated with each new UM release, and support running on Archer2 and Monsoon3. 
 
@@ -39,11 +41,11 @@ If you wish to use PP Transfer:
 * suite conf &rarr; Build and run &rarr; PP transfer: Off &rarr; On
 * postproc &rarr; Archer2-JASMIN Archiving &rarr; Data Transfer -> transfer_dir: Set to your Jasmin space
   
-You will also need to make sure you have followed the [Globus setup instructions]({{ 'unified_model/pptransfer-globus' | relative_url }}).
+You will also need to make sure you have followed the [Globus setup instructions]({{ 'unified-model/pptransfer-globus' | relative_url }}).
 
 To run ozone redistribution: 
 * suite conf &rarr; Ozone Redistribution: false &rarr; true
 * suite conf &rarr; Ozone Redistribution &rarr; Host machine for ozone redistribution: MetO Cray EX to Archer2
 * suite conf &rarr; Ozone Redistribution &rarr; Primary archive source: Set to be blank
 
-For further details see [ozone redistribution on Archer2]({{ 'unified_model/ozone-redistribution' | relative_url }}). 
+For further details see [ozone redistribution on Archer2]({{ 'unified-model/ozone-redistribution' | relative_url }}). 
