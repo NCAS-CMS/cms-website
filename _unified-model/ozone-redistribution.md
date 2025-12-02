@@ -23,13 +23,16 @@ breadcrumb: true
 The ozone redistribution (OR) scheme for GC3.1 (CMIP6) is described in a paper by [Hardiman, 2019](https://doi.org/10.1029/2019MS001714). 
 The Met Office also have [documentation](https://code.metoffice.gov.uk/trac/moci/wiki/OzoneRedistribution) for a how the OR works in a suite. 
 
-These instructions are for adding OR to a GC3.1 suite on Archer2. If you have a GC5 suite, it may have OR already included but changes will be required to run on Archer2. You may find it easier to use one of the reference suites as a starting point, rather than adding OR to your suite. 
+These instructions are for adding OR to a GC3.1 suite on Archer2. 
+
+If you have a GC5 suite, it may have OR already included but changes will be required to run on Archer2. The standard GC5 workflows have been updated to support OR on Archer2 (from UM 13.9). You may find it easier to use one of the reference suites as a starting point, rather than adding OR to your suite. 
 
 | Suite | Config | Description | UM version | Met O suite| 
 | :----- | :---- | :--- | :--- | :--- | 
 | [u-as037/ozone_redistribution](https://code.metoffice.gov.uk/trac/roses-u/browser/a/s/0/3/7/ozone_redistribution) | GC3.1 | N96-ORCA1 PI Control for CMIP6 | 10.7 | [u-ar766](https://code.metoffice.gov.uk/trac/ukcmip6/wiki/runs/u-ar766) |
+| [u-da412](https://code.metoffice.gov.uk/trac/roses-u/browser/d/a/4/1/2) | GC5 | N216 ORCA025 present day control with Gregorian calendar | 13.9 | u-da412 |
 
-<!-- | [u-da412/archer2_ozone](https://code.metoffice.gov.uk/trac/roses-u/browser/d/a/4/1/2/archer2_ozone) | GC5 | N216-ORCA025 | 13.5 | [u-da412](https://code.metoffice.gov.uk/trac/gmed/wiki/GADocumentation/GAJobs/GCDev/GCDocumentation/u-da412) | -->
+Note that u-da412 is setup for the internal Met Office machine by default. To run on Archer2 follow [these instructions]({{ 'unified-model/configurations/ga9.0-gc5.0' | relative_url }}).
 
 ## Ozone redistribution in a suite 
 
