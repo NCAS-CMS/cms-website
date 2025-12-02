@@ -23,9 +23,7 @@ breadcrumb: true
 The ozone redistribution (OR) scheme for GC3.1 (CMIP6) is described in a paper by [Hardiman, 2019](https://doi.org/10.1029/2019MS001714). 
 The Met Office also have [documentation](https://code.metoffice.gov.uk/trac/moci/wiki/OzoneRedistribution) for a how the OR works in a suite. 
 
-These instructions are for adding OR to a GC3.1 suite on Archer2. 
-
-If you have a GC5 suite, it may have OR already included but changes will be required to run on Archer2. The standard GC5 workflows have been updated to support OR on Archer2 (from UM 13.9). You may find it easier to use one of the reference suites as a starting point, rather than adding OR to your suite. 
+These instructions are for adding OR to a GC3.1 suite on Archer2. The standard GC5 workflows have been updated to support OR on Archer2 (from UM 13.9). You may find it easier to use the reference suite as a starting point, rather than adding OR to your suite. 
 
 | Suite | Config | Description | UM version | Met O suite| 
 | :----- | :---- | :--- | :--- | :--- | 
