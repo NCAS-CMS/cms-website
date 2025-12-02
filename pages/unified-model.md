@@ -31,13 +31,15 @@ The UM undergoes significant changes as new scientific enhancements are introduc
 
 The UM source code is held in the [Met Office Science Repository Service](https://code.metoffice.gov.uk/doc/um/) (MOSRS), along with documentation relating to new versions, including the UM User Guides.
 
-## UM Configurations
+## UM configurations
 
 In order to run the model, users need to have access to a set of files that will enable them to run a particular scientific version of the climate model (describing exactly the physical and dynamical choices within the UM system).  NCAS-CMS port certain "standard" configurations to the National HPC system ARCHER2.
 
-See the [UM Configurations](configurations) page for full details on suites that have been ported to ARCHER2.
+Information for CMS-supported workflows: 
+* [UM configurations](configurations)
+* [Ozone redistribution](ozone-redistribution)
 
-## JASMIN archiving
+## JASMIN Archiving
 
 CMS have set up the infrastructure for automatic archiving of data from ARCHER2 to JASMIN. To include this in your workflow, follow the instructions below:  
 
