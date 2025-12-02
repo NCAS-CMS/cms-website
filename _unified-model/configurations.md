@@ -5,7 +5,7 @@ Standard configurations are available either as example jobs in the UMUI or Rose
 
 ### HadGEM3
 
-The HadGEM3 family of models comprises a range of specific model configurations incorporating different levels of complexity but with a common physical framework. The HadGEM3 family includes a coupled atmosphere-ocean configuration, with or without a vertical extension in the atmosphere to include a well-resolved stratosphere, and an Earth-System configuration which includes dynamic vegetation, ocean biology and atmospheric chemistry.
+The [HadGEM3 family of models](https://www.metoffice.gov.uk/research/approach/modelling-systems/unified-model/climate-models/hadgem3) comprises a range of specific model configurations incorporating different levels of complexity but with a common physical framework. The HadGEM3 family includes a coupled atmosphere-ocean configuration, with or without a vertical extension in the atmosphere to include a well-resolved stratosphere, and an Earth-System configuration which includes dynamic vegetation, ocean biology and atmospheric chemistry.
 
 [Global Atmosphere 7.0/Global Coupled 3.0](ga7.0-gc3.0)
 
@@ -15,7 +15,9 @@ The HadGEM3 family of models comprises a range of specific model configurations 
 
 ###  UKESM
 
-The [UK Earth System Model](ukesm) (UKESM) has been built as a joint venture between the Met Office Hadley Centre and the Natural Environment Research Council (NERC).  It consists of the HadGEM3 coupled physical climate model (see [above](#hadgem3)) plus additional components that model key biogeochemical, chemistry, aerosol and vegetation processes.  More details about UKESM and how to access it are available [here](ukesm).
+The [UK Earth System Model](https://ukesm.ac.uk/) (UKESM) has been built as a joint venture between the Met Office Hadley Centre and the Natural Environment Research Council (NERC).  It consists of the HadGEM3 coupled physical climate model see above plus additional components that model key biogeochemical, chemistry, aerosol and vegetation processes.  
+
+More details about UKESM and how to access it are available [here](ukesm).
 
 ### Performance
 
