@@ -17,13 +17,6 @@ permalink: /cylc8/
 
 <div class="medium-8 medium-pull-4 columns" markdown="1">
 
-Cylc 8 is available on PUMA2 and ARCHER2, but we are still in the process of testing, porting key workflows, and developing user documentation. We are also working on deploying the web-based GUI.
-
-At this stage the ***software configuration is still subject to change.***
-
-See the links below for further information on Cylc 8. 
-Report any issues to the helpdesk. 
-
 ## Overview 
 
 Cylc 8 replaces the Python 2 based Cylc 7 software. 
@@ -36,8 +29,6 @@ Useful links:
   
 * [Cylc 7 to Cylc 8 migration guide](https://cylc.github.io/cylc-doc/stable/html/7-to-8/index.html)
 * [Cylc 7 to Cylc 8 cheat sheet](https://cylc.github.io/cylc-doc/stable/html/7-to-8/cheat-sheet.html)
-
-Note that in Cylc 8 terminology "suites" have become "workflows". 
 
 </div><!-- /.medium-8.columns -->
 </div><!-- /.row -->
@@ -87,9 +78,7 @@ cylc tui u-dj397
 
 See the [Cylc 8 cheat sheet](https://cylc.github.io/cylc-doc/stable/html/user-guide/cheat-sheet.html) for an overview of Cylc 8 commands. 
 
-## Further information
-
-### Platforms 
+## Platforms 
 
 Tasks are assigned a "platform", which combines the host and job running method. 
 See the [Cylc 8 platform documentation](https://cylc.github.io/cylc-doc/stable/html/reference/config/writing-platform-configs.html#adminguide-platformconfigs) for details. 
@@ -117,33 +106,89 @@ Jasmin notes:
 
 You can test submission to each of the platforms with the workflow u-dj398.
 
-### Using the web-based UI with port-forwarding 
+## Using the Cylc web UI
 
-Copying the instructions documented [here](https://cylc.discourse.group/t/unclear-on-how-cylc-8-components-work-together/787/2)
-> First open an ssh tunnel, so that a given port on your local machine (e.g. your laptop) maps to the Cylc UI Server’s port on the HPC. On your local machine, type
-> ```
-> $ ssh -N -L PORT:localhost:PORT HOST
-> ```
-> where PORT is a valid port number and HOST is on the HPC. You will need to know the range of allowed ports (e.g.1024-49151). Choose any number in this range but make sure your port number is fairly unique to avoid clashing with other users. (Note the option -N opens the connection without logging you into the shell).
-> 
-> Then ssh to the host:
-> ```
-> $ ssh HOST
-> ```
-> and add the following to $HOME/.cylc/uiserver/jupyter_config.py on the HOST.
-> ```
-> c.ServerApp.open_browser=False
-> c.ServerApp.port=PORT
-> ```
-> where PORT and HOST match the values you selected when opening the ssh tunnel.
->
-> You’re now ready to fire up the web graphical interface
-> ```
-> $ cylc gui
-> ```
-> Just copy the URL that looks like
-> ```
-> http://127.0.0.1:PORT/cylc?token=TOKEN
-> ```
-> into your web browser. (Again substitute HOST and PORT with the values chosen above.)
-Note that each user needs a unique port number. 
+### Setup
+
+The web-based Cylc UI is available via port-forwarding which requires some setup. 
+Here we provide instructions for Linux, Mac & MobaXterm (Windows).
+
+Edit the ```~/.ssh/config``` file on your laptop so that the ARCHER2 and PUMA2 sections contain:
+
+```
+# PUMA2
+Host puma2
+User <username>
+IdentityFile ~/.ssh/<your-archer-ssh-key>
+ProxyJump archer2
+
+# ARCHER2
+Host archer2
+Hostname login.archer2.ac.uk
+User <username>
+IdentityFile ~/.ssh/<your-archer-ssh-key>
+ForwardX11 No
+ControlMaster auto
+ControlPath /tmp/ssh-socket-%r@%h-%p
+ControlPersist yes
+```
+
+You should now be able to type ```ssh puma2``` and land directly on PUMA2.
+
+Setup an alias on your laptop by adding one for the following to your ```~/.bashrc``` or equivalent depending on whether you are using Linux or a Mac.
+
+#### Linux 
+
+```
+alias puma-ui='PORT=$(shuf -n 1 -i 10000-65000); ssh -t -L ${PORT}:localhost:$
+˓→{PORT} puma2 "bash -l -c \"export CYLC_VERSION=8; cylc gui --no-browser --
+˓→Application.log_level=WARN --port-retries=0 --port=${PORT}\""'
+```
+
+#### Mac
+
+```
+alias puma-ui='PORT=$(jot -r 1 10000 65000); ssh -t -L ${PORT}:localhost:${PORT}␣
+˓→puma2 "bash -l -c \"export CYLC_VERSION=8; cylc gui --no-browser --Application.
+˓→log_level=WARN --port-retries=0 --port=${PORT}\""'
+```
+
+#### Windows
+
+```
+alias puma-ui='PORT=$(shuf -n 1 -i 10000-65000); ssh -t -L ${PORT}:localhost:$
+˓→{PORT} puma2 "bash -l -c \"export CYLC_VERSION=8; cylc gui --no-browser --
+˓→Application.log_level=WARN --port-retries=0 --port=${PORT}\""'
+```
+
+### Start up the cylc web GUI
+
+In a new terminal window type: ```puma-ui``` 
+
+You will see a response similar to the following:
+
+```
+$ puma-ui
+#################################################################################
+------------------------------Welcome to PUMA2-----------------------------------
+#################################################################################
+[C 2026-01-22 08:25:30.367 ServerApp]
+To access the server, open this file in a browser:
+(continues on next page)
+8
+NCAS Unified Model Introduction: Practical sessions (Rose/Cylc)
+(continued from previous page)
+file:///home/n02/n02/ros/.cylc/uiserver/info_files/jpserver-1094362-open.html
+Or copy and paste one of these URLs:
+http://localhost:20522/cylc?
+˓→token=700ab2be96800177d03df31b8140857cab02b9632af45a1d
+http://127.0.0.1:20522/cylc?
+˓→token=700ab2be96800177d03df31b8140857cab02b9632af45a1d
+[W 2026-01-22 08:25:44.242 ServerApp] The websocket_ping_timeout (999999) cannot␣
+˓→be longer than the websocket_ping_interval (290).
+Setting websocket_ping_timeout=290
+```
+
+Copy and paste one of the http URLs listed into your web browser and you should then see your Cylc GUI
+load. If you have never used Cylc8 before the Workflows panel will be empty.
+
