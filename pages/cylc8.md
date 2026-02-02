@@ -140,25 +140,19 @@ Setup an alias on your laptop by adding one for the following to your ```~/.bash
 #### Linux 
 
 ```
-alias puma-ui='PORT=$(shuf -n 1 -i 10000-65000); ssh -t -L ${PORT}:localhost:$
-˓→{PORT} puma2 "bash -l -c \"export CYLC_VERSION=8; cylc gui --no-browser --
-˓→Application.log_level=WARN --port-retries=0 --port=${PORT}\""'
+alias puma-ui='PORT=$(shuf -n 1 -i 10000-65000); ssh -t -L ${PORT}:localhost:${PORT} puma2 "bash -l -c \"export CYLC_VERSION=8; cylc gui --no-browser --Application.log_level=WARN --port-retries=0 --port=${PORT}\""'
 ```
 
 #### Mac
 
 ```
-alias puma-ui='PORT=$(jot -r 1 10000 65000); ssh -t -L ${PORT}:localhost:${PORT}␣
-˓→puma2 "bash -l -c \"export CYLC_VERSION=8; cylc gui --no-browser --Application.
-˓→log_level=WARN --port-retries=0 --port=${PORT}\""'
+alias puma-ui='PORT=$(jot -r 1 10000 65000); ssh -t -L ${PORT}:localhost:${PORT} puma2 "bash -l -c \"export CYLC_VERSION=8; cylc gui --no-browser --Application.log_level=WARN --port-retries=0 --port=${PORT}\""'
 ```
 
 #### Windows
 
 ```
-alias puma-ui='PORT=$(shuf -n 1 -i 10000-65000); ssh -t -L ${PORT}:localhost:$
-˓→{PORT} puma2 "bash -l -c \"export CYLC_VERSION=8; cylc gui --no-browser --
-˓→Application.log_level=WARN --port-retries=0 --port=${PORT}\""'
+alias puma-ui='PORT=$(shuf -n 1 -i 10000-65000); ssh -t -L ${PORT}:localhost:${PORT} puma2 "bash -l -c \"export CYLC_VERSION=8; cylc gui --no-browser --Application.log_level=WARN --port-retries=0 --port=${PORT}\""'
 ```
 
 ### Start up the cylc web GUI
