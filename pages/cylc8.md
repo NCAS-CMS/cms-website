@@ -121,16 +121,14 @@ Host puma2
 User <username>
 IdentityFile ~/.ssh/<your-archer-ssh-key>
 ProxyJump archer2
+ForwardX11 yes
 
 # ARCHER2
 Host archer2
 Hostname login.archer2.ac.uk
 User <username>
 IdentityFile ~/.ssh/<your-archer-ssh-key>
-ForwardX11 No
-ControlMaster auto
-ControlPath /tmp/ssh-socket-%r@%h-%p
-ControlPersist yes
+ForwardX11 yes
 ```
 
 You should now be able to type ```ssh puma2``` and land directly on PUMA2.
