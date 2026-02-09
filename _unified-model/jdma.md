@@ -38,19 +38,20 @@ Before you can use the JDMA to migrate data to Elastic Tape you must install the
 {% raw %}
 ~~~
 # JASMIN
-Host login-0?
+Host jasmin-login
+Hostname login.jasmin.ac.uk
 User <jasmin-username>
 IdentityFile ~/.ssh/<jasmin-ssh-key>
 ForwardAgent yes
 
-Host cylc? login-0? sci-vm-0?
+Host cylc? sci-vm-0?
 Hostname %h.jasmin.ac.uk
 
 Host sci* cylc*
 User <jasmin-username>
 IdentityFile ~/.ssh/<jasmin-ssh-key>
 ForwardAgent yes
-ProxyJump login-02
+ProxyJump jasmin-login
 ~~~
 {% endraw %}
 
