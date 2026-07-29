@@ -9,7 +9,7 @@ def format_journal_citation(entry):
     """Formats a BibTeX entry into a standard academic journal citation string without Markdown formatting."""
     # 1. Title
     title = entry.get('title', '').replace('{', '').replace('}', '').strip()
-    
+
     # 2. Authors (Clean up whitespace and newlines)
     raw_authors = entry.get('author', '').replace('\n', ' ')
     author_list = [a.strip() for a in raw_authors.split(' and ') if a.strip()]
@@ -31,7 +31,7 @@ def format_journal_citation(entry):
     # Format: Journal Name, vol. X, no. Y, pp. Z, (Year)
     location_parts = []
     if journal:
-        location_parts.append(journal)  # Clean text with no asterisks
+        location_parts.append(journal)
     if volume:
         location_parts.append(f"vol. {volume}")
     if number:
@@ -73,12 +73,15 @@ def main():
         print("No entries found in BibTeX file.")
         return
 
-# Append flat list of docs directly
-    new_yaml_block = formatted_docs
+    # Structure into the Jekyll YAML schema
+    new_yaml_block = [{
+        'year': 'Recent Publications',
+        'publication_type': [{
+            'type': 'Publications',
+            'docs': formatted_docs
+        }]
+    }]
 
-    # Append directly to the bottom of _data/publications.yml
-    with open(OUTPUT_FILE, 'a', encoding='utf-8') as f:
-        f.write("\n" + yaml.dump(new_yaml_block, sort_keys=False, allow_unicode=True))
     # Append directly to the bottom of _data/publications.yml
     with open(OUTPUT_FILE, 'a', encoding='utf-8') as f:
         f.write("\n" + yaml.dump(new_yaml_block, sort_keys=False, allow_unicode=True))
