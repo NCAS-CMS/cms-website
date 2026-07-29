@@ -68,3 +68,13 @@
   lastname: Ahmadi
   position: "AFESP Research Software Engineer"
   ncas_id: 10699
+
+- firstname: Jonny
+  lastname: Williams
+  position: "Research Software Engineer"
+  ncas_id: 10779
+
+- firstname: Varsiha
+  lastname: Sothilingam
+  position: "Research Software Engineer"
+  ncas_id: 10783
