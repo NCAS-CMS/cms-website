@@ -9,12 +9,6 @@
   ncas_id: 10008
   head: true
 
-# - firstname: Grenville
-#   lastname: Lister
-#   position: "Head of NCAS Computational Modelling Services"
-#   ncas_id: 10170
-#   head: true
-
 - firstname: Rosalyn
   lastname: Hatcher
   position: "NCAS HPC Manager, Software Management & Infrastructure"
@@ -40,11 +34,6 @@
   position: "UKESM core team: diagnostic software"
   ncas_id: 10412
   
-- firstname: Jeff
-  lastname: Cole
-  position: "Model support and software tools specialist"
-  ncas_id: 10105
-
 - firstname: Simon
   lastname: Wilson
   position: "Model support and performance specialist"
