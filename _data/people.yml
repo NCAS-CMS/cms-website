@@ -9,11 +9,11 @@
   ncas_id: 10008
   head: true
 
-- firstname: Grenville
-  lastname: Lister
-  position: "Head of NCAS Computational Modelling Services"
-  ncas_id: 10170
-  head: true
+# - firstname: Grenville
+#   lastname: Lister
+#   position: "Head of NCAS Computational Modelling Services"
+#   ncas_id: 10170
+#   head: true
 
 - firstname: Rosalyn
   lastname: Hatcher
