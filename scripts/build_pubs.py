@@ -4,44 +4,24 @@ import yaml
 from collections import defaultdict
 
 BIB_FILE = '_bibliography/references.bib'
-OUTPUT_FILE = '_data/publications.yml'
+OUTPUT_FILE = '_data/publications_2026.yml'
 
-def append_raw_bib_to_publications():
+def generate_new_publications_file():
     if not os.path.exists(BIB_FILE):
         print(f"Error: Could not find {BIB_FILE}")
         return
 
-    # 1. Collect titles from existing file to avoid adding exact duplicates
-    existing_titles = set()
-    if os.path.exists(OUTPUT_FILE):
-        with open(OUTPUT_FILE, 'r', encoding='utf-8') as ymlfile:
-            try:
-                existing_data = yaml.safe_load(ymlfile) or []
-                for year_block in existing_data:
-                    for p_type in year_block.get('publication_type', []):
-                        for doc in p_type.get('docs', []):
-                            if 'title' in doc and doc['title']:
-                                existing_titles.add(doc['title'].strip().lower())
-            except Exception:
-                pass  # If yaml parsing fails, we just won't duplicate-check
-
-    # 2. Parse _bibliography/references.bib
+    # 1. Parse _bibliography/references.bib
     with open(BIB_FILE, 'r', encoding='utf-8') as bibfile:
         bib_database = bibtexparser.load(bibfile)
 
     years_data = defaultdict(lambda: {"Publications": [], "Presentations": []})
-    added_count = 0
 
     for entry in bib_database.entries:
         title = entry.get('title', '').replace('{', '').replace('}', '').strip()
-        
-        # Skip duplicate titles
-        if title.lower() in existing_titles:
-            continue
-
         year = entry.get('year', 'Unknown').strip()
         
-        # Format author list
+        # Format author list: "Author A and Author B" -> "Author A, and Author B"
         raw_authors = entry.get('author', '').replace('\n', ' ')
         author_list = [a.strip() for a in raw_authors.split(' and ') if a.strip()]
         if len(author_list) > 1:
@@ -71,15 +51,9 @@ def append_raw_bib_to_publications():
             years_data[year]["Publications"].append(item)
         else:
             years_data[year]["Presentations"].append(item)
-        
-        added_count += 1
 
-    if added_count == 0:
-        print("No new entries found in BibTeX!")
-        return
-
-    # 3. Format only the NEW entries into YAML
-    new_blocks = []
+    # 2. Format into Jekyll structure
+    output = []
     sorted_years = sorted(years_data.keys(), key=lambda y: int(y) if y.isdigit() else 0, reverse=True)
 
     for year in sorted_years:
@@ -89,19 +63,17 @@ def append_raw_bib_to_publications():
         if years_data[year]["Publications"]:
             pub_types.append({'type': 'Publications', 'docs': years_data[year]["Publications"]})
 
-        new_blocks.append({
+        output.append({
             'year': int(year) if year.isdigit() else year,
             'publication_type': pub_types
         })
 
-    # Dump ONLY the new blocks to a YAML string
-    new_yaml_text = yaml.dump(new_blocks, sort_keys=False, allow_unicode=True)
+    # 3. Write directly to a brand new _data/publications_2026.yml
+    os.makedirs(os.path.dirname(OUTPUT_FILE), exist_ok=True)
+    with open(OUTPUT_FILE, 'w', encoding='utf-8') as ymlfile:
+        yaml.dump(output, ymlfile, sort_keys=False, allow_unicode=True)
 
-    # 4. Append to the end of _data/publications.yml in append mode ('a')
-    with open(OUTPUT_FILE, 'a', encoding='utf-8') as ymlfile:
-        ymlfile.write("\n" + new_yaml_text)
-
-    print(f"Successfully appended {added_count} new entries to the bottom of {OUTPUT_FILE}!")
+    print(f"Successfully created brand new file: {OUTPUT_FILE} from {BIB_FILE}!")
 
 if __name__ == '__main__':
-    append_raw_bib_to_publications()
+    generate_new_publications_file()
