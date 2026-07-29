@@ -7,6 +7,7 @@ group :jekyll_plugins do
   gem 'jekyll-paginate'
   gem "jekyll-asciidoc"
   gem "jekyll-github-metadata"
+  gem "jekyll-scholar"
 end
 
 gem 'asciidoctor', '~> 1.5.4'

@@ -62,9 +62,4 @@
         location: IS-ENES3 Virtual First General Assembly
 
     - type: Publications
-      docs:
-      - title: "Machine dependence and reproducibility for coupled climate simulations: the HadGEM3-GC3.1 CMIP Preindustrial simulation"
-        url: https://doi.org/10.5194/gmd-13-139-2020
-        authors: Maria-Vittoria Guarino, Louise C. Sime, David Schroeder, Grenville M. S. Lister, and Rosalyn Hatcher
-        location: Geoscientific Model Development
 

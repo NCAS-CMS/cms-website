@@ -25,3 +25,5 @@ permalink: /presentations-and-publications/
     {% endif %}
   {% endfor %}
 </div>
+
+{% bibliography %}
