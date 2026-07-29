@@ -63,3 +63,14 @@
 
     - type: Publications
 
+
+- year: 2020
+  publication_type:
+  - type: Publications
+    docs:
+    - title: 'Machine dependence and reproducibility for coupled climate simulations:
+        the HadGEM3-GC3.1 CMIP Preindustrial simulation'
+      authors: Guarino, Maria-Vittoria, Sime, Louise C, Schroeder, David, Lister,
+        Grenville MS, and Hatcher, Rosalyn
+      location: Geoscientific Model Development
+      url: https://doi.org/10.5194/gmd-13-139-2020
