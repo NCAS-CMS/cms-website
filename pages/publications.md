@@ -1,7 +1,7 @@
 ---
 layout: page-fullwidth
-title: Posters, Presentations & Publications
-teaser: NCAS-CMS frequently attend workshops and conferences giving talks and presenting posters as well as writing papers.
+title: Outputs
+teaser: NCAS-CMS members frequently attend workshops and conferences giving talks and presenting posters. We also publish in peer-reviewed journals and publish open-access datasets.
 permalink: /presentations-and-publications/
 ---
 <div>
