@@ -1,30 +1,59 @@
-- year: Recent Outputs
+- year: Recent Publications
   publication_type:
   - type: Publications
     docs:
+    - title: 'ClimateBenchPress (v1.0): a benchmark for lossy compression of climate
+        data'
+      authors: Tim Reichelt, Juniper Tyree, Milan Klöwer, Peter Dueben, Bryan N. Lawrence,
+        Allison H. Baker, Sara Faghih-Naini, Torsten Hoefler, and Philip Stier
+      location: Geoscientific Model Development, (2026)
+      url: https://doi.org/10.5194/gmd-19-5933-2026
+      year: '2026'
+    - title: New insights on the suitability of NetCDF/HDF5 as storage format for
+        climate cloud repositories
+      authors: Ezequiel Cimadevilla, David Hassell, and Bryan N. Lawrence
+      location: (2026)
+      url: https://doi.org/10.5194/egusphere-2026-3249
+      year: '2026'
+    - title: 'Physics-Aware Multi-Task Learning for Atmospheric Turbulence Parameterization:
+        Auxiliary Tasks versus Architectural Conditioning'
+      authors: Sambit Kumar Panda, Todd R. Jones, Muhammad Shahzad, Bryan N. Lawrence,
+        and Anna-Louise Ellis
+      location: (2026)
+      url: https://doi.org/10.1145/3815572.3815750
+      year: '2026'
     - title: 'pyfive: A pure-Python HDF5 reader'
-      authors: Lawrence, Bryan N., Cimadevilla, Ezequiel, De Nolf, Wout, Hassell,
-        David, Helmus, Jonathan, Hodel, Benjamin, Maranville, Brian, Mühlbauer, Kai,
-        and Predoi, Valeriu
-      location: Journal of Open Source Software, vol. 11, no. 118, pp. 9688, (2026)
+      authors: Bryan N. Lawrence, Ezequiel Cimadevilla, Wout De Nolf, David Hassell,
+        Jonathan Helmus, Benjamin Hodel, Brian Maranville, Kai Mühlbauer, and Valeriu
+        Predoi
+      location: Journal of Open Source Software, (2026)
       url: https://doi.org/10.21105/joss.09688
+      year: '2026'
     - title: 'South Asian monsoon response to regional aerosol emission reductions:
         insights from RAMIP'
-      authors: Bhandekar, Ankit, Wilcox, Laura J, Lawrence, Bryan N, Luke Abraham,
-        Nathan, O’Connor, Fiona M, Samset, Bjørn H, Allen, Robert J, Ahmadi, Sharar,
-        Ekman, Annica M L, Elling, Maxwell T, Fraser-Leach, Luke, Griffiths, Paul,
-        Keeble, James, Koshiro, Tsuyoshi, Kushner, Paul, Lewinschal, Anna, MacRae,
-        Molly, Makkonen, Risto, Merikanto, Joonas, Nabat, Pierre, Nazarenko, Larissa,
-        O’Donnell, Declan, Oshima, Naga, Persad, Geeta, Rumbold, Steven T, Swart,
-        Neil, Takemura, Toshihiko, Tsigaridis, Kostas, and Westervelt, Daniel M
-      location: 'Environmental Research: Climate, vol. 5, no. 3, pp. 035036, (2026)'
+      authors: Ankit Bhandekar, Laura J Wilcox, Bryan N Lawrence, Nathan Luke Abraham,
+        Fiona M O’Connor, Bjørn H Samset, Robert J Allen, Sharar Ahmadi, Annica M
+        L Ekman, Maxwell T Elling, Luke Fraser-Leach, Paul Griffiths, James Keeble,
+        Tsuyoshi Koshiro, Paul Kushner, Anna Lewinschal, Molly MacRae, Risto Makkonen,
+        Joonas Merikanto, Pierre Nabat, Larissa Nazarenko, Declan O’Donnell, Naga
+        Oshima, Geeta Persad, Steven T Rumbold, Neil Swart, Toshihiko Takemura, Kostas
+        Tsigaridis, and Daniel M Westervelt
+      location: 'Environmental Research: Climate, (2026)'
       url: https://doi.org/10.1088/2752-5295/ae7fad
-    - title: 'Machine dependence and reproducibility for coupled climate simulations:
-        the HadGEM3-GC3.1 CMIP Preindustrial simulation'
-      authors: Guarino, Maria-Vittoria, Sime, Louise C, Schroeder, David, Lister,
-        Grenville MS, and Hatcher, Rosalyn
-      location: Geoscientific Model Development, vol. 13, pp. 139-154, (2020)
-      url: https://doi.org/10.5194/gmd-13-139-2020
+      year: '2026'
+    - title: Supporting remote access to HDF5 datasets
+      authors: David Hassell, Valeriu Predoi, Bryan Lawrence, Ezequiel Cimadevilla,
+        and Kai Mühlbauer
+      location: (2026)
+      url: https://doi.org/10.5194/egusphere-egu26-21900
+      year: '2026'
+    - title: 'Synoptic circulation control on aerosol loading over the Indo-Gangetic
+        Plain: Implications for regional air quality'
+      authors: Ankit Bhandekar, Laura Wilcox, Bryan Lawrence, Nathan Luke Abraham,
+        and Fiona O'Connor
+      location: (2026)
+      url: https://doi.org/10.5194/egusphere-egu26-11733
+      year: '2026'
 - year: 2022
   publication_type:
   - type: Presentations

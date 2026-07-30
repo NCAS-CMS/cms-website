@@ -1,7 +1,7 @@
 ---
 layout: page-fullwidth
 title: Posters, Presentations & Publications
-teaser: NCAS-CMS frequently attend workshops and conferences giving talks and presenting posters as well as writing papers. 
+teaser: NCAS-CMS frequently attend workshops and conferences giving talks and presenting posters as well as writing papers.
 permalink: /presentations-and-publications/
 ---
 <div>
@@ -18,7 +18,6 @@ permalink: /presentations-and-publications/
         {% endunless %}
       {% endfor %}
 
-      {% comment %} Only display the year header if there are non-presentation docs {% endcomment %}
       {% if valid_docs_count > 0 %}
         <h3>{{ year.year }}</h3>
         {% for entry in year.publication_type %}
@@ -29,11 +28,18 @@ permalink: /presentations-and-publications/
             {% if entry.docs %}
               <ul>
               {% for item in entry.docs %}
-                {% if item.url %}
-                  <li>{{ item.authors }}; <a href="{{ item.url }}">{{ item.title }}</a>; {{ item.location }}</li>
-                {% else %}
-                  <li>{{ item.authors }}; <a href="{{ site.url }}{{ site.baseurl }}/assets/docs/{{ item.file }}">{{ item.title }}</a>; {{ item.location }}</li>
-                {% endif %}
+                {% assign author_val = item.authors | default: item.author %}
+                <li>
+                  {% if author_val %}{{ author_val }}; {% endif %}
+                  {% if item.url %}
+                    <a href="{{ item.url }}">{{ item.title }}</a>
+                  {% elsif item.file %}
+                    <a href="{{ site.url }}{{ site.baseurl }}/assets/docs/{{ item.file }}">{{ item.title }}</a>
+                  {% else %}
+                    {{ item.title }}
+                  {% endif %}
+                  {% if item.location %}; {{ item.location }}{% endif %}
+                </li>
               {% endfor %}
               </ul>
             {% endif %}
@@ -46,11 +52,18 @@ permalink: /presentations-and-publications/
       <h3>{{ year.year }}</h3>
       <ul>
       {% for item in year.docs %}
-        {% if item.url %}
-          <li>{{ item.authors }}; <a href="{{ item.url }}">{{ item.title }}</a>; {{ item.location }}</li>
-        {% else %}
-          <li>{{ item.authors }}; <a href="{{ site.url }}{{ site.baseurl }}/assets/docs/{{ item.file }}">{{ item.title }}</a>; {{ item.location }}</li>
-        {% endif %}
+        {% assign author_val = item.authors | default: item.author %}
+        <li>
+          {% if author_val %}{{ author_val }}; {% endif %}
+          {% if item.url %}
+            <a href="{{ item.url }}">{{ item.title }}</a>
+          {% elsif item.file %}
+            <a href="{{ site.url }}{{ site.baseurl }}/assets/docs/{{ item.file }}">{{ item.title }}</a>
+          {% else %}
+            {{ item.title }}
+          {% endif %}
+          {% if item.location %}; {{ item.location }}{% endif %}
+        </li>
       {% endfor %}
       </ul>
     {% endif %}
