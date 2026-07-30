@@ -19,7 +19,7 @@ permalink: /presentations-and-publications/
       {% endfor %}
 
       {% if valid_docs_count > 0 %}
-        {% comment %} Removed year heading: <h3>{{ year.year }}</h3> {% endcomment %}
+        <h3>{{ year.year }}</h3>
         {% for entry in year.publication_type %}
           {% unless entry.type == "Presentations" %}
             {% if entry.type != "Publications" %}
@@ -49,7 +49,7 @@ permalink: /presentations-and-publications/
 
     {% comment %} 2. Handle flat structure from Python script {% endcomment %}
     {% elsif year.docs and year.docs.size > 0 %}
-      {% comment %} Removed year heading: <h3>{{ year.year }}</h3> {% endcomment %}
+      <h3>{{ year.year }}</h3>
       <ul>
       {% for item in year.docs %}
         {% assign author_val = item.authors | default: item.author %}
