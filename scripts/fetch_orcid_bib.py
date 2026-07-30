@@ -2,6 +2,7 @@ import argparse
 import os
 import re
 import sys
+import yaml
 import requests
 import bibtexparser
 
@@ -18,8 +19,8 @@ def get_orcid_works(orcid_id):
     
     response = requests.get(url, headers=headers)
     if response.status_code != 200:
-        print(f"Error: Unable to fetch works for ORCID iD {orcid_id} (Status: {response.status_code})")
-        sys.exit(1)
+        print(f"  [!] Error fetching works for ORCID {orcid_id} (Status: {response.status_code})")
+        return []
         
     data = response.json()
     works = []
@@ -92,17 +93,13 @@ def generate_fallback_bibtex(detail, put_code, year):
         url_obj = detail.get("url") or {}
         url = url_obj.get("value", "")
 
-    # 1. Try to get standard journal title
+    # Preprints / Journal handling
     journal_obj = detail.get("journal-title") or {}
     journal = journal_obj.get("value", "")
 
-    # 2. Fallback check for preprints & publisher metadata
     if not journal:
-        # Check publisher field (ORCID often puts "EGUsphere" or "Copernicus GmbH" here)
         pub_obj = detail.get("publisher") or {}
         publisher_val = pub_obj.get("value", "") if isinstance(pub_obj, dict) else ""
-        
-        # Check work-type (e.g., PREPRINT)
         work_type = str(detail.get("type", "")).upper()
 
         if "EGUSPHERE" in url.upper() or "EGUSPHERE" in publisher_val.upper():
@@ -132,32 +129,16 @@ def generate_fallback_bibtex(detail, put_code, year):
     }
     return entry
 
-def update_bibtex_file(orcid_id, start_year, end_year, output_path, clean_file=False):
-    # 1. Start completely fresh if --clean is requested
-    if clean_file and os.path.exists(output_path):
-        os.remove(output_path)
-        print(f"Removed existing '{output_path}' file.")
-
-    existing_db = bibtexparser.bibdatabase.BibDatabase()
-
-    if os.path.exists(output_path):
-        with open(output_path, 'r', encoding='utf-8') as f:
-            parser = bibtexparser.bparser.BibTexParser(common_strings=True)
-            existing_db = bibtexparser.load(f, parser=parser)
-
-    # Map normalized title -> index in existing_db.entries
-    title_to_index = {clean_title(e.get('title', '')): i for i, e in enumerate(existing_db.entries)}
-
-    print(f"Querying ORCID API for ID: {orcid_id}...")
+def process_orcid(orcid_id, existing_db, title_to_index, start_year, end_year):
+    """Fetch and merge publications for a single ORCID ID into existing_db."""
     works = get_orcid_works(orcid_id)
-    print(f"Found {len(works)} total works in profile.")
+    print(f"  Found {len(works)} total works in profile.")
 
     added_count = 0
 
     for work in works:
         year = extract_year(work)
 
-        # Date range filtering
         if start_year and (year is None or year < start_year):
             continue
         if end_year and (year is None or year > end_year):
@@ -166,11 +147,12 @@ def update_bibtex_file(orcid_id, start_year, end_year, output_path, clean_file=F
         title_raw = work.get("title", {}).get("title", {}).get("value", "Untitled")
         title_norm = clean_title(title_raw)
 
+        # Skip if already in the dataset (deduplication)
         if title_norm in title_to_index:
             continue
 
         put_code = work.get("put-code")
-        print(f"Fetching ({year or 'N/A'}): {title_raw[:60]}...")
+        print(f"  + Fetching ({year or 'N/A'}): {title_raw[:50]}...")
         
         detail = fetch_work_detail(orcid_id, put_code)
         if not detail:
@@ -198,24 +180,76 @@ def update_bibtex_file(orcid_id, start_year, end_year, output_path, clean_file=F
         title_to_index[title_norm] = len(existing_db.entries) - 1
         added_count += 1
 
+    return added_count
+
+def load_orcids_from_people_file(filepath):
+    """Extract list of dicts with name & orcid from people.yml."""
+    if not os.path.exists(filepath):
+        print(f"Error: People file '{filepath}' not found.")
+        sys.exit(1)
+
+    with open(filepath, 'r', encoding='utf-8') as f:
+        people = yaml.safe_load(f) or []
+
+    records = []
+    for person in people:
+        if isinstance(person, dict) and person.get('orcid'):
+            name = f"{person.get('firstname', '')} {person.get('lastname', '')}".strip()
+            orcid_str = str(person['orcid']).strip()
+            records.append({'name': name, 'orcid': orcid_str})
+    return records
+
+def update_bibtex_file(orcid_list, start_year, end_year, output_path, clean_file=False):
+    if clean_file and os.path.exists(output_path):
+        os.remove(output_path)
+        print(f"Cleaned existing output file '{output_path}'.")
+
+    existing_db = bibtexparser.bibdatabase.BibDatabase()
+
+    if os.path.exists(output_path):
+        with open(output_path, 'r', encoding='utf-8') as f:
+            parser = bibtexparser.bparser.BibTexParser(common_strings=True)
+            existing_db = bibtexparser.load(f, parser=parser)
+
+    title_to_index = {clean_title(e.get('title', '')): i for i, e in enumerate(existing_db.entries)}
+
+    total_added = 0
+    for idx, item in enumerate(orcid_list, 1):
+        name = item.get('name', 'Unknown')
+        orcid_id = item['orcid']
+        print(f"\n[{idx}/{len(orcid_list)}] Processing {name} ({orcid_id})...")
+        added = process_orcid(orcid_id, existing_db, title_to_index, start_year, end_year)
+        total_added += added
+
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
 
     with open(output_path, 'w', encoding='utf-8') as f:
         bibtexparser.dump(existing_db, f)
 
-    print(f"\nDone! Added {added_count} entries to '{output_path}'. Total records in .bib: {len(existing_db.entries)}")
+    print(f"\nFinished! Added {total_added} total new entries to '{output_path}'. Total database count: {len(existing_db.entries)}")
 
 def main():
-    parser = argparse.ArgumentParser(description="Fetch citations from ORCID and build/update a .bib file.")
-    parser.add_argument("orcid", help="ORCID iD (e.g. 0000-0002-1825-0097)")
+    parser = argparse.ArgumentParser(description="Fetch citations from ORCID profiles and build/update a .bib file.")
+    
+    group = parser.add_mutually_exclusive_group(required=True)
+    group.add_argument("orcid", nargs="?", help="Single ORCID iD (e.g. 0000-0002-1825-0097)")
+    group.add_argument("--people-file", help="Path to YAML people file (e.g. _data/people.yml)")
+
     parser.add_argument("--start-year", type=int, help="Start year (inclusive)")
     parser.add_argument("--end-year", type=int, help="End year (inclusive)")
-    parser.add_argument("--clean", action="store_true", help="Delete references.bib first and start fresh")
-    parser.add_argument("--output", "-o", default="_bibliography/references.bib", help="Path to .bib file")
+    parser.add_argument("--clean", action="store_true", help="Delete output .bib file first and start fresh")
+    parser.add_argument("--output", "-o", default="_bibliography/references.bib", help="Path to output .bib file")
     
     args = parser.parse_args()
+
+    if args.people_file:
+        orcid_list = load_orcids_from_people_file(args.people_file)
+        print(f"Loaded {len(orcid_list)} ORCID profiles from '{args.people_file}'.")
+    else:
+        orcid_list = [{'name': 'Single Target', 'orcid': args.orcid}]
+
     update_bibtex_file(
-        args.orcid,
+        orcid_list,
         args.start_year,
         args.end_year,
         args.output,
