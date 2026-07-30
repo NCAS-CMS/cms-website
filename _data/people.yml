@@ -19,6 +19,7 @@
   lastname: Abraham
   position: "UKCA development and support"
   ncas_id: 10166
+  orcid: 0000-0003-3750-3544
 
 - firstname: Sadie
   lastname: Bartholomew
@@ -74,6 +75,7 @@
   lastname: Williams
   position: "Workflows, User Support and Climate Model Infrastructure"
   ncas_id: 10779
+  orcid: 0000-0002-0680-0098
 
 - firstname: Varsiha
   lastname: Sothilingam

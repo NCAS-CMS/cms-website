@@ -1,101 +1,52 @@
-- year: Recent Publications
-  publication_type:
-  - type: Publications
-    docs:
-    - title: 'ClimateBenchPress (v1.0): a benchmark for lossy compression of climate
-        data'
-      authors: Tim Reichelt, Juniper Tyree, Milan Klöwer, Peter Dueben, Bryan N. Lawrence,
-        Allison H. Baker, Sara Faghih-Naini, Torsten Hoefler, and Philip Stier
-      location: Geoscientific Model Development, (2026)
-      url: https://doi.org/10.5194/gmd-19-5933-2026
-      year: '2026'
-    - title: New insights on the suitability of NetCDF/HDF5 as storage format for
-        climate cloud repositories
-      authors: Ezequiel Cimadevilla, David Hassell, and Bryan N. Lawrence
-      location: EGUsphere (Preprint), (2026)
-      url: https://doi.org/10.5194/egusphere-2026-3249
-      year: '2026'
-    - title: 'Physics-Aware Multi-Task Learning for Atmospheric Turbulence Parameterization:
-        Auxiliary Tasks versus Architectural Conditioning'
-      authors: Sambit Kumar Panda, Todd R. Jones, Muhammad Shahzad, Bryan N. Lawrence,
-        and Anna-Louise Ellis
-      location: (2026)
-      url: https://doi.org/10.1145/3815572.3815750
-      year: '2026'
-    - title: 'pyfive: A pure-Python HDF5 reader'
-      authors: Bryan N. Lawrence, Ezequiel Cimadevilla, Wout De Nolf, David Hassell,
-        Jonathan Helmus, Benjamin Hodel, Brian Maranville, Kai Mühlbauer, and Valeriu
-        Predoi
-      location: Journal of Open Source Software, (2026)
-      url: https://doi.org/10.21105/joss.09688
-      year: '2026'
-    - title: 'South Asian monsoon response to regional aerosol emission reductions:
-        insights from RAMIP'
-      authors: Ankit Bhandekar, Laura J Wilcox, Bryan N Lawrence, Nathan Luke Abraham,
-        Fiona M O’Connor, Bjørn H Samset, Robert J Allen, Sharar Ahmadi, Annica M
-        L Ekman, Maxwell T Elling, Luke Fraser-Leach, Paul Griffiths, James Keeble,
-        Tsuyoshi Koshiro, Paul Kushner, Anna Lewinschal, Molly MacRae, Risto Makkonen,
-        Joonas Merikanto, Pierre Nabat, Larissa Nazarenko, Declan O’Donnell, Naga
-        Oshima, Geeta Persad, Steven T Rumbold, Neil Swart, Toshihiko Takemura, Kostas
-        Tsigaridis, and Daniel M Westervelt
-      location: 'Environmental Research: Climate, (2026)'
-      url: https://doi.org/10.1088/2752-5295/ae7fad
-      year: '2026'
-    - title: Supporting remote access to HDF5 datasets
-      authors: David Hassell, Valeriu Predoi, Bryan Lawrence, Ezequiel Cimadevilla,
-        and Kai Mühlbauer
-      location: EGUsphere (Preprint), (2026)
-      url: https://doi.org/10.5194/egusphere-egu26-21900
-      year: '2026'
-    - title: 'Synoptic circulation control on aerosol loading over the Indo-Gangetic
-        Plain: Implications for regional air quality'
-      authors: Ankit Bhandekar, Laura Wilcox, Bryan Lawrence, Nathan Luke Abraham,
-        and Fiona O'Connor
-      location: EGUsphere (Preprint), (2026)
-      url: https://doi.org/10.5194/egusphere-egu26-11733
-      year: '2026'
-- year: 2022
-  publication_type:
-  - type: Presentations
-    docs:
-    - title: Some Title
-      file: Somefile.pdf
-      authors: Author
-      location: Virtual Workshop
-- year: 2021
-  publication_type:
-  - type: Presentations
-    docs:
-    - title: Using the JASMIN Unmanaged Cloud for UKCA Training
-      file: 20210325_ukca-training.pdf
-      authors: Luke Abraham
-      location: JASMIN User Seminar Series
-- year: 2020
-  publication_type:
-  - type: Presentations
-    docs:
-    - title: NCAS CF-Checker
-      file: cf-checker-2020.pdf
-      authors: Rosalyn Hatcher
-      location: CF Virtual Workshop
-    - title: A brief introduction to CF-netCDF
-      file: Introduction_to_CF-netCDF.pdf
-      authors: David Hassell
-      location: CF Virtual Workshop
-    - title: CF-1.8, CF-1.9, and onwards
-      file: CF_meeting_2020_Roadmap.pdf
-      authors: David Hassell
-      location: CF Virtual Workshop
-    - title: Jupyter notebook demonstration of cfdm - a Python reference implementation
-        of the CF data model
-      file: CF_2020_cfdm_demo.tgz
-      authors: David Hassell
-      location: CF Virtual Workshop
-    - title: Towards the Sustainability of the ENES Research Infrastructure
-      file: ENES-RI_Sustainability_ESiWACE2_GA1.pdf
-      authors: Fanny Adloff
-      location: ESiWACE2 Virtual First General Assembly
-    - title: Introduction to Sustainability
-      file: IS-ENES3_GA1_Sustainability.pdf
-      authors: Fanny Adloff
-      location: IS-ENES3 Virtual First General Assembly
+- year: '2026'
+  docs:
+  - title: 'ClimateBenchPress (v1.0): a benchmark for lossy compression of climate
+      data'
+    authors: Tim Reichelt, Juniper Tyree, Milan Klöwer, Peter Dueben, Bryan N. <u>Lawrence</u>,
+      Allison H. Baker, Sara Faghih-Naini, Torsten Hoefler, Philip Stier
+    location: Geoscientific Model Development, (2026)
+    url: https://doi.org/10.5194/gmd-19-5933-2026
+  - title: 'Climate warming at European airports: human factors and
+
+      infrastructure planning'
+    authors: Jonny <u>Williams</u>, Paul D. Williams, Marco Venturini
+    location: Aerospace, (2026)
+    url: ''
+  - title: New insights on the suitability of NetCDF/HDF5 as storage format for climate
+      cloud repositories
+    authors: Ezequiel Cimadevilla, David <u>Hassell</u>, Bryan N. <u>Lawrence</u>
+    location: EGUsphere (Preprint), (2026)
+    url: https://doi.org/10.5194/egusphere-2026-3249
+  - title: 'Physics-Aware Multi-Task Learning for Atmospheric Turbulence Parameterization:
+      Auxiliary Tasks versus Architectural Conditioning'
+    authors: Sambit Kumar Panda, Todd R. Jones, Muhammad Shahzad, Bryan N. <u>Lawrence</u>,
+      Anna-Louise Ellis
+    location: (2026)
+    url: https://doi.org/10.1145/3815572.3815750
+  - title: 'pyfive: A pure-Python HDF5 reader'
+    authors: Bryan N. <u>Lawrence</u>, Ezequiel Cimadevilla, Wout De Nolf, David <u>Hassell</u>,
+      Jonathan Helmus, Benjamin Hodel, Brian Maranville, Kai Mühlbauer, Valeriu <u>Predoi</u>
+    location: Journal of Open Source Software, (2026)
+    url: https://doi.org/10.21105/joss.09688
+  - title: 'South Asian monsoon response to regional aerosol emission reductions:
+      insights from RAMIP'
+    authors: Ankit Bhandekar, Laura J Wilcox, Bryan N <u>Lawrence</u>, Nathan Luke
+      <u>Abraham</u>, Fiona M O’Connor, Bjørn H Samset, Robert J Allen, Sharar <u>Ahmadi</u>,
+      Annica M L Ekman, Maxwell T Elling, Luke Fraser-Leach, Paul Griffiths, James
+      Keeble, Tsuyoshi Koshiro, Paul Kushner, Anna Lewinschal, Molly MacRae, Risto
+      Makkonen, Joonas Merikanto, Pierre Nabat, Larissa Nazarenko, Declan O’Donnell,
+      Naga Oshima, Geeta Persad, Steven T Rumbold, Neil Swart, Toshihiko Takemura,
+      Kostas Tsigaridis, Daniel M Westervelt
+    location: 'Environmental Research: Climate, (2026)'
+    url: https://doi.org/10.1088/2752-5295/ae7fad
+  - title: Supporting remote access to HDF5 datasets
+    authors: David <u>Hassell</u>, Valeriu <u>Predoi</u>, Bryan <u>Lawrence</u>, Ezequiel
+      Cimadevilla, Kai Mühlbauer
+    location: EGUsphere (Preprint), (2026)
+    url: https://doi.org/10.5194/egusphere-egu26-21900
+  - title: 'Synoptic circulation control on aerosol loading over the Indo-Gangetic
+      Plain: Implications for regional air quality'
+    authors: Ankit Bhandekar, Laura Wilcox, Bryan <u>Lawrence</u>, Nathan Luke <u>Abraham</u>,
+      Fiona O'Connor
+    location: EGUsphere (Preprint), (2026)
+    url: https://doi.org/10.5194/egusphere-egu26-11733
