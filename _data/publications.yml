@@ -12,7 +12,7 @@
     - title: New insights on the suitability of NetCDF/HDF5 as storage format for
         climate cloud repositories
       authors: Ezequiel Cimadevilla, David Hassell, and Bryan N. Lawrence
-      location: (2026)
+      location: EGUsphere (Preprint), (2026)
       url: https://doi.org/10.5194/egusphere-2026-3249
       year: '2026'
     - title: 'Physics-Aware Multi-Task Learning for Atmospheric Turbulence Parameterization:
@@ -44,14 +44,14 @@
     - title: Supporting remote access to HDF5 datasets
       authors: David Hassell, Valeriu Predoi, Bryan Lawrence, Ezequiel Cimadevilla,
         and Kai Mühlbauer
-      location: (2026)
+      location: EGUsphere (Preprint), (2026)
       url: https://doi.org/10.5194/egusphere-egu26-21900
       year: '2026'
     - title: 'Synoptic circulation control on aerosol loading over the Indo-Gangetic
         Plain: Implications for regional air quality'
       authors: Ankit Bhandekar, Laura Wilcox, Bryan Lawrence, Nathan Luke Abraham,
         and Fiona O'Connor
-      location: (2026)
+      location: EGUsphere (Preprint), (2026)
       url: https://doi.org/10.5194/egusphere-egu26-11733
       year: '2026'
 - year: 2022

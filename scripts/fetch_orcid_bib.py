@@ -92,8 +92,29 @@ def generate_fallback_bibtex(detail, put_code, year):
         url_obj = detail.get("url") or {}
         url = url_obj.get("value", "")
 
+    # 1. Try to get standard journal title
     journal_obj = detail.get("journal-title") or {}
     journal = journal_obj.get("value", "")
+
+    # 2. Fallback check for preprints & publisher metadata
+    if not journal:
+        # Check publisher field (ORCID often puts "EGUsphere" or "Copernicus GmbH" here)
+        pub_obj = detail.get("publisher") or {}
+        publisher_val = pub_obj.get("value", "") if isinstance(pub_obj, dict) else ""
+        
+        # Check work-type (e.g., PREPRINT)
+        work_type = str(detail.get("type", "")).upper()
+
+        if "EGUSPHERE" in url.upper() or "EGUSPHERE" in publisher_val.upper():
+            journal = "EGUsphere (Preprint)"
+        elif "ARXIV" in url.upper() or "ARXIV" in publisher_val.upper():
+            journal = "arXiv (Preprint)"
+        elif "BIORXIV" in url.upper() or "BIORXIV" in publisher_val.upper():
+            journal = "bioRxiv (Preprint)"
+        elif publisher_val:
+            journal = publisher_val
+        elif work_type == "PREPRINT":
+            journal = "Preprint"
 
     clean_key_title = re.sub(r'\W+', '', title)[:15]
     cite_key = f"orcid_{year or '0000'}_{clean_key_title}_{put_code}"
