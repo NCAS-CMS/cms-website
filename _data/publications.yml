@@ -1,3 +1,30 @@
+- year: Recent Publications
+  publication_type:
+  - type: Publications
+    docs:
+    - title: 'pyfive: A pure-Python HDF5 reader'
+      authors: Lawrence, Bryan N., Cimadevilla, Ezequiel, De Nolf, Wout, Hassell,
+        David, Helmus, Jonathan, Hodel, Benjamin, Maranville, Brian, Mühlbauer, Kai,
+        and Predoi, Valeriu
+      location: Journal of Open Source Software, vol. 11, no. 118, pp. 9688, (2026)
+      url: https://doi.org/10.21105/joss.09688
+    - title: 'South Asian monsoon response to regional aerosol emission reductions:
+        insights from RAMIP'
+      authors: Bhandekar, Ankit, Wilcox, Laura J, Lawrence, Bryan N, Luke Abraham,
+        Nathan, O’Connor, Fiona M, Samset, Bjørn H, Allen, Robert J, Ahmadi, Sharar,
+        Ekman, Annica M L, Elling, Maxwell T, Fraser-Leach, Luke, Griffiths, Paul,
+        Keeble, James, Koshiro, Tsuyoshi, Kushner, Paul, Lewinschal, Anna, MacRae,
+        Molly, Makkonen, Risto, Merikanto, Joonas, Nabat, Pierre, Nazarenko, Larissa,
+        O’Donnell, Declan, Oshima, Naga, Persad, Geeta, Rumbold, Steven T, Swart,
+        Neil, Takemura, Toshihiko, Tsigaridis, Kostas, and Westervelt, Daniel M
+      location: 'Environmental Research: Climate, vol. 5, no. 3, pp. 035036, (2026)'
+      url: https://doi.org/10.1088/2752-5295/ae7fad
+    - title: 'Machine dependence and reproducibility for coupled climate simulations:
+        the HadGEM3-GC3.1 CMIP Preindustrial simulation'
+      authors: Guarino, Maria-Vittoria, Sime, Louise C, Schroeder, David, Lister,
+        Grenville MS, and Hatcher, Rosalyn
+      location: Geoscientific Model Development, vol. 13, pp. 139-154, (2020)
+      url: https://doi.org/10.5194/gmd-13-139-2020
 - year: 2022
   publication_type:
   - type: Presentations
@@ -43,13 +70,3 @@
       file: IS-ENES3_GA1_Sustainability.pdf
       authors: Fanny Adloff
       location: IS-ENES3 Virtual First General Assembly
-- year: Recent Publications
-  publication_type:
-  - type: Publications
-    docs:
-    - title: 'Machine dependence and reproducibility for coupled climate simulations:
-        the HadGEM3-GC3.1 CMIP Preindustrial simulation'
-      authors: Guarino, Maria-Vittoria, Sime, Louise C, Schroeder, David, Lister,
-        Grenville MS, and Hatcher, Rosalyn
-      location: Geoscientific Model Development, vol. 13, pp. 139-154, (2020)
-      url: https://doi.org/10.5194/gmd-13-139-2020

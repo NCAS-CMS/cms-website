@@ -1,13 +1,27 @@
 import os
+import re
 import bibtexparser
 import yaml
 
 BIB_FILE = '_bibliography/references.bib'
 OUTPUT_FILE = '_data/publications.yml'
+TARGET_SECTION = 'Recent Publications'  # Target top-level section name
 
 def clean_title(title):
     """Normalize title for strict deduplication matching."""
     return title.replace('{', '').replace('}', '').strip().lower()
+
+def extract_year(doc):
+    """Extract numeric year from doc dict, location string, or title."""
+    if 'year' in doc and str(doc['year']).isdigit():
+        return int(doc['year'])
+    
+    # Search location and title for any 4-digit year pattern (19xx or 20xx)
+    text_to_search = f"{doc.get('location', '')} {doc.get('title', '')}"
+    matches = re.findall(r'(?:19|20)\d{2}', text_to_search)
+    if matches:
+        return int(matches[-1])  # Take the last year found
+    return 0
 
 def format_journal_citation(entry):
     """Formats a BibTeX entry into a standard academic journal citation dict."""
@@ -57,7 +71,7 @@ def process_and_deduplicate():
     existing_data = []
     seen_titles = set()
 
-    # 1. Load and deduplicate existing YAML file
+    # 1. Load existing YAML file
     if os.path.exists(OUTPUT_FILE):
         try:
             with open(OUTPUT_FILE, 'r', encoding='utf-8') as f:
@@ -68,8 +82,12 @@ def process_and_deduplicate():
 
     cleaned_data = []
 
+    # 2. Process existing blocks and collect existing titles
     for year_block in existing_data:
         if not isinstance(year_block, dict):
+            continue
+
+        if year_block.get('year') == 'Work in Progress':
             continue
 
         new_pub_types = []
@@ -89,7 +107,7 @@ def process_and_deduplicate():
             year_block['publication_type'] = new_pub_types
             cleaned_data.append(year_block)
 
-    # 2. Parse BibTeX and collect new entries
+    # 3. Parse BibTeX and collect new entries
     if not os.path.exists(BIB_FILE):
         print(f"Error: Could not find {BIB_FILE}")
         return
@@ -97,47 +115,51 @@ def process_and_deduplicate():
     with open(BIB_FILE, 'r', encoding='utf-8') as f:
         bib_data = bibtexparser.load(f)
 
-    new_wip_docs = []
+    new_docs = []
     for entry in bib_data.entries:
         formatted = format_journal_citation(entry)
         t = clean_title(formatted['title'])
         if t and t not in seen_titles:
             seen_titles.add(t)
-            new_wip_docs.append(formatted)
+            new_docs.append(formatted)
 
-    # 3. Append new WIP entries if present
-    if new_wip_docs:
-        # Check if 'Work in Progress' block already exists
-        wip_block = None
-        for block in cleaned_data:
-            if block.get('year') == 'Work in Progress':
-                wip_block = block
-                break
+    # 4. Merge new docs into target section
+    target_block = None
+    for block in cleaned_data:
+        if block.get('year') == TARGET_SECTION:
+            target_block = block
+            break
 
-        if wip_block:
-            # Append docs to existing Work in Progress block
-            for pub_type in wip_block.get('publication_type', []):
-                if pub_type.get('type') == 'Publications':
-                    pub_type['docs'].extend(new_wip_docs)
-                    break
+    if target_block:
+        pub_type_list = target_block.setdefault('publication_type', [])
+        if pub_type_list:
+            pub_type_list[0]['docs'].extend(new_docs)
         else:
-            # Create a new Work in Progress block
-            cleaned_data.append({
-                'year': 'Work in Progress',
-                'publication_type': [{
-                    'type': 'Publications',
-                    'docs': new_wip_docs
-                }]
-            })
-        print(f"Added {len(new_wip_docs)} new citation(s) under 'Work in Progress'.")
+            pub_type_list.append({'type': 'Publications', 'docs': new_docs})
     else:
-        print("No new BibTeX citations to add.")
+        target_block = {
+            'year': TARGET_SECTION,
+            'publication_type': [{
+                'type': 'Publications',
+                'docs': new_docs
+            }]
+        }
+        cleaned_data.insert(0, target_block)
 
-    # 4. Save clean structure back to YAML
+    # 5. Force-sort all papers inside 'Recent Publications' (Newest First)
+    for pub_type in target_block.get('publication_type', []):
+        if 'docs' in pub_type:
+            pub_type['docs'].sort(key=extract_year, reverse=True)
+
+    # 6. Ensure 'Recent Publications' is the VERY FIRST section in the YAML list
+    cleaned_data = [b for b in cleaned_data if b.get('year') != TARGET_SECTION]
+    cleaned_data.insert(0, target_block)
+
+    # 7. Write back clean YAML structure
     with open(OUTPUT_FILE, 'w', encoding='utf-8') as f:
         yaml.dump(cleaned_data, f, sort_keys=False, allow_unicode=True)
 
-    print(f"Successfully cleaned and updated {OUTPUT_FILE}!")
+    print(f"Successfully cleaned, sorted, and updated {OUTPUT_FILE}!")
 
 if __name__ == '__main__':
     process_and_deduplicate()
