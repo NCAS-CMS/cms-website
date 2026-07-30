@@ -1,5 +1,9 @@
 - year: '2026'
   docs:
+  - title: 'cfdm: A Python reference implementation of the CF data model'
+    authors: David <u>Hassell</u>, Sadie L. <u>Bartholomew</u>
+    location: Zenodo, (2026)
+    url: https://doi.org/10.5281/zenodo.3894524
   - title: 'ClimateBenchPress (v1.0): a benchmark for lossy compression of climate
       data'
     authors: Tim Reichelt, Juniper Tyree, Milan Klöwer, Peter Dueben, Bryan N. <u>Lawrence</u>,
@@ -28,6 +32,12 @@
       Jonathan Helmus, Benjamin Hodel, Brian Maranville, Kai Mühlbauer, Valeriu <u>Predoi</u>
     location: Journal of Open Source Software, (2026)
     url: https://doi.org/10.21105/joss.09688
+  - title: Scaling up CATS, The <i>Climate-Aware Task Scheduler</i>, for cluster computing
+      and international reach
+    authors: Sadie L. <u>Bartholomew</u>, Lincoln Colling, Abhishek Dasgupta, Anthony
+      J. Greenberg, Loïc Lannelongue, Colin Sauze, Andrew Walker
+    location: (2026)
+    url: https://doi.org/10.6084/m9.figshare.32180286
   - title: 'South Asian monsoon response to regional aerosol emission reductions:
       insights from RAMIP'
     authors: Ankit Bhandekar, Laura J Wilcox, Bryan N <u>Lawrence</u>, Nathan Luke
@@ -50,3 +60,102 @@
       Fiona O'Connor
     location: EGUsphere (Preprint), (2026)
     url: https://doi.org/10.5194/egusphere-egu26-11733
+- year: '2025'
+  docs:
+  - title: 'CATS: Climate-Aware Task Scheduler for environmentally conscious developers'
+    authors: Sadie L. <u>Bartholomew</u>, Lincoln Colling, Abhishek Dasgupta, Anthony
+      J. Greenberg, Loïc Lannelongue, Thibault Lestang, Carlos Martinez-Ortiz, Colin
+      Sauzé, Andrew M. Walker
+    location: Zenodo, (2025)
+    url: https://doi.org/10.5281/zenodo.17967496
+  - title: 'CATS: The Climate Aware Task Scheduler'
+    authors: Sadie L. <u>Bartholomew</u>, Lincoln Colling, Abhishek Dasgupta, Anthony
+      J. Greenberg, Loïc Lannelongue, Thibault Lestang, Carlos Martinez-Ortiz, Colin
+      Sauzé, Andrew M. Walker, Adam Stuart Ward
+    location: Journal of Open Source Software, (2025)
+    url: https://doi.org/10.21105/joss.08251
+  - title: 'ClimateBenchPress: A Benchmark for Compression of Climate Data'
+    authors: Tim Reichelt, Juniper Tyree, Milan Kloewer, Peter Dueben, Bryan <u>Lawrence</u>,
+      Dorit Hammerling, Alisson Baker, Sara Faghih-Naini, Philip Stier
+    location: EGUsphere (Preprint), (2025)
+    url: https://doi.org/10.5194/egusphere-egu25-15912
+  - title: Climate change will increase aircraft take-off distances and reduce payloads,
+      but by how much?
+    authors: Jonny <u>Williams</u>, Paul Williams, Federica Guerrini, Marco Venturini
+    location: EGUsphere (Preprint), (2025)
+    url: https://doi.org/10.5194/egusphere-egu25-3272
+  - title: 'Compression and Aggregation: a CF data model approach'
+    authors: David <u>Hassell</u>, Sadie <u>Bartholomew</u>, Bryan <u>Lawrence</u>,
+      Daniel Westwood
+    location: EGUsphere (Preprint), (2025)
+    url: https://doi.org/10.5194/egusphere-egu25-20430
+  - title: Constraining the uncertainty associated with sea salt aerosol parameterizations
+      in global models using nudged UKESM1‐AMIP simulations
+    authors: Abhijith U. Venugopal, Yusuf A. Bhatti, Olaf Morgenstern, Jonny <u>Williams</u>,
+      Nick Edkins, Catherine Hardacre, Anthony Jones, Laura E. Revell
+    location: 'Journal of Geophysical Research: Atmospheres, (2025)'
+    url: https://doi.org/10.1029/2024jd041643
+  - title: 'Downscaled CMIP6 future climate projections for New Zealand:
+
+      climatology and extremes'
+    authors: Peter B. Gibson, Ashley M. Broadbent, Stephen J. Stuart, Hamish Lewis,
+      Isaac Campbell, Neelesh Rampal, Luke J. Harrington, Jonny <u>Williams</u>
+    location: Weather and Climate Extremes, (2025)
+    url: https://doi.org/10.1016/j.wace.2025.100784
+  - title: Evaluating Large Language Models for Standard Names Generation in CF Conventions
+    authors: Mario Díez Fernández, Sadie <u>Bartholomew</u>, Antonio S. Cofiño
+    location: CF Community, (2025)
+    url: https://doi.org/10.5281/zenodo.17203173
+  - title: 'PyActiveStorage: &#160;Efficient distributed data analysis using Active
+      Storage for HDF5/NetCDF4'
+    authors: Bryan N. <u>Lawrence</u>, David <u>Hassell</u>, Grenville Lister, <u>Predoi</u>
+      Valeriu, Scott Davidson, Mark Goddard, Matt Pryor, Stig Telfer, Konstantinos
+      Chasapis, Jean-Thomas Acquaviva
+    location: EGUsphere (Preprint), (2025)
+    url: https://doi.org/10.5194/egusphere-egu25-6544
+  - title: Quantifying the Effects of Climate Change on Aircraft Take-Off Performance
+      at European Airports
+    authors: Jonny <u>Williams</u>, Paul D. Williams, Federica Guerrini, Marco Venturini
+    location: Aerospace, (2025)
+    url: https://doi.org/10.3390/aerospace12030165
+  - title: 'The CANARI HadGEM3 Large Ensemble: Design and evaluation of historical
+      simulations'
+    authors: Reinhard Schiemann, Grenville Lister, Rosalyn <u>Hatcher</u>, Dan Hodson,
+      Bryan <u>Lawrence</u>, Len Shaffrey, Ben Harvey, Steve Woolnough, Jon Robson,
+      David Schröder, Adam Blaker, Hua Lu, Tony Phillips
+    location: EGUsphere (Preprint), (2025)
+    url: https://doi.org/10.5194/egusphere-egu25-12412
+  - title: 'The Coupled Model Intercomparison Project (CMIP): Reviewing project history,
+      evolution, infrastructure and implementation'
+    authors: Paul J. Durack, Karl E. Taylor, Peter J. Gleckler, Gerald A. Meehl, Bryan
+      N. <u>Lawrence</u>, Curt Covey, Ronald J. Stouffer, Guillaume Levavasseur, Atef
+      Ben-Nasser, Sebastien Denvil, Martina Stockhause, Jonathan M. Gregory, Martin
+      Juckes, Sasha K. Ames, Fabrizio Antonio, David C. Bader, John P. Dunne, Daniel
+      Ellis, Veronika Eyring, Sandro L. Fiore, Sylvie Joussaume, Philip Kershaw, Jean-Francois
+      Lamarque, Michael Lautenschlager, Jiwoo Lee, Chris F. Mauzey, Matthew Mizielinski,
+      Paola Nassisi, Alessandra Nuzzo, Eleanor O’Rourke, Jeffrey Painter, Gerald L.
+      Potter, Sven Rodriguez, Dean N. Williams
+    location: EGUsphere (Preprint), (2025)
+    url: https://doi.org/10.5194/egusphere-2024-3729
+  - title: The Earth System Grid Federation (ESGF) Virtual Aggregation (CMIP6 v20240125)
+    authors: Ezequiel Cimadevilla, Bryan N. <u>Lawrence</u>, Antonio S. Cofiño
+    location: Geoscientific Model Development, (2025)
+    url: https://doi.org/10.5194/gmd-18-2461-2025
+  - title: The Impacts of Climate Change on Aircraft Noise near European Airports
+    authors: Jonny <u>Williams</u>, Paul D. Williams, Marco Venturini, Anil Padhra,
+      Guy Gratton, Spyridon Rapsomanikis
+    location: Aerospace, (2025)
+    url: https://doi.org/10.3390/aerospace12090815
+  - title: Updates from the 2025 CF Workshop
+    authors: Ethan Davis, David <u>Hassell</u>, Daniel Lee, Lars Bärring, Sadie <u>Bartholomew</u>,
+      Ellie Fisher, Luke Marsden, Alison Pamment, Antonio S. Cofiño, Kevin O'Brien,
+      Guilherme Castelao
+    location: CF Community, (2025)
+    url: https://doi.org/10.5281/zenodo.18158276
+  - title: 'Virtual Integration of Satellite and In-situ Observation Networks (VISION)
+      v1.0: In-Situ Observations Simulator (ISO_simulator)'
+    authors: Maria R. Russo, Sadie L. <u>Bartholomew</u>, David <u>Hassell</u>, Alex
+      M. Mason, Erica Neininger, A. James Perman, David A. J. Sproson, Duncan Watson-Parris,
+      Nathan Luke <u>Abraham</u>
+    location: Geoscientific Model Development, (2025)
+    url: https://doi.org/10.5194/gmd-18-181-2025
