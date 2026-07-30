@@ -16,12 +16,12 @@ def get_orcid_works(orcid_id):
     """Fetch all work summaries for an ORCID iD."""
     url = f"{ORCID_BASE_URL}/{orcid_id}/works"
     headers = {"Accept": "application/json"}
-    
+
     response = requests.get(url, headers=headers)
     if response.status_code != 200:
-        print(f"  [!] Error fetching works for ORCID {orcid_id} (Status: {response.status_code})")
+        print(f"   [!] Error fetching works for ORCID {orcid_id} (Status: {response.status_code})")
         return []
-        
+
     data = response.json()
     works = []
     for group in data.get("group", []):
@@ -72,6 +72,33 @@ def fetch_work_detail(orcid_id, put_code):
     response = requests.get(url, headers=headers)
     return response.json() if response.status_code == 200 else None
 
+def extract_orcid_url(detail):
+    """Extract whatever link/URI is provided directly in the ORCID entry."""
+    if not isinstance(detail, dict):
+        return ""
+
+    # 1. Check direct URL element in ORCID work object
+    url_obj = detail.get("url") or {}
+    url_val = url_obj.get("value", "").strip() if isinstance(url_obj, dict) else ""
+    if url_val:
+        return url_val
+
+    # 2. Extract from external-ids (DOI, URI, or URL)
+    ext_ids_obj = detail.get("external-ids") or {}
+    external_ids = ext_ids_obj.get("external-id") or []
+    for ext_id in external_ids:
+        if not isinstance(ext_id, dict):
+            continue
+        ext_type = str(ext_id.get("external-id-type", "")).lower()
+        ext_val = str(ext_id.get("external-id-value", "")).strip()
+
+        if ext_type == "doi" and ext_val:
+            return f"https://doi.org/{re.sub(r'^https?://doi\.org/', '', ext_val)}"
+        elif ext_type in ("uri", "url", "handle") and ext_val:
+            return ext_val
+
+    return ""
+
 def generate_fallback_bibtex(detail, put_code, year):
     """Generate a valid BibTeX entry if ORCID lacks raw BibTeX text."""
     if not isinstance(detail, dict):
@@ -81,17 +108,7 @@ def generate_fallback_bibtex(detail, put_code, year):
     title = title_obj.get("value", "Untitled")
 
     authors = extract_authors(detail)
-
-    url = ""
-    ext_ids_obj = detail.get("external-ids") or {}
-    external_ids = ext_ids_obj.get("external-id") or []
-    for ext_id in external_ids:
-        if isinstance(ext_id, dict) and ext_id.get("external-id-type") in ["doi", "DOI"]:
-            url = f"https://doi.org/{ext_id.get('external-id-value')}"
-            break
-    if not url:
-        url_obj = detail.get("url") or {}
-        url = url_obj.get("value", "")
+    url = extract_orcid_url(detail)
 
     # Preprints / Journal handling
     journal_obj = detail.get("journal-title") or {}
@@ -132,7 +149,7 @@ def generate_fallback_bibtex(detail, put_code, year):
 def process_orcid(orcid_id, existing_db, title_to_index, start_year, end_year):
     """Fetch and merge publications for a single ORCID ID into existing_db."""
     works = get_orcid_works(orcid_id)
-    print(f"  Found {len(works)} total works in profile.")
+    print(f"   Found {len(works)} total works in profile.")
 
     added_count = 0
 
@@ -152,8 +169,8 @@ def process_orcid(orcid_id, existing_db, title_to_index, start_year, end_year):
             continue
 
         put_code = work.get("put-code")
-        print(f"  + Fetching ({year or 'N/A'}): {title_raw[:50]}...")
-        
+        print(f"   + Fetching ({year or 'N/A'}): {title_raw[:50]}...")
+
         detail = fetch_work_detail(orcid_id, put_code)
         if not detail:
             continue
@@ -172,6 +189,10 @@ def process_orcid(orcid_id, existing_db, title_to_index, start_year, end_year):
 
         if not parsed_entry:
             parsed_entry = generate_fallback_bibtex(detail, put_code, year)
+        else:
+            # Ensure whatever URL ORCID provides is preserved if missing from raw BibTeX
+            if not parsed_entry.get("url"):
+                parsed_entry["url"] = extract_orcid_url(detail)
 
         if 'authors' not in parsed_entry and 'author' in parsed_entry:
             parsed_entry['authors'] = parsed_entry['author']
@@ -230,7 +251,7 @@ def update_bibtex_file(orcid_list, start_year, end_year, output_path, clean_file
 
 def main():
     parser = argparse.ArgumentParser(description="Fetch citations from ORCID profiles and build/update a .bib file.")
-    
+
     group = parser.add_mutually_exclusive_group(required=True)
     group.add_argument("orcid", nargs="?", help="Single ORCID iD (e.g. 0000-0002-1825-0097)")
     group.add_argument("--people-file", help="Path to YAML people file (e.g. _data/people.yml)")
@@ -239,7 +260,7 @@ def main():
     parser.add_argument("--end-year", type=int, help="End year (inclusive)")
     parser.add_argument("--clean", action="store_true", help="Delete output .bib file first and start fresh")
     parser.add_argument("--output", "-o", default="_bibliography/references.bib", help="Path to output .bib file")
-    
+
     args = parser.parse_args()
 
     if args.people_file:
