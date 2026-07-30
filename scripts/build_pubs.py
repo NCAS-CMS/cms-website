@@ -5,31 +5,12 @@ import yaml
 BIB_FILE = '_bibliography/references.bib'
 OUTPUT_FILE = '_data/publications.yml'
 
-def get_existing_titles(output_file):
-    """Parses existing publication titles from the output YAML file to avoid duplicates."""
-    if not os.path.exists(output_file):
-        return set()
-
-    titles = set()
-    try:
-        with open(output_file, 'r', encoding='utf-8') as f:
-            data = yaml.safe_load(f) or []
-            
-        for year_block in data:
-            if not isinstance(year_block, dict):
-                continue
-            for pub_type in year_block.get('publication_type', []):
-                for doc in pub_type.get('docs', []):
-                    if 'title' in doc:
-                        clean_title = doc['title'].strip().lower()
-                        titles.add(clean_title)
-    except Exception as e:
-        print(f"Warning: Could not parse existing {output_file} ({e}). Proceeding carefully.")
-    
-    return titles
+def clean_title(title):
+    """Normalize title for strict deduplication matching."""
+    return title.replace('{', '').replace('}', '').strip().lower()
 
 def format_journal_citation(entry):
-    """Formats a BibTeX entry into a standard academic journal citation string without Markdown formatting."""
+    """Formats a BibTeX entry into a standard academic journal citation dict."""
     title = entry.get('title', '').replace('{', '').replace('}', '').strip()
 
     raw_authors = entry.get('author', '').replace('\n', ' ')
@@ -72,51 +53,91 @@ def format_journal_citation(entry):
         'url': url
     }
 
-def main():
+def process_and_deduplicate():
+    existing_data = []
+    seen_titles = set()
+
+    # 1. Load and deduplicate existing YAML file
+    if os.path.exists(OUTPUT_FILE):
+        try:
+            with open(OUTPUT_FILE, 'r', encoding='utf-8') as f:
+                existing_data = yaml.safe_load(f) or []
+        except Exception as e:
+            print(f"Error reading {OUTPUT_FILE}: {e}")
+            return
+
+    cleaned_data = []
+
+    for year_block in existing_data:
+        if not isinstance(year_block, dict):
+            continue
+
+        new_pub_types = []
+        for pub_type in year_block.get('publication_type', []):
+            new_docs = []
+            for doc in pub_type.get('docs', []):
+                t = clean_title(doc.get('title', ''))
+                if t and t not in seen_titles:
+                    seen_titles.add(t)
+                    new_docs.append(doc)
+
+            if new_docs:
+                pub_type['docs'] = new_docs
+                new_pub_types.append(pub_type)
+
+        if new_pub_types:
+            year_block['publication_type'] = new_pub_types
+            cleaned_data.append(year_block)
+
+    # 2. Parse BibTeX and collect new entries
     if not os.path.exists(BIB_FILE):
         print(f"Error: Could not find {BIB_FILE}")
         return
 
-    # 1. Fetch existing titles to prevent duplication
-    existing_titles = get_existing_titles(OUTPUT_FILE)
-
-    # 2. Parse BibTeX
     with open(BIB_FILE, 'r', encoding='utf-8') as f:
         bib_data = bibtexparser.load(f)
 
-    # 3. Filter out entries that already exist in publications.yml
-    new_docs = []
-    skipped_count = 0
-
+    new_wip_docs = []
     for entry in bib_data.entries:
-        formatted_entry = format_journal_citation(entry)
-        clean_title = formatted_entry['title'].strip().lower()
+        formatted = format_journal_citation(entry)
+        t = clean_title(formatted['title'])
+        if t and t not in seen_titles:
+            seen_titles.add(t)
+            new_wip_docs.append(formatted)
 
-        if clean_title in existing_titles:
-            skipped_count += 1
+    # 3. Append new WIP entries if present
+    if new_wip_docs:
+        # Check if 'Work in Progress' block already exists
+        wip_block = None
+        for block in cleaned_data:
+            if block.get('year') == 'Work in Progress':
+                wip_block = block
+                break
+
+        if wip_block:
+            # Append docs to existing Work in Progress block
+            for pub_type in wip_block.get('publication_type', []):
+                if pub_type.get('type') == 'Publications':
+                    pub_type['docs'].extend(new_wip_docs)
+                    break
         else:
-            new_docs.append(formatted_entry)
-            existing_titles.add(clean_title)
+            # Create a new Work in Progress block
+            cleaned_data.append({
+                'year': 'Work in Progress',
+                'publication_type': [{
+                    'type': 'Publications',
+                    'docs': new_wip_docs
+                }]
+            })
+        print(f"Added {len(new_wip_docs)} new citation(s) under 'Work in Progress'.")
+    else:
+        print("No new BibTeX citations to add.")
 
-    if not new_docs:
-        print(f"No new entries to append. ({skipped_count} entries already exist in {OUTPUT_FILE}).")
-        return
+    # 4. Save clean structure back to YAML
+    with open(OUTPUT_FILE, 'w', encoding='utf-8') as f:
+        yaml.dump(cleaned_data, f, sort_keys=False, allow_unicode=True)
 
-    # 4. Structure new entries under 'Work in Progress'
-    new_yaml_block = [{
-        'year': 'Work in Progress',
-        'publication_type': [{
-            'type': 'Publications',
-            'docs': new_docs
-        }]
-    }]
-
-    # 5. Append with a visual YAML comment marker
-    with open(OUTPUT_FILE, 'a', encoding='utf-8') as f:
-        f.write("\n# --- WORK IN PROGRESS (AUTO-GENERATED FROM BIBTEX) ---\n")
-        f.write(yaml.dump(new_yaml_block, sort_keys=False, allow_unicode=True))
-
-    print(f"Successfully appended {len(new_docs)} new citation(s) to {OUTPUT_FILE} (Skipped {skipped_count} existing).")
+    print(f"Successfully cleaned and updated {OUTPUT_FILE}!")
 
 if __name__ == '__main__':
-    main()
+    process_and_deduplicate()
