@@ -68,19 +68,16 @@
               <ul class="inline-list social-icons">
                   {% for social_item in site.data.socialmedia %}
                   <li>
-                      {% if social_item.class == 'bluesky-img' %}
-                      <a href="{{ social_item.url }}" target="_blank" rel="noopener noreferrer" class="bluesky-img" title="{{ social_item.title }}" style="display: inline-flex !important; align-items: center !important; justify-content: center !important; background-color: #ffffff !important; border-radius: 50% !important; width: 2.2rem !important; height: 2.2rem !important; padding: 0.35rem !important; vertical-align: middle !important;">
-                          {% if jekyll.environment == 'development' %}
-                          <img src="/assets/fonts/bluesky-logo.webp" alt="Bluesky" style="width: 100% !important; height: auto !important; display: block !important; filter: invert(32%) sepia(54%) saturate(1452%) hue-rotate(128deg) brightness(93%) contrast(92%) !important;">
+                      <a href="{{ social_item.url }}" target="_blank" rel="noopener noreferrer" class="{{ social_item.class }}" title="{{ social_item.title }}">
+                          {% if social_item.icon_class == 'icon-bluesky' %}
+                          <svg viewBox="-15 -10 120 100" width="1em" height="1em" style="vertical-align: middle; display: inline-block;">
+                            <circle cx="45" cy="40" r="50" fill="#ffffff" />
+                            <path fill="currentColor" d="M 45,35.491005 C 40.92475,27.565505 29.827,12.795425 19.50867,5.5110048 9.62427,-1.4670852 5.8535,-0.25801522 3.3815,0.85898478 0.52023,2.1518948 0,6.5446248 0,9.1291048 0,11.713555 1.41687,30.318005 2.34104,33.423505 c 3.05361,10.261 13.92403,13.72825 23.93496,12.6155 0.51175,-0.076 1.03075,-0.146 1.55625,-0.211 -0.5155,0.0825 -1.03475,0.153 -1.55625,0.211 -14.6709,2.17275 -27.70005,7.51925 -10.61145,26.5435 18.79745,19.4625 25.7617,-4.17325 29.33545,-16.157 3.57375,11.98375 7.69,34.76725 28.99875,16.157 16.00125,-16.157 4.39625,-24.37 -10.27475,-26.543 -0.5215,-0.058 -1.04075,-0.12825 -1.55625,-0.21075 0.5255,0.0647 1.0445,0.135 1.55625,0.21075 10.011,1.113 20.88125,-2.3545 23.935,-12.61525 C 88.58325,30.318755 90,11.714205 90,9.1297548 c 0,-2.58448 -0.52025,-6.97722 -3.3815,-8.27012002 -2.472,-1.117 -6.24275,-2.32606998 -16.12725,4.65202002 C 60.173,12.796075 49.07525,27.565505 45,35.491005 Z" />
+                          </svg>
                           {% else %}
-                          <img src="{{ '/assets/fonts/bluesky-logo.webp' | relative_url }}" alt="Bluesky" style="width: 100% !important; height: auto !important; display: block !important; filter: invert(32%) sepia(54%) saturate(1452%) hue-rotate(128deg) brightness(93%) contrast(92%) !important;">
+                          <i class="{{ social_item.icon_class }}"></i>
                           {% endif %}
                       </a>
-                      {% else %}
-                      <a href="{{ social_item.url }}" target="_blank" rel="noopener noreferrer" class="{{ social_item.class }}" title="{{ social_item.title }}">
-                          <i class="{{ social_item.icon_class }}"></i>
-                      </a>
-                      {% endif %}
                   </li>
                   {% endfor %}
               </ul>
