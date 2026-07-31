@@ -28,10 +28,15 @@
 #   class: icon-googleplus
 #   title: "YouTube Google+"
 
-- name: Facebook
-  url: http://www.facebook.com/UKAtmosScience
-  class: icon-facebook
-  title: "National Centre for Atmospheric Science on Facebook"
+# - name: Facebook
+#   url: http://www.facebook.com/UKAtmosScience
+#   class: icon-facebook
+#   title: "National Centre for Atmospheric Science on Facebook"
+
+- name: LinkedIn
+  url: https://www.linkedin.com/company/national-centre-for-atmospheric-science
+  class: icon-linkedin
+  title: "National Centre for Atmospheric Science on LinkedIn"
 
 # - name: Soundcloud
 #   url: http://soundcloud.com/
