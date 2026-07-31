@@ -65,17 +65,17 @@
           </section>
 
           <section id="subfooter-right" class="small-12 medium-6 columns">
-            <ul class="inline-list social-icons">
-                {% for social_item in site.data.socialmedia %}
-                <li>
-                    <a href="{{ social_item.url }}" target="_blank" rel="noopener noreferrer" class="{{ social_item.class }}" title="{{ social_item.title }}">
-                        {% if social_item.class == 'bluesky-img' %}
-                        <img src="{{ site.url }}/assets/fonts/Bluesky_logo_(black).svg.webp" alt="Bluesky">
-                        {% endif %}
-                    </a>
-                </li>
-                {% endfor %}
-            </ul>
+              <ul class="inline-list social-icons">
+                  {% for social_item in site.data.socialmedia %}
+                  <li>
+                      <a href="{{ social_item.url }}" target="_blank" rel="noopener noreferrer" class="{{ social_item.class }}" title="{{ social_item.title }}">
+                          {% if social_item.class == 'bluesky-img' %}
+                          <img src="{{ '/assets/fonts/bluesky-logo.webp' | relative_url }}" alt="Bluesky">
+                          {% endif %}
+                      </a>
+                  </li>
+                  {% endfor %}
+              </ul>
           </section>
         </nav>
       </div><!-- /#subfooter -->
