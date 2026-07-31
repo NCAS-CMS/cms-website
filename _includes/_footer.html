@@ -68,13 +68,21 @@
               <ul class="inline-list social-icons">
                   {% for social_item in site.data.socialmedia %}
                   <li>
-                      <a href="{{ social_item.url }}" target="_blank" rel="noopener noreferrer" class="{{ social_item.class }}" title="{{ social_item.title }}">
-                          {% if social_item.class == 'bluesky-img' %}
-                          <img src="{{ '/assets/fonts/bluesky-logo.webp' | relative_url }}" alt="Bluesky">
+                      {% if social_item.class == 'bluesky-img' %}
+                      <a href="{{ social_item.url }}" target="_blank" rel="noopener noreferrer" class="bluesky-img" title="{{ social_item.title }}">
+                          {% if jekyll.environment == 'development' %}
+                          <img src="/assets/fonts/bluesky-logo.webp" alt="Bluesky">
+                          {% else %}
+                          <img src="/cms-website/assets/fonts/bluesky-logo.webp" alt="Bluesky">
                           {% endif %}
                       </a>
+                      {% else %}
+                      <a href="{{ social_item.url }}" target="_blank" rel="noopener noreferrer" class="{{ social_item.class }}" title="{{ social_item.title }}">
+                          <i class="{{ social_item.icon_class }}"></i>
+                      </a>
+                      {% endif %}
                   </li>
-                  {% endfor %}
+{% endfor %}
               </ul>
           </section>
         </nav>
