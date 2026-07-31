@@ -12,6 +12,35 @@ def clean_title(title):
     """Normalize title string for robust matching."""
     return re.sub(r'[\{\}\s\W]+', '', title).lower()
 
+def load_pubsignore(primary_path="_bibliography/.pubsignore"):
+    """Load case-insensitive keyword blacklists from .pubsignore file."""
+    target_path = primary_path
+    if not os.path.exists(target_path):
+        if os.path.exists(".pubsignore"):
+            target_path = ".pubsignore"
+        else:
+            return []
+
+    ignored_keywords = []
+    with open(target_path, 'r', encoding='utf-8') as f:
+        for line in f:
+            clean_line = line.strip()
+            if clean_line and not clean_line.startswith("#"):
+                ignored_keywords.append(clean_line.lower())
+
+    if ignored_keywords:
+        print(f"Loaded {len(ignored_keywords)} title filter keyword(s) from '{target_path}'.")
+
+    return ignored_keywords
+
+def is_ignored(title, ignore_list):
+    """Check if any ignored keyword appears in the publication title."""
+    if not title or not ignore_list:
+        return False
+
+    title_lower = title.lower()
+    return any(keyword in title_lower for keyword in ignore_list)
+
 def get_orcid_work_groups(orcid_id):
     """Fetch all work groups from ORCID."""
     url = f"{ORCID_BASE_URL}/{orcid_id}/works"
@@ -42,7 +71,7 @@ def fetch_authors_from_crossref(doi):
     clean_doi = re.sub(r'^https?://(dx\.)?doi\.org/', '', doi, flags=re.IGNORECASE)
     url = f"https://api.crossref.org/works/{clean_doi}"
     headers = {"User-Agent": "NCAS-CMS-BibFetcher/1.0 (mailto:cms-support@ncas.ac.uk)"}
-    
+
     try:
         response = requests.get(url, headers=headers, timeout=5)
         if response.status_code == 200:
@@ -89,7 +118,7 @@ def extract_authors(detail, owner_name="", doi=None):
     if author_names:
         return " and ".join(author_names)
 
-    # Fallback 1: Try fetching complete author list from Crossref using DOI
+    # Fallback 1: Try Crossref API using DOI
     if doi:
         crossref_authors = fetch_authors_from_crossref(doi)
         if crossref_authors:
@@ -106,14 +135,14 @@ def fetch_bulk_work_details(orcid_id, put_codes):
     codes_str = ",".join(str(code) for code in put_codes[:100])
     url = f"{ORCID_BASE_URL}/{orcid_id}/works/{codes_str}"
     headers = {"Accept": "application/json"}
-    
+
     response = requests.get(url, headers=headers)
     if response.status_code != 200:
         return {}
 
     data = response.json()
     details_map = {}
-    
+
     bulk_list = data.get("bulk", [])
     for item in bulk_list:
         work = item.get("work")
@@ -134,7 +163,7 @@ def extract_doi_from_detail(detail):
             ext_type = str(ext_id.get("external-id-type", "")).lower().strip()
             ext_val = str(ext_id.get("external-id-value", "")).strip()
             ext_url = str(ext_id.get("external-id-url", {}).get("value", "") if isinstance(ext_id.get("external-id-url"), dict) else "").strip()
-            
+
             if ext_type in ("doi", "doi-resolver") or ext_val.startswith("10."):
                 clean_doi = re.sub(r'^https?://(dx\.)?doi\.org/', '', ext_val, flags=re.IGNORECASE)
                 return f"https://doi.org/{clean_doi}"
@@ -262,7 +291,7 @@ def process_orcid_group(orcid_id, group):
 
     return best_detail, best_put_code, year, group_doi
 
-def process_orcid(orcid_id, owner_name, existing_db, title_to_index, start_year, end_year):
+def process_orcid(orcid_id, owner_name, existing_db, title_to_index, start_year, end_year, ignore_list=None):
     """Fetch and merge publications for a single ORCID ID into existing_db."""
     groups = get_orcid_work_groups(orcid_id)
     print(f"   Found {len(groups)} unique work groups in profile.")
@@ -281,13 +310,18 @@ def process_orcid(orcid_id, owner_name, existing_db, title_to_index, start_year,
 
         title_obj = (detail.get("title") or {}).get("title") or {}
         title_raw = title_obj.get("value", "Untitled")
-        
+
         subtitle_obj = (detail.get("title") or {}).get("subtitle") or {}
         subtitle_raw = subtitle_obj.get("value", "").strip() if isinstance(subtitle_obj, dict) else ""
 
         full_title = title_raw
         if subtitle_raw and subtitle_raw.lower() not in title_raw.lower():
             full_title = f"{title_raw}: {subtitle_raw}"
+
+        # FILTER VIA .pubsignore
+        if is_ignored(full_title, ignore_list):
+            print(f"   [-] Skipping ignored paper: {full_title[:50]}...")
+            continue
 
         title_norm = clean_title(full_title)
 
@@ -361,6 +395,8 @@ def update_bibtex_file(orcid_list, start_year, end_year, output_path, clean_file
         os.remove(output_path)
         print(f"Cleaned existing output file '{output_path}'.")
 
+    ignore_list = load_pubsignore()
+
     existing_db = bibtexparser.bibdatabase.BibDatabase()
 
     if os.path.exists(output_path):
@@ -375,7 +411,7 @@ def update_bibtex_file(orcid_list, start_year, end_year, output_path, clean_file
         name = item.get('name', 'Unknown')
         orcid_id = item['orcid']
         print(f"\n[{idx}/{len(orcid_list)}] Processing {name} ({orcid_id})...")
-        added = process_orcid(orcid_id, name, existing_db, title_to_index, start_year, end_year)
+        added = process_orcid(orcid_id, name, existing_db, title_to_index, start_year, end_year, ignore_list=ignore_list)
         total_added += added
 
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
