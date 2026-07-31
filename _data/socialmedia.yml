@@ -15,7 +15,7 @@
 
 - name: Bluesky
   url: https://bsky.app/profile/ncas-uk.bsky.social
-  class: icon-twitter
+  class: icon-globe
   title: "National Centre of Atmospheric Science on Bluesky"
 
 # - name: Mixcloud
