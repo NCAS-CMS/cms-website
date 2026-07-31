@@ -47,3 +47,28 @@ sitemap:
 {% endif %}
 
 @import "11_syntax-highlighting.scss";
+
+/* Custom Bluesky footer icon matching Feeling Responsive circle icons */
+.social-icons a.bluesky-img {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff; /* White circle background */
+  border-radius: 50%;
+  width: 2.2rem;
+  height: 2.2rem;
+  padding: 0.35rem;
+  vertical-align: middle;
+
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
+    /* Recolors the black butterfly into the green theme color */
+    filter: invert(32%) sepia(54%) saturate(1452%) hue-rotate(128deg) brightness(93%) contrast(92%);
+  }
+
+  &:hover {
+    opacity: 0.85;
+  }
+}
