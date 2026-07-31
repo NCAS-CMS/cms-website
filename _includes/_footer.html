@@ -1,4 +1,4 @@
-    <div id="up-to-top" class="row">
+<div id="up-to-top" class="row">
       <div class="small-12 columns" style="text-align: right;">
         <a class="iconfont" href="#top-of-page">&#xf108;</a>
       </div><!-- /.small-12.columns -->
@@ -69,11 +69,11 @@
                   {% for social_item in site.data.socialmedia %}
                   <li>
                       {% if social_item.class == 'bluesky-img' %}
-                      <a href="{{ social_item.url }}" target="_blank" rel="noopener noreferrer" class="bluesky-img" title="{{ social_item.title }}">
+                      <a href="{{ social_item.url }}" target="_blank" rel="noopener noreferrer" class="bluesky-img" title="{{ social_item.title }}" style="display: inline-flex !important; align-items: center !important; justify-content: center !important; background-color: #ffffff !important; border-radius: 50% !important; width: 2.2rem !important; height: 2.2rem !important; padding: 0.35rem !important; vertical-align: middle !important;">
                           {% if jekyll.environment == 'development' %}
-                          <img src="/assets/fonts/bluesky-logo.webp" alt="Bluesky">
+                          <img src="/assets/fonts/bluesky-logo.webp" alt="Bluesky" style="width: 100% !important; height: auto !important; display: block !important; filter: invert(32%) sepia(54%) saturate(1452%) hue-rotate(128deg) brightness(93%) contrast(92%) !important;">
                           {% else %}
-                          <img src="/cms-website/assets/fonts/bluesky-logo.webp" alt="Bluesky">
+                          <img src="/cms-website/assets/fonts/bluesky-logo.webp" alt="Bluesky" style="width: 100% !important; height: auto !important; display: block !important; filter: invert(32%) sepia(54%) saturate(1452%) hue-rotate(128deg) brightness(93%) contrast(92%) !important;">
                           {% endif %}
                       </a>
                       {% else %}
@@ -82,7 +82,7 @@
                       </a>
                       {% endif %}
                   </li>
-{% endfor %}
+                  {% endfor %}
               </ul>
           </section>
         </nav>
