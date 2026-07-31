@@ -106,6 +106,11 @@
     authors: Mario Díez Fernández, Sadie <u>Bartholomew</u>, Antonio S. Cofiño
     location: CF Community, (2025)
     url: https://doi.org/10.5281/zenodo.17203173
+  - title: Implementation of water tracers in the Met Office Unified Model
+    authors: Alison J. McLaren, Louise C. Sime, Simon <u>Wilson</u>, Jeff Ridley,
+      Qinggang Gao, Merve Gorguner, Giorgia Line, Martin Werner, Paul Valdes
+    location: GEOSCIENTIFIC MODEL DEVELOPMENT, (2025)
+    url: https://doi.org/10.5194/GMD-18-8129-2025
   - title: 'PyActiveStorage: &#160;Efficient distributed data analysis using Active
       Storage for HDF5/NetCDF4'
     authors: Bryan N. <u>Lawrence</u>, David <u>Hassell</u>, Grenville Lister, <u>Predoi</u>

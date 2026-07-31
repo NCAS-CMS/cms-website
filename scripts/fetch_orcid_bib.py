@@ -35,10 +35,37 @@ def extract_year(work_summary):
             pass
     return None
 
-def extract_authors(detail):
-    """Extract and format contributor names into a BibTeX author string."""
-    if not isinstance(detail, dict):
+def fetch_authors_from_crossref(doi):
+    """Fetch full ordered author list from Crossref API if ORCID missing contributors."""
+    if not doi:
         return ""
+    clean_doi = re.sub(r'^https?://(dx\.)?doi\.org/', '', doi, flags=re.IGNORECASE)
+    url = f"https://api.crossref.org/works/{clean_doi}"
+    headers = {"User-Agent": "NCAS-CMS-BibFetcher/1.0 (mailto:cms-support@ncas.ac.uk)"}
+    
+    try:
+        response = requests.get(url, headers=headers, timeout=5)
+        if response.status_code == 200:
+            data = response.json()
+            authors_data = data.get("message", {}).get("author", [])
+            names = []
+            for a in authors_data:
+                given = a.get("given", "").strip()
+                family = a.get("family", "").strip()
+                if given and family:
+                    names.append(f"{given} {family}")
+                elif family:
+                    names.append(family)
+            if names:
+                return " and ".join(names)
+    except Exception:
+        pass
+    return ""
+
+def extract_authors(detail, owner_name="", doi=None):
+    """Extract author list, fallback to Crossref via DOI, or fallback to neutral text."""
+    if not isinstance(detail, dict):
+        detail = {}
 
     contrib_container = detail.get("contributors") or {}
     contributors = contrib_container.get("contributor") or []
@@ -59,14 +86,23 @@ def extract_authors(detail):
         if name:
             author_names.append(name)
 
-    return " and ".join(author_names)
+    if author_names:
+        return " and ".join(author_names)
+
+    # Fallback 1: Try fetching complete author list from Crossref using DOI
+    if doi:
+        crossref_authors = fetch_authors_from_crossref(doi)
+        if crossref_authors:
+            return crossref_authors
+
+    # Fallback 2: Neutral group member statement
+    return f"Authors include {owner_name}" if owner_name else ""
 
 def fetch_bulk_work_details(orcid_id, put_codes):
     """Fetch full details for multiple put_codes in a single HTTP request."""
     if not put_codes:
         return {}
 
-    # ORCID bulk API accepts comma-separated put-codes (up to 100)
     codes_str = ",".join(str(code) for code in put_codes[:100])
     url = f"{ORCID_BASE_URL}/{orcid_id}/works/{codes_str}"
     headers = {"Accept": "application/json"}
@@ -78,7 +114,6 @@ def fetch_bulk_work_details(orcid_id, put_codes):
     data = response.json()
     details_map = {}
     
-    # Process bulk response list
     bulk_list = data.get("bulk", [])
     for item in bulk_list:
         work = item.get("work")
@@ -92,7 +127,6 @@ def extract_doi_from_detail(detail):
     if not isinstance(detail, dict):
         return ""
 
-    # 1. Inspect external-ids array
     ext_ids_obj = detail.get("external-ids") or {}
     external_ids = ext_ids_obj.get("external-id") or []
     for ext_id in external_ids:
@@ -109,7 +143,6 @@ def extract_doi_from_detail(detail):
                 if clean_doi:
                     return f"https://doi.org/{clean_doi.group(0)}"
 
-    # 2. Inspect raw BibTeX if present
     citation = detail.get("citation") or {}
     citation_val = citation.get("citation-value", "")
     if citation_val:
@@ -128,13 +161,11 @@ def extract_orcid_url(detail):
     if doi:
         return doi
 
-    # Check direct URL field
     url_obj = detail.get("url") or {}
     url_val = url_obj.get("value", "").strip() if isinstance(url_obj, dict) else ""
     if url_val:
         return url_val
 
-    # Check external IDs
     ext_ids_obj = detail.get("external-ids") or {}
     external_ids = ext_ids_obj.get("external-id") or []
     for ext_id in external_ids:
@@ -145,7 +176,7 @@ def extract_orcid_url(detail):
 
     return ""
 
-def generate_fallback_bibtex(detail, put_code, year, forced_doi=None):
+def generate_fallback_bibtex(detail, put_code, year, forced_doi=None, owner_name=""):
     """Generate BibTeX entry if raw BibTeX text is missing."""
     if not isinstance(detail, dict):
         detail = {}
@@ -153,8 +184,14 @@ def generate_fallback_bibtex(detail, put_code, year, forced_doi=None):
     title_obj = (detail.get("title") or {}).get("title") or {}
     title = title_obj.get("value", "Untitled")
 
-    authors = extract_authors(detail)
+    subtitle_obj = (detail.get("title") or {}).get("subtitle") or {}
+    subtitle = subtitle_obj.get("value", "").strip() if isinstance(subtitle_obj, dict) else ""
+
+    if subtitle and subtitle.lower() not in title.lower():
+        title = f"{title}: {subtitle}"
+
     url = forced_doi if forced_doi else extract_orcid_url(detail)
+    authors = extract_authors(detail, owner_name=owner_name, doi=url)
 
     journal_obj = detail.get("journal-title") or {}
     journal = journal_obj.get("value", "")
@@ -192,9 +229,7 @@ def generate_fallback_bibtex(detail, put_code, year, forced_doi=None):
     return entry
 
 def process_orcid_group(orcid_id, group):
-    """
-    Fetch all items in a group via Bulk API, locate DOIs, and return best item.
-    """
+    """Fetch all items in a group via Bulk API, locate DOIs, and return best item."""
     summaries = group.get("work-summary", [])
     if not summaries:
         return None, None, None, None
@@ -202,14 +237,12 @@ def process_orcid_group(orcid_id, group):
     year = extract_year(summaries[0])
     put_codes = [s.get("put-code") for s in summaries if s.get("put-code")]
 
-    # Bulk fetch full details for all put_codes in 1 API call
     details_map = fetch_bulk_work_details(orcid_id, put_codes)
 
     group_doi = None
     best_detail = None
     best_put_code = None
 
-    # 1. Scan all details for any DOI
     for put_code, detail in details_map.items():
         doi = extract_doi_from_detail(detail)
         if doi:
@@ -218,7 +251,6 @@ def process_orcid_group(orcid_id, group):
                 best_detail = detail
                 best_put_code = put_code
 
-    # 2. If no DOI was found, select primary or first available record
     if not best_detail:
         for summary in summaries:
             p_code = summary.get("put-code")
@@ -230,7 +262,7 @@ def process_orcid_group(orcid_id, group):
 
     return best_detail, best_put_code, year, group_doi
 
-def process_orcid(orcid_id, existing_db, title_to_index, start_year, end_year):
+def process_orcid(orcid_id, owner_name, existing_db, title_to_index, start_year, end_year):
     """Fetch and merge publications for a single ORCID ID into existing_db."""
     groups = get_orcid_work_groups(orcid_id)
     print(f"   Found {len(groups)} unique work groups in profile.")
@@ -247,13 +279,22 @@ def process_orcid(orcid_id, existing_db, title_to_index, start_year, end_year):
         if end_year and (year is None or year > end_year):
             continue
 
-        title_raw = (detail.get("title") or {}).get("title", {}).get("value", "Untitled")
-        title_norm = clean_title(title_raw)
+        title_obj = (detail.get("title") or {}).get("title") or {}
+        title_raw = title_obj.get("value", "Untitled")
+        
+        subtitle_obj = (detail.get("title") or {}).get("subtitle") or {}
+        subtitle_raw = subtitle_obj.get("value", "").strip() if isinstance(subtitle_obj, dict) else ""
+
+        full_title = title_raw
+        if subtitle_raw and subtitle_raw.lower() not in title_raw.lower():
+            full_title = f"{title_raw}: {subtitle_raw}"
+
+        title_norm = clean_title(full_title)
 
         if title_norm in title_to_index:
             continue
 
-        print(f"   + Fetching ({year or 'N/A'}): {title_raw[:50]}...")
+        print(f"   + Fetching ({year or 'N/A'}): {full_title[:50]}...")
 
         citation = detail.get("citation")
         parsed_entry = None
@@ -268,16 +309,29 @@ def process_orcid(orcid_id, existing_db, title_to_index, start_year, end_year):
                 pass
 
         if not parsed_entry:
-            parsed_entry = generate_fallback_bibtex(detail, put_code, year, forced_doi=group_doi)
+            parsed_entry = generate_fallback_bibtex(detail, put_code, year, forced_doi=group_doi, owner_name=owner_name)
         else:
-            # Overwrite URL field with DOI if a DOI was found anywhere in the group
             if group_doi:
                 parsed_entry["url"] = group_doi
             elif not parsed_entry.get("url"):
                 parsed_entry["url"] = extract_orcid_url(detail)
 
-        if 'authors' not in parsed_entry and 'author' in parsed_entry:
-            parsed_entry['authors'] = parsed_entry['author']
+        # Ensure title retains subtitle if missing
+        if subtitle_raw and subtitle_raw.lower() not in parsed_entry.get("title", "").lower():
+            parsed_entry["title"] = f"{parsed_entry.get('title', title_raw)}: {subtitle_raw}"
+
+        # Guarantee year field is populated
+        if not parsed_entry.get("year") and year:
+            parsed_entry["year"] = str(year)
+
+        # Ensure author field is populated
+        current_authors = parsed_entry.get("author") or parsed_entry.get("authors") or ""
+        if not current_authors.strip():
+            fallback_authors = extract_authors(detail, owner_name=owner_name, doi=parsed_entry.get("url"))
+            parsed_entry['author'] = fallback_authors
+            parsed_entry['authors'] = fallback_authors
+        else:
+            parsed_entry['authors'] = current_authors
 
         existing_db.entries.append(parsed_entry)
         title_to_index[title_norm] = len(existing_db.entries) - 1
@@ -321,7 +375,7 @@ def update_bibtex_file(orcid_list, start_year, end_year, output_path, clean_file
         name = item.get('name', 'Unknown')
         orcid_id = item['orcid']
         print(f"\n[{idx}/{len(orcid_list)}] Processing {name} ({orcid_id})...")
-        added = process_orcid(orcid_id, existing_db, title_to_index, start_year, end_year)
+        added = process_orcid(orcid_id, name, existing_db, title_to_index, start_year, end_year)
         total_added += added
 
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
