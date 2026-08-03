@@ -14,8 +14,7 @@ permalink: /services/
         <p><a href="hpc-resource-management">HPC Resource Management</a></p>
 	<p>CMS manage HPC resources on behalf of the ~300 HPC users in the atmospheric and polar research community. 
            This includes, but is not limited to, ARCHER2 compute and JASMIN storage. 
-           For advice on HPC availability, resourcing compute time and data storage requirements <a href="/contact">contact CMS</a>
-        </p> 
+           </p> 
     </div><!-- /.medium-4.columns -->
 
     <div class="medium-4 columns">
