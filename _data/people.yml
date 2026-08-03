@@ -8,73 +8,88 @@
   position: "Director of Models and Data"
   ncas_id: 10008
   head: true
+  orcid: 0000-0001-9262-7860
 
 - firstname: Rosalyn
   lastname: Hatcher
   position: "NCAS HPC Manager, Software Management & Infrastructure"
   ncas_id: 10106
+  # orcid: not found
 
 - firstname: Luke
   lastname: Abraham
   position: "UKCA development and support"
   ncas_id: 10166
+  orcid: 0000-0003-3750-3544
 
 - firstname: Sadie
   lastname: Bartholomew
   position: "CF Data/Software Tools development and support"
   ncas_id: 10515
+  orcid: 0000-0002-6180-3603
 
 - firstname: David
   lastname: Case
   position: "Software Infrastructure and modelling support"
   ncas_id: 10466
+  # orcid: 0009-0001-3735-5687 no displayable data on orcid.org
 
 - firstname: Valeriu
   lastname: Predoi
   position: "UKESM core team: diagnostic software"
   ncas_id: 10412
+  orcid: 0000-0002-9729-6578
   
 - firstname: Simon
   lastname: Wilson
   position: "Model support and performance specialist"
   ncas_id: 10108
+  orcid: 0000-0002-5015-9998
 
 - firstname: David
   lastname: Hassell
   position: "Software tools specialist - CF-Python (IS-ENES3)"
   ncas_id: 10288
+  orcid: 0000-0001-5106-7502
 
 - firstname: Juan
   lastname: Bilbao-Ludena
   position: "HPC, Workflows and modelling support"
   ncas_id: 10727
+  # orcid: not found
 
 - firstname: David
   lastname: Livings
   position: "Hydro-JULES and JULES modelling support"
   ncas_id: 10595
+  # orcid: not found
   
 - firstname: Annette
   lastname: Osprey
   position: "High Resolution Climate Modelling support"
   ncas_id: 10171
+  orcid: 0000-0003-2443-9387
 
 - firstname: Marc
   lastname: Stringer
   position: "UKESM core team: performance"
   ncas_id: 10320
+  orcid: 0000-0003-4061-5299
 
 - firstname: Sharar
   lastname: Ahmadi
   position: "AFESP Research Software Engineer"
   ncas_id: 10699
+  orcid: 0000-0002-2754-4820 
 
 - firstname: Jonny
   lastname: Williams
   position: "Workflows, User Support and Climate Model Infrastructure"
   ncas_id: 10779
+  orcid: 0000-0002-0680-0098
 
 - firstname: Varsiha
   lastname: Sothilingam
   position: "Data Infrastructure and Distributed Storage Systems"
   ncas_id: 10783
+  # orcid: not found

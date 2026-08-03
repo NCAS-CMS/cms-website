@@ -1,80 +1,340 @@
-#
-# Add an entry for publication, presentation or poster.
-#
-# Associated variables: title - Title of presentation, poster or publication (Mandatory)
-#                       authors - List of authors (Mandatory)
-#                       file - Name of local file.  This must be located in the assets/docs directory (Optional - see note below)
-#                       url - URL of publication or document including http prefix. (Optional - see note below)
-#                       location - Conference/Workshop location or name of publication, etc (Optional)
-#
-# Note: one of file or url must be specified.
-#
-- year: 2022
-  publication_type:
-    - type: Presentations
-      docs:
-      - title: Some Title
-        file: Somefile.pdf
-        authors: Author
-        location: Virtual Workshop
+- year: '2026'
+  docs:
+  - title: AMOC weakening in response to global and regional reductions in aerosol
+      emissions
+    authors: Robert J Allen, Timothy Carson, Wei Liu, Laura J Wilcox, Bjørn H Samset,
+      Sharar <u>Ahmadi</u>, Annica M L Ekman, Maxwell T Elling, Luke Fraser-Leach,
+      Paul Griffiths, James Keeble, Tsuyoshi Koshiro, Paul Kushner, Anna Lewinschal,
+      Molly MacRae, Risto Makkonen, Joonas Merikanto, Pierre Nabat, Larissa Nazarenko,
+      Declan O’Donnell, Naga Oshima, David Paynter, Geeta Persad, Steven T Rumbold,
+      Neil Swart, Toshihiko Takemura, Kostas Tsigaridis, Knut von Salzen, Daniel M
+      Westervelt, Taufiq Hassan
+    location: 'Environmental Research: Climate, (2026)'
+    url: https://doi.org/10.1088/2752-5295/ae63ef
+  - title: CANARI-LE Priority Variables from the HadGEM3.1 large ensemble of climate
+      model simulations for the CANARI project
+    authors: R.K.H. Schiemann, G. Lister, R. <u>Hatcher</u>, D. Hodson, B. <u>Lawrence</u>,
+      L.C. Shaffrey, J. Cole, A. Dittus, J. Mecking, J. Robson, S. <u>Wilson</u>,
+      Y. Aksenov, A. Blaker, B. Harvey, O. Martinez-Alvarado, A. <u>Osprey</u>, S.
+      Rynders, S. <u>Ahmadi</u>, J. Aylmer, L. Baker, D. <u>Case</u>, E.S. Gentile,
+      S. George, K. Hodges, E. Karlowska, C. Lang, H. Lu, N. O'Callaghan, W. Osmolska,
+      S. Osprey, T. Phillips, D. Schröder, R. Smith, A.G. Turner, S. Woolnough, M.
+      Andrews, A. Coward, S. Hardiman, J. Harle, J. Rostron, D. Sexton, B. Sinha,
+      J. <u>Williams</u>, C. Wilson
+    location: NERC EDS Centre for Environmental Data Analysis, (2026)
+    url: https://catalogue.ceda.ac.uk/uuid/4b62fafc68ae4c3784fb2819f652c537
+  - title: 'cfdm: A Python reference implementation of the CF data model'
+    authors: David <u>Hassell</u>, Sadie L. <u>Bartholomew</u>
+    location: Zenodo, (2026)
+    url: https://doi.org/10.5281/zenodo.3894524
+  - title: 'ClimateBenchPress (v1.0): a benchmark for lossy compression of climate
+      data'
+    authors: Tim Reichelt, Juniper Tyree, Milan Klöwer, Peter Dueben, Bryan N. <u>Lawrence</u>,
+      Allison H. Baker, Sara Faghih-Naini, Torsten Hoefler, Philip Stier
+    location: Geoscientific Model Development, (2026)
+    url: https://doi.org/10.5194/gmd-19-5933-2026
+  - title: 'Climate warming at European airports: human factors and
 
-- year: 2021
-  publication_type:
-    - type: Presentations
-      docs:
-      - title: Using the JASMIN Unmanaged Cloud for UKCA Training
-        file: 20210325_ukca-training.pdf
-        authors: Luke Abraham
-        location: JASMIN User Seminar Series
-        
-- year: 2020
-  publication_type:
-    - type: Presentations
-      docs:
-      - title: NCAS CF-Checker
-        file: cf-checker-2020.pdf
-        authors: Rosalyn Hatcher
-        location: CF Virtual Workshop
+      infrastructure planning'
+    authors: Jonny <u>Williams</u>, Paul D. Williams, Marco Venturini
+    location: Aerospace, (2026)
+    url: https://doi.org/10.3390/aerospace13020127
+  - title: 'Correction: Diagrammatic physical robot models'
+    authors: Alvaro Miyazawa, Sharar <u>Ahmadi</u>, Ana Cavalcanti, James Baxter,
+      Mark Post, Pedro Ribeiro, Jon Timmis, Thomas Wright
+    location: Software and Systems Modeling, (2026)
+    url: https://doi.org/10.1007/s10270-025-01325-x
+  - title: Decomposing the global and regional aerosol effective radiative forcing
+      associated with strong versus weak air quality policies by Mid-21st century
+    authors: Robert J Allen, Laura J Wilcox, Bjørn H Samset, Sharar <u>Ahmadi</u>,
+      Annica M L Ekman, Maxwell T Elling, Luke Fraser-Leach, Paul Griffiths, James
+      Keeble, Tsuyoshi Koshiro, Paul Kushner, Anna Lewinschal, Molly MacRae, Risto
+      Makkonen, Joonas Merikanto, Pierre Nabat, Larissa Nazarenko, Declan O’Donnell,
+      Naga Oshima, David Paynter, Geeta Persad, Steven T Rumbold, Neil Swart, Toshihiko
+      Takemura, Kostas Tsigaridis, Knut von Salzen, Daniel M Westervelt
+    location: 'Environmental Research: Climate, (2026)'
+    url: https://doi.org/10.1088/2752-5295/ae5418
+  - title: East Asian Anthropogenic Aerosols Strongly Influence Past and Present Southern
+      African Hydroclimate and Ecosystem Changes
+    authors: Bosi Sheng, Massimo A. Bollasina, Alexandre S. Gagnon, Laura J. Wilcox,
+      Thomas P. S. Reynolds, Christopher T. S. Beckett, Haolin Wang, Qingxiang Li,
+      Pierre Nabat, Robert J. Allen, Bjørn H. Samset, Joonas Merikanto, Geeta G. Persad,
+      Toshihiko Takemura, Kostas Tsigaridis, Sharar <u>Ahmadi</u>, Maxwell T. Elling,
+      Knut von Salzen, Daniel M. Westervelt, Naga Oshima, Tsuyoshi Koshiro
+    location: EGUsphere (Preprint), (2026)
+    url: https://doi.org/10.5194/egusphere-2026-2198
+  - title: Multi-model impacts of dust on African air quality and mortality under
+      regional and global anthropogenic aerosol changes
+    authors: Joe Adabouk Amooli, Ron L Miller, Kostas Tsigaridis, Sourangsu Chowdhury,
+      Yanda Zhang, Catherine A. Toolan, Sharar <u>Ahmadi</u>, Robert J Allen, Maxwell
+      T. Elling, Annica M. L. Ekman, Luke Fraser-Leach, Paul Griffiths, James Keeble,
+      Tsuyoshi Koshiro, Paul Kushner, Anna Lewinschal, Marianne T. Lund, Molly MacRae,
+      Risto Makkonen, Joonas Merikanto, Larissa Nazarenko, Pierre Nabat, Declan O'Donnell,
+      Naga Oshima, Geeta Persad, Steven T. Rumbold, Knut von Salzen, Bjørn H. Samset,
+      Neil C. Swart, Toshihiko Takemura, Laura J. Wilcox, Daniel M. Westervelt
+    location: 'Journal of Geophysical Research: Atmospheres, (2026)'
+    url: https://doi.org/10.1029/2025JD046135
+  - title: New insights on the suitability of NetCDF/HDF5 as storage format for climate
+      cloud repositories
+    authors: Ezequiel Cimadevilla, David <u>Hassell</u>, Bryan N. <u>Lawrence</u>
+    location: EGUsphere (Preprint), (2026)
+    url: https://doi.org/10.5194/egusphere-2026-3249
+  - title: 'Physics-Aware Multi-Task Learning for Atmospheric Turbulence Parameterization:
+      Auxiliary Tasks versus Architectural Conditioning'
+    authors: Sambit Kumar Panda, Todd R. Jones, Muhammad Shahzad, Bryan N. <u>Lawrence</u>,
+      Anna-Louise Ellis
+    location: (2026)
+    url: https://doi.org/10.1145/3815572.3815750
+  - title: piClim-370-126aer data produced by the UKESM1-0-LL model for the Regional
+      Aerosol Model Intercomparison Project (RAMIP)
+    authors: Steven Rumbold, James Keeble, Laura Wilcox, Sharar <u>Ahmadi</u>, Paul
+      Griffiths, Grenville Lister, Valeriu <u>Predoi</u>
+    location: NERC EDS Centre for Environmental Data Analysis, (2026)
+    url: https://doi.org/10.5285/479C042F5A7A4EBE844C111107E9E8AC
+  - title: piClim-370-AFR126aer data produced by the UKESM1-0-LL model for the Regional
+      Aerosol Model Intercomparison Project (RAMIP)
+    authors: Steven Rumbold, James Keeble, Laura Wilcox, Sharar <u>Ahmadi</u>, Paul
+      Griffiths, Grenville Lister, Valeriu <u>Predoi</u>
+    location: NERC EDS Centre for Environmental Data Analysis, (2026)
+    url: https://doi.org/10.5285/B71CB69074334E3997F7B674A7BF1C32
+  - title: piClim-370 data produced by the UKESM1-0-LL model for the Regional Aerosol
+      Model Intercomparison Project (RAMIP)
+    authors: Steven Rumbold, James Keeble, Laura Wilcox, Sharar <u>Ahmadi</u>, Paul
+      Griffiths, Grenville Lister, Valeriu <u>Predoi</u>
+    location: NERC EDS Centre for Environmental Data Analysis, (2026)
+    url: https://doi.org/10.5285/0B2882E4279F4F81B708EBAD36ED944C
+  - title: piClim-370-EAS126aer data produced by the UKESM1-0-LL model for the Regional
+      Aerosol Model Intercomparison Project (RAMIP)
+    authors: Steven Rumbold, James Keeble, Laura Wilcox, Sharar <u>Ahmadi</u>, Paul
+      Griffiths, Grenville Lister, Valeriu <u>Predoi</u>
+    location: NERC EDS Centre for Environmental Data Analysis, (2026)
+    url: https://doi.org/10.5285/E22EE9B0948D49F38001105E54964994
+  - title: piClim-370-NAE126aer data produced by the UKESM1-0-LL model for the Regional
+      Aerosol Model Intercomparison Project (RAMIP)
+    authors: Steven Rumbold, James Keeble, Laura Wilcox, Sharar <u>Ahmadi</u>, Paul
+      Griffiths, Grenville Lister, Valeriu <u>Predoi</u>
+    location: NERC EDS Centre for Environmental Data Analysis, (2026)
+    url: https://doi.org/10.5285/F39CF682C79E41B6A1B18FC26BA4D8EB
+  - title: piClim-370-SAS126aer data produced by the UKESM1-0-LL model for the Regional
+      Aerosol Model Intercomparison Project (RAMIP)
+    authors: Steven Rumbold, James Keeble, Laura Wilcox, Sharar <u>Ahmadi</u>, Paul
+      Griffiths, Grenville Lister, Valeriu <u>Predoi</u>
+    location: NERC EDS Centre for Environmental Data Analysis, (2026)
+    url: https://doi.org/10.5285/7658D617E0E54F1CBB5747510465E8DF
+  - title: 'pyfive: A pure-Python HDF5 reader'
+    authors: Bryan N. <u>Lawrence</u>, Ezequiel Cimadevilla, Wout De Nolf, David <u>Hassell</u>,
+      Jonathan Helmus, Benjamin Hodel, Brian Maranville, Kai Mühlbauer, Valeriu <u>Predoi</u>
+    location: Journal of Open Source Software, (2026)
+    url: https://doi.org/10.21105/joss.09688
+  - title: Regional anthropogenic aerosol reductions amplify probability of record-breaking
+      heat extremes
+    authors: Florian Kraulich, Peter Pfleiderer, Sharar <u>Ahmadi</u>, Robert Allen,
+      Pierre Nabat, Geeta Persad, Bjørn Samset, Laura Wilcox, Sebastian Sippel
+    location: Preprint, (2026)
+    url: https://doi.org/10.31223/x5jf5r
+  - title: Scaling up CATS, The <i>Climate-Aware Task Scheduler</i>, for cluster computing
+      and international reach
+    authors: Sadie L. <u>Bartholomew</u>, Lincoln Colling, Abhishek Dasgupta, Anthony
+      J. Greenberg, Loïc Lannelongue, Colin Sauze, Andrew Walker
+    location: (2026)
+    url: https://doi.org/10.6084/m9.figshare.32180286
+  - title: 'South Asian monsoon response to regional aerosol emission reductions:
+      insights from RAMIP'
+    authors: Ankit Bhandekar, Laura J Wilcox, Bryan N <u>Lawrence</u>, Nathan Luke
+      <u>Abraham</u>, Fiona M O’Connor, Bjørn H Samset, Robert J Allen, Sharar <u>Ahmadi</u>,
+      Annica M L Ekman, Maxwell T Elling, Luke Fraser-Leach, Paul Griffiths, James
+      Keeble, Tsuyoshi Koshiro, Paul Kushner, Anna Lewinschal, Molly MacRae, Risto
+      Makkonen, Joonas Merikanto, Pierre Nabat, Larissa Nazarenko, Declan O’Donnell,
+      Naga Oshima, Geeta Persad, Steven T Rumbold, Neil Swart, Toshihiko Takemura,
+      Kostas Tsigaridis, Daniel M Westervelt
+    location: 'Environmental Research: Climate, (2026)'
+    url: https://doi.org/10.1088/2752-5295/ae7fad
+  - title: SSP370-126aer data produced by the UKESM1-0-LL model for the Regional Aerosol
+      Model Intercomparison Project (RAMIP)
+    authors: Steven Rumbold, James Keeble, Laura Wilcox, Sharar <u>Ahmadi</u>, Paul
+      Griffiths, Grenville Lister, Valeriu <u>Predoi</u>
+    location: NERC EDS Centre for Environmental Data Analysis, (2026)
+    url: https://doi.org/10.5285/F2F4DECDC409416F88766384C3EECFCC
+  - title: SSP370-AFR126aer data produced by the UKESM1-0-LL model for the Regional
+      Aerosol Model Intercomparison Project (RAMIP)
+    authors: Steven Rumbold, James Keeble, Laura Wilcox, Sharar <u>Ahmadi</u>, Paul
+      Griffiths, Grenville Lister, Valeriu <u>Predoi</u>
+    location: NERC EDS Centre for Environmental Data Analysis, (2026)
+    url: https://doi.org/10.5285/B4F239AEC02745F49F2649109808EF70
+  - title: SSP370 data produced by the UKESM1-0-LL model for the Regional Aerosol
+      Model Intercomparison Project (RAMIP)
+    authors: Steven Rumbold, James Keeble, Laura Wilcox, Sharar <u>Ahmadi</u>, Paul
+      Griffiths, Grenville Lister, Valeriu <u>Predoi</u>
+    location: NERC EDS Centre for Environmental Data Analysis, (2026)
+    url: https://doi.org/10.5285/3C65D2DA23F144DD85094662E1873DE6
+  - title: SSP370-EAS126aer data produced by the UKESM1-0-LL model for the Regional
+      Aerosol Model Intercomparison Project (RAMIP)
+    authors: Steven Rumbold, James Keeble, Laura Wilcox, Sharar <u>Ahmadi</u>, Paul
+      Griffiths, Grenville Lister, Valeriu <u>Predoi</u>
+    location: NERC EDS Centre for Environmental Data Analysis, (2026)
+    url: https://doi.org/10.5285/15B583553BAF43AE99D3702FE52B7DFE
+  - title: SSP370-NAE126aer data produced by the UKESM1-0-LL model for the Regional
+      Aerosol Model Intercomparison Project (RAMIP)
+    authors: Steven Rumbold, James Keeble, Laura Wilcox, Sharar <u>Ahmadi</u>, Paul
+      Griffiths, Grenville Lister, Valeriu <u>Predoi</u>
+    location: NERC EDS Centre for Environmental Data Analysis, (2026)
+    url: https://doi.org/10.5285/C6FB411CD55F4420AB55D0F387577F8A
+  - title: SSP370-SAS126aer data produced by the UKESM1-0-LL model for the Regional
+      Aerosol Model Intercomparison Project (RAMIP)
+    authors: Steven Rumbold, James Keeble, Laura Wilcox, Sharar <u>Ahmadi</u>, Paul
+      Griffiths, Grenville Lister, Valeriu <u>Predoi</u>
+    location: NERC EDS Centre for Environmental Data Analysis, (2026)
+    url: https://doi.org/10.5285/1D9630F85E7F4A4C926D4335DA53F77D
+  - title: Strengthening of the East Asian Summer Monsoon in response to local and
+      remote reductions in anthropogenic aerosol
+    authors: Laura Wilcox, Ankit Bhandekar, Feifei Luo, Massimo Bollasina, Tianhui
+      Zhou, Bjørn Samset, Robert Allen, The RAMIP modelling team
+    location: EGUsphere (Preprint), (2026)
+    url: https://doi.org/10.5194/egusphere-egu26-12557
+  - title: Supporting remote access to HDF5 datasets
+    authors: David <u>Hassell</u>, Valeriu <u>Predoi</u>, Bryan <u>Lawrence</u>, Ezequiel
+      Cimadevilla, Kai Mühlbauer
+    location: EGUsphere (Preprint), (2026)
+    url: https://doi.org/10.5194/egusphere-egu26-21900
+  - title: 'Synoptic circulation control on aerosol loading over the Indo-Gangetic
+      Plain: Implications for regional air quality'
+    authors: Ankit Bhandekar, Laura Wilcox, Bryan <u>Lawrence</u>, Nathan Luke <u>Abraham</u>,
+      Fiona O'Connor
+    location: EGUsphere (Preprint), (2026)
+    url: https://doi.org/10.5194/egusphere-egu26-11733
+  - title: UKESM1-0-LL output prepared for the Regional Aerosol Model Intercomparison
+      Project (RAMIP)
+    authors: Sharar <u>Ahmadi</u>, S. Rumbold, J. Keeble
+    location: NERC EDS Centre for Environmental Data Analysis, (2026)
+    url: http://catalogue.ceda.ac.uk/uuid/63233813672245a2ba3c6de90c4cfaee
+- year: '2025'
+  docs:
+  - title: 'CATS: Climate-Aware Task Scheduler for environmentally conscious developers'
+    authors: Sadie L. <u>Bartholomew</u>, Lincoln Colling, Abhishek Dasgupta, Anthony
+      J. Greenberg, Loïc Lannelongue, Thibault Lestang, Carlos Martinez-Ortiz, Colin
+      Sauzé, Andrew M. Walker
+    location: Zenodo, (2025)
+    url: https://doi.org/10.5281/zenodo.17967496
+  - title: 'CATS: The Climate Aware Task Scheduler'
+    authors: Sadie L. <u>Bartholomew</u>, Lincoln Colling, Abhishek Dasgupta, Anthony
+      J. Greenberg, Loïc Lannelongue, Thibault Lestang, Carlos Martinez-Ortiz, Colin
+      Sauzé, Andrew M. Walker, Adam Stuart Ward
+    location: Journal of Open Source Software, (2025)
+    url: https://doi.org/10.21105/joss.08251
+  - title: 'ClimateBenchPress: A Benchmark for Compression of Climate Data'
+    authors: Tim Reichelt, Juniper Tyree, Milan Kloewer, Peter Dueben, Bryan <u>Lawrence</u>,
+      Dorit Hammerling, Alisson Baker, Sara Faghih-Naini, Philip Stier
+    location: EGUsphere (Preprint), (2025)
+    url: https://doi.org/10.5194/egusphere-egu25-15912
+  - title: Climate change will increase aircraft take-off distances and reduce payloads,
+      but by how much?
+    authors: Jonny <u>Williams</u>, Paul Williams, Federica Guerrini, Marco Venturini
+    location: EGUsphere (Preprint), (2025)
+    url: https://doi.org/10.5194/egusphere-egu25-3272
+  - title: 'Compression and Aggregation: a CF data model approach'
+    authors: David <u>Hassell</u>, Sadie <u>Bartholomew</u>, Bryan <u>Lawrence</u>,
+      Daniel Westwood
+    location: EGUsphere (Preprint), (2025)
+    url: https://doi.org/10.5194/egusphere-egu25-20430
+  - title: Constraining the uncertainty associated with sea salt aerosol parameterizations
+      in global models using nudged UKESM1‐AMIP simulations
+    authors: Abhijith U. Venugopal, Yusuf A. Bhatti, Olaf Morgenstern, Jonny <u>Williams</u>,
+      Nick Edkins, Catherine Hardacre, Anthony Jones, Laura E. Revell
+    location: 'Journal of Geophysical Research: Atmospheres, (2025)'
+    url: https://doi.org/10.1029/2024jd041643
+  - title: Diagrammatic physical robot models
+    authors: Alvaro Miyazawa, Sharar <u>Ahmadi</u>, Ana Cavalcanti, James Baxter,
+      Mark Post, Pedro Ribeiro, Jon Timmis, Thomas Wright
+    location: Software and Systems Modeling, (2025)
+    url: https://doi.org/10.1007/s10270-025-01270-9
+  - title: 'Downscaled CMIP6 future climate projections for New Zealand:
 
-      - title: A brief introduction to CF-netCDF
-        file: Introduction_to_CF-netCDF.pdf
-        authors: David Hassell
-        location: CF Virtual Workshop
-
-      - title: CF-1.8, CF-1.9, and onwards
-        file: CF_meeting_2020_Roadmap.pdf
-        authors: David Hassell
-        location: CF Virtual Workshop
-
-      - title: Jupyter notebook demonstration of cfdm - a Python reference implementation of the CF data model
-        file: CF_2020_cfdm_demo.tgz
-        authors: David Hassell
-        location: CF Virtual Workshop
-
-      - title: Towards the Sustainability of the ENES Research Infrastructure
-        file: ENES-RI_Sustainability_ESiWACE2_GA1.pdf
-        authors: Fanny Adloff
-        location: ESiWACE2 Virtual First General Assembly
-
-      - title: Introduction to Sustainability
-        file: IS-ENES3_GA1_Sustainability.pdf
-        authors: Fanny Adloff
-        location: IS-ENES3 Virtual First General Assembly
-
-    # - type: Publications
-    #   docs:
-    #   - title: "Machine dependence and reproducibility for coupled climate simulations: the HadGEM3-GC3.1 CMIP Preindustrial simulation"
-    #     url: https://doi.org/10.5194/gmd-13-139-2020
-    # authors: Maria-Vittoria Guarino, Louise C. Sime, David Schroeder, Grenville M. S. Lister, and Rosalyn Hatcher
-    #     location: Geoscientific Model Development
-
-- year: Recent Publications
-  publication_type:
-  - type: Publications
-    docs:
-    - title: 'Machine dependence and reproducibility for coupled climate simulations:
-        the HadGEM3-GC3.1 CMIP Preindustrial simulation'
-      authors: Guarino, Maria-Vittoria, Sime, Louise C, Schroeder, David, Lister,
-        Grenville MS, and Hatcher, Rosalyn
-      location: Geoscientific Model Development, vol. 13, pp. 139-154, (2020)
-      url: https://doi.org/10.5194/gmd-13-139-2020
+      climatology and extremes'
+    authors: Peter B. Gibson, Ashley M. Broadbent, Stephen J. Stuart, Hamish Lewis,
+      Isaac Campbell, Neelesh Rampal, Luke J. Harrington, Jonny <u>Williams</u>
+    location: Weather and Climate Extremes, (2025)
+    url: https://doi.org/10.1016/j.wace.2025.100784
+  - title: East Asian aerosol cleanup has likely contributed to the recent acceleration
+      in global warming
+    authors: Bjørn H. Samset, Laura J. Wilcox, Robert J. Allen, Camilla W. Stjern,
+      Marianne T. Lund, Sharar <u>Ahmadi</u>, Annica Ekman, Maxwell T. Elling, Luke
+      Fraser-Leach, Paul Griffiths, James Keeble, Tsuyoshi Koshiro, Paul Kushner,
+      Anna Lewinschal, Risto Makkonen, Joonas Merikanto, Pierre Nabat, Larissa Narazenko,
+      Declan O’Donnell, Naga Oshima, Steven T. Rumbold, Toshihiko Takemura, Kostas
+      Tsigaridis, Daniel M. Westervelt
+    location: Communications Earth & Environment, (2025)
+    url: https://doi.org/10.1038/s43247-025-02527-3
+  - title: Evaluating Large Language Models for Standard Names Generation in CF Conventions
+    authors: Mario Díez Fernández, Sadie <u>Bartholomew</u>, Antonio S. Cofiño
+    location: CF Community, (2025)
+    url: https://doi.org/10.5281/zenodo.17203173
+  - title: Implementation of water tracers in the Met Office Unified Model
+    authors: Alison J. McLaren, Louise C. Sime, Simon <u>Wilson</u>, Jeff Ridley,
+      Qinggang Gao, Merve Gorguner, Giorgia Line, Martin Werner, Paul Valdes
+    location: GEOSCIENTIFIC MODEL DEVELOPMENT, (2025)
+    url: https://doi.org/10.5194/GMD-18-8129-2025
+  - title: 'PyActiveStorage: &#160;Efficient distributed data analysis using Active
+      Storage for HDF5/NetCDF4'
+    authors: Bryan N. <u>Lawrence</u>, David <u>Hassell</u>, Grenville Lister, <u>Predoi</u>
+      Valeriu, Scott Davidson, Mark Goddard, Matt Pryor, Stig Telfer, Konstantinos
+      Chasapis, Jean-Thomas Acquaviva
+    location: EGUsphere (Preprint), (2025)
+    url: https://doi.org/10.5194/egusphere-egu25-6544
+  - title: Quantifying the Effects of Climate Change on Aircraft Take-Off Performance
+      at European Airports
+    authors: Jonny <u>Williams</u>, Paul D. Williams, Federica Guerrini, Marco Venturini
+    location: Aerospace, (2025)
+    url: https://doi.org/10.3390/aerospace12030165
+  - title: 'The CANARI HadGEM3 Large Ensemble: Design and evaluation of historical
+      simulations'
+    authors: Reinhard Schiemann, Grenville Lister, Rosalyn <u>Hatcher</u>, Dan Hodson,
+      Bryan <u>Lawrence</u>, Len Shaffrey, Ben Harvey, Steve Woolnough, Jon Robson,
+      David Schröder, Adam Blaker, Hua Lu, Tony Phillips
+    location: EGUsphere (Preprint), (2025)
+    url: https://doi.org/10.5194/egusphere-egu25-12412
+  - title: 'The Coupled Model Intercomparison Project (CMIP): Reviewing project history,
+      evolution, infrastructure and implementation'
+    authors: Paul J. Durack, Karl E. Taylor, Peter J. Gleckler, Gerald A. Meehl, Bryan
+      N. <u>Lawrence</u>, Curt Covey, Ronald J. Stouffer, Guillaume Levavasseur, Atef
+      Ben-Nasser, Sebastien Denvil, Martina Stockhause, Jonathan M. Gregory, Martin
+      Juckes, Sasha K. Ames, Fabrizio Antonio, David C. Bader, John P. Dunne, Daniel
+      Ellis, Veronika Eyring, Sandro L. Fiore, Sylvie Joussaume, Philip Kershaw, Jean-Francois
+      Lamarque, Michael Lautenschlager, Jiwoo Lee, Chris F. Mauzey, Matthew Mizielinski,
+      Paola Nassisi, Alessandra Nuzzo, Eleanor O’Rourke, Jeffrey Painter, Gerald L.
+      Potter, Sven Rodriguez, Dean N. Williams
+    location: EGUsphere (Preprint), (2025)
+    url: https://doi.org/10.5194/egusphere-2024-3729
+  - title: The Earth System Grid Federation (ESGF) Virtual Aggregation (CMIP6 v20240125)
+    authors: Ezequiel Cimadevilla, Bryan N. <u>Lawrence</u>, Antonio S. Cofiño
+    location: Geoscientific Model Development, (2025)
+    url: https://doi.org/10.5194/gmd-18-2461-2025
+  - title: 'The Impact of Regional and Global Aerosol Changes on African Air Quality
+      and Mortality: Feedbacks on Dust Emissions'
+    authors: Joe Adabouk Amooli, Ron L. Miller, Kostas Tsigaridis, Sourangsu Chowdhury,
+      yanda zhang, Catherine A Toolan, Sharar <u>Ahmadi</u>, Robert James Allen, Maxwell
+      Elling, Annica M. L. Ekman, Luke Fraser-Leach, Paul Thomas Griffiths, James
+      Keeble, Tsuyoshi Koshiro, Paul J. Kushner, Anna Lewinschal, Marianne Tronstad
+      Lund, Molly MacRae, Risto Makkonen, Joonas Merikanto, Larissa S. Nazarenko,
+      Pierre Nabat, Declan O'Donnell, Naga Oshima, Geeta Persad, Steven Trevor Rumbold,
+      Knut von Salzen, Bjørn Hallvard Samset, Neil C. Swart, Toshihiko Takemura, Laura
+      J. Wilcox, Daniel M Westervelt
+    location: Preprint, (2025)
+    url: https://doi.org/10.22541/essoar.176659474.46970399/v1
+  - title: The Impacts of Climate Change on Aircraft Noise near European Airports
+    authors: Jonny <u>Williams</u>, Paul D. Williams, Marco Venturini, Anil Padhra,
+      Guy Gratton, Spyridon Rapsomanikis
+    location: Aerospace, (2025)
+    url: https://doi.org/10.3390/aerospace12090815
+  - title: Updates from the 2025 CF Workshop
+    authors: Ethan Davis, David <u>Hassell</u>, Daniel Lee, Lars Bärring, Sadie <u>Bartholomew</u>,
+      Ellie Fisher, Luke Marsden, Alison Pamment, Antonio S. Cofiño, Kevin O'Brien,
+      Guilherme Castelao
+    location: CF Community, (2025)
+    url: https://doi.org/10.5281/zenodo.18158276
+  - title: 'Virtual Integration of Satellite and In-situ Observation Networks (VISION)
+      v1.0: In-Situ Observations Simulator (ISO_simulator)'
+    authors: Maria R. Russo, Sadie L. <u>Bartholomew</u>, David <u>Hassell</u>, Alex
+      M. Mason, Erica Neininger, A. James Perman, David A. J. Sproson, Duncan Watson-Parris,
+      Nathan Luke <u>Abraham</u>
+    location: Geoscientific Model Development, (2025)
+    url: https://doi.org/10.5194/gmd-18-181-2025

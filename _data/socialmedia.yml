@@ -8,10 +8,15 @@
 #   class: icon-youtube
 #   title: "Videos, Video-Anleitungen und Filme von Phlow auf YouTube"
 
-- name: Twitter
-  url: http://twitter.com/AtmosScience
-  class: icon-twitter
-  title: "National Centre of Atmospheric Science on Twitter"
+# - name: Twitter
+#   url: http://twitter.com/AtmosScience
+#   class: icon-twitter
+#   title: "National Centre of Atmospheric Science on Twitter"
+
+- name: Bluesky
+  url: https://bsky.app/profile/ncas-uk.bsky.social
+  class: icon-globe
+  title: "National Centre of Atmospheric Science on Bluesky"
 
 # - name: Mixcloud
 #   url: http://www.mixcloud.com/phlow/
@@ -23,10 +28,15 @@
 #   class: icon-googleplus
 #   title: "YouTube Google+"
 
-- name: Facebook
-  url: http://www.facebook.com/UKAtmosScience
-  class: icon-facebook
-  title: "National Centre for Atmospheric Science on Facebook"
+# - name: Facebook
+#   url: http://www.facebook.com/UKAtmosScience
+#   class: icon-facebook
+#   title: "National Centre for Atmospheric Science on Facebook"
+
+- name: LinkedIn
+  url: https://www.linkedin.com/company/national-centre-for-atmospheric-science
+  class: icon-linkedin
+  title: "National Centre for Atmospheric Science on LinkedIn"
 
 # - name: Soundcloud
 #   url: http://soundcloud.com/
