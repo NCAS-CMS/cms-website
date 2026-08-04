@@ -2,7 +2,7 @@
 layout: page-fullwidth
 title: Previous Projects
 subheadline: Projects
-teaser: Previous projects that CMS have supported.
+teaser: Some examples of previous projects that CMS have supported (non-exhaustive).
 permalink: /services/archived-projects/
 ---
 {% assign previous = site.projects | where: 'status', 'archived' %}
