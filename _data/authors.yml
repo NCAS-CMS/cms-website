@@ -18,3 +18,9 @@ ros:
   siterole: "webmaster, developer"
   uri:
   email: rosalyn.hatcher@ncas.ac.uk
+
+jonny:
+  name: Jonny Williams
+  siterole: "developer"
+  uri:
+  email: jonny.williams@ncas.ac.uk

@@ -6,6 +6,27 @@ import yaml
 import requests
 import bibtexparser
 
+from pathlib import Path
+import re
+import yaml
+
+# Find repo root relative to this script (scripts/ is one level down)
+REPO_ROOT = Path(__file__).resolve().parent.parent
+CONFIG_PATH = REPO_ROOT / "_config.yml"
+
+# Strict load: Fail if file is missing or 'email' key doesn't exist
+if not CONFIG_PATH.exists():
+    raise FileNotFoundError(f"Configuration file not found at {CONFIG_PATH}")
+
+with open(CONFIG_PATH, "r", encoding="utf-8") as f:
+    config = yaml.safe_load(f)
+
+if not config or "email" not in config or not config["email"]:
+    raise KeyError("Missing required 'email' key in _config.yml")
+
+SITE_EMAIL = config["email"]
+
+
 ORCID_BASE_URL = "https://pub.orcid.org/v3.0"
 
 def clean_title(title):
@@ -68,9 +89,11 @@ def fetch_authors_from_crossref(doi):
     """Fetch full ordered author list from Crossref API if ORCID missing contributors."""
     if not doi:
         return ""
-    clean_doi = re.sub(r'^https?://(dx\.)?doi\.org/', '', doi, flags=re.IGNORECASE)
+    clean_doi = re.sub(r"^https?://(dx\.)?doi\.org/", "", doi, flags=re.IGNORECASE)
     url = f"https://api.crossref.org/works/{clean_doi}"
-    headers = {"User-Agent": "NCAS-CMS-BibFetcher/1.0 (mailto:cms-support@ncas.ac.uk)"}
+    headers = {
+        "User-Agent": f"NCAS-CMS-BibFetcher/1.0 (mailto:{SITE_EMAIL})"
+    }
 
     try:
         response = requests.get(url, headers=headers, timeout=5)

@@ -167,11 +167,11 @@ defaults:
         title: NCAS Computational Modelling Services
 
   - scope:
-      path: '' 				# an empty string here means all files in the project
+      path: ''         # an empty string here means all files in the project
       type: 'pages'
     values:
-      show_meta: false 	# Hide metadata for all pages
-      # sidebar:    		# Possible values › left, right › by default there will be no sidebar
+      show_meta: false   # Hide metadata for all pages
+      # sidebar:        # Possible values › left, right › by default there will be no sidebar
       comments: false
       #author: phlow     # Default author for pages
       header:
@@ -347,3 +347,5 @@ asciidoctor:
     source-highlighter: coderay
     coderay-css: style
     icons: font
+
+email: cms-support@ncas.ac.uk
