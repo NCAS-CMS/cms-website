@@ -1,6 +1,6 @@
 ---
 layout: page-fullwidth
-title: Current Projects
+title: Current Projects and  Funding Streams
 subheadline: Projects
 teaser: CMS provides direct-funded and un-funded support for a range of projects.
 permalink: /services/projects/
