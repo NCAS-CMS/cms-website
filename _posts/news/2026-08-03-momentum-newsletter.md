@@ -1,6 +1,6 @@
 ---
 layout: page
-subheadline:  "Annoucement"
+subheadline:  "Announcement"
 title:  "Momentum Partnership newsletter 📰"
 teaser: "The latest newsletter from the Momentum Partnership is now available online."
 categories:
