@@ -1,7 +1,7 @@
 ---
 layout: page
 subheadline:  "ARCHER2"
-title:  "ARCHER2 end of service"
+title:  "ARCHER2 end of service 🔚"
 teaser: "The end of ARCHER2's service period is scheduled for November 2026."
 categories:
     - news
