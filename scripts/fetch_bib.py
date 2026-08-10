@@ -1,4 +1,5 @@
 import argparse
+import csv
 import os
 import re
 import sys
@@ -7,8 +8,6 @@ import requests
 import bibtexparser
 
 from pathlib import Path
-import re
-import yaml
 
 # Find repo root relative to this script (scripts/ is one level down)
 REPO_ROOT = Path(__file__).resolve().parent.parent
@@ -26,12 +25,13 @@ if not config or "email" not in config or not config["email"]:
 
 SITE_EMAIL = config["email"]
 
-
 ORCID_BASE_URL = "https://pub.orcid.org/v3.0"
+
 
 def clean_title(title):
     """Normalize title string for robust matching."""
     return re.sub(r'[\{\}\s\W]+', '', title).lower()
+
 
 def load_pubsignore(primary_path="_bibliography/.pubsignore"):
     """Load case-insensitive keyword blacklists from .pubsignore file."""
@@ -54,6 +54,7 @@ def load_pubsignore(primary_path="_bibliography/.pubsignore"):
 
     return ignored_keywords
 
+
 def is_ignored(title, ignore_list):
     """Check if any ignored keyword appears in the publication title."""
     if not title or not ignore_list:
@@ -61,6 +62,70 @@ def is_ignored(title, ignore_list):
 
     title_lower = title.lower()
     return any(keyword in title_lower for keyword in ignore_list)
+
+
+def fetch_bibtex_by_doi(doi):
+    """Fetch BibTeX entry directly for a given DOI via DOI content negotiation or DataCite API."""
+    clean_doi = re.sub(r"^https?://(dx\.)?doi\.org/", "", doi, flags=re.IGNORECASE).strip()
+    url = f"https://doi.org/{clean_doi}"
+    headers = {
+        "Accept": "application/x-bibtex; charset=utf-8",
+        "User-Agent": f"NCAS-CMS-BibFetcher/1.0 (mailto:{SITE_EMAIL})"
+    }
+
+    # Attempt 1: Official DOI Content Negotiation
+    try:
+        response = requests.get(url, headers=headers, timeout=10, allow_redirects=True)
+        if response.status_code == 200 and "@" in response.text:
+            parsed = bibtexparser.loads(response.text)
+            if parsed.entries:
+                entry = parsed.entries[0]
+                if not entry.get("url"):
+                    entry["url"] = f"https://doi.org/{clean_doi}"
+                return entry
+    except Exception:
+        pass
+
+    # Attempt 2: DataCite REST API (handles Figshare DOIs specifically)
+    try:
+        dc_url = f"https://api.datacite.org/dois/{clean_doi}"
+        dc_headers = {"User-Agent": f"NCAS-CMS-BibFetcher/1.0 (mailto:{SITE_EMAIL})"}
+        resp = requests.get(dc_url, headers=dc_headers, timeout=10)
+        if resp.status_code == 200:
+            attrs = resp.json().get("data", {}).get("attributes", {})
+            titles = attrs.get("titles", [{}])
+            title = titles[0].get("title", "Untitled") if titles else "Untitled"
+            pub_year = attrs.get("publicationYear", "")
+
+            creators = attrs.get("creators", [])
+            author_names = []
+            for c in creators:
+                if "name" in c and c["name"]:
+                    author_names.append(c["name"])
+                elif c.get("givenName") or c.get("familyName"):
+                    author_names.append(f"{c.get('givenName', '')} {c.get('familyName', '')}".strip())
+            authors = " and ".join(author_names) if author_names else ""
+
+            publisher = attrs.get("publisher", "Figshare")
+            clean_key_title = re.sub(r'\W+', '', title)[:15]
+            cite_key = f"doi_{pub_year or '0000'}_{clean_key_title}"
+
+            return {
+                'ENTRYTYPE': 'article',
+                'ID': cite_key,
+                'title': title,
+                'author': authors,
+                'authors': authors,
+                'year': str(pub_year),
+                'journal': publisher,
+                'location': publisher,
+                'url': f"https://doi.org/{clean_doi}"
+            }
+    except Exception:
+        pass
+
+    return None
+
 
 def get_orcid_work_groups(orcid_id):
     """Fetch all work groups from ORCID."""
@@ -75,6 +140,7 @@ def get_orcid_work_groups(orcid_id):
     data = response.json()
     return data.get("group", [])
 
+
 def extract_year(work_summary):
     """Extract numeric publication year from ORCID work summary."""
     pub_date = work_summary.get("publication-date")
@@ -84,6 +150,7 @@ def extract_year(work_summary):
         except (ValueError, TypeError):
             pass
     return None
+
 
 def fetch_authors_from_crossref(doi):
     """Fetch full ordered author list from Crossref API if ORCID missing contributors."""
@@ -113,6 +180,7 @@ def fetch_authors_from_crossref(doi):
     except Exception:
         pass
     return ""
+
 
 def extract_authors(detail, owner_name="", doi=None):
     """Extract author list, fallback to Crossref via DOI, or fallback to neutral text."""
@@ -150,6 +218,7 @@ def extract_authors(detail, owner_name="", doi=None):
     # Fallback 2: Neutral group member statement
     return f"Authors include {owner_name}" if owner_name else ""
 
+
 def fetch_bulk_work_details(orcid_id, put_codes):
     """Fetch full details for multiple put_codes in a single HTTP request."""
     if not put_codes:
@@ -173,6 +242,7 @@ def fetch_bulk_work_details(orcid_id, put_codes):
             details_map[work["put-code"]] = work
 
     return details_map
+
 
 def extract_doi_from_detail(detail):
     """Extract DOI from full work detail, checking external-ids and citation text."""
@@ -204,6 +274,7 @@ def extract_doi_from_detail(detail):
 
     return ""
 
+
 def extract_orcid_url(detail):
     """Extract URL fallback if no DOI is present."""
     if not isinstance(detail, dict):
@@ -227,6 +298,7 @@ def extract_orcid_url(detail):
                 return ext_val
 
     return ""
+
 
 def generate_fallback_bibtex(detail, put_code, year, forced_doi=None, owner_name=""):
     """Generate BibTeX entry if raw BibTeX text is missing."""
@@ -280,6 +352,7 @@ def generate_fallback_bibtex(detail, put_code, year, forced_doi=None, owner_name
     }
     return entry
 
+
 def process_orcid_group(orcid_id, group):
     """Fetch all items in a group via Bulk API, locate DOIs, and return best item."""
     summaries = group.get("work-summary", [])
@@ -313,6 +386,7 @@ def process_orcid_group(orcid_id, group):
                     break
 
     return best_detail, best_put_code, year, group_doi
+
 
 def process_orcid(orcid_id, owner_name, existing_db, title_to_index, start_year, end_year, ignore_list=None):
     """Fetch and merge publications for a single ORCID ID into existing_db."""
@@ -396,6 +470,116 @@ def process_orcid(orcid_id, owner_name, existing_db, title_to_index, start_year,
 
     return added_count
 
+
+def load_dois_from_csv(filepath):
+    """Extract dicts with clean DOIs and output_type descriptions from a CSV file."""
+    if not os.path.exists(filepath):
+        return []
+
+    doi_records = []
+    seen_dois = set()
+    with open(filepath, 'r', encoding='utf-8') as f:
+        reader = csv.reader(f)
+        for row in reader:
+            if not row:
+                continue
+
+            # Skip comment lines starting with #
+            first_cell = row[0].strip() if row[0] else ""
+            if first_cell.startswith('#'):
+                continue
+
+            doi_val = None
+            doi_col_idx = -1
+
+            # Search for DOI string in the row
+            for idx, cell in enumerate(row):
+                match = re.search(r'10\.\d{4,9}/[-._;()/:A-Za-z0-9]+', cell)
+                if match:
+                    doi_val = match.group(0).rstrip('.,;')
+                    doi_col_idx = idx
+                    break
+
+            if doi_val and doi_val not in seen_dois:
+                seen_dois.add(doi_val)
+                output_type = ""
+                # Get description from the column immediately following the DOI (usually column 2)
+                desc_idx = doi_col_idx + 1 if doi_col_idx != -1 else 1
+                if len(row) > desc_idx:
+                    output_type = row[desc_idx].strip(" '\"")
+
+                doi_records.append({'doi': doi_val, 'output_type': output_type})
+
+    return doi_records
+
+
+def process_csv_dois(csv_path, existing_db, title_to_index, start_year, end_year, ignore_list=None):
+    """Process additional DOIs listed in a CSV file."""
+    records = load_dois_from_csv(csv_path)
+    if not records:
+        return 0
+
+    print(f"\nProcessing {len(records)} extra DOI(s) from '{csv_path}'...")
+    added_count = 0
+
+    for rec in records:
+        doi = rec['doi']
+        output_type = rec['output_type']
+        clean_doi_url = f"https://doi.org/{re.sub(r'^https?://(dx\.)?doi\.org/', '', doi, flags=re.IGNORECASE)}"
+
+        # Check if already present by exact DOI URL
+        if any(e.get('url') == clean_doi_url for e in existing_db.entries):
+            continue
+
+        entry = fetch_bibtex_by_doi(doi)
+        if not entry:
+            print(f"   [!] Could not fetch metadata for DOI: {doi}")
+            continue
+
+        title = entry.get("title", "")
+        if not title:
+            continue
+
+        # Override location/journal with free text output type from Column 2 if provided
+        if output_type:
+            entry['journal'] = output_type
+            entry['location'] = output_type
+            entry['type'] = output_type
+
+        # Extract year integer if possible
+        year_str = entry.get("year", "")
+        try:
+            year = int(year_str) if year_str else None
+        except ValueError:
+            year = None
+
+        if start_year and (year is None or year < start_year):
+            continue
+        if end_year and (year is None or year > end_year):
+            continue
+
+        # Check .pubsignore
+        if is_ignored(title, ignore_list):
+            print(f"   [-] Skipping ignored DOI paper: {title[:50]}...")
+            continue
+
+        title_norm = clean_title(title)
+        if title_norm in title_to_index:
+            continue
+
+        print(f"   + Fetching DOI ({year or 'N/A'}): {title[:50]}...")
+
+        authors = entry.get("author") or entry.get("authors") or ""
+        entry["author"] = authors
+        entry["authors"] = authors
+
+        existing_db.entries.append(entry)
+        title_to_index[title_norm] = len(existing_db.entries) - 1
+        added_count += 1
+
+    return added_count
+
+
 def load_orcids_from_people_file(filepath):
     """Extract list of dicts with name & orcid from people.yml."""
     if not os.path.exists(filepath):
@@ -413,7 +597,8 @@ def load_orcids_from_people_file(filepath):
             records.append({'name': name, 'orcid': orcid_str})
     return records
 
-def update_bibtex_file(orcid_list, start_year, end_year, output_path, clean_file=False):
+
+def update_bibtex_file(orcid_list, start_year, end_year, output_path, clean_file=False, dois_file=None):
     if clean_file and os.path.exists(output_path):
         os.remove(output_path)
         print(f"Cleaned existing output file '{output_path}'.")
@@ -437,6 +622,13 @@ def update_bibtex_file(orcid_list, start_year, end_year, output_path, clean_file
         added = process_orcid(orcid_id, name, existing_db, title_to_index, start_year, end_year, ignore_list=ignore_list)
         total_added += added
 
+    # Process standalone DOIs from CSV if present
+    default_dois_path = Path(__file__).resolve().parent / "dois.csv"
+    target_dois_path = dois_file if dois_file else default_dois_path
+
+    if os.path.exists(target_dois_path):
+        total_added += process_csv_dois(target_dois_path, existing_db, title_to_index, start_year, end_year, ignore_list=ignore_list)
+
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
 
     with open(output_path, 'w', encoding='utf-8') as f:
@@ -444,13 +636,15 @@ def update_bibtex_file(orcid_list, start_year, end_year, output_path, clean_file
 
     print(f"\nFinished! Added {total_added} total new entries to '{output_path}'. Total database count: {len(existing_db.entries)}")
 
+
 def main():
-    parser = argparse.ArgumentParser(description="Fetch citations from ORCID profiles and build/update a .bib file.")
+    parser = argparse.ArgumentParser(description="Fetch citations from ORCID profiles/DOIs and build/update a .bib file.")
 
     group = parser.add_mutually_exclusive_group(required=True)
-    group.add_argument("orcid", nargs="?", help="Single ORCID iD (e.g. 0000-0002-1825-0097)")
+    group.add_argument("--orcid", help="Single ORCID iD (e.g. 0000-0002-1825-0097)")
     group.add_argument("--people-file", help="Path to YAML people file (e.g. _data/people.yml)")
 
+    parser.add_argument("--dois-file", help="Path to CSV file containing DOIs (default: dois.csv in script dir)")
     parser.add_argument("--start-year", type=int, help="Start year (inclusive)")
     parser.add_argument("--end-year", type=int, help="End year (inclusive)")
     parser.add_argument("--clean", action="store_true", help="Delete output .bib file first and start fresh")
@@ -461,16 +655,20 @@ def main():
     if args.people_file:
         orcid_list = load_orcids_from_people_file(args.people_file)
         print(f"Loaded {len(orcid_list)} ORCID profiles from '{args.people_file}'.")
-    else:
+    elif args.orcid:
         orcid_list = [{'name': 'Single Target', 'orcid': args.orcid}]
+    else:
+        orcid_list = []
 
     update_bibtex_file(
         orcid_list,
         args.start_year,
         args.end_year,
         args.output,
-        clean_file=args.clean
+        clean_file=args.clean,
+        dois_file=args.dois_file
     )
+
 
 if __name__ == '__main__':
     main()
