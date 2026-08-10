@@ -16,7 +16,9 @@ header:
 
 * #### [PUMA2]({{ 'puma2' | relative_url }})
 
-* #### [Monsoon2]({{ 'monsoon2' | relative_url }})
+* #### [Monsoon2]({{ 'monsoon2' | relative_url }}) ➡️  Note this has now been superseded by Monsoon3.
+
+* #### [Monsoon3]({{ 'monsoon3' | relative_url }})
 
 * #### [Rose/Cylc]({{ 'rose-cylc' | relative_url }})
 
