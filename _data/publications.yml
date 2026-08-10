@@ -1,5 +1,16 @@
 - year: '2026'
   docs:
+  - title: Energy Efficient Climate Science Workflows with PyActiveStorage
+    authors: Varsiha <u>Sothilingam</u>, Bryan <u>Lawrence</u>, Max Norton, David
+      <u>Hassell</u>, Valeriu <u>Predoi</u>
+    location: Conference presentation at the STEP-UP RSLondon Conference, (2026)
+    url: https://zenodo.org/doi/10.5281/zenodo.21217494
+  - title: Towards seamless integration of model, satellite and in-situ observation
+      data with the VISION Toolkit Version 2
+    authors: Sadie L. <u>Bartholomew</u>, David <u>Hassell</u>, Maria Russo, N. Luke
+      <u>Abraham</u>
+    location: Poster presentation at the CMIP Community Workshop 2026, (2026)
+    url: https://figshare.com/articles/poster/Towards_seamless_integration_of_model_satellite_and_in-situ_observation_data_with_the_VISION_Toolkit_Version_2/31455598
   - title: AMOC weakening in response to global and regional reductions in aerosol
       emissions
     authors: Robert J Allen, Timothy Carson, Wei Liu, Laura J Wilcox, Bjørn H Samset,
