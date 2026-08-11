@@ -1,7 +1,7 @@
 ---
 layout: page
 subheadline:  "Training"
-title:  "UM Introduction Course"
+title:  "UM Introduction Course (2025-12-02)"
 teaser: "NCAS CMS will be delivering a 3-day course on 3-5 February 2026, introducing new users to the Met Office Unified Model with Cylc 8."
 categories:
     - news

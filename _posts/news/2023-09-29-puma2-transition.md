@@ -1,7 +1,7 @@
 ---
 layout: page
 subheadline:  "PUMA2"
-title:  "Transition to PUMA2"
+title:  "Transition to PUMA2 (2023-09-29)"
 teaser: "We have just launched our new server, PUMA2, hosted at ARCHER2. Rose/cylc users should move over to the new system as soon as possible."
 categories:
     - news

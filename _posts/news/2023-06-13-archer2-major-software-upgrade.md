@@ -1,7 +1,7 @@
 ---
 layout: page
 subheadline:  "ARCHER2"
-title:  "Major Software Upgrade"
+title:  "Major Software Upgrade (2023-06-13)"
 teaser: "Important information for UM users following return to service of ARCHER2."
 categories:
     - news

@@ -1,7 +1,7 @@
 ---
 layout: page
 subheadline:  "PUMA"
-title:  "Transition to new PUMA"
+title:  "Transition to new PUMA (2022-11-09)"
 teaser: "Due primarily to the impending retirement of cloud infrastructure within JASMIN we are moving users to a new server called pumanew. Here you will find information on how to log in to the new server and restart any Rose/Cylc suites."
 categories:
     - news
