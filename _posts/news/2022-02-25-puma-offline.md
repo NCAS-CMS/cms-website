@@ -1,7 +1,7 @@
 ---
 layout: page
 subheadline:  "Announcement"
-title:  "PUMA offline"
+title:  "PUMA offline (2022-02-25)"
 teaser: "PUMA has suffered a catastrophic issue and the current server has had to be taken offline permanently. We have replaced it with a temporary server, PumaTest, whilst we await the arrival of new hardware."
 categories:
     - news

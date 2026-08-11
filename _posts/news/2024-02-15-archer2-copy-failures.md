@@ -1,7 +1,7 @@
 ---
 layout: page
 subheadline:  "Announcement"
-title:  "ARCHER2 File copy failures"
+title:  "ARCHER2 File copy failures (2024-02-15)"
 teaser: "We have been alerted to a problem copying files on the ARCHER2 /work/n02/n02 file system. The problem is associated with the python shutil file copy functions and results in incomplete file copying."
 categories:
     - news

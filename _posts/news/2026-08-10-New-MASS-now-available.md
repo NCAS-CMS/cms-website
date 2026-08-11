@@ -1,7 +1,7 @@
 ---
 layout: page
 subheadline:  "Announcement"
-title:  "New MASS archive now available 💾"
+title:  "New MASS archive now available 💾 (2026-08-10)"
 teaser: "After a period of testing, the new Met Office MASS archive is now available."
 categories:
     - news

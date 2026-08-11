@@ -1,7 +1,7 @@
 ---
 layout: page
 subheadline:  "Model Workflows"
-title:  "Data Transfer between ARCHER2 and JASMIN"
+title:  "Data Transfer between ARCHER2 and JASMIN (2022-03-21)"
 teaser: "Data Transfer using GridFTP is now possible between ARCHER2 and JASMIN using the serial nodes"
 categories:
     - news

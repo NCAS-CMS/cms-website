@@ -1,7 +1,7 @@
 ---
 layout: page
 subheadline:  "Announcement"
-title:  "PUMA2 & ARCHER2 Outage"
+title:  "PUMA2 & ARCHER2 Outage (2025-06-25)"
 teaser: "PUMA2 & ARCHER2 will be unavailable between Friday 29th August & Monday 15th September 2025"
 categories:
     - news
