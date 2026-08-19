@@ -22,10 +22,9 @@ header:
 
 * #### [Rose/Cylc]({{ 'rose-cylc' | relative_url }})
 
-* #### [FCM]({{ 'fcm' | relative_url }})
-
 * #### [Tools and Utilities]({{ 'tools-and-utilities' | relative_url }})
 
 * #### [Miscellaneous]({{ 'miscellaneous' | relative_url }})
 
+* #### [Simulation Metadata]({{ 'simulation-metadata' | relative_url }})
 
