@@ -8,4 +8,4 @@ title: Projects
   <strong>⚠️ Work in Progress:</strong> This section of the website is currently under active development.
 </div>
 
-* [Foo]({{ '/simulation-metadata/foo/' | relative_url }})
+* [HRCM]({{ '/simulation-metadata/hrcm/' | relative_url }})
