@@ -1,6 +1,6 @@
 ---
 layout: page-fullwidth
-permalink: /simulation-metadata/foo/
+permalink: /simulation-metadata/hrcm/
 title: Years when simulation(s) were run.
 ---
 
@@ -8,4 +8,4 @@ title: Years when simulation(s) were run.
   <strong>⚠️ Work in Progress:</strong> This section of the website is currently under active development.
 </div>
 
-* [2026]({{ '/simulation-metadata/foo/2026' | relative_url }})
+* [2026]({{ '/simulation-metadata/hrcm/2026' | relative_url }})
