@@ -26,8 +26,7 @@ Each configuration of the model is distributed and run as a [Rose]({{site.baseur
 ### historical, pre-industrial control
 There are two fully coupled UKESM1 configurations which each make use of all model components: one with science settings for a historical experiment, and one with settings for a pre-industrial control experiment.
 
-| UM version | historical | pre-industrial control |
-| vn11.2 | [u-bc613](https://code.metoffice.gov.uk/trac/roses-u/browser/b/c/6/1/3/trunk) | [u-bc964](https://code.metoffice.gov.uk/trac/roses-u/browser/b/c/9/6/4/trunk) |
+Further information on the UKESM is maintained by the UKESM core team, see [here](https://code.metoffice.gov.uk/trac/UKESM/wiki) for further information.
 
 </div><!-- /.medium-8.columns -->
 </div><!-- /.row -->
