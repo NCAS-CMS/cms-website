@@ -26,8 +26,7 @@ Each configuration of the model is distributed and run as a [Rose]({{site.baseur
 ### historical, pre-industrial control
 There are two fully coupled UKESM1.1 configurations which each make use of all model components: one with science settings for a historical experiment, and one with settings for a pre-industrial control experiment.
 
-| UM version | historical | pre-industrial control |
-| vn12.1 | [u-cj512](https://code.metoffice.gov.uk/trac/roses-u/browser/c/j/5/1/2/trunk) | [u-cj511](https://code.metoffice.gov.uk/trac/roses-u/browser/c/j/5/1/1/trunk) |
+Information on which workflows are available on e.g. ARCHER2 can be found [here](https://code.metoffice.gov.uk/trac/UKESM/wiki/UKESM1.1StandardJobs).
 
 </div><!-- /.medium-8.columns -->
 </div><!-- /.row -->
@@ -58,76 +57,9 @@ Options for specifying the account under which jobs will be run are available in
 * If this is set to `false`, then choose an option from the **Account** menu.
 * If the option is `other`, then enter the account explicitly in **'Other' user account**.
 
-## Running on other machines
-The model may be run on other (i.e. non-Met Office) machines. See the [introduction to UKESM](/unified-model/configurations/ukesm) for more on available resources and how to access them. More specific instructions for suite settings for different machines are given in the following subsections.
-
-### Monsoon2
-To run on Monsoon2, the Met Office / NERC collaborative platform, set **suite conf -> Machine Options -> Site at which model is being run** to `MONSooN`.
-
-Output files created by the suite running on Monsoon2 may be archived via the Met Office Operational Storage Environment (MOOSE). The options for requesting this can be found under the **postproc -> Post Processing - common settings** control panel. Set **archive_command** to `Moose` and provide (or check) values for further options in the subpanel **Moose Archiving**. See [below](#archiving-of-duplexed-data) for more on the **non_duplexed_set** option.
-
-Note that you must have a MOOSE account before archiving will work - see [below](#support) for help.
-
-### ARCHER2
-
-#### Setup
-To run on ARCHER2, the NERC platform, first set **suite conf -> Machine Options -> Site at which model is being run** to `Archer2` and then:
-
-1. Set these other **Machine Options**:
-* **Use Environment Modules** to `Custom module files`
-* **Science Configuration Module Name** to `GC3-PrgEnv/2.0/2021.12.15`
-* **Module file location** to `/work/y07/shared/umshared/moci/modules/modules`
-
-2. Setting the site to `Archer2` causes other options to appear under **suite conf -> Project Accounting**.  Set appropriate values for:
-* **User account for HPC tasks**
-* **Account group for HPC tasks**
-
-3. Under **suite conf -> Domain Decomposition -> Atmosphere**, set:
-* **Use max processes per node** to `false`
-* **Max number of processes/node** to `128`
-
-4.  Under **suite conf -> Testing**, set the following to `false`:
-* **Test restartability**
-* **Test rigorous compiler option**
-* **Test PE decomposition change**
-* **Archive integrity**
-* **CPMIP Analysis -> CPMIP load balancing analysis**
-
-#### Archiving model output
-Output files created by the suites running on ARCHER2 may be archived to disk. The options for requesting this can be found under the **postproc -> Post Processing - common settings** control panel. First, set **archive_command** to `Archer`. This causes the subpanels **Archer Archiving** and **JASMIN transfer** to appear under **postproc -> Post Processing - common settings**.  
-
-In **Archer Archiving**, specify the location of the archived files on ARCHER2 by providing values for:
-
-* **archive_root_path** (the location on ARCHER2 where the files are to be archived)
-* **archive_name** (the name of the archive)
-
-Following archiving, the files may be optionally transferred to a remote machine such as JASMIN. In **JASMIN transfer**, provide values for:
-
-* **remote_host** (the address of the remote machine) 
-* **transfer_dir** (the location of the archived files on the remote machine)
-
-and turn on the transferring of the files by setting **suite conf -> Build and Run -> PP Transfer** to `true`.
-
-Note that, before transfer from ARCHER2 to JASMIN can work, some setup of communication between ARCHER2 and JASMIN is required.  To do this, follow the instructions under **Obtaining a JASMIN short-lived credential** on [this page]({{site.baseurl}}/unified-model/pptransfer) (the section on **Suite Changes** on that page can be ignored, since these suites are already set up for transfer).
-
-#### Optional configuration settings
-To aid portability, the suites use site-specific optional configuration settings which override default values for some parameters when **suite conf -> Machine Options -> Site at which model is being run** is set to `Archer2`. In particular, when running on ARCHER2, the file names for the following 
-
-* **um -> namelist -> Reconfiguration and Ancillary Control -> General technical options -> ainitial**
-* **nemo_cice -> Restart files -> NEMO restart file**
-* **nemo_cice -> Restart files -> NEMO iceberg restart file**
-* **nemo_cice -> Restart files -> CICE restart file**
-* **ocean_passive_tracers -> env -> Initialisaton Settings -> Restart file to initialize (CFC-Age)**
-* **ocean_passive_tracers -> env -> Initialisaton Settings -> Passive tracers restart file**
-
-are specified in `opt` files - specifically:
-
-* `app/um/opt/rose-app-archer2.conf`
-* `app/nemo_cice/opt/rose-app-archer2.conf`
-* `app/um/ocean_passive_tracers/rose-app-archer2.conf`
 
 ## Archiving of duplexed data
-When running on Met Office machines (including Monsoon2), the suite will, by default, archive a single copy of its data to MOOSE. For critical model runs, this setting may be changed to archive two copies of the data (i.e. duplex) by switching **non_duplexed_set** in **postproc -> Post Processing-common settings -> Moose Archiving** to `false`. Further guidance on when to choose this option is available at [MassNonDuplexPolicy](http://www-twiki/Main/MassNonDuplexPolicy) (note that this link only works from within the Met Office).
+When running on Met Office machines (including Monsoon3), the suite will, by default, archive a single copy of its data to MOOSE. For critical model runs, this setting may be changed to archive two copies of the data (i.e. duplex) by switching **non_duplexed_set** in **postproc -> Post Processing-common settings -> Moose Archiving** to `false`. Further guidance on when to choose this option is available at [MassNonDuplexPolicy](http://www-twiki/Main/MassNonDuplexPolicy) (note that this link only works from within the Met Office).
 
 ## Compute Resource Usage
 The compute resources used by the suite can be set via parameters on the **suite conf -> Machine Options** and **suite conf -> Domain Decomposition** control panels. The following discussion is specific to the Met Office HPC for the most part, but may still be helpful for users of other machines.
@@ -176,5 +108,5 @@ It should be noted that changing the PE decomposition for the ocean in UKESM wil
 * Development work on the UKESM1.1 um12.1 configurations (including instructions on how to upgrade suites, where necessary) is documented in [ticket #830](https://code.metoffice.gov.uk/trac/UKESM/ticket/830) on MOSRS.
 
 ## Support
-* NERC users requiring assistance running this suite on NERC machines (ARCHER2 & Monsoon2) should raise a ticket on the [NCAS-CMS helpdesk](https://cms-helpdesk.ncas.ac.uk).
+* NERC users requiring assistance running this suite on NERC machines (ARCHER2 & Monsoon3) should raise a ticket on the [NCAS-CMS helpdesk](https://cms-helpdesk.ncas.ac.uk).
 * Users running this suite on other machines should contact local support services.
