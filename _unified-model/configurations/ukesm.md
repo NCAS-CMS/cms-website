@@ -5,9 +5,9 @@ teaser: The UK Earth System Model (UKESM) has been built as a joint venture betw
 
 More information about the contents and development of UKESM is available on the [UKESM website](https://ukesm.ac.uk/).
 
-**Latest release:** UKESM1.1  -  [Information on UKESM1.1 development](https://ukesm.ac.uk/portfolio-item/introducing-ukesm1-1-a-new-configuration-of-the-ukesm-model-with-an-improved-historical-temperature-record/).
+**Latest release:** UKESM1.1  -  [UKESM1.1 paper](https://gmd.copernicus.org/articles/16/1569/2023/).
 
-**Previous release:** UKESM1 - [Release and support of UKESM1](https://ukesm.ac.uk/portfolio-item/release-and-support-of-ukesm1/) and [UKESM1 Release update](https://ukesm.ac.uk/portfolio-item/the-release-of-ukesm1-update/).
+**Previous release:** UKESM1 - [UKESM1.0 paper](https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2019MS001739). 
 
 ### Background and prerequisites
 
