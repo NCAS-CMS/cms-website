@@ -9,8 +9,18 @@
       data with the VISION Toolkit Version 2
     authors: Sadie L. <u>Bartholomew</u>, David <u>Hassell</u>, Maria Russo, N. Luke
       <u>Abraham</u>
-    location: Poster presentation at the CMIP Community Workshop 2026, (2026)
+    location: Poster presentation at the CMIP Community Workshop, (2026)
     url: https://figshare.com/articles/poster/Towards_seamless_integration_of_model_satellite_and_in-situ_observation_data_with_the_VISION_Toolkit_Version_2/31455598
+  - title: Regional aerosol emission reductions alter tropical circulation
+    authors: Joon-Gu Jeon, Robert J Allen, Sang-Wook Yeh, Chang-Eui Park, Laura J
+      Wilcox, Bjørn H Samset, Sharar <u>Ahmadi</u>, Annica M L Ekman, Maxwell Elling,
+      Luke Fraser-Leach, Paul Griffiths, James Keeble, Tsuyoshi Koshiro, Paul Kushner,
+      Anna Lewinschal, Molly MacRae, Risto Makkonen, Joonas Merikanto, Pierre Nabat,
+      Larissa S Nazarenko, Declan O’Donnell, Naga Oshima, Geeta Persad, Steven Rumbold,
+      Neil Swart, Toshihiko Takemura, Kostas Tsigaridis, Knut von Salzen, Daniel M
+      Westervelt
+    location: Accepted manuscript in Env. Res. Clim., (2026)
+    url: http://dx.doi.org/10.1088/2752-5295/ae9c63
   - title: AMOC weakening in response to global and regional reductions in aerosol
       emissions
     authors: Robert J Allen, Timothy Carson, Wei Liu, Laura J Wilcox, Bjørn H Samset,
@@ -218,6 +228,20 @@
     authors: Sharar <u>Ahmadi</u>, S. Rumbold, J. Keeble
     location: NERC EDS Centre for Environmental Data Analysis, (2026)
     url: http://catalogue.ceda.ac.uk/uuid/63233813672245a2ba3c6de90c4cfaee
+  - title: 'The CANARI HadGEM3 Large Ensemble: Design, and evaluation of historical
+      experiments'
+    authors: Reinhard K. H. Schiemann, Grenville Lister, Rosalyn <u>Hatcher</u>, Dan
+      Hodson, Bryan <u>Lawrence</u>, Len Shaffrey, Jeff Cole, Andrea Dittus, Jenny
+      Mecking, Jon Robson, Simon <u>Wilson</u>, Yevgeny Aksenov, Adam T. Blaker, Ben
+      Harvey, Oscar Martínez-Alvarado, Annette <u>Osprey</u>, Stephanie Rynders, Sharar
+      <u>Ahmadi</u>, Jake Aylmer, Laura Baker, David <u>Case</u>, Emanuele Silvio
+      Gentile, Steve George, Kevin Hodges, Eliza Karlowska, Charlotte Lang, Hua Lu,
+      Niamh O’Callaghan, Weronika Osmolska, Scott Osprey, Tony Phillips, David Schröder,
+      Robin Smith, Andrew G. Turner, Steve Woolnough, Martin Andrews, Andrew Coward,
+      Steven Hardiman, James Harle, John W. Rostron, David M. H. Sexton, Bablu Sinha,
+      Jonny <u>Williams</u>, Chris Wilson
+    location: EGU conference presentation, (2026)
+    url: http://dx.doi.org/10.5194/egusphere-2026-2281
 - year: '2025'
   docs:
   - title: 'CATS: Climate-Aware Task Scheduler for environmentally conscious developers'

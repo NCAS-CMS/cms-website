@@ -65,18 +65,24 @@ def is_ignored(title, ignore_list):
 
 
 def fetch_bibtex_by_doi(doi):
-    """Fetch BibTeX entry directly for a given DOI via DOI content negotiation or DataCite API."""
+    """Fetch BibTeX entry directly via DOI content negotiation or Crossref API fallback."""
     clean_doi = re.sub(r"^https?://(dx\.)?doi\.org/", "", doi, flags=re.IGNORECASE).strip()
+    
+    # Extract clean DOI string if prefixed by line numbers or whitespace
+    doi_match = re.search(r'10\.\d{4,9}/[-._;()/:A-Za-z0-9]+', clean_doi)
+    if doi_match:
+        clean_doi = doi_match.group(0).rstrip('.,;')
+
     url = f"https://doi.org/{clean_doi}"
     headers = {
         "Accept": "application/x-bibtex; charset=utf-8",
         "User-Agent": f"NCAS-CMS-BibFetcher/1.0 (mailto:{SITE_EMAIL})"
     }
 
-    # Attempt 1: Official DOI Content Negotiation
+    # Attempt 1: Standard DOI Content Negotiation
     try:
         response = requests.get(url, headers=headers, timeout=10, allow_redirects=True)
-        if response.status_code == 200 and "@" in response.text:
+        if response.status_code == 200 and "@" in response.text and not response.text.strip().startswith("<!DOCTYPE"):
             parsed = bibtexparser.loads(response.text)
             if parsed.entries:
                 entry = parsed.entries[0]
@@ -86,7 +92,57 @@ def fetch_bibtex_by_doi(doi):
     except Exception:
         pass
 
-    # Attempt 2: DataCite REST API (handles Figshare DOIs specifically)
+    # Attempt 2: Direct Crossref REST API (Fixes Copernicus landing page redirects)
+    try:
+        cr_url = f"https://api.crossref.org/works/{clean_doi}"
+        cr_headers = {"User-Agent": f"NCAS-CMS-BibFetcher/1.0 (mailto:{SITE_EMAIL})"}
+        resp = requests.get(cr_url, headers=cr_headers, timeout=10)
+        
+        if resp.status_code == 200:
+            msg = resp.json().get("message", {})
+            
+            # Title
+            titles = msg.get("title", [])
+            title = titles[0] if titles else "Untitled"
+            
+            # Year
+            issued = msg.get("issued", {}).get("date-parts", [[]])[0]
+            pub_year = str(issued[0]) if issued else ""
+
+            # Authors
+            authors_data = msg.get("author", [])
+            names = []
+            for a in authors_data:
+                given = a.get("given", "").strip()
+                family = a.get("family", "").strip()
+                if given and family:
+                    names.append(f"{given} {family}")
+                elif family:
+                    names.append(family)
+            authors = " and ".join(names) if names else ""
+
+            # Container / Journal
+            container = msg.get("container-title", [])
+            journal = container[0] if container else msg.get("publisher", "Copernicus Publications")
+
+            clean_key_title = re.sub(r'\W+', '', title)[:15]
+            cite_key = f"doi_{pub_year or '0000'}_{clean_key_title}"
+
+            return {
+                'ENTRYTYPE': 'article',
+                'ID': cite_key,
+                'title': title,
+                'author': authors,
+                'authors': authors,
+                'year': pub_year,
+                'journal': journal,
+                'location': journal,
+                'url': f"https://doi.org/{clean_doi}"
+            }
+    except Exception:
+        pass
+
+    # Attempt 3: DataCite REST API
     try:
         dc_url = f"https://api.datacite.org/dois/{clean_doi}"
         dc_headers = {"User-Agent": f"NCAS-CMS-BibFetcher/1.0 (mailto:{SITE_EMAIL})"}
@@ -106,7 +162,7 @@ def fetch_bibtex_by_doi(doi):
                     author_names.append(f"{c.get('givenName', '')} {c.get('familyName', '')}".strip())
             authors = " and ".join(author_names) if author_names else ""
 
-            publisher = attrs.get("publisher", "Figshare")
+            publisher = attrs.get("publisher", "Copernicus Publications")
             clean_key_title = re.sub(r'\W+', '', title)[:15]
             cite_key = f"doi_{pub_year or '0000'}_{clean_key_title}"
 
@@ -125,6 +181,7 @@ def fetch_bibtex_by_doi(doi):
         pass
 
     return None
+
 
 
 def get_orcid_work_groups(orcid_id):
