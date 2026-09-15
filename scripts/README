@@ -1,0 +1,3 @@
+#Example script run command...
+
+#python scripts/fetch_bib.py --start-year 2025 --end-year 2026  --output /Users/sa931773\@reading.ac.uk/cms-website/scripts/../_bibliography/references.bib  --people-file _data/people.yml --clean

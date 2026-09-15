@@ -1,5 +1,16 @@
 - year: '2026'
   docs:
+  - title: Near-term anthropogenic aerosol reductions under a future sustainability
+      pathway could avert nearly 40% of mid-century PM2.5 mortality
+    authors: Joe Adabouk Amooli, Kostas Tsigaridis, Sourangsu Chowdhury, Sharar <u>Ahmadi</u>,
+      Robert James Allen, Annica M. L. Ekman, Maxwell Elling, Luke Fraser-Leach, Paul
+      Thomas Griffiths, James Keeble, Tsuyoshi Koshiro, Paul J. Kushner, Anna Lewinschal,
+      Marianne Tronstad Lund, Molly MacRae, Risto Makkonen, Joonas Merikanto, Pierre
+      Nabat, Larissa S. Nazarenko, Declan O'Donnell, Naga Oshima, Geeta Persad, Steven
+      Trevor Rumbold, Bjørn Hallvard Samset, Neil C. Swart, Toshihiko Takemura, Knut
+      von Salzen, Laura J. Wilcox, Daniel M Westervelt
+    location: ESS Open Archive preprint, (2026)
+    url: https://doi.org/10.22541/essoar.15008438/v1
   - title: Energy Efficient Climate Science Workflows with PyActiveStorage
     authors: Varsiha <u>Sothilingam</u>, Bryan <u>Lawrence</u>, Max Norton, David
       <u>Hassell</u>, Valeriu <u>Predoi</u>
