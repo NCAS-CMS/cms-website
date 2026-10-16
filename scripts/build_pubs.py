@@ -109,9 +109,10 @@ def build_yaml_from_bib(bib_path, output_yaml, people_path="_data/people.yml"):
         location = entry.get('location', '').strip()
         journal_loc = journal or location
 
-        # A status such as "(In Press)" replaces the year suffix
-        if journal and location.startswith('(') and location.endswith(')'):
-            full_location = f"{journal}, {location}"
+        # A status such as "In Press" or "(In Press)" replaces the year suffix
+        if journal and location and location != journal:
+            status = location if location.startswith('(') else f"({location})"
+            full_location = f"{journal}, {status}"
         # Append year in parentheses to the location string if year is present
         elif journal_loc and year_str and year_str != 'Recent Publications':
             full_location = f"{journal_loc}, ({year_str})"
