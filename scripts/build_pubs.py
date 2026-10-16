@@ -70,7 +70,14 @@ def format_authors(authors_raw, people_list):
     if not authors_raw:
         return ""
 
-    raw_authors = [a.strip() for a in re.split(r'\s+and\s+', authors_raw, flags=re.IGNORECASE) if a.strip()]
+    raw_authors = []
+    for chunk in re.split(r'\s+and\s+', authors_raw, flags=re.IGNORECASE):
+        # "Last, First" has one comma; two or more means a plain comma-separated list
+        if chunk.count(',') >= 2:
+            raw_authors.extend(re.sub(r'^and\s+', '', a.strip(), flags=re.IGNORECASE) for a in chunk.split(','))
+        else:
+            raw_authors.append(chunk)
+    raw_authors = [a.strip() for a in raw_authors if a.strip()]
     
     formatted_authors = []
     for author in raw_authors:
@@ -98,10 +105,15 @@ def build_yaml_from_bib(bib_path, output_yaml, people_path="_data/people.yml"):
         highlighted_authors = format_authors(raw_authors, people)
         
         year_str = str(entry.get('year', '')).strip() or 'Recent Publications'
-        journal_loc = (entry.get('journal', '') or entry.get('location', '')).strip()
+        journal = entry.get('journal', '').strip()
+        location = entry.get('location', '').strip()
+        journal_loc = journal or location
 
+        # A status such as "(In Press)" replaces the year suffix
+        if journal and location.startswith('(') and location.endswith(')'):
+            full_location = f"{journal}, {location}"
         # Append year in parentheses to the location string if year is present
-        if journal_loc and year_str and year_str != 'Recent Publications':
+        elif journal_loc and year_str and year_str != 'Recent Publications':
             full_location = f"{journal_loc}, ({year_str})"
         elif year_str and year_str != 'Recent Publications':
             full_location = f"({year_str})"
