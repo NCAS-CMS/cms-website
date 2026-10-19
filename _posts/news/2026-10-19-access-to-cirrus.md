@@ -2,7 +2,7 @@
 layout: page
 subheadline:  "HPC Announcement"
 title:  "Access to Cirrus"
-teaser: ""
+teaser: "If your project has been awarded time on Cirrus (the PI should have received an award letter from UKRI), you can apply for a Cirrus account through the [SAFE system](https://safe.epcc.ed.ac.uk/)."
 categories:
     - news
 tags:
