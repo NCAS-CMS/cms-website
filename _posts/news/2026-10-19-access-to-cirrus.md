@@ -12,10 +12,6 @@ author: ros
 #header: no
 ---
 
-## Access to Cirrus
-
-If your project has been awarded time on Cirrus (the PI should have received an award letter from UKRI), you can apply for a Cirrus account through the [SAFE system](https://safe.epcc.ed.ac.uk/).
-
 Go to Login accounts → Request login account, select the "n02" project and choose "Cirrus" as the machine.
 
 Note: Your Cirrus username must match your ARCHER2 username.
