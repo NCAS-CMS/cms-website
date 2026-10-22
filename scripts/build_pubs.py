@@ -70,8 +70,20 @@ def format_authors(authors_raw, people_list):
     if not authors_raw:
         return ""
 
+    chunks = []
+    chunk_start = 0
+    parenthesis_depth = 0
+    separator = re.compile(r'\s+and\s+', re.IGNORECASE)
+    for match in separator.finditer(authors_raw):
+        parenthesis_depth += authors_raw[chunk_start:match.start()].count('(')
+        parenthesis_depth -= authors_raw[chunk_start:match.start()].count(')')
+        if parenthesis_depth == 0:
+            chunks.append(authors_raw[chunk_start:match.start()])
+            chunk_start = match.end()
+    chunks.append(authors_raw[chunk_start:])
+
     raw_authors = []
-    for chunk in re.split(r'\s+and\s+', authors_raw, flags=re.IGNORECASE):
+    for chunk in chunks:
         # "Last, First" has one comma; two or more means a plain comma-separated list
         if chunk.count(',') >= 2:
             raw_authors.extend(re.sub(r'^and\s+', '', a.strip(), flags=re.IGNORECASE) for a in chunk.split(','))
