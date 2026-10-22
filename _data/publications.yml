@@ -251,7 +251,8 @@
     url: https://doi.org/10.5194/egusphere-egu26-11733
   - title: UKESM1-0-LL output prepared for the Regional Aerosol Model Intercomparison
       Project (RAMIP)
-    authors: Sharar <u>Ahmadi</u>, S. Rumbold, J. Keeble
+    authors: Steven Rumbold, James Keeble, Laura Wilcox, Sharar <u>Ahmadi</u>, Paul
+      Griffiths, Grenville Lister, Valeriu <u>Predoi</u>
     location: NERC EDS Centre for Environmental Data Analysis, (2026)
     url: http://catalogue.ceda.ac.uk/uuid/63233813672245a2ba3c6de90c4cfaee
   - title: 'The CANARI HadGEM3 Large Ensemble: Design, and evaluation of historical
