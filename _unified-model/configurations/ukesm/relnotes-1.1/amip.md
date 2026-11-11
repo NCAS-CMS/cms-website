@@ -24,8 +24,7 @@ Each configuration of the model is distributed and run as a [Rose]({{site.baseur
 
 *Note: that links to suites (and to a couple of other pages) require access to the Met Office Science Repository Service (MOSRS) - see the [introduction to UKESM](/unified-model/configurations/ukesm) for more details.*
 
-| UM Version | AMIP |
-| vn12.1 | [u-cj514](https://code.metoffice.gov.uk/trac/roses-u/browser/c/j/5/1/4/trunk) |
+UKESM workflows suitable for use (as of August 2026) can be found [here](https://code.metoffice.gov.uk/trac/UKESM/wiki/UKESM1.1StandardJobs).
 
 See [below](#science-notes) for more on the science settings of the AMIP configuration, and its relationship to the fully coupled configurations of UKESM1.1.
 
@@ -44,72 +43,6 @@ Options for specifying the account under which jobs will be run are also availab
 * If this is set to `false`, then choose an option from the **Account** menu.
 * If the option is `other`, then enter the account explicitly in **'Other' user account**.
 
-## Running on other machines
-The model may be run on other (i.e. non-Met Office) machines. See the [introduction to UKESM](/unified-model/configurations/ukesm) for more on available resources and how to access them. More specific instructions for suite settings for different machines are given in the following subsections.
-
-### Monsoon2
-To run on Monsoon2, the Met Office / NERC collaborative platform:
- * Set **suite conf -> Host Machine -> Site at which model is being run** to `MONSooN`
- * Ensure these options are set to `false`:
-   * **suite conf -> Tasks -> Supermeans** (generation of supermeans)
-   * **suite conf -> Tasks -> Archive UM wallclock times** (archiving wallclock times)
-
-Output files created by the suite running on Monsoon2 may be archived via the Met Office Operational Storage Environment (MOOSE). The options for requesting this can be found under the **postproc -> Post Processing - common settings** control panel. Set **archive_command** to `Moose`and provide (or check) values for further options in the subpanel **Moose Archiving**. See [below](#archiving-of-duplexed-data) for more on the **Duplex dataset archiving** option.
-
-Note that you must have a MOOSE account before archiving can work - see [below](#support) for help.
-
-#### Optional configuration settings
-To aid portability, the suite uses site-specific optional configuration settings which override default values for some parameters when **suite conf -> Machine Options -> Site at which model is being run** is set to `MONSooN`. In particular, when running on Monsoon2, the names for ancillaries in 
-
-* **um -> namelist -> Reconfiguration and Ancillary Control -> Configure ancils and initialise dump fields**
-
-are specified in `app/um/opt/rose-app-monsoon.conf`.
-
-### ARCHER2
-
-#### Setup
-To run on ARCHER2, the NERC platform, first set **suite conf -> Host Machine -> Site at which model is being run** to `Archer2`.  Then
-
-1. Setting the site to `Archer2` causes other options to appear under **suite conf -> Project Accounting**.  Set appropriate values for:
-  * **User account for HPC tasks**
-  * **Account group for HPC tasks**
-
-2. Under **suite conf -> Domain Decomposition -> Atmosphere**:
-  * Set **Max number of processes/node** to `128`.
-  * This value must also be set for the **Max number of process/node** parameter in **suite conf -> Testing -> Processor Decomposition** and **suite conf -> Testing -> OpenMP** if the respective tests have been turned on (see below).
-
-3. Under **suite conf -> Tasks**, set the following to `false`:
-  * **Archive UM wallclock times**
-  * **Archive UM output logs**
-  * **Supermeans**
-
-4. Under **suite conf -> Testing**, set the following to `false`:
-  * **OpenMP -> Run No OpenMP test**
-  * **Diagnostics -> Run increment budget test**
-
-#### Archiving model output
-Output files created by the suite running on ARCHER2 may be archived to disk. The options for requesting this can be found under the **postproc -> Post Processing - common settings** control panel. First, set **archive_command** to `Archer`. This causes the subpanels **Archer Archiving** and **JASMIN transfer** to appear under **postproc -> Post Processing - common settings**.  
-
-In **Archer Archiving**, specify the location of the archived files on ARCHER2 by providing values for:
-
-* **archive_root_path** (the location on ARCHER2 where the files are to be archived)
-* **archive_name** (the name of the archive)
-
-Following archiving, the files may be optionally transferred to a remote machine such as JASMIN. In **JASMIN transfer**, provide values for:
-
-* **remote_host** (the address of the remote machine; for gridftp transfer this is `gridftp1.jasmin.ac.uk`) 
-* **transfer_dir** (the location of the archived files on the remote machine)
-
-and turn on the transferring of the files by setting **suite conf -> Build and Run -> PP Transfer** to `true`.
-
-Note that, before transfer from ARCHER2 to JASMIN can work you will need to setup a JASMIN short-lived credential.  To do this, follow the instructions under [Obtaining a JASMIN short-lived credential]({{site.baseurl}}/unified-model/pptransfer/#obtaining-a-jasmin-short-lived-credential) (the section on **Suite Changes** on that page can be ignored, since these suites are already set up for transfer).
-
-#### Optional configuration settings
-To aid portability, the suites use site-specific optional configuration settings which override default values for some parameters when **suite conf -> Machine Options -> Site at which model is being run** is set to `Archer2`. In particular, when running on ARCHER2, the names for ancillaries in 
-
-* **um -> namelist -> Reconfiguration and Ancillary Control -> Configure ancils and initialise dump fields**
-
-are specified in `app/um/opt/rose-app-archer2.conf`.
 
 ## Archiving of duplexed data
 When running on Met Office machines (including Monsoon2), the suite will, by default, archive a single copy of its data to MOOSE. For critical model runs, this setting may be changed to archive two copies of the data (i.e. duplex) by setting **Duplex dataset archiving** in **suite conf -> Host Machine** to `true`. Further guidance on when to choose this option is available at [MassNonDuplexPolicy](http://www-twiki/Main/MassNonDuplexPolicy) (note that this link only works from within the Met Office).

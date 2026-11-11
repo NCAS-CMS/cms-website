@@ -24,8 +24,7 @@ Each configuration of the model is distributed and run as a [Rose](#TODO) suite.
 
 *Note: that links to suites (and to a couple of other pages) require access to the Met Office Science Repository Service (MOSRS) - see the [introduction to UKESM1](/unified-model/configurations/ukesm) for more details.*
 
-| UM Version | AMIP |
-| vn11.1 | [u-be303](https://code.metoffice.gov.uk/trac/roses-u/browser/b/e/3/0/3/trunk) |
+Further information on the UKESM is maintained by the UKESM core team, see [here](https://code.metoffice.gov.uk/trac/UKESM/wiki) for further information.
 
 See [below](#science-notes) for more on the science settings of the AMIP configuration, and its relationship to the fully coupled configurations of UKESM1.
 
@@ -33,7 +32,7 @@ See [below](#science-notes) for more on the science settings of the AMIP configu
 </div><!-- /.row -->
 
 ## Running on the Met Office HPC
-By default, each UKESM1 suite is set up to run the model on the Met Office HPC (i.e. *"suite conf -> Host Machine -> Site at which model is being run"* is set to **MetO Cray ('meto_cray')**).
+By default, each UKESM1 suite is set up to run the model on the Met Office HPC (i.e. *"suite conf -> Host Machine -> Site at which model is being run"* is set to **MetO Cray ('meto_cray')**.
 
 The suite offers several further options for specifying how the model is to be run, including:
 
