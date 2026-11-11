@@ -9,39 +9,18 @@
       Nabat, Larissa S. Nazarenko, Declan O'Donnell, Naga Oshima, Geeta Persad, Steven
       Trevor Rumbold, Bjørn Hallvard Samset, Neil C. Swart, Toshihiko Takemura, Knut
       von Salzen, Laura J. Wilcox, Daniel M Westervelt
-    location: Earth Future, (In Press)
-    url: ''
-  - title: Regional anthropogenic aerosol reductions amplify probability of record-breaking
-      heat extremes
-    authors: Florian Kraulich, Peter Pfleiderer, Sharar <u>Ahmadi</u>, Robert J Allen,
-      Pierre Nabat, Geeta G Persad, Bjørn H Samset, Laura J Wilcox, Sebastian Sippel
-    location: 'Environmental Research: Climate, (2026)'
-    url: ''
-  - title: Greenhouse gases overtake aerosols in driving moist heat variability in
-      India during the summer monsoon
-    authors: A. Deoras, Laura J Wilcox, Bjørn H Samset, C. Stjern, Andrew Turner,
-      I. Catherine, C. Birch, Sharar <u>Ahmadi</u>, Robert J Allen, M. MacRae, J.
-      Merikanto, P. Nabat, T. Takemura, Kostas Tsigaridis, D. Westervelt
-    location: Communications Earth & Environment, (In Press)
-    url: https://centaur.reading.ac.uk/131901/
-  - title: 'Distinct climate responses to regional aerosol reductions: An overview
-      of the Regional Aerosol Model Intercomparison Project'
-    authors: Laura J. Wilcox, Bjørn H. Samset, Camilla W. Stjern, Robert J. Allen,
-      Sharar <u>Ahmadi</u>, Annica M. L. Ekman, Maxwell T. Elling, Luke Fraser-Leach,
-      Paul Griffiths, James Keeble, Tsuyoshi Koshiro, Paul Kushner, others
-    location: 'Environmental Research: Climate, (2026)'
-    url: ''
-  - title: Near-term anthropogenic aerosol reductions under a future sustainability
-      pathway could avert nearly 40% of mid-century PM2.5 mortality
-    authors: Joe Adabouk Amooli, Kostas Tsigaridis, Sourangsu Chowdhury, Sharar <u>Ahmadi</u>,
-      Robert James Allen, Annica M. L. Ekman, Maxwell Elling, Luke Fraser-Leach, Paul
-      Thomas Griffiths, James Keeble, Tsuyoshi Koshiro, Paul J. Kushner, Anna Lewinschal,
-      Marianne Tronstad Lund, Molly MacRae, Risto Makkonen, Joonas Merikanto, Pierre
-      Nabat, Larissa S. Nazarenko, Declan O'Donnell, Naga Oshima, Geeta Persad, Steven
-      Trevor Rumbold, Bjørn Hallvard Samset, Neil C. Swart, Toshihiko Takemura, Knut
-      von Salzen, Laura J. Wilcox, Daniel M Westervelt
     location: ESS Open Archive preprint, (2026)
     url: https://doi.org/10.22541/essoar.15008438/v1
+  - title: Regional aerosol emission reductions alter tropical circulation
+    authors: Joon-Gu Jeon, Robert J Allen, Sang-Wook Yeh, Chang-Eui Park, Laura J
+      Wilcox, Bjørn H Samset, Sharar <u>Ahmadi</u>, Annica M L Ekman, Maxwell T Elling,
+      Luke Fraser-Leach, Paul Griffiths, James Keeble, Tsuyoshi Koshiro, Paul Kushner,
+      Anna Lewinschal, Molly MacRae, Risto Makkonen, Joonas Merikanto, Pierre Nabat,
+      Larissa Nazarenko, Declan O’Donnell, Naga Oshima, Geeta Persad, Steven T Rumbold,
+      Neil Swart, Toshihiko Takemura, Kostas Tsigaridis, Knut von Salzen, Daniel M
+      Westervelt
+    location: Accepted manuscript in Env. Res. Clim., (2026)
+    url: https://doi.org/10.1088/2752-5295/ae9c63
   - title: Energy Efficient Climate Science Workflows with PyActiveStorage
     authors: Varsiha <u>Sothilingam</u>, Bryan <u>Lawrence</u>, Max Norton, David
       <u>Hassell</u>, Valeriu <u>Predoi</u>
@@ -53,16 +32,6 @@
       <u>Abraham</u>
     location: Poster presentation at the CMIP Community Workshop, (2026)
     url: https://figshare.com/articles/poster/Towards_seamless_integration_of_model_satellite_and_in-situ_observation_data_with_the_VISION_Toolkit_Version_2/31455598
-  - title: Regional aerosol emission reductions alter tropical circulation
-    authors: Joon-Gu Jeon, Robert J Allen, Sang-Wook Yeh, Chang-Eui Park, Laura J
-      Wilcox, Bjørn H Samset, Sharar <u>Ahmadi</u>, Annica M L Ekman, Maxwell Elling,
-      Luke Fraser-Leach, Paul Griffiths, James Keeble, Tsuyoshi Koshiro, Paul Kushner,
-      Anna Lewinschal, Molly MacRae, Risto Makkonen, Joonas Merikanto, Pierre Nabat,
-      Larissa S Nazarenko, Declan O’Donnell, Naga Oshima, Geeta Persad, Steven Rumbold,
-      Neil Swart, Toshihiko Takemura, Kostas Tsigaridis, Knut von Salzen, Daniel M
-      Westervelt
-    location: Accepted manuscript in Env. Res. Clim., (2026)
-    url: http://dx.doi.org/10.1088/2752-5295/ae9c63
   - title: AMOC weakening in response to global and regional reductions in aerosol
       emissions
     authors: Robert J Allen, Timothy Carson, Wei Liu, Laura J Wilcox, Bjørn H Samset,
@@ -86,6 +55,12 @@
       J. <u>Williams</u>, C. Wilson
     location: NERC EDS Centre for Environmental Data Analysis, (2026)
     url: https://catalogue.ceda.ac.uk/uuid/4b62fafc68ae4c3784fb2819f652c537
+  - title: 'CATS: The Climate Aware Task Scheduler'
+    authors: Sadie L. <u>Bartholomew</u>, Lincoln Colling, Abhishek Dasgupta, Anthony
+      J. Greenberg, Loïc Lannelongue, Thibault Lestang, Carlos Martinez-Ortiz, Colin
+      Sauzé, Andrew M. Walker, Adam Stuart Ward
+    location: Zenodo, (2026)
+    url: https://doi.org/10.5281/zenodo.23561757
   - title: 'cfdm: A Python reference implementation of the CF data model'
     authors: David <u>Hassell</u>, Sadie L. <u>Bartholomew</u>
     location: Zenodo, (2026)
@@ -246,10 +221,17 @@
   - title: Strengthening of the East Asian Summer Monsoon in response to local and
       remote reductions in anthropogenic aerosol
     authors: Laura Wilcox, Ankit Bhandekar, Feifei Luo, Massimo Bollasina, Tianhui
-      Zhou, Bjørn Samset, Robert Allen, The RAMIP modelling team (Sharar <u>Ahmadi</u>
-      and others)
+      Zhou, Bjørn Samset, Robert Allen, The RAMIP modelling team
     location: EGUsphere (Preprint), (2026)
     url: https://doi.org/10.5194/egusphere-egu26-12557
+  - title: Super Warm Early Eocene Simulations With HadGEM3‐GC31‐LL
+    authors: Sebastian Steinig, Charles J. R. <u>Williams</u>, Natalie J. Burls, Marlow
+      J. Cramwinckel, Alex Farnsworth, Gavin L. Foster, Peter O. Hopcroft, Gordon
+      N. Inglis, Caroline H. Lear, Annette <u>Osprey</u>, Richard D. Pancost, Zikun
+      Ren, William H. G. Roberts, Alistair A. Sellar, Emma L. Stone, Richard Wood,
+      Jiang Zhu, Daniel J. Lunt
+    location: 'Journal of Geophysical Research: Atmospheres, (2026)'
+    url: https://doi.org/10.1029/2025JD046219
   - title: Supporting remote access to HDF5 datasets
     authors: David <u>Hassell</u>, Valeriu <u>Predoi</u>, Bryan <u>Lawrence</u>, Ezequiel
       Cimadevilla, Kai Mühlbauer
@@ -261,11 +243,19 @@
       Fiona O'Connor
     location: EGUsphere (Preprint), (2026)
     url: https://doi.org/10.5194/egusphere-egu26-11733
+  - title: Towards CF Conventions conformance checking on read with cfdm
+    authors: Sadie <u>Bartholomew</u>
+    location: CF Community, (2026)
+    url: https://doi.org/10.5281/zenodo.24123538
   - title: UKESM1-0-LL output prepared for the Regional Aerosol Model Intercomparison
       Project (RAMIP)
     authors: Sharar <u>Ahmadi</u>, S. Rumbold, J. Keeble
     location: NERC EDS Centre for Environmental Data Analysis, (2026)
     url: http://catalogue.ceda.ac.uk/uuid/63233813672245a2ba3c6de90c4cfaee
+  - title: What will be in the next release, CF 1.14
+    authors: Sadie <u>Bartholomew</u>
+    location: CF Community, (2026)
+    url: https://doi.org/10.5281/zenodo.24123106
   - title: 'The CANARI HadGEM3 Large Ensemble: Design, and evaluation of historical
       experiments'
     authors: Reinhard K. H. Schiemann, Grenville Lister, Rosalyn <u>Hatcher</u>, Dan
@@ -280,6 +270,17 @@
       Jonny <u>Williams</u>, Chris Wilson
     location: EGUSphere (Preprint), (2026)
     url: http://dx.doi.org/10.5194/egusphere-2026-2281
+  - title: 'Distinct climate responses to regional aerosol reductions: an overview
+      of the regional aerosol model intercomparison project'
+    authors: Laura J Wilcox, Bjørn H Samset, Camilla W Stjern, Robert J Allen, Sharar
+      <u>Ahmadi</u>, Annica M L Ekman, Maxwell T Elling, Luke Fraser-Leach, Paul Griffiths,
+      James Keeble, Tsuyoshi Koshiro, Paul Kushner, Anna Lewinschal, Marianne T Lund,
+      Molly MacRae, Risto Makkonen, Joonas Merikanto, Pierre Nabat, Larissa Nazarenko,
+      Declan O’Donnell, Naga Oshima, David Paynter, Geeta Persad, Steven T Rumbold,
+      Jonathan K P Shonk, Neil Swart, Toshihiko Takemura, Kostas Tsigaridis, Knut
+      von Salzen, Daniel M Westervelt
+    location: 'Env. Res.: Clim. (Accepted)., (2026)'
+    url: http://dx.doi.org/10.1088/2752-5295/aeb71a
 - year: '2025'
   docs:
   - title: 'CATS: Climate-Aware Task Scheduler for environmentally conscious developers'
@@ -288,12 +289,6 @@
       Sauzé, Andrew M. Walker
     location: Zenodo, (2025)
     url: https://doi.org/10.5281/zenodo.17967496
-  - title: 'CATS: The Climate Aware Task Scheduler'
-    authors: Sadie L. <u>Bartholomew</u>, Lincoln Colling, Abhishek Dasgupta, Anthony
-      J. Greenberg, Loïc Lannelongue, Thibault Lestang, Carlos Martinez-Ortiz, Colin
-      Sauzé, Andrew M. Walker, Adam Stuart Ward
-    location: Journal of Open Source Software, (2025)
-    url: https://doi.org/10.21105/joss.08251
   - title: 'ClimateBenchPress: A Benchmark for Compression of Climate Data'
     authors: Tim Reichelt, Juniper Tyree, Milan Kloewer, Peter Dueben, Bryan <u>Lawrence</u>,
       Dorit Hammerling, Alisson Baker, Sara Faghih-Naini, Philip Stier
