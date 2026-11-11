@@ -695,7 +695,14 @@ def update_bibtex_file(orcid_list, start_year, end_year, output_path, clean_file
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Fetch citations from ORCID profiles/DOIs and build/update a .bib file.")
+    parser = argparse.ArgumentParser(
+        description=(
+            "Fetch citations from ORCID profiles/DOIs and build/update a .bib file. "
+            "Example script run:\n"
+            "$ python scripts/fetch_bib.py --people-file ./_data/people.yml "
+            "--start-year 2025 --end-year 2026 --output ./_bibliography/references.bib --clean"
+        )
+    )
 
     group = parser.add_mutually_exclusive_group(required=True)
     group.add_argument("--orcid", help="Single ORCID iD (e.g. 0000-0002-1825-0097)")
