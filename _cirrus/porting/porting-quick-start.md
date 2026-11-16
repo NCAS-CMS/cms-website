@@ -27,7 +27,7 @@ In `meta/rose-meta.conf`, locate and change all instances of `archer2` to `cirru
 
 For example:
 ~~~
-[jinja2:suite.rc=ARCHER2_GROUP]
+[template variables=ARCHER2_GROUP]
 compulsory=true
 description=
 help=Account code under which to run HPC tasks (e.g. n02-ncas)
@@ -37,7 +37,7 @@ title=Account group for HPC tasks
 ~~~
 should be updated to
 ~~~
-[jinja2:suite.rc=CIRRUS_GROUP]
+[template variables=CIRRUS_GROUP]
 compulsory=true
 description=
 help=Account code under which to run HPC tasks (e.g. n02-ncas)
@@ -45,7 +45,7 @@ ns=host
 sort-key=cirrus_2
 title=Account group for HPC tasks
 ~~~
-Also, in `[jinja2:suite.rc=MAIN_ATM_PPN]` or `[jinja2:suite.rc=ATM_PPN]` change `range=1:128` to `range=1:288`
+Also, in `[template variables=MAIN_ATM_PPN]` or `[template variables=ATM_PPN]` change `range=1:128` to `range=1:288`
 
 ### GUI
 
