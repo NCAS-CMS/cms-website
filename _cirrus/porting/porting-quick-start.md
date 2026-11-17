@@ -7,6 +7,14 @@ breadcrumb: true
 ---
 The following should be appropriate for most UM vn13.x versions. Unfortunately as UM suites can be configured in multiple ways and there's no "standard" UM job configurations it cannot be guaranteed to work. If there are still issues, please reference the more [detailed instructions]({{ '/cirrus/porting/detailed' | relative_url }}).
 
+There are 4 stages in converting an ARCHER suite into an ARCHER2 suite:
+
+ * Edit the flow.cylc file to add Cirrus.
+ * Copy the archer2.rc site file to cirrus.rc and updat for Cirrus.
+ * Edit the metadata file to add Cirrus options.
+ * Update the suite to use Cirrus and change the processor decomposition.
+
+First, copy the suite you wish to run on ARCHER2, check it out and cd into its rose directory. Then, taking each of the above in turn:
 
 ### flow.cylc
 
@@ -20,7 +28,25 @@ to
 
 `{% raw%}{% set L_REMOTE_SETUP = true if SITE == 'cirrus' else false %}{% endraw %}`
 
+### site/cirrus.rc
 
+ * Copy the `site/archer2.rc` file to `site/cirrus.rc`
+
+   Change {% set PPN = 128 %} to{% set PPN = 288 %}
+   Change all occurrences of /work/y07/ to /epccfs/y07/ and /work/n02 to /epccfs/n02
+   Change module load cce/15.0.0 to module load cce/19.0.0 or module load um ??
+   Replace occurrences of archer2 with cirrus
+   E.g platform = archer2 -> platform = cirrus and platform = archer2-bg -> platform = cirrus-bg
+   Replace occurrences of ARCHER2 with CIRRUS
+   E.g --qos={{ARCHER2_QUEUE}} -> --qos={{CIRRUS_QUEUE}}
+   Change CONFIG = ncas-ex-cce to CONFIG = ncas-cirrus-cce
+
+   [[HPC_SERIAL]] section remove --partition=serial --qos=serial
+   Remove any occurrence of --mem =  E.g. in [[UMBUILD_RESOURCE]]
+
+   Remove --tasks-per-node={{APPN}} and --cpus-per-task=1 ????? RCF_RESOURCE
+   
+   
 ### Metadata
 
 In `meta/rose-meta.conf`, locate and change all instances of `archer2` to `cirrus`, `ARCHER2` to `CIRRUS`, `Archer2` to `Cirrus`, etc.
@@ -49,10 +75,12 @@ Also, in `[template variables=MAIN_ATM_PPN]` or `[template variables=ATM_PPN]` c
 
 ### GUI
 
-Now start up the `rose edit` GUI. There will be a warning triangle next to the **suite conf** section. We need to fix the errors to get rid of the warning triangles.
+Now start up the `rose edit` GUI. There will be a warning triangle next to the **suite conf** section. We need to fix the errors to get rid of the warning triangles.  You will likely need to click on the plus sign next to each of the settings below to add it to the configuration.
  * In *suite conf→Host Machine*:
    * Set **Site** to be **Cirrus**
    * Set the **Queue** to **Standard**
-   * Set **Account group** by clicking on the plus sign to add it to the configuration, and then set to the required value. \\
-   Note: This may be contained in a separate *Project Accounting* panel. Remember to put the account group in single quotes. 
+ * In *suite conf->Host Machine*:
+   * Set **Account group**  to the required value.
+   * Set **User account** to be your Cirrus username
+Note: *Account group* and *user account* may be contained in the *Host Machine* panel. Remember to put the account group in single quotes.
 
