@@ -9,12 +9,12 @@ The following should be appropriate for most UM vn13.x versions. Unfortunately a
 
 There are 4 stages in converting an ARCHER suite into an ARCHER2 suite:
 
- * Edit the flow.cylc file to add Cirrus.
- * Copy the archer2.rc site file to cirrus.rc and updat for Cirrus.
+ * Edit the `flow.cylc` file to add Cirrus.
+ * Copy the `archer2.rc` site file to `cirrus.rc` and update for Cirrus.
  * Edit the metadata file to add Cirrus options.
  * Update the suite to use Cirrus and change the processor decomposition.
 
-First, copy the suite you wish to run on ARCHER2, check it out and cd into its rose directory. Then, taking each of the above in turn:
+First, copy the suite you wish to run on ARCHER2, check it out and `cd` into its rose directory. Then, taking each of the above in turn:
 
 ### flow.cylc
 
@@ -73,6 +73,12 @@ title=Account group for HPC tasks
 ~~~
 Also, in `[template variables=MAIN_ATM_PPN]` or `[template variables=ATM_PPN]` change `range=1:128` to `range=1:288`
 
+### General Suite changes
+
+* Make sure to include the appropriate `vn13.x_cirrus_compile` branch and remove the equivalent ARCHER2 one, if present.
+* Copy any `rose-app-archer2.conf` files to `rose-app-cirrus.conf` and check any paths are still correct.
+* Update any input file paths as appropriate E.g. Change `/work` to `/epccfs`
+  
 ### GUI
 
 Now start up the `rose edit` GUI. There will be a warning triangle next to the **suite conf** section. We need to fix the errors to get rid of the warning triangles.  You will likely need to click on the plus sign next to each of the settings below to add it to the configuration.
