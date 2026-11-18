@@ -30,22 +30,22 @@ to
 
 ### site/cirrus.rc
 
- * Copy the `site/archer2.rc` file to `site/cirrus.rc`
+Copy the `site/archer2.rc` file to `site/cirrus.rc` and edit as follows:
 
-   Change {% set PPN = 128 %} to{% set PPN = 288 %}
-   Change all occurrences of /work/y07/ to /epccfs/y07/ and /work/n02 to /epccfs/n02
-   Change module load cce/15.0.0 to module load cce/19.0.0 or module load um ??
-   Replace occurrences of archer2 with cirrus
-   E.g platform = archer2 -> platform = cirrus and platform = archer2-bg -> platform = cirrus-bg
-   Replace occurrences of ARCHER2 with CIRRUS
-   E.g --qos={{ARCHER2_QUEUE}} -> --qos={{CIRRUS_QUEUE}}
-   Change CONFIG = ncas-ex-cce to CONFIG = ncas-cirrus-cce
-
-   [[HPC_SERIAL]] section remove --partition=serial --qos=serial
-   Remove any occurrence of --mem =  E.g. in [[UMBUILD_RESOURCE]]
-
-   Remove --tasks-per-node={{APPN}} and --cpus-per-task=1 ????? RCF_RESOURCE
-   
+* Change the line `{% set PPN = 128 %}` to `{% set PPN = 288 %}`
+* Change all occurrences of `/work/y07/` to `/epccfs/y07/` and `/work/n02` to `/epccfs/n02`
+* Change `module load cce/15.0.0` to `module load cce/19.0.0` or `module load um` ??
+* Replace all occurrences of `archer2` with `cirrus` \\
+  For example change: \\
+  `platform = archer2` to `platform = cirrus` and `platform = archer2-bg` to `platform = cirrus-bg`
+* Replace all occurrences of `ARCHER2` with `CIRRUS`
+  For example change: \\
+  `--qos={{ARCHER2_QUEUE}}` to `--qos={{CIRRUS_QUEUE}}`
+* Change `ncas-ex-cce` to `ncas-cirrus-cce`
+* In section `[[HPC_SERIAL]] ` remove the lines containing `--partition=serial` and `--qos=serial`
+* In section `[[RCF_RESOURCE]]` remove the lines `--tasks-per-node={{APPN}}` and `--cpus-per-task=1`
+* Remove any occurrence of `--mem =`  For example in the section `[[UMBUILD_RESOURCE]]`
+* In section `[[COUPLED_RESOURCE]][directives]` add the line `--exclusive=""` 
    
 ### Metadata
 
