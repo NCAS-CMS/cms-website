@@ -1,7 +1,7 @@
 ---
 layout: page-fullwidth
 subheadline: Cylc 8
-title: Cylc 8 on PUMA2 and ARCHER2
+title: Cylc 8 on PUMA2 and Cirrus
 permalink: /cylc8/
 ---
 
@@ -33,36 +33,13 @@ Useful links:
 </div><!-- /.medium-8.columns -->
 </div><!-- /.row -->
 
-## ARCHER2 workflows
-
-Cylc-8 workflows available on ARCHER2: 
-
-| Cylc 8 id | Cylc 7 id | UM version | Description | 
-| :--- | :--- | :--- | :--- |
-| u-dj397 | u-cc519 | 13.0 | N48 GA6 (training suite) | 
-| u-da412/archer2 | -   | 13.5 | GC5-UM      |
-
-See the [instructions for migrating an ARCHER2 Cylc 7 suite to Cylc 8](upgrading-workflows/). 
-
-## Using Cylc 8 on PUMA2 and ARCHER2
-
-### Setting the Cylc version 
-
-Set the Cylc version in the terminal: 
-```
-export CYLC_VERSION=8
-```
-You should be able to do this alongside any Cylc 7 suites you have running.  
-
-Assuming you have set up your ARCHER2 environment (and JASMIN if required) to have Cylc 7 available, 
-you should not need to make any further changes. 
-The workflow will simply pick up the appropriate Cylc version when it runs. 
+## Using Cylc 8 on PUMA2 and Cirrus
 
 ### Running a workflow
 
 To run a simple test, checkout u-dj397
 ```
-rosie co u-dj397
+rosie co u-dj397    # ToDo Needs updating for Cirrus??
 ```
 Set your username and project account in `rose-suite.conf` or in the GUI via `rose edit`. 
 
@@ -87,14 +64,9 @@ On PUMA2 the following platforms are available:
 
 * PUMA2: 
   * ```localhost``` : background job
-* ARCHER2:
-  * ```archer2``` : Slurm job 
-  * ```archer2-bg``` : background on random login node
-  * ```ln0[1-4]``` : background job on specific login node
-* ARCHER2 with the `cylc-run/runN/` `share/` and `work/` directories symlinked to the NVMe file system:
-  * ```archer2-nvme``` : Slurm job 
-  * ```archer2-nvme-bg``` : background on random login node
-  * ```ln0[1-4]-nvme``` : background job on specific login node 
+* Cirrus:
+  * ```cirrus``` : Slurm job 
+  * ```cirrus-bg``` : background on random login node
 * JASMIN:
   * ```lotus2``` : Slurm job on [lotus2 cluster](https://help.jasmin.ac.uk/docs/software-on-jasmin/rocky9-migration-2024/#upgraded-lotus-cluster)
   * ```sci-vm``` : background job on random [scientific analysis server](https://help.jasmin.ac.uk/docs/interactive-computing/sci-servers/)
@@ -113,21 +85,21 @@ You can test submission to each of the platforms with the workflow u-dj398.
 The web-based Cylc UI is available via port-forwarding which requires some setup. 
 Here we provide instructions for Linux, Mac & MobaXterm (Windows).
 
-Edit the ```~/.ssh/config``` file on your laptop so that the ARCHER2 and PUMA2 sections contain:
+Edit the ```~/.ssh/config``` file on your laptop so that the Cirrus and PUMA2 sections contain:
 
 ```
 # PUMA2
 Host puma2
 User <username>
-IdentityFile ~/.ssh/<your-archer-ssh-key>
+IdentityFile ~/.ssh/<your-cirrus-ssh-key>
 ProxyJump archer2
 ForwardX11 yes
 
-# ARCHER2
-Host archer2
-Hostname login.archer2.ac.uk
+# Cirrus
+Host cirrus
+Hostname login.cirrus.ac.uk
 User <username>
-IdentityFile ~/.ssh/<your-archer-ssh-key>
+IdentityFile ~/.ssh/<your-cirrus-ssh-key>
 ForwardX11 yes
 ```
 
