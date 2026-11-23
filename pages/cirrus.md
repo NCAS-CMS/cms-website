@@ -29,7 +29,7 @@ Cirrus provide extensive [documentation](https://docs.cirrus.ac.uk/).  A summary
 
 Users can use [SAFE](https://safe.epcc.ed.ac.uk/) to query their disk usage and project resources. 
 
-## Unified Model transition from ARCHER2 to Cirrus
+## UM transition from ARCHER2 to Cirrus
 
 A list of standard workflows which CMS have ported to Cirrus along with instructions on how to port a non-standard configuration from ARCHER2 to Cirrus and general guidance will shortly be made available on the [porting pages](porting). 
 
