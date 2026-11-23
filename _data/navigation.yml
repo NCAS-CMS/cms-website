@@ -18,6 +18,8 @@
     url: "/unified-model/"
   - title: "ARCHER2"
     url: "/archer2/"
+  - title: "Cirrus"
+    url: "/cirrus/"
   - title: "Monsoon2"
     url: "/monsoon2/"
   - title: "PUMA2"
