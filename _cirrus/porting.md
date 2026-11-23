@@ -12,8 +12,8 @@ CMS are in the process of finalising ports of some standard UM configurations as
 
 | UM version | Suite id | Description | Branches + Notes |
 | ---------- | -------- | ----------- | ---------------- |
-|      |  | GAL9 | |
-|      |  | UKCM2 (GC5) | |
+| 13.8 |  | GAL9 | |
+| 13.8 |  | UKCM2 (GC5) | |
 | 13.9 |  | UKESM1.1 AMIP | |
 | 13.9 |  | UKESM1.1 PI Control | |
 | 13.9 |  | UKESM1.1 Historical | |
