@@ -5,7 +5,7 @@ subheadline: UK National Compute Resource
 teaser: Cirrus is a state of the art HPC system hosted by <a href="https://www.epcc.ed.ac.uk">EPCC</a> at the <a href="https://www.ed.ac.uk">University of Edinburgh</a> and is one of the <a href="https://www.ukri.org">UKRI</a> National Compute Resources. 
 permalink: /cirrus/
 image:
-    title: cirrus.jpg
+    title: cirrus.png
 ---
 
 ## About Cirrus
