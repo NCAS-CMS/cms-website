@@ -11,7 +11,7 @@ Unfortunately as UM suites can be configured in many ways and there's no "standa
 * [General Guidance]({{'/cirrus/porting/general-guidance/' | relative_url }})
 * [Quick Start Instructions]({{'/cirrus/porting/quick-start/' | relative_url }})
 * [Detailed information on how to change a site/archer2.rc file to site/cirrus.rc]({{ '/cirrus/porting/detailed/' | relative_url }})
-* [Post Processing and Data Transfer to JASMIN]({{ '/cirrus/porting/postproc-pptransfer' | relative_url }})
+
 
 ## Ported UM Workflows
 
