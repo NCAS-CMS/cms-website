@@ -5,12 +5,12 @@ subheadline: UK National Compute Resource
 teaser: Cirrus is a state of the art HPC system hosted by <a href="https://www.epcc.ed.ac.uk">EPCC</a> at the <a href="https://www.ed.ac.uk">University of Edinburgh</a> and is one of the <a href="https://www.ukri.org">UKRI</a> National Compute Resources. 
 permalink: /cirrus/
 image:
-    title: cirrus.jpg
+    title: cirrus.png
 ---
 
 ## About Cirrus
 
-Cirrus is an HPE Cray Ex4000 system with 640 compute nodes, each with dual AMD EPYC 9825 144-core processors, giving 184,320 cores in total. There are 576 standard memory nodes and 64 high memory nodes. Further details on the <a href="https://www.cirrus.ac.uk/about/hardware-software/>Cirrus hardware</a> can be found on the <a href="www.cirrus.ac.uk>Cirrus website</a>.
+Cirrus is an HPE Cray Ex4000 system with 640 compute nodes, each with dual AMD EPYC 9825 144-core processors, giving 184,320 cores in total. There are 576 standard memory nodes and 64 high memory nodes. Further details on the [Cirrus hardware](https://www.cirrus.ac.uk/about/hardware-software/) can be found on the [Cirrus website](https://www.cirrus.ac.uk).
 
 ## n02 on Cirrus
 
@@ -29,7 +29,7 @@ Cirrus provide extensive [documentation](https://docs.cirrus.ac.uk/).  A summary
 
 Users can use [SAFE](https://safe.epcc.ed.ac.uk/) to query their disk usage and project resources. 
 
-## Unified Model transition from ARCHER2 to Cirrus
+## UM transition from ARCHER2 to Cirrus
 
 A list of standard workflows which CMS have ported to Cirrus along with instructions on how to port a non-standard configuration from ARCHER2 to Cirrus and general guidance will shortly be made available on the [porting pages](porting). 
 
