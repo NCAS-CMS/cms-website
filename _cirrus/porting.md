@@ -22,8 +22,8 @@ The following workflows have been updated for Cirrus.
 | 13.8 | u-do527/cirrus | GAL9 |  |
 | 13.8 | u-dx690/cirrus | UKCM2 (GC5) | |
 | 13.9 |  | UKESM1.1 AMIP | |
-| 13.9 | u-dr681/cirrus | UKESM1.1 PI Control | In `app/fcm_make_ocean/file/fcm-make.cfg` add `build-ocean.prop{fc.flags}[nemo/NEMOGCM/NEMO/OPA_SRC/IOM/iom_nf90.F90] = $fcflags_nemo_common -O0 -Ovector1 -hfp0 -hflex_mp=strict -hipa0 -G1 $fcflags_omp $fcflags_coupling`  |
-| 13.9 | u-dr682/cirrus | UKESM1.1 Historical | In `app/fcm_make_ocean/file/fcm-make.cfg` add `build-ocean.prop{fc.flags}[nemo/NEMOGCM/NEMO/OPA_SRC/IOM/iom_nf90.F90] = $fcflags_nemo_common -O0 -Ovector1 -hfp0 -hflex_mp=strict -hipa0 -G1 $fcflags_omp $fcflags_coupling` |
+| 13.9 | u-dr681/cirrus | UKESM1.1 PI Control | In `app/fcm_make_ocean/file/fcm-make.cfg` add <br> <br> `build-ocean.prop{fc.flags}[nemo/NEMOGCM/NEMO/OPA_SRC/IOM/iom_nf90.F90] = $fcflags_nemo_common -O0 -Ovector1 -hfp0 -hflex_mp=strict -hipa0 -G1 $fcflags_omp $fcflags_coupling`  |
+| 13.9 | u-dr682/cirrus | UKESM1.1 Historical | In `app/fcm_make_ocean/file/fcm-make.cfg` add <br> <br> `build-ocean.prop{fc.flags}[nemo/NEMOGCM/NEMO/OPA_SRC/IOM/iom_nf90.F90] = $fcflags_nemo_common -O0 -Ovector1 -hfp0 -hflex_mp=strict -hipa0 -G1 $fcflags_omp $fcflags_coupling` |
 
 * Note, for example, u-do527/cirrus indicates the cirrus branch of u-do527.*
 
