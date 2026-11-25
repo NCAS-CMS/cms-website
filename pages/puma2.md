@@ -12,11 +12,6 @@ PUMA2 is hosted at Edinburgh and jointly managed by CMS and EPCC. PUMA2 access i
 
 ## Applying for an account
 
-You need to request a PUMA2 account through SAFE. 
-
-If you don't already have a Cirrus account, follow [these instructions first](https://docs.archer2.ac.uk/quick-start/quickstart-users/#request-an-account-on-archer). 
-When asked to *“Select correct project group”* select: **n02 - NCAS (National Centre for Atmospheric Science)** from the drop down list.
-
 To request a PUMA2 account. 
 * Login to [SAFE](https://safe.epcc.ed.ac.uk/)
 * From the "Login accounts" menu, select your username
@@ -29,14 +24,46 @@ You will be sent an email when your PUMA2 account is ready for use.
 
 PUMA2 is accessed from the Cirrus login nodes, and you will use the same username and ssh-key that you use to access Cirrus.
 
-* [Login to ARCHER2](https://docs.archer2.ac.uk/quick-start/quickstart-users/#login-to-archer2) as usual.
+* [Login to Cirrus](ihttps://www.cirrus.ac.uk/) as usual.
 
 **Important:** We recommend users ***do not forward their ssh-agent*** from their local system, 
 as this can cause problems with Rose/cylc job submission.
 
-* Once you are on the Cirrus login nodes, type ```ssh -Y puma2```. Enter your ARCHER2 password when prompted.
+* Once you are on the Cirrus login nodes, type ```ssh -Y puma2```. Enter your Cirrus password when prompted.
   
 * You should now be logged into PUMA2.
+
+## Default login scripts
+
+Some sample login scripts such as `.bashrc` and `.bash_profile` can be found on PUMA2 here; 
+
+* `/home/n02/n02/um1/um-training/puma2/`.
+
+## Connecting to PUMA2 via Cirrus
+
+The best way to setup connection to PUMA2 via Cirrus is to use port-forwarding from your local machine/laptop. This setup is also necessary in order to use the cylc 8 web UI.
+
+Edit the ~/.ssh/config file on your local machine so that the Cirrus and PUMA2 sections contain:
+
+```
+# PUMA2
+Host puma2
+User <username>
+IdentityFile ~/.ssh/<your-cirrus-ssh-key>
+ProxyJump cirrus
+ForwardX11 yes
+
+# Cirrus
+Host cirrus
+Hostname login.cirrus.ac.uk
+User <username>
+IdentityFile ~/.ssh/<your-cirrus-ssh-key>
+ForwardX11 yes
+```
+
+You should now be able to type ssh puma2 on your laptop/local machine and land directly on PUMA2. You may or may not be asked for your cirrus key passphrase depending on your setup.
+
+
 
 ## Running workflows on Cirrus 
 
