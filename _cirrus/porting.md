@@ -8,7 +8,7 @@ breadcrumb: true
 
 Unfortunately as UM suites can be configured in many ways and there's no "standard" UM suite setup it is difficult to provide a comprehensive set of porting instructions.  We provide a ["quick start"]({{'/cirrus/porting/quick-stat/' | relative_url }}) guide which should be appropriate for most UM13.x versions and then further detailed guidance covering changes to the suite site `*.rc`/`*.cylc` files for the move to Cirrus.
 
-* [General Guidance]({{'/cirrus/porting/general-info/' | relative_url }})
+* [General Guidance]({{'/cirrus/porting/general-guidance/' | relative_url }})
 * [Quick Start Instructions]({{'/cirrus/porting/quick-start/' | relative_url }})
 * [Detailed information on how to change a site/archer2.rc file to site/cirrus.rc]({{ '/cirrus/porting/detailed/' | relative_url }})
 * [Post Processing and Data Transfer to JASMIN]({{ '/cirrus/porting/postproc-pptransfer' | relative_url }})
@@ -27,22 +27,6 @@ The following workflows have been updated for Cirrus.
 
 * Note, for example, u-do527/cirrus indicates the cirrus branch of u-do527.*
 
-## General Guidance
-
-### Setting up connection to PUMA2
-
-It is no longer possible to use a passphraseless key to connect from Cirrus login nodes to PUMA2.  The recommended method to login to PUMA2 is by using port-forwarding;  this is setup is also required in order to use the Cylc 8 web UI. Please see [Connection to PUMA2 via Cirrus](https://cms-helpdesk.ncas.ac.uk/t/connecting-to-puma2-via-cirrus/2232) on the CMS Helpdesk. Please do not use ssh-agent forwarding as this can cause problem with Cylc. 
-
-### Setting up environment on Cirrus
-
-Make sure you have the following line in your `~/.bash_profile` on Cirrus:
-
-```
-# Setup environment for running the UM under Rose
-. /work/y07/shared/umshared/bin/rose-um-env-puma2
-```
-
-### Efficient use of Cirrus Compute Nodes
 
 
 
