@@ -24,7 +24,7 @@ You will be sent an email when your PUMA2 account is ready for use.
 
 PUMA2 is accessed from the Cirrus login nodes, and you will use the same username and ssh-key that you use to access Cirrus.
 
-* [Login to Cirrus](ihttps://www.cirrus.ac.uk/) as usual.
+* [Login to Cirrus](https://www.cirrus.ac.uk/) as usual.
 
 **Important:** We recommend users ***do not forward their ssh-agent*** from their local system, 
 as this can cause problems with Rose/cylc job submission.
