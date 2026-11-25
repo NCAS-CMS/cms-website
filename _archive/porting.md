@@ -13,7 +13,6 @@ Unfortunately as UM suites can be configured in many ways and there's no "standa
 * [Quick Start Instructions]({{ '/archer2/porting/quick-start/' | relative_url }})
 * [Detailed information on changes to *.rc files]({{ '/archer2/porting/detailed' | relative_url }})
 * [Post Processing]({{ '/archer2/porting/postproc-pptransfer' | relative_url }})
-* [Data Transfer to JASMIN]({{'/unified-model/pptransfer' | relative_url }})
 
 **Ported UM Suites**
 
